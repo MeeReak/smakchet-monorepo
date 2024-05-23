@@ -37,7 +37,7 @@
     "tsconfig-paths": "^4.2.0",
     "typescript": "^5.4.5"
   },
-  "name": "user",
+  "name": "event",
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {

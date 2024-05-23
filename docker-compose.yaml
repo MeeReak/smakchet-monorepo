@@ -17,16 +17,16 @@ services:
       interval: 30s
       timeout: 10s
       retries: 5
-  # apps:
-  #   container_name: my-app
-  #   build: 
-  #     context: ./apps
-  #     dockerfile: Dockerfile.dev
-  #   restart: always
-  #   ports:
-  #     - 9000:9000
-  #   volumes:
-  #     - ./apps/src:/app/src
+  apps:
+    container_name: my-app
+    build: 
+      context: ./apps
+      dockerfile: dockerfile.dev
+    restart: always
+    ports:
+      - 9000:9000
+    volumes:
+      - ./apps/src:/app/src
   api-gateway:
     container_name: gateway
     build:
