@@ -1,20 +1,32 @@
-import { NotiCardList, Typography } from '@/components'
-import React from 'react'
+import { NotiCardList, Typography } from "@/components";
+import React from "react";
 
 const page = () => {
   return (
-    <div>
-      <div className='bg-[#f0f2f5] h-[100vh] pt-[100px] pb-[30px] flex justify-center'>
-        <div className='xl:w-[855px] md:w-screen w-screen bg-white rounded-lg drop-shadow-lg p-4'>
-            <Typography fontSize='h1' fontWeight='bold'>Notifications</Typography>
-            <Typography fontSize='h3' fontWeight='normal' className='mt-[25px]'>Earlier</Typography>
-            <div>
-                <NotiCardList classname="xl:w-[706px] h-[100px]"/>
-            </div>
+    <div className="flex bg-[#FAFAFA] h-full w-full">
+      <div className="w-full bg-white ml-[245px] mr-[234px] mt-[110px] flex flex-col pl-9 pt-[25px] h-full rounded-[10px]">
+        {/* Notification header */}
+        <Typography fontSize="h2" fontWeight="bold">
+          Notification
+        </Typography>
+
+        <div className="w-full mt-6 flex flex-col gap-y-[35px]">
+          <div className="flex flex-col gap-y-4">
+            <Typography fontWeight="semibold">New</Typography>
+            <NotiCardList />
+          </div>
+          <div className="flex flex-col gap-y-4">
+            <Typography fontWeight="semibold">Ealier</Typography>
+            <NotiCardList displayCount={4} />
+          </div>
+          <div className="flex flex-col gap-y-4">
+            <Typography fontWeight="semibold">One day ago</Typography>
+            <NotiCardList displayCount={3} />
+          </div>
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default page
+export default page;
