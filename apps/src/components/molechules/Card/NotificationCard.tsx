@@ -4,7 +4,7 @@ import { Typography } from "@/components/atoms";
 
 interface NotificationCardProp {
   classname?: string;
-  fontsize?: string;
+  // fontsize?: string;
   id: string;
   title: string;
   description: string;
@@ -12,44 +12,34 @@ interface NotificationCardProp {
 }
 const NotificationCard: React.FC<NotificationCardProp> = ({
   classname,
-  fontsize,
+  // fontsize,
   title,
   description,
   image,
 }) => {
   return (
-    <div>
+    <div className="">
       <div
-        className={`${classname} m-auto rounded-[5px] p-2 flex justify-between items-center hover:bg-gray-100`}
+        className={`w-3/4 h-[75px] rounded-[5px] flex flex-col justify-center hover:bg-gray-100 ${classname} `}
       >
-        <div className="w-[20%] h-[90%]">
-          <Image
-            src={`${image}`}
-            alt={"event Image"}
-            width={55}
-            height={55}
-            className="w-full h-full object-cover rounded-[5px]"
-          ></Image>
+        <div className="h-[60px]  flex flex-row gap-x-[10px] ">
+
+        <Image
+          src={`${image}`}
+          alt={"event Image"}
+          width={60}
+          height={60}
+          className=" rounded-[5px]"
+        />
+        <div className="flex flex-col align-middle justify-center">
+          <Typography fontWeight="semibold">
+            {`${title}`}
+            <span className="font-normal">{`${description}`}</span>
+          </Typography>
+          <Typography className={"!text-[10px]"} color="blue">
+            11 hours ago
+          </Typography>
         </div>
-        <div className="xl:w-[70%] w-[75%] h-[100%]">
-          <div className="">
-            <Typography
-              fontWeight="bold"
-              className={`${fontsize} line-clamp-2`}
-            >
-              {`${title}`}{" "}
-              <span className="font-normal">{`${description}`}</span>
-            </Typography>
-          </div>
-          <div className="">
-            <Typography
-              fontWeight="normal"
-              className={`${fontsize}`}
-              color="blue"
-            >
-              11 hours ago
-            </Typography>
-          </div>
         </div>
       </div>
     </div>
