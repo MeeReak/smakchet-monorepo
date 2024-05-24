@@ -30,6 +30,13 @@ export class EventController extends Controller {
     @Request() request: any
   ): Promise<any> {
     try {
+      if (request.role == "Volunteer") {
+        throw new APIError(
+          "You do not have permission to access this resource",
+          StatusCode.Forbidden
+        );
+      }
+
       const detailEvent = { ...requestBody, orgId: request.id };
       const event = await eventService.createEvent(detailEvent);
       return {
@@ -49,6 +56,13 @@ export class EventController extends Controller {
     @Body() requestBody: EventDetail
   ): Promise<any> {
     try {
+      if (request.role == "Volunteer") {
+        throw new APIError(
+          "You do not have permission to access this resource",
+          StatusCode.Forbidden
+        );
+      }
+
       const existedEvent = await eventService.findEventByOrgId(request.id);
 
       if (!existedEvent) {
@@ -70,6 +84,13 @@ export class EventController extends Controller {
   @Delete("/:id")
   public async DeleteEvent(@Path() id: string, @Request() request: any) {
     try {
+      if (request.role == "Volunteer") {
+        throw new APIError(
+          "You do not have permission to access this resource",
+          StatusCode.Forbidden
+        );
+      }
+
       const existedEvent = await eventService.findEventByOrgId(request.id);
 
       if (!existedEvent) {
