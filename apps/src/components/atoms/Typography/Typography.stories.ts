@@ -15,7 +15,7 @@ type Story = StoryObj<typeof Typography>;
 
 export const Default: Story = {
   args: {
-    children: "Typo",
+    children: "Typography",
     align: "center",
     fontSize: "h5",
     fontWeight: "normal",

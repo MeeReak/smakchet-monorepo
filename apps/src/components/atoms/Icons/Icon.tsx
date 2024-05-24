@@ -1,4 +1,4 @@
-import React from "react";
+import React, { FC } from "react";
 import IconItems from "./IconItem";
 
 interface IconProps {
@@ -7,7 +7,11 @@ interface IconProps {
   background?: "primary" | "secondary" | string;
 }
 
-export default function Icon({ label, size = "sm" , background = "primary"}: IconProps) {
+const Icon: FC<IconProps> = ({ 
+  label, 
+  size = "sm" , 
+  background = "primary"
+}) => {
   const IconSize = (size: string) => {
     switch (size) {
       case "lg":
@@ -46,3 +50,5 @@ export default function Icon({ label, size = "sm" , background = "primary"}: Ico
     </div>
   );
 }
+
+export {Icon}
