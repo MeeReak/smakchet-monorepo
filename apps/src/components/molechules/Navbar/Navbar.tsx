@@ -15,12 +15,12 @@ import { getLocalStorage } from "@/utils/localStorage";
 
 const Navbar = () => {
   const [hideNavbar, setHideNavbar] = useState(false);
-  const [isLogin, setIsLogin] = useState(false);
+  const [isLogin, setIsLogin] = useState(true);
   const [isOpen, setIsOpen] = useState(false);
   const [notiOpen, setNotiOpen] = useState(false);
 
   useEffect(() => {
-    setIsLogin(getLocalStorage("isLogin") ? getLocalStorage("isLogin") : false);
+    setIsLogin(getLocalStorage("isLogin") ? getLocalStorage("isLogin") : true);
   }, []);
 
   const pathname = usePathname();
@@ -41,7 +41,6 @@ const Navbar = () => {
   return (
     <header className={hideNavbar ? "hidden" : ""}>
       <div className="fixed top-0 left-0 right-0 m-auto z-50 bg-opacity-50 backdrop-blur-md bg-white shadow-custom">
-        
         <div className="h-[80px] flex flex-row justify-between aligns-center max-[1030px]:p-5 max-[1030px]:pl-[10px] max-w-[1024px] m-auto  ">
           <div className="flex flex-row justify-right items-center">
             {/* Logo */}
@@ -54,22 +53,36 @@ const Navbar = () => {
                 height={50}
               />
             </Link>
-
-            {/* Conditionally Render Search Bar */}
-            {pathname !== "/search" && pathname !== "/create-post" && (
-              <Link href={"/search"}>
-                <InputSearch />
-              </Link>
-            )}
           </div>
           <div className=" flex flex-row items-center ">
             {isLogin == false ? (
               <>
+                {/* Conditionally Render Search Bar */}
+                {pathname !== "/search" && pathname !== "/create-post" && (
+                  <Link href={"/search"}>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      strokeWidth="1.5"
+                      stroke="currentColor"
+                      className="text-gray-600 w-7 h-7 transform "
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z"
+                      />
+                    </svg>
+                  </Link>
+                )}
+
+                <div className=" border-[1px] ml-5 mr-6 h-12"></div>
                 <Link href="/login">
                   <Button
                     round="lg"
                     size="h4"
-                    className="py-[13px] px-5  border-[1px] hover:bg-[#bdd8ff] hover:border-[#207BFF] hover:text-[#207BFF]"
+                    className="py-[13px] px-5 border-[1px] hover:bg-[#bdd8ff] hover:border-[#207BFF] hover:text-[#207BFF]"
                   >
                     Login
                   </Button>
@@ -142,12 +155,20 @@ const Navbar = () => {
                 {/* Notification */}
 
                 {pathname !== "/notification" && (
-                  <NotiDropdown notiOpen={notiOpen} setNotiOpen={setNotiOpen} setIsOpen={setIsOpen}/>
+                  <NotiDropdown
+                    notiOpen={notiOpen}
+                    setNotiOpen={setNotiOpen}
+                    setIsOpen={setIsOpen}
+                  />
                 )}
 
                 {/* Profile */}
                 {pathname !== "" && (
-                  <UserProfileDropdown isOpen={isOpen} setIsOpen={setIsOpen} setNotiOpen={setNotiOpen}/>
+                  <UserProfileDropdown
+                    isOpen={isOpen}
+                    setIsOpen={setIsOpen}
+                    setNotiOpen={setNotiOpen}
+                  />
                 )}
 
                 {/* Hamburger Bar*/}

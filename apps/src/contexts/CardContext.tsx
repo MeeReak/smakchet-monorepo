@@ -52,9 +52,9 @@ const CardContext: React.FC<CardContextProp> = ({ children }) => {
   const [CardInfo, setCardInfo] = useState([
     {
       id: "1",
-      src: "/assets/image/National_day_of_Science,Technology_and_Innovation.png",
-      alt: "National day of Science, Technology and Innovation 2024",
-      title: "National day of Science, Technology and Innovation 2024",
+      src: "/assets/image/close-up-volunteer-holding-box-with-food.jpg",
+      alt: "National day of Science Technology and Innovation 2024",
+      title: "National day of Science Technology and Innovation 2024",
       date: "Mar 03 2024",
       location: "Phnom Penh",
       isFavorite: false,

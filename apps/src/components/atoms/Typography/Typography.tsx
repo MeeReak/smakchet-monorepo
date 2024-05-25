@@ -43,11 +43,11 @@ const Typography: FC<TypographyProps> = ({
       case "h3":
         return "text-xl";
       case "h4":
-        return "text-base";
+        return "text-[18px]";
       case "h5":
         return "text-sm";
       default:
-        return "text-base";
+        return "text-xs";
     }
   };
 
