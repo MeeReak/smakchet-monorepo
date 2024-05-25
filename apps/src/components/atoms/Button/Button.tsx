@@ -16,9 +16,11 @@ interface ButtonProps {
   round?: "rounded" | "md" | "lg" | "xl" | "full";
   leftIcon?: ReactNode;
   rightIcon?: ReactNode;
+  topIcon?: ReactNode;
+  bottomIcon?: ReactNode;
   onclick?: (e: any) => void;
   onClickParam?: (param: any) => void;
-  type ?: any | string;
+  type?: any | string;
 }
 
 const Button: FC<ButtonProps> = ({
@@ -30,6 +32,8 @@ const Button: FC<ButtonProps> = ({
   round = "md",
   leftIcon,
   rightIcon,
+  topIcon,
+  bottomIcon,
   onclick,
   onClickParam,
   type,
@@ -83,7 +87,6 @@ const Button: FC<ButtonProps> = ({
     }
   };
 
-  
   const getSizeClass = (size: string) => {
     switch (size) {
       case "h1":
@@ -128,12 +131,23 @@ const Button: FC<ButtonProps> = ({
   const combinedClassName = `flex items-center justify-start border-[1px] ${colorSchemeClass} ${sizeClass} ${bgColorClass} ${roundClass} ${className}`;
 
   return (
-    <button className={combinedClassName} onClick={onclick || onClickParam} type={type}>
-      {leftIcon && <span className="mr-2">{leftIcon}</span>}
-      {children}
-      {rightIcon && <span className="ml-2">{rightIcon}</span>}
-    </button>
+    <div className={`${combinedClassName} flex flex-col`}>
+      {topIcon && <div>{topIcon}</div>}
+      <button
+        // className={combinedClassName}
+        onClick={onclick || onClickParam}
+        type={type}
+      >
+        <div className="flex items-center">
+          {leftIcon && <span className="mr-2">{leftIcon}</span>}
+          {children}
+          {rightIcon && <span className="ml-2">{rightIcon}</span>}
+        </div>
+      </button>
+        {bottomIcon && <span>{bottomIcon}</span>}
+    </div>
   );
 };
 
 export { Button };
+export type { ButtonProps };

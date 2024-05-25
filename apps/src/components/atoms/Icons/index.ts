@@ -1,3 +1,3 @@
-import IconItems  from "./IconItem";
-import Icons from "./Icons";
-export {IconItems , Icons};
+import IconItems from "./IconItem";
+import {Icon} from "./Icon";
+export { IconItems, Icon };

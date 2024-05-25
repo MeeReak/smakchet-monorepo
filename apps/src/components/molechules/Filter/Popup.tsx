@@ -1,4 +1,4 @@
-import Icon from "@/components/atoms/Icons/Icons";
+import {Icon} from "@/components";
 import React from "react";
 
 interface PopupProps {
