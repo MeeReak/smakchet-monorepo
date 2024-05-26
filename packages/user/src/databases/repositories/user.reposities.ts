@@ -56,6 +56,7 @@ class UserRepository {
       throw error;
     }
   }
+
 }
 
 export default UserRepository;

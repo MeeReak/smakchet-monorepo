@@ -62,4 +62,22 @@ export class EventService {
       throw error
     }
   }
+
+  //find event by category
+  async findEventByCategory(cate: string){
+    try{
+      return await this.eventRepo.findEventByCate(cate)
+    }catch(error:unknown){
+      throw error
+    }
+  }
+
+  //search event by name
+  async findEventByName(name: string){
+    try{
+      return await this.eventRepo.findEventByName(name)
+    }catch(error:unknown){
+      throw error
+    }
+  }
 }
