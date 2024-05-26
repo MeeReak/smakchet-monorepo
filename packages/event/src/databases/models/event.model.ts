@@ -2,13 +2,13 @@ import mongoose, { Schema } from "mongoose";
 
 const eventSchema = new Schema(
   {
-    orgId:{
-      type: mongoose.Types.ObjectId
+    orgId: {
+      type: mongoose.Types.ObjectId,
     },
     thumbnail: {
       type: String,
     },
-    eventname: {
+    eventName: {
       type: String,
     },
     address: {

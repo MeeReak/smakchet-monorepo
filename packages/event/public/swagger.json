@@ -41,7 +41,7 @@
 					"thumbnail": {
 						"type": "string"
 					},
-					"eventname": {
+					"eventName": {
 						"type": "string"
 					},
 					"address": {
@@ -129,7 +129,7 @@
 		"securitySchemes": {}
 	},
 	"info": {
-		"title": "user",
+		"title": "event",
 		"version": "1.0.0",
 		"license": {
 			"name": "ISC"
@@ -137,6 +137,58 @@
 		"contact": {}
 	},
 	"paths": {
+		"/v1/events/name": {
+			"get": {
+				"operationId": "FindEventByName",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {}
+							}
+						}
+					}
+				},
+				"security": [],
+				"parameters": [
+					{
+						"in": "query",
+						"name": "name",
+						"required": true,
+						"schema": {
+							"type": "string"
+						}
+					}
+				]
+			}
+		},
+		"/v1/events/cate": {
+			"get": {
+				"operationId": "FindEventByCate",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {}
+							}
+						}
+					}
+				},
+				"security": [],
+				"parameters": [
+					{
+						"in": "query",
+						"name": "cate",
+						"required": true,
+						"schema": {
+							"type": "string"
+						}
+					}
+				]
+			}
+		},
 		"/v1/events": {
 			"post": {
 				"operationId": "CreateEvent",

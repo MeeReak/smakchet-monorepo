@@ -16,12 +16,35 @@ import {
   Put,
   Request,
   Route,
+  Query,
 } from "tsoa";
 
 const eventService = new EventService();
 
 @Route("/v1/events")
 export class EventController extends Controller {
+
+  @Get("/name")
+  public async FindEventByName(@Query() name: string): Promise<any>{
+    try{
+      return await eventService.findEventByName(name)
+    }catch(error:unknown){
+      throw error
+    }
+  }
+
+
+  @Get("/cate")
+  public async FindEventByCate(@Query() cate: string): Promise<any> {
+    try {
+      const event = await eventService.findEventByCategory(cate);
+      return event;
+    } catch (error: unknown) {
+
+      throw error;
+    }
+  }
+
   @Post("/")
   @Middlewares(validateInput(EventDetailSchema))
   @Middlewares(verifyToken)

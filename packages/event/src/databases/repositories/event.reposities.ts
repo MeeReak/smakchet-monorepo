@@ -41,4 +41,20 @@ export class EventRepository {
       throw error;
     }
   }
+
+  async findEventByCate(cate: string) {
+    try {
+      return await EventModel.findOne({ category: cate });
+    } catch (error: unknown) {
+      throw error;
+    }
+  }
+
+  async findEventByName(name: string) {
+    try {
+      return await EventModel.findOne({ eventName: name });
+    } catch (error: unknown) {
+      throw error;
+    }
+  }
 }
