@@ -5,8 +5,8 @@ services:
     image: rabbitmq:3.13-rc-management-alpine
     restart: always
     environment:
-      - RABBITMQ_DEFAULT_USER=myuser
-      - RABBITMQ_DEFAULT_PASS=mypassword
+      - RABBITMQ_DEFAULT_USER=sarun
+      - RABBITMQ_DEFAULT_PASS=mysarun
     ports:
       # AMQP protocol port
       - "5672:5672"
@@ -17,27 +17,27 @@ services:
       interval: 30s
       timeout: 10s
       retries: 5
-  apps:
-    container_name: my-app
-    build: 
-      context: ./apps
-      dockerfile: dockerfile.dev
-    restart: always
-    ports:
-      - 9000:9000
-    volumes:
-      - ./apps/src:/app/src
+  # apps:
+  #   container_name: my-app
+  #   build:
+  #     context: ./apps
+  #     dockerfile: dockerfile.dev
+  #   restart: always
+  #   ports:
+  #     - 9000:9000
+  #   volumes:
+  #     - ./apps/src:/app/src
   api-gateway:
     container_name: gateway
     build:
-      context: ./package/api-gateway
+      context: ./packages/api-gateway
       dockerfile: Dockerfile.dev
     restart: always
     ports:
       - 3000:3000
-    env_file: ./package/api-gateway/configs/.env
+    env_file: ./packages/api-gateway/configs/.env
     volumes:
-      - ./package/api-gateway/src:/app/src
+      - ./packages/api-gateway/src:/app/src
     environment:
       # OUTSOURCE SERVICE
       - AUTH_SERVICE_URL=http://auth:3001
@@ -49,65 +49,67 @@ services:
   auth:
     container_name: auth
     build:
-      context: ./package/auth
+      context: ./packages/auth
       dockerfile: Dockerfile.dev
     restart: always
     ports:
       - 3001:3001
-    env_file: ./package/auth/configs/.env
+    env_file: ./packages/auth/configs/.env
+    environment:
+      - RABBITMQ_ENDPOINT=amqp://sarun:mysarun@rabbitmq_container:5672
     volumes:
-      - ./package/auth/src:/app/src
+      - ./packages/auth/src:/app/src
     depends_on:
       rabbitmq:
         condition: service_healthy
   user:
     container_name: user
     build:
-      context: ./package/user
+      context: ./packages/user
       dockerfile: Dockerfile.dev
     restart: always
     ports:
       - 3003:3003
-    env_file: ./package/user/configs/.env
+    env_file: ./packages/user/configs/.env
     volumes:
-      - ./package/user/src:/app/src
+      - ./packages/user/src:/app/src
   notification:
     container_name: notification
     build:
-      context: ./package/notification
+      context: ./packages/notification
       dockerfile: Dockerfile.dev
     restart: always
     ports:
       - 3002:3002
-    env_file: ./package/notification/configs/.env
+    env_file: ./packages/notification/configs/.env
     volumes:
-      - ./package/notification/src:/app/src
+      - ./packages/notification/src:/app/src
     environment:
-      - RABBITMQ_ENDPOINT=amqp://myuser:mypassword@rabbitmq_container:5672
+      - RABBITMQ_ENDPOINT=amqp://sarun:mysarun@rabbitmq_container:5672
     depends_on:
       rabbitmq:
         condition: service_healthy
-  event:
-    container_name: event
-    build:
-      context: ./package/event
-      dockerfile: Dockerfile.dev
-    restart: always
-    ports:
-      - 3004:3004
-    volumes:
-      - ./package/event/src:/app/src
-  application:
-    container_name: application
-    build:
-      context: ./package/application
-      dockerfile: Dockerfile.dev
-    restart: always
-    ports:
-      - 3005:3005
-    env_file: ./package/application/configs/.env
-    volumes:
-      - ./package/application/src:/app/src
+  # event:
+  #   container_name: event
+  #   build:
+  #     context: ./packages/event
+  #     dockerfile: Dockerfile.dev
+  #   restart: always
+  #   ports:
+  #     - 3004:3004
+  #   volumes:
+  #     - ./packages/event/src:/app/src
+  # application:
+  #   container_name: application
+  #   build:
+  #     context: ./packages/application
+  #     dockerfile: Dockerfile.dev
+  #   restart: always
+  #   ports:
+  #     - 3005:3005
+  #   env_file: ./packages/application/configs/.env
+  #   volumes:
+  #     - ./packages/application/src:/app/src
 networks:
   default:
     driver: bridge

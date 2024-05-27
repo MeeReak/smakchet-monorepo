@@ -42,10 +42,11 @@ const Card: React.FC<CardProps> = ({
                 toggleFavorite(id);
               }}
               className={
-                isFavorite == true
-                  ? `w-6 h-6 absolute top-3 right-3 fill-[#FF2020] stroke-[#FF2020]`
-                  : `w-6 h-6 absolute top-3 right-3 fill-white`
+                isFavorite
+                  ? `w-6 h-6 absolute top-3 right-3 fill-[#FF2020] stroke-[#FF2020] z-10`
+                  : `w-6 h-6 absolute top-3 right-3 stroke-white fill-[rgba(212,212,212,0.2)] z-10`
               }
+              
             >
               <path
                 strokeLinecap="round"

@@ -32,7 +32,6 @@ const authSchema = new Schema(
     },
     profileUrl: {
       type: String,
-      unique: true,
     },
   },
   {

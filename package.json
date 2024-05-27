@@ -8,10 +8,12 @@
   "private": true,
   "workspaces": [
     "apps",
-    "package/*"
+    "packages/*"
   ],
   "scripts": {
+    "start:build": "docker compose up --build",
     "start:dev": "docker compose up",
+    "stop:docker": "docker compose down",
     "start:app": "yarn workspace my-app start:dev",
     "start:api-gateway": "yarn workspace api-gateway start:dev",
     "start:application": "yarn workspace application start:dev",

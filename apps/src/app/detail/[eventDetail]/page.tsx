@@ -134,7 +134,7 @@ const Homepage: React.FC<CardProps> = ({
             }
           >
             <div className="ml-4 flex flex-col">
-              <Typography fontWeight="medium"> Pheng Sokleng</Typography>
+              <Typography fontWeight="medium">Pheng Sokleng</Typography>
               <Typography color="blue" fontSize="h5">
                 {" "}
                 View Profile
