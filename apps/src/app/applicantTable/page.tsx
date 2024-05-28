@@ -48,7 +48,7 @@ const Page = () => {
                 />
               }
             >
-              <Typography>{`${totalCandidate}`} Applied</Typography>
+              <Typography fontSize="h5">{`${totalCandidate}`} Applied</Typography>
             </Button>
             <Button
               className="cursor-default items-center justify-center w-[155px] h-[50px] border-[0.4] border-[#BDBDBD] rounded-[10px]"
@@ -61,7 +61,7 @@ const Page = () => {
                 />
               }
             >
-              <Typography>{`${acceptedCandidate}`} Accepted</Typography>
+              <Typography fontSize="h5">{`${acceptedCandidate}`} Accepted</Typography>
             </Button>
           </div>
         </div>
@@ -73,19 +73,19 @@ const Page = () => {
               <tr className="text-center w-fit">
                 <th className="pl-[30px] w-[112px] ">
                   <Typography align="left"
-                   fontSize="h3" color="grey">N°</Typography>
+                   fontSize="h4" color="grey">N°</Typography>
                 </th>
                 <th className="w-[237px]">
-                  <Typography align="left" fontSize="h3" color="grey">Name</Typography>
+                  <Typography align="left" fontSize="h4" color="grey">Name</Typography>
                 </th>
                 <th  className="w-[285px]">
-                  <Typography align="left" fontSize="h3" color="grey">Email</Typography>
+                  <Typography align="left" fontSize="h4" color="grey">Email</Typography>
                 </th>
                 <th className="w-[193px]">
-                  <Typography align="left" fontSize="h3" color="grey">Status</Typography>
+                  <Typography align="left" fontSize="h4" color="grey">Status</Typography>
                 </th>
                 <th className="w-[153px]">
-                  <Typography align="left" fontSize="h3" color="grey">Date</Typography>
+                  <Typography align="left" fontSize="h4" color="grey">Date</Typography>
                 </th>
                 <th></th>
               </tr>

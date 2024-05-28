@@ -88,7 +88,7 @@ const Applicant: React.FC<ApplicantProps> = ({
           </div>
         </div>
         {/* body */}
-        <div className="flex flex-row justify-between gap-x-[60.19px] ml-[29px]">
+        <div className="flex flex-row justify-around gap-x-10 ml-[29px]">
           {/* left part 
                 - Profile
                 - name
