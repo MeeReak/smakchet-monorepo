@@ -12,15 +12,15 @@ const page = () => {
 
         <div className="w-full mt-6 flex flex-col md:gap-y-[35px] gap-y-[25px]">
           <div className="flex flex-col md:gap-y-4">
-            <Typography fontWeight="semibold">New</Typography>
-            <NotiCardList />
+            <Typography fontWeight="semibold" fontSize="h4">New</Typography>
+            <NotiCardList className=""/>
           </div>
           <div className="flex flex-col md:gap-y-4">
-            <Typography fontWeight="semibold">Ealier</Typography>
+            <Typography fontWeight="semibold" fontSize="h4">Ealier</Typography>
             <NotiCardList displayCount={4} />
           </div>
           <div className="flex flex-col md:gap-y-4">
-            <Typography fontWeight="semibold">One day ago</Typography>
+            <Typography fontWeight="semibold" fontSize="h4">One day ago</Typography>
             <NotiCardList displayCount={3} />
           </div>
         </div>

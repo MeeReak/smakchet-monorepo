@@ -63,27 +63,21 @@ const Applicant: React.FC<ApplicantProps> = ({
             </Button>
           </div>
           {/* Decline & Accept button */}
-          <div className="flex flex-row gap-x-2">
+          <div className="flex flex-row gap-x-4">
             {/* Decline button */}
             <Button
-               onclick={handleDecline}
-              className="text-lg border-[0.4px] border-[#E0E0E0]  px-[17px] py-[13px] text-[#E23636] trasition ease-out duration-1000 hover:bg-[#E23636] hover:text-white"
+              onclick={handleDecline}
+              className="text-md border-[0.4px] border-[#E0E0E0]  px-[17px] py-[13px] text-[#E23636] trasition ease-out duration-1000 hover:bg-[#E23636] hover:text-white"
             >
-              <Link href={"../applicantTable"}>
-              
-              Decline
-              </Link>
+              <Link href={"../applicantTable"}>Decline</Link>
             </Button>
             {/* Accepted button */}
             <Button
               colorScheme="White"
-              className="text-lg px-[17px] py-[13px] bg-[#207BFF] !outline-none !border-none transition ease-out duration-300 hover:bg-[#0068FF] hover:scale-x-110"
+              className="text-md px-[17px] py-[13px] bg-[#207BFF] !outline-none !border-none transition ease-out duration-300 hover:bg-[#0068FF] hover:scale-x-110"
               onclick={handleAccept}
             >
-              <Link href={"../applicantTable"}>
-              
-                Accepted
-              </Link>
+              <Link href={"../applicantTable"}>Accepted</Link>
             </Button>
           </div>
         </div>
@@ -96,7 +90,7 @@ const Applicant: React.FC<ApplicantProps> = ({
                 - phone number
                 - address 
           */}
-          <div className="border border-[0.2] border-[#E0E0E0] bg-white rounded-[10px] w-[349.81px] h-fit">
+          <div className="border border-[0.2] border-[#E0E0E0] bg-white rounded-[10px] w-[349px] h-fit">
             <div className="my-[30px] flex flex-col gap-y-5">
               <Image
                 src={"/../assets/image/profile.png"}
