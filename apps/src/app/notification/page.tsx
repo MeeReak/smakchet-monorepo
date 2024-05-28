@@ -10,17 +10,17 @@ const page = () => {
           Notification
         </Typography>
 
-        <div className="w-full mt-6 flex flex-col md:gap-y-[35px] gap-y-[25px]">
-          <div className="flex flex-col md:gap-y-4">
-            <Typography fontWeight="semibold">New</Typography>
+        <div className="w-full py-[25px] flex flex-col gap-y-5 md:gap-y-[35px]">
+          <div className="flex flex-col ">
+            <Typography fontWeight="semibold" fontSize="h5">New</Typography>
             <NotiCardList />
           </div>
-          <div className="flex flex-col md:gap-y-4">
-            <Typography fontWeight="semibold">Ealier</Typography>
+          <div className="flex flex-col ">
+            <Typography fontWeight="semibold" fontSize="h5">Ealier</Typography>
             <NotiCardList displayCount={4} />
           </div>
-          <div className="flex flex-col md:gap-y-4">
-            <Typography fontWeight="semibold">One day ago</Typography>
+          <div className="flex flex-col">
+            <Typography fontWeight="semibold" fontSize="h5">One day ago</Typography>
             <NotiCardList displayCount={3} />
           </div>
         </div>
