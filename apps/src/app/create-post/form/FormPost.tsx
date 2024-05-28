@@ -157,7 +157,7 @@ const FormPost = ({
         >
           <Typography align="left" fontSize="h2" fontWeight="bold">
             Create Apply Form
-          </Typography>
+          </Typography> 
         </Button>
         <form action={""} className="md:mt-[33px] mt-5  flex flex-col gap-y-[25px]">
           {/* Name, Email Phone number, address section */}
