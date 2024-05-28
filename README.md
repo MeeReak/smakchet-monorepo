@@ -4,6 +4,7 @@
 ## Table of Contents
 - [About The Project](#about-the-project)
 - [Built With](#built-with)
+- [Project Structure](#project-structure)
 - [Getting Started](#getting-started)
   - [Prerequisites](#prerequisites)
   - [Installation](#installation)
@@ -35,6 +36,22 @@ This section lists major frameworks and libraries used in the Volunteering Platf
 - **Jest**
 - **MongoDB**
 - **Docker**
+
+## Project Structure
+```
+smakchet-monorepo
+|----->apps
+        |---->frontend
+|----->packages
+        |---->api-gateway
+        |---->application
+        |---->auth
+        |---->event
+        |---->notification
+        |---->user
+        |---->volumes
+|----->
+```
 
 ## Getting Started
 ### With Docker
