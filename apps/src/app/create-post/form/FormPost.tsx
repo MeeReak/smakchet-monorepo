@@ -229,7 +229,9 @@ const FormPost = ({
 
           {/* 2nd question */}
           <div className="py-[25px] px-[25px] bg-white rounded-[10px] flex flex-col gap-y-[45px]">
+            {/* Why */}
             <div className="flex flex-col w-full gap-y-5">
+              
               <label htmlFor="name">
                 <Typography fontSize="h3">
                   Why do you want to join Volunteer?{" "}
@@ -243,13 +245,54 @@ const FormPost = ({
                 className=" h-[50px] pl-6 border-1 border-gray-300"
               />
             </div>
+            {/* Have u ever joined */}
             <div className="flex flex-col w-full gap-y-5">
-              {/* <label htmlFor="name">
+              <label htmlFor="yes/no">
                 <Typography fontSize="h3">
-                  Have you joined volunteer before?{" "}
-                  <span className="text-red-500">*</span>
+                  Have you ever joined volunteer before?
                 </Typography>
-              </label> */}
+              </label>
+              <div className="flex gap-x-[11px]">
+                <input
+                  className=""
+                  id="yes"
+                  type="radio"
+                  name="yes/no"
+                  value={"yes"}
+                />
+                <label htmlFor="yes">Yes</label>
+              </div>
+              <div className="flex gap-x-[11px]">
+                <input type="radio" id="no" name="yes/no" value={"no"} />
+                <label htmlFor="no">No</label>
+              </div>
+            </div>
+            {/* benefit */}
+            <div className="flex flex-col w-full gap-y-5">
+              <label htmlFor="checkbox">
+                <Typography fontSize="h3">
+                  What are the benefits of Volunteer ?
+                </Typography>
+              </label>
+              <div className="flex flex-row gap-x-4">
+                <input type="checkbox" name="options" id="checkbox1" />
+                <label htmlFor="checkbox1">Communication</label>
+              </div>
+              <div className="flex flex-row gap-x-4">
+                <input type="checkbox" name="options" id="checkbox2" />
+                <label htmlFor="checkbox2">Fun</label>
+              </div>
+              <div className="flex flex-row gap-x-4">
+                <input type="checkbox" name="options" id="checkbox3" />
+                <label htmlFor="checkbox3">Socialize</label>
+              </div>
+            </div>
+          </div>
+
+          {/* add more question */}
+          <div className="py-[25px] px-[25px] bg-white rounded-[10px] flex flex-col gap-y-5">
+            <Typography fontSize="h3">Add your Question</Typography>
+            <div className="flex flex-col w-full gap-y-5">
               {questions.map((question) => (
                 <div key={question.id}>
                   <QuestionForm
@@ -273,7 +316,7 @@ const FormPost = ({
 
               
               <Button
-                type="button"
+                // type="button"
                 onclick={handleAddQuestion}
                 className="border-none w-fit"
               >
