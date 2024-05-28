@@ -4,7 +4,9 @@ import client, { Channel, Connection } from "amqplib"; // Import the 'Channel' t
 
 export async function createQueueConnection(): Promise<Channel | undefined> {
   try {
+    console.log(process.env.NODE_ENV);
     const config = getConfig(process.env.NODE_ENV);
+    console.log(config.env);
     const connection: Connection = await client.connect(`${config.rabbitMQ}`);
     const channel: Channel = await connection.createChannel();
     logger.info("Auth Server connected to queue successfully...");

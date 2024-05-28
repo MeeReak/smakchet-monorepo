@@ -5,8 +5,8 @@ services:
     image: rabbitmq:3.13-rc-management-alpine
     restart: always
     environment:
-      - RABBITMQ_DEFAULT_USER=myuser
-      - RABBITMQ_DEFAULT_PASS=mypassword
+      - RABBITMQ_DEFAULT_USER=sarun
+      - RABBITMQ_DEFAULT_PASS=mysarun
     ports:
       # AMQP protocol port
       - "5672:5672"
@@ -83,7 +83,7 @@ services:
     volumes:
       - ./packages/notification/src:/app/src
     environment:
-      - RABBITMQ_ENDPOINT=amqp://myuser:mypassword@rabbitmq_container:5672
+      - RABBITMQ_ENDPOINT=amqp://sarun:mysarun@rabbitmq_container:5672
     depends_on:
       rabbitmq:
         condition: service_healthy

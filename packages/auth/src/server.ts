@@ -4,6 +4,7 @@ import mongoose from "mongoose";
 import path from "path";
 import getConfig from "./utils/createConfig";
 import { Channel } from "amqplib";
+import { createQueueConnection } from "./queues/connection";
 
 const config = getConfig();
 
@@ -16,10 +17,20 @@ export const privateKey = fs.readFileSync(
 );
 
 //conect to the moongo
+
+const initialyRabbitmq = async () =>{
+  try{
+    authChannel= (await createQueueConnection()) as Channel
+  }catch(error: unknown){
+    console.log("Queue Error :",error )
+  }
+}
+
 mongoose
   .connect(config.mongoUrl as string)
   .then(() => {
     //listen for requests
+    initialyRabbitmq()
     app.listen(config.port, () => {
       console.log("Connect to mongose DB & Listen on port 3001");
     });
