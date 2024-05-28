@@ -23,16 +23,14 @@ const eventService = new EventService();
 
 @Route("/v1/events")
 export class EventController extends Controller {
-
   @Get("/name")
-  public async FindEventByName(@Query() name: string): Promise<any>{
-    try{
-      return await eventService.findEventByName(name)
-    }catch(error:unknown){
-      throw error
+  public async FindEventByName(@Query() name: string): Promise<any> {
+    try {
+      return await eventService.findEventByName(name);
+    } catch (error: unknown) {
+      throw new APIError("Event Not Found !!", StatusCode.NotFound);
     }
   }
-
 
   @Get("/cate")
   public async FindEventByCate(@Query() cate: string): Promise<any> {
@@ -40,8 +38,7 @@ export class EventController extends Controller {
       const event = await eventService.findEventByCategory(cate);
       return event;
     } catch (error: unknown) {
-
-      throw error;
+      throw new APIError("Event Not Found !!", StatusCode.NotFound);
     }
   }
 
@@ -67,7 +64,10 @@ export class EventController extends Controller {
         data: event,
       };
     } catch (error: unknown) {
-      throw error;
+      throw new APIError(
+        "An error occurred during event creation. Please try again later",
+        StatusCode.InternalServerError
+      );
     }
   }
 
@@ -99,7 +99,10 @@ export class EventController extends Controller {
         data: event,
       };
     } catch (error: unknown) {
-      throw error;
+      throw new APIError(
+        "An error occurred during event update. Please try again later",
+        StatusCode.InternalServerError
+      );
     }
   }
 
@@ -123,7 +126,10 @@ export class EventController extends Controller {
       await eventService.deleteEvent(id);
       return { message: "Event Deleted Successfully!" };
     } catch (error: unknown) {
-      throw error;
+      throw new APIError(
+        "An error occurred during event deletion. Please try again later",
+        StatusCode.InternalServerError
+      );
     }
   }
 
@@ -140,8 +146,16 @@ export class EventController extends Controller {
         throw new APIError("Event Not Found !!", StatusCode.NotFound);
       }
       const event = await eventService.findEventById(id);
-
       return event;
+    } catch (error: unknown) {
+      throw new APIError("Event Not Found !!", StatusCode.NotFound);
+    }
+  }
+
+  @Get("/")
+  public async FindAllUser(): Promise<any> {
+    try {
+      return await eventService.findAllUser();
     } catch (error: unknown) {
       throw error;
     }

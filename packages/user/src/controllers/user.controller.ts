@@ -15,6 +15,8 @@ import { verifyToken } from "@user/middlewares/tokenValidation";
 import axios from "axios";
 import { prettyPrintJson } from "@user/utils/beautifulLog";
 import mongoose from "mongoose";
+import APIError from "@user/Errors/api-error";
+import { StatusCode } from "@user/utils/consts";
 
 const userService = new UserServices();
 
@@ -48,7 +50,7 @@ export class UserController extends Controller {
       const existingFavoriteIndex = user?.favorites.findIndex((item) =>
         item.equals(objectId)
       );
-      console.log(existingFavoriteIndex)
+      console.log(existingFavoriteIndex);
 
       if (existingFavoriteIndex !== -1) {
         // Remove event from favorites
@@ -72,10 +74,10 @@ export class UserController extends Controller {
     } catch (error) {
       console.error("Error adding/removing favorite:", error);
       // You can customize the error response here based on error type
-      return {
-        success: false,
-        message: "An error occurred while processing your request",
-      };
+      throw new APIError(
+        "Error adding/removing favorite",
+        StatusCode.BadRequest
+      );
     }
   }
 
@@ -109,7 +111,10 @@ export class UserController extends Controller {
         data: events, // not wokring yet
       };
     } catch (error: unknown) {
-      throw error;
+      throw new APIError(
+        "Error fetching favorite events",
+        StatusCode.BadRequest
+      );
     }
   }
 
@@ -123,7 +128,7 @@ export class UserController extends Controller {
         data: user,
       };
     } catch (error: unknown) {
-      throw error;
+      throw new APIError("Error during user creation", StatusCode.BadRequest);
     }
   }
 
@@ -133,16 +138,20 @@ export class UserController extends Controller {
     @Path() id: string,
     @Body() userProfileData: IUser
   ): Promise<any> {
-    // Call UserService to update user profile using userId from the request object
-    const updatedUserProfile = await userService.updateUserProfile(
-      id,
-      userProfileData
-    );
+    try {
+      // Call UserService to update user profile using userId from the request object
+      const updatedUserProfile = await userService.updateUserProfile(
+        id,
+        userProfileData
+      );
 
-    return {
-      message: "User profile updated successfully",
-      userProfile: updatedUserProfile,
-    };
+      return {
+        message: "User profile updated successfully",
+        userProfile: updatedUserProfile,
+      };
+    } catch (error: unknown) {
+      throw new APIError("Error during user creation", StatusCode.BadRequest);
+    }
   }
 
   @Get("/:id")
@@ -155,9 +164,7 @@ export class UserController extends Controller {
         data: user,
       };
     } catch (error: unknown) {
-      throw error;
+      throw new APIError("Error during user creation", StatusCode.BadRequest);
     }
   }
-
-  
 }

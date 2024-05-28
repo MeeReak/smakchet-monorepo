@@ -74,7 +74,11 @@ export class UserController {
         data: user,
       };
     } catch (error: unknown) {
-      throw error;
+      console.error("Error during signup:", error);
+      throw new APIError(
+        "An error occurred during signup. Please try again later",
+        StatusCode.InternalServerError
+      );
     }
   }
 
@@ -112,7 +116,11 @@ export class UserController {
 
       return { message: "User verify email successfully", token: jwtToken };
     } catch (error: unknown) {
-      throw error;
+      console.error("Error during verify", error);
+      throw new APIError(
+        "An error occurred during verification",
+        StatusCode.InternalServerError
+      );
     }
   }
 
@@ -132,7 +140,7 @@ export class UserController {
 
       return { message: "sucess", token: jwtToken };
     } catch (error: unknown) {
-      throw error;
+      throw new APIError("Invalid email or password", StatusCode.Unauthorized);
     }
   }
 
@@ -205,7 +213,10 @@ export class UserController {
       //generate jwtToken
       return await generateToken(user.id, user.username);
     } catch (error: unknown) {
-      throw error;
+      throw new APIError(
+        "An error occurred during Google login",
+        StatusCode.InternalServerError
+      );
     }
   }
 
@@ -254,16 +265,17 @@ export class UserController {
       //generate jwtToken
       return await generateToken(user.id, user.username);
     } catch (error: unknown) {
-      throw error;
+      throw new APIError(
+        "An error occurred during Facebook login",
+        StatusCode.InternalServerError
+      );
     }
   }
 
-
   @Get("/logout")
   async Logout() {
-    try{
-      
-    }catch(error: unknown){
+    try {
+    } catch (error: unknown) {
       throw error;
     }
   }

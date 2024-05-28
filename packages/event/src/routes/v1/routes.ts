@@ -32,6 +32,7 @@ const models: TsoaRoute.Models = {
             "orgId": {"ref":"mongoose.Types.ObjectId"},
             "thumbnail": {"dataType":"string"},
             "eventName": {"dataType":"string"},
+            "location": {"dataType":"string"},
             "address": {"dataType":"nestedObjectLiteral","nestedProperties":{"lng":{"dataType":"string","required":true},"lat":{"dataType":"string","required":true}}},
             "category": {"dataType":"union","subSchemas":[{"dataType":"enum","enums":["Sport"]},{"dataType":"enum","enums":["Education"]},{"dataType":"enum","enums":["Workshop"]},{"dataType":"enum","enums":["Charity"]}]},
             "viewer": {"dataType":"double"},
@@ -228,6 +229,35 @@ export function RegisterRoutes(app: Router) {
 
               await templateService.apiHandler({
                 methodName: 'FindFavoEvent',
+                controller,
+                response,
+                next,
+                validatedArgs,
+                successStatus: undefined,
+              });
+            } catch (err) {
+                return next(err);
+            }
+        });
+        // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
+        app.get('/v1/events',
+            ...(fetchMiddlewares<RequestHandler>(EventController)),
+            ...(fetchMiddlewares<RequestHandler>(EventController.prototype.FindAllUser)),
+
+            async function EventController_FindAllUser(request: ExRequest, response: ExResponse, next: any) {
+            const args: Record<string, TsoaRoute.ParameterSchema> = {
+            };
+
+            // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
+
+            let validatedArgs: any[] = [];
+            try {
+                validatedArgs = templateService.getValidatedArgs({ args, request, response });
+
+                const controller = new EventController();
+
+              await templateService.apiHandler({
+                methodName: 'FindAllUser',
                 controller,
                 response,
                 next,
