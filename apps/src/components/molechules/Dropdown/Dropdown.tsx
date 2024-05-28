@@ -29,7 +29,7 @@ const Dropdown: React.FC<DropdownProps> = ({
 
   return (
     <div className={`inline-flex ${classname}`}>
-      <div className="w-full h-[50px] relative flex items-center justify-between border border-gray-200 py-4 pl-5 rounded-[10px] outline-none">
+      <div className="w-full h-[50px] relative flex items-center justify-between border border-gray-200 py-4 pl-5 rounded-[10px] outline-none z-20">
         <a
           onClick={toggling}
           className={`w-[100%] rounded-l-md py-2 ${

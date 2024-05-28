@@ -36,7 +36,7 @@ const MultiChoiceQuestion: React.FC<MultiChoiceQuestionProp> = ({
   console.log(options);
 
   return (
-    <div className="w-[60%]">
+    <div className="md:w-[60%] w-full">
       {options.map((option, index) => (
         <div key={index} className="mb-2 flex">
           <input
