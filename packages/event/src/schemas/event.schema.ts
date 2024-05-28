@@ -4,6 +4,7 @@ export const EventDetailSchema = z.object({
   orgId: z.string(),
   thumbnail: z.string(),
   eventName: z.string().min(3),
+  location: z.string(),
   address: z.object({
     lat: z.string(),
     lng: z.string(),

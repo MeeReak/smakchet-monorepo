@@ -13,6 +13,7 @@ import { validateInput } from "@application/middlewares/input-validation";
 import { verifyToken } from "@application/middlewares/tokenValidation";
 import { applyEventRequestBodySchema } from "@application/schemas/application.schema";
 import { ApplicationService } from "@application/services/application.service";
+import APIError from "@application/errors/api-error";
 
 interface FormResponse {
   label: string;
@@ -56,7 +57,7 @@ export class ApplicationController extends Controller {
         data: formSubmitEvent,
       };
     } catch (error: unknown | any) {
-      throw error;
+      throw new APIError("Error during application submission", error);
     }
   }
 
@@ -75,8 +76,8 @@ export class ApplicationController extends Controller {
         message: "Form has been updated!",
         data: formupdate,
       };
-    } catch (error) {
-      throw error;
+    } catch (error: unknown | any) {
+      throw new APIError("Error during updating status", error);
     }
   }
 }

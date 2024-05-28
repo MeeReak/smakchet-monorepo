@@ -57,4 +57,12 @@ export class EventRepository {
       throw error;
     }
   }
+
+  async findAllUser(){
+    try{
+      return await EventModel.find()
+    }catch(error: unknown){
+      throw error
+    }
+  }
 }

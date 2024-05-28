@@ -44,6 +44,9 @@
 					"eventName": {
 						"type": "string"
 					},
+					"location": {
+						"type": "string"
+					},
 					"address": {
 						"properties": {
 							"lng": {
@@ -214,6 +217,21 @@
 						}
 					}
 				}
+			},
+			"get": {
+				"operationId": "FindAllUser",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {}
+							}
+						}
+					}
+				},
+				"security": [],
+				"parameters": []
 			}
 		},
 		"/v1/events/{id}": {

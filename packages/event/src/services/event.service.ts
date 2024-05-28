@@ -80,4 +80,13 @@ export class EventService {
       throw error
     }
   }
+
+  async findAllUser(){
+    try{
+      return await this.eventRepo.findAllUser()
+    }catch(error: unknown){
+      throw error
+    }
+  }
+
 }

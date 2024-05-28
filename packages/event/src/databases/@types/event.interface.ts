@@ -4,6 +4,7 @@ export interface EventDetail {
   orgId?: mongoose.Types.ObjectId;
   thumbnail?: string;
   eventName?: string;
+  location?: string;
   address?: {
     lat: string;
     lng: string;
@@ -31,11 +32,4 @@ interface FormSubmission {
   label: string;
   fieldType: string;
   answers: string[];
-}
-
-export enum EventCategory {
-  Sport = "Sport",
-  Education = "Education",
-  Workshop = "Workshop",
-  Charity = "Charity",
 }
