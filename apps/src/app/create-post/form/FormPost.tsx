@@ -141,11 +141,11 @@ const FormPost = ({
     // };
 
   return (
-    <div className="h-full bg-[#FAFAFA] w-full">
-      <div className="py-[113px] px-[240px]">
+    <div className="h-full bg-[#FAFAFA] w-full ">
+      <div className="md:py-[113px] md:px-[240px] py-[100px]">
         <Button
         // onclick={handleBack}
-          className="!border-none"
+          className="!border-none text-start w-fit"
           leftIcon={
             <Image
               src={"/assets/icons/back.svg"}
@@ -155,16 +155,16 @@ const FormPost = ({
             />
           }
         >
-          <Typography fontSize="h2" fontWeight="bold">
+          <Typography align="left" fontSize="h2" fontWeight="bold">
             Create Apply Form
           </Typography>
         </Button>
-        <form action={""} className="mt-[33px] flex flex-col gap-y-[25px]">
+        <form action={""} className="md:mt-[33px] mt-5  flex flex-col gap-y-[25px]">
           {/* Name, Email Phone number, address section */}
-          <div className="py-[25px] px-[25px] bg-white rounded-[10px]">
+          <div className="md:py-[25px] p-5 md:px-[25px] bg-white rounded-[10px] ">
             {/* Name & Email section */}
-            <div className="flex flex-row justify-between gap-x-[35px] ">
-              <div className="flex flex-col w-full gap-y-5">
+            <div className="flex md:flex-row flex-col justify-between gap-x-[35px] gap-y-5">
+              <div className="flex flex-col w-full md:gap-y-5 gap-y-1">
                 <label htmlFor="name">
                   <Typography fontSize="h3">
                     Name <span className="text-red-500">*</span>
@@ -178,7 +178,7 @@ const FormPost = ({
                   className=" h-[50px] pl-6 border-1 border-gray-300"
                 />
               </div>
-              <div className="flex flex-col w-full gap-y-5">
+              <div className="flex flex-col w-full md:gap-y-5 gap-y-1">
                 <label htmlFor="email">
                   <Typography fontSize="h3">
                     Email <span className="text-red-500">*</span>
@@ -195,8 +195,8 @@ const FormPost = ({
             </div>
 
             {/* Phone number and address section */}
-            <div className="flex flex-row justify-between gap-x-[35px] mt-3">
-              <div className="flex flex-col w-full gap-y-5">
+            <div className="pt-5 flex md:flex-row flex-col justify-between gap-x-[35px] gap-y-5">
+              <div className="flex flex-col w-full md:gap-y-5 gap-y-1">
                 <label htmlFor="phonenumber">
                   <Typography fontSize="h3">
                     Phone number <span className="text-red-500">*</span>
@@ -210,7 +210,7 @@ const FormPost = ({
                   className=" h-[50px] pl-6 border-1 border-gray-300"
                 />
               </div>
-              <div className="flex flex-col w-full gap-y-5">
+              <div className="flex flex-col w-full md:gap-y-5 gap-y-1">
                 <label htmlFor="address">
                   <Typography fontSize="h3">
                     Address <span className="text-red-500">*</span>
@@ -275,7 +275,7 @@ const FormPost = ({
               <Button
                 type="button"
                 onclick={handleAddQuestion}
-                className="border-none"
+                className="border-none w-fit"
               >
                 <Typography fontSize="h5" color="blue">
                   + Add more question

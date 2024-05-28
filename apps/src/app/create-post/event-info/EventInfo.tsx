@@ -194,8 +194,8 @@ const EventInfo: React.FC<EventInfoProps> = ({ onNext }) => {
           <Typography fontWeight="bold" fontSize="h2">
             Datetime and Location
           </Typography>
-          <div className="flex gap-4 mt-5">
-            <div className="w-[50%]">
+          <div className="flex flex-col md:flex-row gap-4 mt-5">
+            <div className="md:w-[50%]">
               <Typography fontWeight="semibold" fontSize="h4">
                 Start Date
               </Typography>
@@ -207,7 +207,7 @@ const EventInfo: React.FC<EventInfoProps> = ({ onNext }) => {
                 <p className="text-red-500 mb-2">{errors.startDate}</p>
               )}
             </div>
-            <div className="w-[50%]">
+            <div className="md:w-[50%]">
               <Typography fontWeight="semibold" fontSize="h4">
                 End Date
               </Typography>
@@ -228,8 +228,8 @@ const EventInfo: React.FC<EventInfoProps> = ({ onNext }) => {
               )}
             </div>
           </div>
-          <div className="flex gap-4 mt-5">
-            <div className="w-[50%]">
+          <div className="flex flex-col md:flex-row gap-4 mt-5">
+            <div className="md:w-[50%]">
               <Typography fontWeight="semibold" fontSize="h4">
                 Start Time
               </Typography>
@@ -241,7 +241,7 @@ const EventInfo: React.FC<EventInfoProps> = ({ onNext }) => {
                 <p className="text-red-500 mb-2 ">{errors.startTime}</p>
               )}
             </div>
-            <div className="w-[50%]">
+            <div className="md:w-[50%]">
               <Typography fontWeight="semibold" fontSize="h4">
                 End Time
               </Typography>

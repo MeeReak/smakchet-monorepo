@@ -43,13 +43,14 @@ const QuestionForm: React.FC<QuestionFormProps> = ({
 
   return (
     <div className="w-full bg-white  rounded-lg">
-      <div className="flex flex-row justify-between items-center gap-x-3">
-        <InputData  
+      <div className="flex md:flex-row flex-col justify-between items-center gap-x-3">
+        <InputData
           type="text"
           placeholder="Question"
-          className="!w-[547px] h-[50px]  px-6 py-4 border-gray-300 lg:w-[900px] lg:py-2 border-b focus:outline-none focus:border-blue-500 bg-white"
+          className="!md:w-[547px] h-[50px] w-full  px-6 py-4 border-gray-300 lg:w-[900px] lg:py-2 border-b focus:outline-none focus:border-blue-500 bg-white"
           onChange={handleQuestionChange}
         />
+
         <Dropdown
           options={["Writing Answer", "Multi Choice", "Yes/No"]}
           classname="w-[30%] h-[50px] bg-white rounded-lg"
@@ -57,10 +58,14 @@ const QuestionForm: React.FC<QuestionFormProps> = ({
           onChange={handleSelectType}
         />
         <ButtonIcon
-        
           onclick={removeQuestion}
           icon={
-            <Image src={"assets/icons/trash.svg"} width={36.5} height={37.5} alt="trash icon"/>
+            <Image
+              src={"assets/icons/trash.svg"}
+              width={36.5}
+              height={37.5}
+              alt="trash icon"
+            />
           }
         />
       </div>
@@ -69,7 +74,6 @@ const QuestionForm: React.FC<QuestionFormProps> = ({
         <WritingQuestion />
       ) : QAType === "Multi Choice" ? (
         <MultiChoiceQuestion
-        
           onchange={(options) => handleAnswerChange(options)}
         />
       ) : QAType === "Yes/No" ? (
