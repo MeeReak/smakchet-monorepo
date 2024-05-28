@@ -69,7 +69,7 @@ const Page = () => {
         <div>
           <table className="w-fit table-auto rounded-t-[15px] mb-20 overflow-hidden ">
             {/* table header */}
-            <thead className="bg-[#D2E5FF] h-[68px] text-start ">
+            <thead className="bg-[#D2E5FF] h-[60px] text-start ">
               <tr className="text-center w-fit">
                 <th className="pl-[30px] w-[112px] ">
                   <Typography align="left"

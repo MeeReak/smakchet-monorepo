@@ -155,8 +155,8 @@ const Page = ({
             />
           }
         >
-          <Typography fontSize="h2" fontWeight="bold">
-            Create Apply Form
+          <Typography fontSize="h2" fontWeight="semibold" className="flex justify-start">
+            Apply Form
           </Typography>
         </Button>
         <form action={""} className="mt-[33px] flex flex-col gap-y-[25px]">
