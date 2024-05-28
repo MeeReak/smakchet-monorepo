@@ -31,7 +31,7 @@
     ],
     "paths": {
       "@auth/*": ["src/*"],
-      "tsoa": ["node_modules/tsoa/dist"] //use tell where tsoa is cus we use tsconfig-paths/register
+      "tsoa": ["../../node_modules/tsoa"] //use tell where tsoa is cus we use tsconfig-paths/register
     }
   }
 }

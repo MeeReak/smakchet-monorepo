@@ -1,23 +1,22 @@
 "use client";
-import React, { useState, useContext , useEffect} from "react";
+import React, { useState, useContext, useEffect } from "react";
 import Image from "next/image";
 import { ButtonIcon, InputData, Typography, Button } from "@/components";
 import Link from "next/link";
 import { SignUpProps } from "../../@types/auth";
 //import { setLocalStorage } from "@/utils/localStorage";
 import signUpschema from "@/utils/signUpSchema";
-import { useSearchParams } from 'next/navigation';
+import { useSearchParams } from "next/navigation";
 import axios from "axios";
 
-  
 const Page = () => {
   const searchParams = useSearchParams();
-  const searchValue = searchParams.get('role') || '';
+  const searchValue = searchParams.get("role") || "";
   const [data, setData] = useState<SignUpProps>({
     username: "",
     email: "",
     password: "",
-    role:searchValue
+    role: searchValue,
   });
 
   const [errors, setErrors] = useState({
@@ -25,7 +24,6 @@ const Page = () => {
     email: "",
     password: "",
   });
-
 
   function handleChange(e: any) {
     const { name, value } = e.target;
@@ -35,37 +33,55 @@ const Page = () => {
 
   async function handleSubmit(e: any) {
     e.preventDefault();
-  try {
-    // Perform Yup validation
-    const validationResult = await signUpschema.validate(data, { abortEarly: false });
-    console.log("Validation successful:", validationResult); // Log successful validation
-    // Proceed with form submission logic (assuming validation passed)
+    try {
+      // Perform Yup validation
+      const validationResult = await signUpschema.validate(data, {
+        abortEarly: false,
+      });
+      console.log("Validation successful:", validationResult); // Log successful validation
+      // Proceed with form submission logic (assuming validation passed)
 
-    await axios.post("http://localhost:3001/v1/auth/signup", data, {
-      
-    });
-    console.log("Signup successful!"); // Log successful signup (if applicable)
-    alert("Submitted!"); // Alert user of successful submission
-  } catch (error: any | unknown) {
-    if (error) { // Check if error exists
-      // Handle validation errors
-      if (error.name === "ValidationError") { // Check for Yup validation error
-        const fieldErrors: { [key: string]: string } = {};
-        error.inner.forEach((err: any) => {
-          fieldErrors[err.path] = err.message;
-        });
-        console.error("Validation Errors:", fieldErrors);
-        setErrors((prev) => ({
-          ...prev,
-          ...fieldErrors,
-        }));
-      } else { // Handle other potential errors (e.g., axios errors)
-        console.error("Error:", error); // Log the entire error object
-        // Display a generic error message to the user
-        setErrors({ ...errors });
+      const response = await axios.post(
+        "http://localhost:3000/v1/auth/signup",
+        data,
+        {}
+      );
+      console.log("respone data:", response.data)
+      console.log("respone Token: ", response.data.token); // Log successful signup (if applicable)
+      alert("Submitted!"); // Alert user of successful submission
+    } catch (error: any | unknown) {
+      if (error) {
+        // Check if error exists
+        // Handle validation errors
+        if (error.name === "ValidationError") {
+          // Check for Yup validation error
+          const fieldErrors: { [key: string]: string } = {};
+          error.inner.forEach((err: any) => {
+            fieldErrors[err.path] = err.message;
+          });
+          console.error("Validation Errors:", fieldErrors);
+          setErrors((prev) => ({
+            ...prev,
+            ...fieldErrors,
+          }));
+        } else if (axios.isAxiosError(error)) {
+          // Handle axios errors (e.g., network errors or backend errors)
+          if (error.response) {
+            // Server responded with a status other than 200 range
+            console.error("Backend returned an error:", error.response.data);
+            setErrors((prev) => ({
+              ...prev,
+                email : error.response?.data?.errors[0]?.message
+            }));
+          }
+        } else {
+          // Handle other potential errors (e.g., axios errors)
+          console.error("Error:", error); // Log the entire error object
+          // Display a generic error message to the user
+          setErrors({ ...errors });
+        }
       }
     }
-  }
   }
 
   return (

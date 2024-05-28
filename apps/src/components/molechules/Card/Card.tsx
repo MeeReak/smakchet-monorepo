@@ -46,6 +46,7 @@ const Card: React.FC<CardProps> = ({
                   ? `w-6 h-6 absolute top-3 right-3 fill-[#FF2020] stroke-[#FF2020] z-10`
                   : `w-6 h-6 absolute top-3 right-3 stroke-white fill-[rgba(0,0,0,0.15)] z-10`
               }
+              
             >
               <path
                 strokeLinecap="round"
