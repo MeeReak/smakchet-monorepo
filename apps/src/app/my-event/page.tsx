@@ -4,19 +4,19 @@ import React from "react";
 
 const page = () => {
   return (
-    <>
-      <div className="max-w-[800px] mx-auto pt-16">
+    <div className="w-full h-full bg-[#FAFAFA] mt-0">
+      <div className=" md:mx-[120px] mt-[95px]  bg-white">
         <Typography
           fontSize="h3"
           fontWeight="bold"
           align="left"
-          className="pl-3 pt-5 sm:pl-5 lg:pl-0"
+          className="px-5"
         >
           My Event
         </Typography>
         <MyEventCardList />
       </div>
-    </>
+    </div>
   );
 };
 
