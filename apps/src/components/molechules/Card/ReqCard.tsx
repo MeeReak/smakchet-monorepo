@@ -22,7 +22,7 @@ const ReqCard: React.FC<ReqCardProp> = ({
           <Typography fontWeight="medium" fontSize="h3">
             {title}
           </Typography>
-          <Typography className="line-clamp-1" fontSize="h4">
+          <Typography className="line-clamp-1" fontSize="h5" color="grey">
             {description}
           </Typography>
         </div>
