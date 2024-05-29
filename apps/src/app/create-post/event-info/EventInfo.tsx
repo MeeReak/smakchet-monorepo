@@ -25,8 +25,8 @@ interface EventInfoData {
   imageSrc: string;
   category: string;
   detail: string;
-  startDate: null;
-  endDate: null;
+  startDate: Date | null;
+  endDate: Date | null;
   startTime: string;
   endTime: string;
   location: string;
@@ -69,8 +69,8 @@ const EventInfo: React.FC<EventInfoProps> = ({ onNext }) => {
 
   function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
-    const start = new Date(info.startDate);
-    const end = new Date(info.endDate);
+    const start = new Date(info.startDate!);
+    const end = new Date(info.endDate!);
     console.log(info.detail);
     // Check date validity
     if (end < start) {
@@ -118,12 +118,22 @@ const EventInfo: React.FC<EventInfoProps> = ({ onNext }) => {
     setInfo({ ...info, startTime: time });
   };
 
-  const handleStartDate = (date: null) => {
-    setInfo({ ...info, startDate: date });
+  const handleStartDate = (dateString: string | null) => {
+    if (dateString) {
+      const parsedDate = new Date(dateString); // Parse the string to Date object
+      setInfo({ ...info, startDate: parsedDate });
+    } else {
+      setInfo({ ...info, startDate: null }); // Set to null for cleared date
+    }
   };
 
-  const handleEndDate = (date: null) => {
-    setInfo({ ...info, endDate: date });
+  const handleEndDate = (dateString: string | null) => {
+    if (dateString) {
+      const parsedDate = new Date(dateString); // Parse the string to Date object
+      setInfo({ ...info, endDate: parsedDate });
+    } else {
+      setInfo({ ...info, endDate: null }); // Set to null for cleared date
+    }
   };
 
   const handleSelectEndTime = (time: string) => {
@@ -133,7 +143,7 @@ const EventInfo: React.FC<EventInfoProps> = ({ onNext }) => {
   const handleChangeContent = (content: string) => {
     setInfo({ ...info, detail: content });
   };
-1
+
   const handleAddress = (markers: any) => {
     setInfo({ ...info, address: markers });
   };
@@ -150,21 +160,20 @@ const EventInfo: React.FC<EventInfoProps> = ({ onNext }) => {
         <p className="text-red-500 mb-2 pl-8">{errors.imageSrc}</p>
       )}
       <div>
-        <form action="" className="max-[1030px]:mx-5">
-          <label htmlFor="evenname">
+        <form onSubmit={handleSubmit} className="max-[1030px]:mx-5">
+          <label htmlFor="eventname">
             <Typography fontWeight="medium" fontSize="h4">
               Event Name
             </Typography>
           </label>
           <InputData
-            id=""
+            id="eventname"
             onChange={handleChange}
             name="name"
-            type={"text"}
+            type="text"
             placeholder="Event Name"
             className="w-full mt-3 mb-3 py-4 pl-5 border border-gray-200"
           />
-
           {errors.name && <p className="text-red-500 mb-2">{errors.name}</p>}
 
           <label htmlFor="category">
@@ -292,12 +301,12 @@ const EventInfo: React.FC<EventInfoProps> = ({ onNext }) => {
             onChange={handleChange}
             name="age"
             id="age"
-            type={"text"}
+            type="text"
             placeholder="Your Requirement"
             className="w-full mt-3 mb-3 py-4 pl-5 border border-gray-200"
           />
           {errors.age && <p className="text-red-500 mb-2">{errors.age}</p>}
-          <label htmlFor="Language">
+          <label htmlFor="language">
             <Typography fontWeight="semibold" fontSize="h4">
               Language
             </Typography>
@@ -306,14 +315,14 @@ const EventInfo: React.FC<EventInfoProps> = ({ onNext }) => {
             onChange={handleChange}
             name="language"
             id="language"
-            type={"text"}
+            type="text"
             placeholder="Your Requirement"
             className="w-full mt-3 mb-3 py-4 pl-5 border border-gray-200"
           />
           {errors.language && (
             <p className="text-red-500 mb-2">{errors.language}</p>
           )}
-          <label htmlFor="Skill">
+          <label htmlFor="skill">
             <Typography fontWeight="semibold" fontSize="h4">
               Skill
             </Typography>
@@ -322,12 +331,12 @@ const EventInfo: React.FC<EventInfoProps> = ({ onNext }) => {
             onChange={handleChange}
             name="skill"
             id="skill"
-            type={"text"}
+            type="text"
             placeholder="Your Requirement"
             className="w-full mt-3 mb-3 py-4 pl-5 border border-gray-200"
           />
           {errors.skill && <p className="text-red-500 mb-2">{errors.skill}</p>}
-          <label htmlFor="Time Commitment">
+          <label htmlFor="timeCommitment">
             <Typography fontWeight="semibold" fontSize="h4">
               Time Commitment
             </Typography>
@@ -335,30 +344,28 @@ const EventInfo: React.FC<EventInfoProps> = ({ onNext }) => {
           <InputData
             onChange={handleChange}
             name="timeCommitment"
-            id="Time Commitment"
-            type={"text"}
+            id="timeCommitment"
+            type="text"
             placeholder="Your Requirement"
             className="w-full mt-3 mb-3 py-4 pl-5 border border-gray-200"
           />
           {errors.timeCommitment && (
             <p className="text-red-500 mb-2">{errors.timeCommitment}</p>
           )}
-        </form>
-        <div className="flex justify-end my-5">
-          <Link href={"/create-post"}>
+          <div className="flex justify-end my-5">
             <Button
-              type="button"
+              type="submit"
               size="h4"
               round="md"
               bgColor="primary"
               colorScheme="White"
-              className="py-3 px-10"
               onclick={handleSubmit}
+              className="py-3 px-10"
             >
               Next
             </Button>
-          </Link>
-        </div>
+          </div>
+        </form>
       </div>
     </div>
   );

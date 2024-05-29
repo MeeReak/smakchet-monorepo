@@ -1,6 +1,6 @@
 "use client";
 import React, { useState } from "react";
-
+import Image from "next/image";
 interface DropdownProps {
   classname?: string;
   options: string[];
@@ -29,7 +29,7 @@ const Dropdown: React.FC<DropdownProps> = ({
 
   return (
     <div className={`inline-flex ${classname}`}>
-      <div className="w-full h-[50px] relative flex items-center justify-between border border-gray-200 py-4 pl-5 rounded-[10px] outline-none z-20">
+      <div className="w-full h-[50px] relative flex items-center  justify-center align-middle pl-5 border border-gray-200 py-4  rounded-[10px] outline-none z-20">
         <a
           onClick={toggling}
           className={`w-[100%] rounded-l-md py-2 ${
@@ -38,6 +38,7 @@ const Dropdown: React.FC<DropdownProps> = ({
         >
           {selectedOption || `${placeholder}`}
         </a>
+        <Image src={"/assets/icons/dropdown.svg"} alt={""} width={16} height={16}/>
         <div className="relative">
           <button
             type="button"
