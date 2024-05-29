@@ -44,11 +44,15 @@ const Page = () => {
       const response = await axios.post(
         "http://localhost:3000/v1/auth/signup",
         data,
-        {}
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
       );
-      console.log("respone data:", response.data)
-      console.log("respone Token: ", response.data.token); // Log successful signup (if applicable)
-      alert("Submitted!"); // Alert user of successful submission
+      alert("Please Check Your Email to verify");
+      // window.location.href = "/verify-email"
+      // console.log("respone data:", response.data);
     } catch (error: any | unknown) {
       if (error) {
         // Check if error exists
