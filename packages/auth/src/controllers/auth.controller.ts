@@ -112,9 +112,8 @@ export class UserController {
 
       const respone = await axios.post("http://user:3003/v1/user", data);
       const jwtToken = await generateToken(respone.data.data._id, user.role!);
-      const {email , username , role} = data;
 
-      return { message: "User verify email successfully", token: jwtToken , data:{email,username ,role} };
+      return { message: "User verify email successfully", token: jwtToken , status: "success"};
     } catch (error: unknown) {
       console.error("Error during verify", error);
       throw new APIError(
