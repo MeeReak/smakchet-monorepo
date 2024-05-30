@@ -3,6 +3,7 @@
 
 ## Table of Contents
 - [About The Project](#about-the-project)
+- [Business Model Canvas](#business-model-canvas)
 - [Built With](#built-with)
 - [Project Structure](#project-structure)
 - [Getting Started](#getting-started)
@@ -23,6 +24,10 @@ for both volunteers and hosts. With user-friendly interfaces, robust search func
 and secure communication tools, we make it easy for volunteers to find events that match their interests and for hosts to find the help they need.
 
 Join us in creating a more engaged and connected community, one volunteer opportunity at a time.
+## Business Model Canvas
+
+To explore further details about our project, please click [link](https://docs.google.com/document/d/1VNUB89YcIxfmsaoYeymQYLaif8pki6BO6PQ8GIm3lfM/edit?usp=sharing) to see our business Canvas.
+
 ## Built With
 This section lists major frameworks and libraries used in the Volunteering Platform project:
 
@@ -50,7 +55,7 @@ smakchet-monorepo
         |---->notification
         |---->user
         |---->volumes
-|----->
+|----->docker-compose.yaml
 ```
 
 ## Getting Started
