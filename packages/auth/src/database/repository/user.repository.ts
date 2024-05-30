@@ -57,4 +57,15 @@ export class UserRepository {
       throw new APIError("Unable to Update User in Database");
     }
   }
+
+  async findUserByResetToken({ resetToken }: { resetToken: string }) {
+    try {
+      return await UserModel.findOne({
+        resetPasswordToken: resetToken,
+        // resetTokenExp: { $gt: Date.now() },
+      });
+    } catch (error: unknown) {
+      throw new APIError("Unable to find user in database");
+    }
+  }
 }
