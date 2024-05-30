@@ -126,7 +126,6 @@ const Homepage: React.FC<CardProps> = ({
         </div>
 
         {/* Requirement and Map section */}
-
         <div className="mt-[25px] grid lg:grid-cols-2 gap-3 max-[1030px]:px-3 border-b-1 border-[#0000001A] ">
           <div className="flex flex-col gap-y-5">
             <Typography fontSize="h2" fontWeight="bold">
