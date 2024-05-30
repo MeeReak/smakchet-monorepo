@@ -145,7 +145,7 @@ const Page = ({
       <div className="py-[113px] px-[240px]">
         <Button
           // onclick={handleBack}
-          className="!border-none"
+          className="!border-none w-fit"
           leftIcon={
             <Image
               src={"/assets/icons/back.svg"}
@@ -155,7 +155,7 @@ const Page = ({
             />
           }
         >
-          <Typography fontSize="h2" fontWeight="semibold" className="flex justify-start">
+          <Typography fontSize="h3" fontWeight="semibold" className="flex justify-start">
             Apply Form
           </Typography>
         </Button>
@@ -166,7 +166,7 @@ const Page = ({
             <div className="flex flex-row justify-between gap-x-[35px] ">
               <div className="flex flex-col w-full gap-y-5">
                 <label htmlFor="name">
-                  <Typography fontSize="h3">
+                  <Typography fontSize="h4">
                     Name <span className="text-red-500">*</span>
                   </Typography>
                 </label>
@@ -180,7 +180,7 @@ const Page = ({
               </div>
               <div className="flex flex-col w-full gap-y-5">
                 <label htmlFor="email">
-                  <Typography fontSize="h3">
+                  <Typography fontSize="h4">
                     Email <span className="text-red-500">*</span>
                   </Typography>
                 </label>
@@ -198,7 +198,7 @@ const Page = ({
             <div className="flex flex-row justify-between gap-x-[35px] mt-3">
               <div className="flex flex-col w-full gap-y-5">
                 <label htmlFor="phonenumber">
-                  <Typography fontSize="h3">
+                  <Typography fontSize="h4">
                     Phone number <span className="text-red-500">*</span>
                   </Typography>
                 </label>
@@ -212,7 +212,7 @@ const Page = ({
               </div>
               <div className="flex flex-col w-full gap-y-5">
                 <label htmlFor="address">
-                  <Typography fontSize="h3">
+                  <Typography fontSize="h4">
                     Address <span className="text-red-500">*</span>
                   </Typography>
                 </label>
@@ -231,7 +231,7 @@ const Page = ({
           <div className="py-[25px] px-[25px] bg-white rounded-[10px] flex flex-col gap-y-[45px]">
             <div className="flex flex-col w-full gap-y-5">
               <label htmlFor="name">
-                <Typography fontSize="h3">
+                <Typography fontSize="h4">
                   Why do you want to join Volunteer?{" "}
                 </Typography>
               </label>
@@ -245,7 +245,7 @@ const Page = ({
             </div>
             <div className="flex flex-col w-full gap-y-5">
               <label htmlFor="yes/no">
-                <Typography fontSize="h3">
+                <Typography fontSize="h4">
                   Have you ever joined volunteer before?
                 </Typography>
               </label>
@@ -266,7 +266,7 @@ const Page = ({
             </div>
             <div className="flex flex-col w-full gap-y-5">
               <label htmlFor="checkbox">
-                <Typography fontSize="h3">
+                <Typography fontSize="h4">
                   What are the benefits of Volunteer
                 </Typography>
               </label>

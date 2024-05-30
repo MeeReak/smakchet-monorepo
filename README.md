@@ -3,7 +3,9 @@
 
 ## Table of Contents
 - [About The Project](#about-the-project)
+- [Business Model Canvas](#business-model-canvas)
 - [Built With](#built-with)
+- [Project Structure](#project-structure)
 - [Getting Started](#getting-started)
   - [Prerequisites](#prerequisites)
   - [Installation](#installation)
@@ -22,6 +24,10 @@ for both volunteers and hosts. With user-friendly interfaces, robust search func
 and secure communication tools, we make it easy for volunteers to find events that match their interests and for hosts to find the help they need.
 
 Join us in creating a more engaged and connected community, one volunteer opportunity at a time.
+## Business Model Canvas
+
+To explore further details about our project, please click [link](https://docs.google.com/document/d/1VNUB89YcIxfmsaoYeymQYLaif8pki6BO6PQ8GIm3lfM/edit?usp=sharing) to see our business Canvas.
+
 ## Built With
 This section lists major frameworks and libraries used in the Volunteering Platform project:
 
@@ -35,6 +41,22 @@ This section lists major frameworks and libraries used in the Volunteering Platf
 - **Jest**
 - **MongoDB**
 - **Docker**
+
+## Project Structure
+```
+smakchet-monorepo
+|----->apps
+        |---->frontend
+|----->packages
+        |---->api-gateway
+        |---->application
+        |---->auth
+        |---->event
+        |---->notification
+        |---->user
+        |---->volumes
+|----->docker-compose.yaml
+```
 
 ## Getting Started
 ### With Docker
@@ -67,12 +89,8 @@ Our platform supports two types of users, each with distinct features and functi
 - **Communicate**: Use the platform’s messaging system to interact with volunteers.
 - **Track Attendance**: Monitor which volunteers have been accepted and their attendance status.
 
-## Contact
-Rin tithyareak - [Facebook](https://web.facebook.com/mee.reak.9461) 
-<br>
-Peng maleap - [Facebook](https://web.facebook.com/izeerry)
-
+## Link UI
 figma-Link(https://www.figma.com/design/FRi5rN0B2IiiIOSwgiPLW0/SmakChet?t=UgDDxAnRQFHbTo4Q-0)
-<br>
+## Contact
 Team Email( smakchet.team@gmail.com)
 
