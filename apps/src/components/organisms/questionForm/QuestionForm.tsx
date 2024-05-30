@@ -8,6 +8,7 @@ import {
 } from "@/components";
 import { ButtonIcon, InputData } from "@/components/atoms";
 import Image from "next/image";
+import DeleteButton from "@/components/molechules/Delete/deleteButton";
 
 interface QuestionFormProps {
   question?: any;
@@ -53,7 +54,7 @@ const QuestionForm: React.FC<QuestionFormProps> = ({
 
         <Dropdown
           options={["Writing Answer", "Multi Choice", "Yes/No"]}
-          classname="w-[35%] h-[50px] bg-white rounded-lg"
+          classname="w-[30%] h-[50px] bg-white rounded-lg z-50"
           placeholder="Type of Answer"
           onChange={handleSelectType}
         />
@@ -68,6 +69,7 @@ const QuestionForm: React.FC<QuestionFormProps> = ({
             />
           }
         />
+        
       </div>
 
       {QAType === "Writing Answer" ? (
