@@ -37,9 +37,6 @@ export async function consumeAuthEmailMessages(
         msg!.content.toString()
       );
 
-      console.log(verifyLink);
-
-      console.log(template);
       let locals: IEmailLocals;
 
       switch (template) {

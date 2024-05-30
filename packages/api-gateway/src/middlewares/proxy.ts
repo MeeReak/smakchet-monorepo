@@ -53,7 +53,7 @@ const proxyConfigs: ProxyConfig = {
 
           try {
             responseBody = JSON.parse(bodyString);
-
+            console.log(responseBody);
             // If Response Error, Not Modified Response
             if (responseBody.errors) {
               return res.status(proxyRes.statusCode!).json(responseBody);
@@ -61,11 +61,12 @@ const proxyConfigs: ProxyConfig = {
 
             // Store JWT in session
             if (responseBody.token) {
+              console.log(responseBody.token);
               (req as Request).session!.jwt = responseBody.token;
             }
 
             // Modify response to send only the message to the client
-            res.json({ message: responseBody.message });
+            res.json({ message: responseBody.message});
           } catch (error) {
             return res.status(500).json({ message: "Error parsing response" });
           }
