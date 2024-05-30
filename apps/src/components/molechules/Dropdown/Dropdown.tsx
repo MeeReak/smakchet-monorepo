@@ -29,7 +29,7 @@ const Dropdown: React.FC<DropdownProps> = ({
 
   return (
     <div className={`inline-flex ${classname}`}>
-      <div className="w-full h-[50px] relative flex items-center  justify-center align-middle pl-5 border border-gray-200 py-4  rounded-[10px] outline-none z-20">
+      <div className="w-full h-[50px] relative flex items-center justify-center align-middle pl-5 border border-gray-200 py-4 rounded-[10px] outline-none z-10">
         <a
           onClick={toggling}
           className={`w-[100%] rounded-l-md py-2 ${
@@ -46,7 +46,7 @@ const Dropdown: React.FC<DropdownProps> = ({
           ></button>
         </div>
         {isOpen && (
-          <div className="w-full absolute top-6 right-0 z-10 mt-4 min-w-[200px] origin-top-right rounded-md border-gray-300 bg-white shadow-lg grid">
+          <div className="w-full absolute top-6 right-0 z-10 mt-4 min-w-min origin-top-right rounded-md border-gray-300 bg-white shadow-lg grid">
             {options.map((option, index) => (
               <button
                 type="button"
@@ -60,6 +60,7 @@ const Dropdown: React.FC<DropdownProps> = ({
             ))}
           </div>
         )}
+        
       </div>
     </div>
   );

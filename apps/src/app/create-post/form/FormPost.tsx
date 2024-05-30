@@ -315,15 +315,15 @@ const FormPost = ({
               ))}
 
               
-              <Button
-                // type="button"
-                onclick={handleAddQuestion}
+              <button
+                type="button"
+                onClick={handleAddQuestion}
                 className="border-none w-fit"
               >
                 <Typography fontSize="h5" color="blue">
                   + Add more question
                 </Typography>
-              </Button>
+              </button>
             </div>
           </div>
         </form>
