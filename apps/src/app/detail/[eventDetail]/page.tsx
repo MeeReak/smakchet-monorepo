@@ -28,8 +28,8 @@ const Homepage: React.FC<CardProps> = ({
 
   return (
 
-    <div className="h-screen w-full bg-[#FAFAFA]">
-      <div className="py-[116px] mx-[195px] flex flex-col">
+    <div className="h-full w-full md:bg-[#FAFAFA] bg-white">
+      <div className="md:py-[116px] py-[59px] md:mx-[195px] flex flex-col">
         {/* Event image section */}
         <div className="flex relative">
           <Image
@@ -87,33 +87,33 @@ const Homepage: React.FC<CardProps> = ({
         </div>
         {/* Event name section */}
         <div className="flex justify-between items-center py-[10px]">
-          <Typography fontWeight="bold" fontSize="h2">
+          <Typography fontWeight="bold" className="line-clamp-1" fontSize="h2">
             {DetailEvent?.title}
           </Typography>
           <Button
             bgColor="primary"
             colorScheme="White"
-            className="px-[24px] py-[16px] !rounded-[10px]"
+            className="px-[24px] md:py-[16px] py-[11px]  !rounded-[10px]"
           >
             <Link href={"../applyForm"}>
-            Apply Now
+            Apply
             </Link>
           </Button>
         </div>
         {/* Event detail section */}
-        <div className="mt-[15px] flex flex-col gap-y-5">
+        <div className="mt-[15px] flex flex-col gap-y-5 bg-white rounded-[10px] p-[10px]">
           <Typography fontSize="h2" fontWeight="bold">
-            Event’s Detail
+            Event&apos;s Detail
           </Typography>
-          <Typography>
-            ការជ្រើសរើសអ្នកស្ម័គ្រចិត្តចាប់ផ្ដើមហើយ!
-            តើអ្នកកំពុងស្វែងរកបទពិសោធន៍ជាមួយការងារស្ម័គ្រចិត្ត?
-            សូមចូលរួមជាមួយក្រុមការងាររបស់យើង
-            ក្លាយជាផ្នែកមួយនៃអ្នករៀបចំពិព័រណ៍វិទ្យាសាស្ត្រ
-            ក្នុងទិវាជាតិវិទ្យាសាស្រ្ត បច្ចេកវិទ្យា និងនវានុវត្តន៍ លើកទី២
-            ឆ្នាំ២០២៤ នៅក្នុងប្រទេសកម្ពុជា! ឈប់ទទួល ថ្ងៃទី ៣ ខែមីនាឆ្នាំ២០២៤!{" "}
-            <br />
-            ——————————————————— <br />
+          <Typography fontSize="h5">
+            ការជ្រើសរើសអ្នកស្ម័គ្រចិត្តចាប់ផ្ដើមហើយ! <br />
+            តើអ្នកកំពុងស្វែងរកបទពិសោធន៍ជាមួយការងារស្ម័គ្រចិត្ត? <br />
+            សូមចូលរួមជាមួយក្រុមការងាររបស់យើង <br />
+            ក្លាយជាផ្នែកមួយនៃអ្នករៀបចំពិព័រណ៍វិទ្យាសាស្ត្រ <br />
+            ក្នុងទិវាជាតិវិទ្យាសាស្រ្ត បច្ចេកវិទ្យា និងនវានុវត្តន៍ លើកទី២ ឆ្នាំ២០២៤ នៅក្នុងប្រទេសកម្ពុជា! <br />
+            ឈប់ទទួល ថ្ងៃទី ៣ ខែមីនាឆ្នាំ២០២៤! <br />
+            {/* <br /> */}
+            ---------------------------------------- <br />
             VOLUNTEER RECRUITMENT IS NOW OPEN! <br />
             Are you a passionate, team oriented and outgoing person looking to
             experience volunteering? <br />
@@ -122,46 +122,12 @@ const Homepage: React.FC<CardProps> = ({
             <br />
             The application is open NOW until the March 3rd, 2024!
           </Typography>
-          <Button
-            className="border-none w-fit"
-            leftIcon={
-              <Image
-                src={"/assets/image/host_profile.png"}
-                alt={"host profile"}
-                width={57}
-                height={57}
-              />
-            }
-          >
-            <div className="ml-4 flex flex-col">
-              <Typography fontWeight="medium">Pheng Sokleng</Typography>
-              <Typography color="blue" fontSize="h5">
-                {" "}
-                View Profile
-              </Typography>
-            </div>
-          </Button>
+         
         </div>
 
         {/* Requirement and Map section */}
-        {/* <div className="flex flex-row mt-[25px] border-t-1 border-[#0000004D] py-[30px]">
-          <div className="flex flex-col w-1/2">
-            <Typography fontWeight="bold" fontSize="h2">
-              Requirement
-            </Typography>
-            <ReqCards />
-          </div>
-          <div className="flex flex-col">
-            <Typography fontWeight="bold" fontSize="h2">
-              Map
-            </Typography>
-            <Map
-              classname="w-[200px]"
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3908.3126568670227!2d104.92259197489524!3d11.601044088602363!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x310951f3148296db%3A0x5b289f3f5cef444!2sSabaiCode!5e0!3m2!1skm!2skh!4v1709280237207!5m2!1skm!2skh"
-            />
-          </div>
-        </div> */}
-        <div className="mt-[25px] grid lg:grid-cols-2 gap-3 max-[1030px]:px-3 border-t-1 border-[#0000004D] py-[30px] ">
+
+        <div className="mt-[25px] grid lg:grid-cols-2 gap-3 max-[1030px]:px-3 border-b-1 border-[#0000001A] ">
           <div className="flex flex-col gap-y-5">
             <Typography fontSize="h2" fontWeight="bold">
               Requirement
@@ -176,10 +142,31 @@ const Homepage: React.FC<CardProps> = ({
               classname="w-full h-[85%]"
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3908.3126568670227!2d104.92259197489524!3d11.601044088602363!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x310951f3148296db%3A0x5b289f3f5cef444!2sSabaiCode!5e0!3m2!1skm!2skh!4v1709280237207!5m2!1skm!2skh"
             />
+             
           </div>
+         
         </div>
+        <Button
+            className=" w-fit !border-none py-4 px-3"
+            leftIcon={
+              <Image
+                src={"/assets/image/host_profile.png"}
+                alt={"host profile"}
+                width={57}
+                height={57}
+              />
+            }
+          >
+            <div className="ml-4 flex flex-col ">
+              <Typography fontSize="h4" fontWeight="semibold"> Pheng Sokleng</Typography>
+              <Typography color="blue" fontSize="h5">
+                {" "}
+                View Profile
+              </Typography>
+            </div>
+          </Button>
         {/* also interested in */}
-        <div className=" border-t-1 border-[#0000004D] py-[25px]">
+        <div className="  py-[25px] border-t-1 border-[#0000001A]">
           <Typography
             fontSize="h2"
             fontWeight="bold"
