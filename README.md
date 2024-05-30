@@ -89,12 +89,8 @@ Our platform supports two types of users, each with distinct features and functi
 - **Communicate**: Use the platform’s messaging system to interact with volunteers.
 - **Track Attendance**: Monitor which volunteers have been accepted and their attendance status.
 
-## Contact
-Rin tithyareak - [Facebook](https://web.facebook.com/mee.reak.9461) 
-<br>
-Peng maleap - [Facebook](https://web.facebook.com/izeerry)
-
+## Link UI
 figma-Link(https://www.figma.com/design/FRi5rN0B2IiiIOSwgiPLW0/SmakChet?t=UgDDxAnRQFHbTo4Q-0)
-<br>
+## Contact
 Team Email( smakchet.team@gmail.com)
 
