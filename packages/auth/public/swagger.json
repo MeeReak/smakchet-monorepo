@@ -51,7 +51,7 @@
 		"securitySchemes": {}
 	},
 	"info": {
-		"title": "api-gateway",
+		"title": "auth",
 		"version": "1.0.0",
 		"license": {
 			"name": "ISC"
@@ -96,12 +96,32 @@
 							"application/json": {
 								"schema": {
 									"properties": {
+										"data": {
+											"properties": {
+												"role": {
+													"type": "string"
+												},
+												"username": {
+													"type": "string"
+												},
+												"email": {
+													"type": "string"
+												}
+											},
+											"required": [
+												"role",
+												"username",
+												"email"
+											],
+											"type": "object"
+										},
 										"token": {},
 										"message": {
 											"type": "string"
 										}
 									},
 									"required": [
+										"data",
 										"token",
 										"message"
 									],
@@ -239,6 +259,113 @@
 						}
 					}
 				]
+			}
+		},
+		"/v1/auth/forgot-password": {
+			"post": {
+				"operationId": "ForgotPassword",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {}
+							}
+						}
+					}
+				},
+				"security": [],
+				"parameters": [],
+				"requestBody": {
+					"required": true,
+					"content": {
+						"application/json": {
+							"schema": {
+								"properties": {
+									"email": {
+										"type": "string"
+									}
+								},
+								"required": [
+									"email"
+								],
+								"type": "object"
+							}
+						}
+					}
+				}
+			}
+		},
+		"/v1/auth/reset-password/token": {
+			"post": {
+				"operationId": "VerifyToken",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {}
+							}
+						}
+					}
+				},
+				"security": [],
+				"parameters": [
+					{
+						"in": "query",
+						"name": "token",
+						"required": true,
+						"schema": {
+							"type": "string"
+						}
+					}
+				]
+			}
+		},
+		"/v1/auth/reset-password": {
+			"post": {
+				"operationId": "ResetPassword",
+				"responses": {
+					"204": {
+						"description": "No content"
+					}
+				},
+				"security": [],
+				"parameters": [],
+				"requestBody": {
+					"required": true,
+					"content": {
+						"application/json": {
+							"schema": {
+								"properties": {
+									"token": {
+										"type": "string"
+									},
+									"password": {
+										"type": "string"
+									}
+								},
+								"required": [
+									"token",
+									"password"
+								],
+								"type": "object"
+							}
+						}
+					}
+				}
+			}
+		},
+		"/v1/auth/logout": {
+			"get": {
+				"operationId": "Logout",
+				"responses": {
+					"204": {
+						"description": "No content"
+					}
+				},
+				"security": [],
+				"parameters": []
 			}
 		}
 	},

@@ -7,6 +7,8 @@ export interface UserProps {
   role?: string;
   facebookId?: string;
   profile?: string;
+  resetPasswordToken?: string;
+  resetPasswordExpires?: Date;
 }
 
 export interface IAuthUserMessageDetails {

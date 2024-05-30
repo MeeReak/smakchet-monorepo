@@ -6,6 +6,7 @@ import { generateVerifyToken } from "@auth/utils/generate";
 import { StatusCode } from "@auth/utils/consts";
 import APIError from "@auth/Errors/api-error";
 import DuplicateError from "@auth/Errors/duplicat-error";
+import mongoose from "mongoose";
 
 export class UserService {
   private userRepo: UserRepository;
@@ -188,6 +189,70 @@ export class UserService {
         throw new APIError("User does not exist", StatusCode.NotFound);
       }
       return await this.userRepo.UpdateUserById({ id: id, newDetail: data });
+    } catch (error: unknown) {
+      throw error;
+    }
+  }
+
+  async saveForgotPasswordToken({ id }: { id: mongoose.Types.ObjectId }) {
+    try {
+      const user = await this.userRepo.FindUserById({ id: id.toString() });
+
+      user!.resetPasswordToken = await generateVerifyToken();
+      user!.resetPasswordExpires = new Date(
+        new Date().getTime() + 1 * 60 * 1000
+      ); // Adding 2 minutes
+      await user?.save();
+
+      return user;
+    } catch (error: unknown) {
+      throw error;
+    }
+  }
+
+  async FindUserByResetToken({ token }: { token: string }) {
+    try {
+      const user = await this.userRepo.findUserByResetToken({
+        resetToken: token,
+      });
+
+      if (!user) {
+        throw new APIError("User not found", StatusCode.NotFound);
+      }
+
+      return user;
+    } catch (error: unknown) {
+      throw error;
+    }
+  }
+
+  async resetPassword({
+    token,
+    password,
+  }: {
+    token: string;
+    password: string;
+  }) {
+    try {
+      const user = await this.userRepo.findUserByResetToken({
+        resetToken: token,
+      });
+
+      if (!user) {
+        throw new APIError("User not found", StatusCode.NotFound);
+      }
+
+      if (new Date() > user.resetPasswordExpires!) {
+        throw new APIError("Token is expired", StatusCode.BadRequest);
+      }
+
+      const hashPass = await hashPassword(password!);
+      user!.password = hashPass;
+      user!.resetPasswordToken = undefined;
+      user!.resetPasswordExpires = undefined;
+      await user?.save();
+
+      return user;
     } catch (error: unknown) {
       throw error;
     }

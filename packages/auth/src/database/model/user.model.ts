@@ -12,6 +12,12 @@ const authSchema = new Schema(
     password: {
       type: String,
     },
+    resetPasswordToken: {
+      type: String,
+    },
+    resetPasswordExpires: {
+      type: Date,
+    },
     isVerify: {
       type: Boolean,
       default: false,

@@ -112,9 +112,13 @@ export class UserController {
 
       const respone = await axios.post("http://user:3003/v1/user", data);
       const jwtToken = await generateToken(respone.data.data._id, user.role!);
-      const {email , username , role} = data;
+      const { email, username, role } = data;
 
-      return { message: "User verify email successfully", token: jwtToken , data:{email,username ,role} };
+      return {
+        message: "User verify email successfully",
+        token: jwtToken,
+        data: { email, username, role },
+      };
     } catch (error: unknown) {
       console.error("Error during verify", error);
       throw new APIError(
@@ -267,6 +271,104 @@ export class UserController {
     } catch (error: unknown) {
       throw new APIError(
         "An error occurred during Facebook login",
+        StatusCode.InternalServerError
+      );
+    }
+  }
+
+  @Post("/forgot-password")
+  async ForgotPassword(@Body() requestBody: { email: string }): Promise<any> {
+    try {
+      const { email } = requestBody;
+
+      const user = await this.userService.findUserByEmail({ email });
+
+      if (!user) {
+        throw new APIError("User not found", StatusCode.NotFound);
+      }
+
+      const token = await this.userService.saveForgotPasswordToken({
+        id: user._id,
+      });
+
+      const messageDetails = {
+        username: user.username,
+        receiverEmail: user.email,
+        verifyLink: `${token?.resetPasswordToken}`,
+        template: "forgotPassword",
+      };
+
+      await publishDirectMessage(
+        authChannel,
+        "smackchet-email-notification",
+        "auth-email",
+        JSON.stringify(messageDetails),
+        "Reset password message has been sent to notification service"
+      );
+
+      return {
+        message: "Forgot password token has been sent to your email.",
+        data: email,
+      };
+    } catch (error: unknown) {
+      console.error("Error during forgot password", error);
+      throw new APIError(
+        "An error occurred during forgot password",
+        StatusCode.InternalServerError
+      );
+    }
+  }
+
+  @Post("/reset-password/token")
+  async VerifyToken(@Query() token: string): Promise<any> {
+    try {
+      const user = await this.userService.FindUserByResetToken({
+        token,
+      });
+
+      return {
+        message: "Token is valid. Please reset your password",
+        data: user,
+      };
+    } catch (error: unknown) {
+      console.error("Error during reset password", error);
+      throw new APIError(
+        "An error occurred during reset password",
+        StatusCode.InternalServerError
+      );
+    }
+  }
+
+  @Post("/reset-password")
+  async ResetPassword(
+    @Body() requestBody: { password: string; token: string }
+  ) {
+    try {
+      const { password, token } = requestBody;
+      const user = await this.userService.resetPassword({ token, password });
+
+      const messageDetails = {
+        username: user.username,
+        receiverEmail: user.email,
+        template: "resetPasswordSuccess"
+      };
+
+      await publishDirectMessage(
+        authChannel,
+        "smackchet-email-notification",
+        "auth-email",
+        JSON.stringify(messageDetails),
+        "Reset password message has been sent to notification service"
+      );
+
+
+      return {
+        message: "Password reset successfully",
+      };
+    } catch (error: unknown) {
+      console.log("Error during reset password", error);
+      throw new APIError(
+        "An error occurred during reset password",
         StatusCode.InternalServerError
       );
     }
