@@ -1,9 +1,8 @@
 "use client";
 
 import React from "react";
-import { Trending, FilteredCardDisplay} from "@/components";
+import { Trending, FilteredCardDisplay } from "@/components";
 import Image from "next/image";
-
 
 const Homepage = () => {
   return (
@@ -16,18 +15,18 @@ const Homepage = () => {
               src="/assets/image/volunteer.svg"
               alt=""
               width={500}
-              height={250}
-              className="rounded-xl"
-            ></Image>
+              height={200}
+              className="rounded-xl h-[250px] w-[500px] object-cover"
+            />
           }
           secondEvent={
             <Image
               src="/assets/image/volunteer.svg"
               alt=""
               width={500}
-              height={250}
-              className="rounded-xl"
-            ></Image>
+              height={200}
+              className="rounded-xl h-[250px] w-[500px] object-cover"
+            />
           }
         />
 
