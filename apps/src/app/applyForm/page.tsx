@@ -12,6 +12,8 @@ import {
 import Image from "next/image";
 
 import { useNavigate } from "react-router-dom";
+import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 // interface EventInfoData {
 //   id: string;
@@ -155,11 +157,11 @@ const Page = ({
             />
           }
         >
-          <Typography fontSize="h3" fontWeight="semibold" className="flex justify-start">
+          <Typography fontSize="h2" fontWeight="semibold" className="flex justify-start">
             Apply Form
           </Typography>
         </Button>
-        <form action={""} className="mt-[33px] flex flex-col gap-y-[25px]">
+        <form action={""} className="mt-9 flex flex-col gap-y-[25px]">
           {/* Name, Email Phone number, address section */}
           <div className="py-[25px] px-[25px] bg-white rounded-[10px]">
             {/* Name & Email section */}
@@ -232,7 +234,7 @@ const Page = ({
             <div className="flex flex-col w-full gap-y-5">
               <label htmlFor="name">
                 <Typography fontSize="h4">
-                  Why do you want to join Volunteer?{" "}
+                  Why do you want to join Volunteer?
                 </Typography>
               </label>
               <InputData
@@ -286,13 +288,17 @@ const Page = ({
           </div>
         </form>
 
-        <div className="flex justify-end mt-12">
+        <div className="flex justify-end mt-[34px]">
           <Button
             type="button"
-            className="bg-[#207BFF] flex justify-center items-center w-[102px] h-[43px]"
+            bgColor="primary"
+            size="h4"
+            colorScheme="White"
+            className="py-2 px-[19px] rounded-[10px]"
+
             // onclick={handleSubmit}
           >
-            <Typography color="white">Submit</Typography>
+           Submit
           </Button>
         </div>
       </div>
