@@ -28,17 +28,17 @@ console.log(id)
 
   return (
     <>
-      <div className="group flex max-[640px]:max-w-[500px] w-[350px] md:w-full relative p-[10px] rounded-[10px] hover:bg-gray-200">
+      <div className="group flex max-[640px]:max-w-[500px] w-[350px] md:w-full relative rounded-[10px] p-[15px] hover:bg-gray-100 transition-transform duration-300 transform translate-x-4 group-hover:translate-x-0 ">
         <div className="flex-shrink-0">
           <Image
             src={src}
             alt={alt}
             width={150}
             height={150}
-            className="md:h-[150px] h-[100px] md:w-[150px] w-[100px] object-cover rounded-[10px]"
+            className="md:h-[110px] h-[100px] md:w-[96px] hover:w-[110px] w-[100px] object-cover rounded-[5px]"
           />
         </div>
-        <div className="space-y-1 pl-[10px] md:w-full sm:w-[600px] ">
+        <div className="space-y-1 pl-[10px] md:w-full sm:w-[600px]">
           <Typography
             className="line-clamp-2 "
             fontSize="h3"
