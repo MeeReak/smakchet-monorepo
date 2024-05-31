@@ -1495,3 +1495,88 @@
 [2024-05-15T02:51:48.258Z] [32minfo[39m: 	[32mMongoDB connected[39m
 [2024-05-15T02:51:48.265Z] [32minfo[39m: 	[32mSuccessfully connected to MongoDB[39m
 [2024-05-15T02:51:48.273Z] [32minfo[39m: 	[32mServer is listening on port: 3004[39m
+[2024-05-30T08:37:48.980Z] [32minfo[39m: 	[32mMongoDB connected[39m
+[2024-05-30T08:37:48.983Z] [32minfo[39m: 	[32mSuccessfully connected to MongoDB[39m
+[2024-05-30T08:37:48.986Z] [32minfo[39m: 	[32mServer is listening on port: 3004[39m
+[2024-05-30T08:40:04.774Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-05-30T08:40:04.984Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-05-30T08:40:05.111Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-05-30T08:40:05.225Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-05-30T08:43:25.849Z] [32minfo[39m: 	[32mMongoDB connected[39m
+[2024-05-30T08:43:25.852Z] [32minfo[39m: 	[32mSuccessfully connected to MongoDB[39m
+[2024-05-30T08:43:25.856Z] [32minfo[39m: 	[32mServer is listening on port: 3004[39m
+[2024-05-30T08:43:40.742Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-05-30T08:43:40.834Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-05-30T08:43:40.868Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-05-30T08:43:40.951Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-05-30T08:44:05.403Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-05-30T08:44:05.456Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-05-30T08:44:05.465Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-05-30T08:44:05.515Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-05-30T08:44:49.040Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-05-30T08:44:49.089Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-05-30T08:46:00.401Z] [32minfo[39m: 	[32mMongoDB connected[39m
+[2024-05-30T08:46:00.404Z] [32minfo[39m: 	[32mSuccessfully connected to MongoDB[39m
+[2024-05-30T08:46:00.407Z] [32minfo[39m: 	[32mServer is listening on port: 3004[39m
+[2024-05-30T08:46:32.020Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-05-30T08:46:32.455Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-05-30T08:46:32.470Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-05-30T08:46:32.528Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-05-30T08:54:41.503Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-05-30T08:54:41.679Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-05-30T08:54:41.698Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-05-30T08:54:41.871Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-05-30T08:54:56.986Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-05-30T08:54:57.469Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-05-30T08:54:57.488Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-05-30T08:54:57.659Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-05-30T08:56:20.708Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-05-30T08:56:21.324Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-05-30T08:56:21.344Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-05-30T08:56:21.517Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-05-30T08:56:24.134Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-05-30T08:56:24.344Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-05-30T08:56:24.361Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-05-30T08:56:24.548Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-05-30T09:00:02.796Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-05-30T09:00:03.206Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-05-30T09:00:03.215Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-05-30T09:00:03.652Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-05-30T09:01:52.908Z] [32minfo[39m: 	[32mMongoDB connected[39m
+[2024-05-30T09:01:52.925Z] [32minfo[39m: 	[32mSuccessfully connected to MongoDB[39m
+[2024-05-30T09:01:52.930Z] [32minfo[39m: 	[32mServer is listening on port: 3004[39m
+[2024-05-30T09:01:58.634Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-05-30T09:01:58.712Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-05-30T09:01:58.736Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-05-30T09:01:58.788Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-05-30T09:02:08.789Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-05-30T09:02:08.839Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-05-30T09:02:08.856Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-05-30T09:02:08.902Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-05-30T09:03:57.119Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-05-30T09:03:57.262Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-05-30T09:03:57.278Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-05-30T09:03:57.334Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-05-30T09:21:10.988Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-05-30T09:21:11.098Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-05-30T09:21:11.113Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-05-30T09:21:11.189Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-05-31T02:25:04.395Z] [32minfo[39m: 	[32mMongoDB connected[39m
+[2024-05-31T02:25:04.399Z] [32minfo[39m: 	[32mSuccessfully connected to MongoDB[39m
+[2024-05-31T02:25:04.404Z] [32minfo[39m: 	[32mServer is listening on port: 3004[39m
+[2024-05-31T02:33:05.663Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-05-31T02:33:06.517Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-05-31T02:33:06.653Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-05-31T02:33:06.930Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-05-31T02:36:42.001Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-05-31T02:36:42.130Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-05-31T02:36:42.149Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-05-31T02:36:42.207Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-05-31T02:43:59.602Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-05-31T02:43:59.754Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-05-31T02:43:59.768Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-05-31T02:44:00.114Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-05-31T02:45:30.171Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-05-31T02:45:30.262Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-05-31T02:45:30.278Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-05-31T02:45:30.347Z] [32minfo[39m: 	[32mresponse sent[39m

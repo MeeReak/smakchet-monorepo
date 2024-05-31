@@ -1,6 +1,6 @@
 import express, { NextFunction, Request, Response } from "express";
 import getConfig from "./utils/createConfig";
-import compression from "compression";
+// import compression from "compression";
 import cookieSession from "cookie-session";
 import hpp from "hpp";
 import helmet from "helmet";
@@ -9,8 +9,8 @@ import { applyRateLimit } from "./middlewares/rate-limits";
 import applyProxy from "./middlewares/proxy";
 import { logger } from "./utils/logger";
 import { StatusCode } from "./utils/consts";
-import { verifyUser } from "./middlewares/auth-middleware";
-import unless from "./middlewares/unless-route";
+// import { verifyUser } from "./middlewares/auth-middleware";
+// import unless from "./middlewares/unless-route";
 
 // Create express app
 const app = express();
@@ -21,7 +21,7 @@ const config = getConfig();
 // Security Middleware
 // ===================
 app.set("trust proxy", 1);
-app.use(compression());
+// app.use(compression());
 app.use(
   cookieSession({
     name: "session",
@@ -52,7 +52,6 @@ app.use(
   })
 );
 
-
 // Apply Limit Request
 applyRateLimit(app);
 
@@ -62,7 +61,7 @@ app.disable("x-powered-by");
 // ===================
 // JWT Middleware
 // ===================
-app.use(unless("/v1/auth", verifyUser));
+// app.use(unless("/v1/auth", verifyUser));
 
 // ===================
 // Proxy Middleware

@@ -155,7 +155,12 @@ export class EventController extends Controller {
   @Get("/")
   public async FindAllUser(): Promise<any> {
     try {
-      return await eventService.findAllUser();
+      const event = await eventService.findAllUser();
+
+      if (event.length === 0) {
+        throw new APIError("Event Not Found !!", StatusCode.NotFound);
+      }
+      return event;
     } catch (error: unknown) {
       throw error;
     }

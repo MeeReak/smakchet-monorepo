@@ -3,7 +3,7 @@ import { errorHandler } from "./middlewares/error-handler";
 import hpp from "hpp";
 import helmet from "helmet";
 import cors from "cors";
-import compression from "compression";
+// import compression from "compression";
 import { urlencoded } from "body-parser";
 import getConfig from "./utils/config";
 import loggerMiddleware from "./middlewares/logger-handler";
@@ -24,7 +24,7 @@ app.use(hpp());
 app.use(helmet());
 app.use(
   cors({
-    origin: config.apiGatewayUrl,
+    origin: [config.apiGatewayUrl as string, "http://localhost:9000"],
     credentials: true,
     methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
   })
@@ -33,7 +33,7 @@ app.use(
 // =======================
 // Standard Middleware
 // =======================
-app.use(compression());
+// app.use(compression());
 app.use(express.json({ limit: "200mb" }));
 app.use(urlencoded({ extended: true, limit: "200mb" }));
 app.use(express.static("public"));

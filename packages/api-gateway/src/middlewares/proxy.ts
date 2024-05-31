@@ -66,7 +66,7 @@ const proxyConfigs: ProxyConfig = {
             }
 
             // Modify response to send only the message to the client
-            res.json({ message: responseBody.message});
+            res.json({ message: responseBody.message });
           } catch (error) {
             return res.status(500).json({ message: "Error parsing response" });
           }
@@ -169,7 +169,7 @@ const proxyConfigs: ProxyConfig = {
   [ROUTE_PATHS.EVENT_SERVICE]: {
     target: getConfig().eventServiceUrl,
     changeOrigin: true,
-    selfHandleResponse: true,
+    selfHandleResponse: false,
     pathRewrite: (path, _req) => `${ROUTE_PATHS.EVENT_SERVICE}${path}`,
     on: {
       proxyReq: (
@@ -187,35 +187,35 @@ const proxyConfigs: ProxyConfig = {
         const token = expressReq.session!.jwt;
         proxyReq.setHeader("Authorization", `Bearer ${token}`);
       },
-      proxyRes: (proxyRes, _req, res) => {
-        let originalBody: Buffer[] = [];
-        proxyRes.on("data", function (chunk: Buffer) {
-          originalBody.push(chunk);
-        });
+      // proxyRes: (proxyRes, _req, res) => {
+      //   let originalBody: Buffer[] = [];
+      //   proxyRes.on("data", function (chunk: Buffer) {
+      //     originalBody.push(chunk);
+      //   });
 
-        proxyRes.on("end", function () {
-          const bodyString = Buffer.concat(originalBody).toString("utf8");
+      //   proxyRes.on("end", function () {
+      //     const bodyString = Buffer.concat(originalBody).toString("utf8");
 
-          let responseBody: {
-            message?: string;
-            token?: string;
-            errors?: Array<object>;
-          };
+      //     let responseBody: {
+      //       message?: string;
+      //       token?: string;
+      //       errors?: Array<object>;
+      //     };
 
-          try {
-            responseBody = JSON.parse(bodyString);
+      //     try {
+      //       responseBody = JSON.parse(bodyString);
 
-            // If Response Error
-            if (responseBody.errors) {
-              return res.status(proxyRes.statusCode!).json(responseBody);
-            }
+      //       // If Response Error
+      //       if (responseBody.errors) {
+      //         return res.status(proxyRes.statusCode!).json(responseBody);
+      //       }
 
-            return res.status(proxyRes.statusCode!).json(responseBody);
-          } catch (error) {
-            return res.status(500).json({ message: "Error parsing response" });
-          }
-        });
-      },
+      //       return res.status(proxyRes.statusCode!).json(responseBody);
+      //     } catch (error) {
+      //       return res.status(500).json({ message: "Error parsing response" });
+      //     }
+      //   });
+      // },
       error: (err: NetworkError, _req, res) => {
         logger.error(`Proxy Error: ${err}`);
         switch (err.code) {

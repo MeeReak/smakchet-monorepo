@@ -11,7 +11,7 @@
     "packages/*"
   ],
   "scripts": {
-    "start:dev": "docker-compose up --build",
+    "start:dev": "docker-compose up",
     "start:build": "docker compose up --build",
     "stop:docker": "docker compose down",
     "start:app": "yarn workspace my-app start:dev",
