@@ -214,7 +214,13 @@ export class UserController {
       });
 
       //generate jwtToken
-      return await generateToken(user.id, user.username);
+      const jwtToken = await generateToken(user.id, user.username);
+
+      return {
+        message: "Sigu up with google successfully",
+        token: jwtToken,
+        status: "success",
+      };
     } catch (error: unknown) {
       throw new APIError(
         "An error occurred during Google login",
@@ -248,14 +254,14 @@ export class UserController {
           getConfig().facebookAppSecret
         }&code=${code}&redirect_uri=${getConfig().facebookRedirectUri}`
       );
-
+      
       const { access_token } = data;
-
+      
       // Use access_token to fetch user profile
       const { data: profile } = await axios.get(
         `https://graph.facebook.com/v13.0/me?fields=name,picture&access_token=${access_token}`
       );
-
+      
       //add user to database if new
       const user = await this.userService.create({
         username: profile.name,
@@ -264,14 +270,18 @@ export class UserController {
         isVerify: true,
         role: "Volunteer",
       });
-
+      
       //generate jwtToken
-      return await generateToken(user.id, user.username);
-    } catch (error: unknown) {
-      throw new APIError(
-        "An error occurred during Facebook login",
-        StatusCode.InternalServerError
-      );
+      const jwtToken =  await generateToken(user.id, user.username);
+
+      return {
+        message: "Sign up with facebook successfully",
+        token: jwtToken,
+        status: "success",
+      };
+    } catch (error: unknown | any) {
+      console.log("error", error);
+      throw error;
     }
   }
 
