@@ -13,7 +13,9 @@
 - [Getting Started](#getting-started)
     - [Prerequisites](#prerequisites)
     - [Installation](#installation)
+- [Services](#services)
 - [Usage](#usage)
+- [UI Design](#ui-design)
 - [Contact](#contact)
 
 </details>
@@ -31,15 +33,15 @@ and secure communication tools, we make it easy for volunteers to find events th
 
 Join us in creating a more engaged and connected community, one volunteer opportunity at a time.
 
-## Vision and Mission
-### Vision
-Connect volunteers with impactful opportunities, fostering community engagement and personal growth through meaningful volunteer experiences.
-### Mission
-To provide a seamless platform where organizers can post volunteer opportunities and volunteers can easily find and apply for roles that match their skills and interests.
-## Business Model Canvas
-
-To explore further details about our project, please click [link](https://docs.google.com/document/d/1VNUB89YcIxfmsaoYeymQYLaif8pki6BO6PQ8GIm3lfM/edit?usp=sharing) to see our business Canvas.
-
+## Strategic Overview
+### Business Model Canvas
+You can view our detailed Business Model Canvas [here](https://www.canva.com/design/DAGGq8O8uUI/45g4IzFRbRpebs2WNCMwvA/edit?utm_content=DAGGq8O8uUI&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton)
+### Product Vision
+Our detailed Product Vision document can be found [here](https://www.canva.com/design/DAGGG35kASc/aQ6uuIZV51Ge6TS-U3WlZg/edit?utm_content=DAGGG35kASc&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton)
+Our vision and mission provide the foundational direction for Volunteer Connect:
+### Vision and Mission
+- **Vision**: "Connect volunteers with impactful opportunities, fostering community engagement and personal growth through meaningful volunteer experiences."
+- **Mission**: "To provide a seamless platform where organizers can post volunteer opportunities and volunteers can easily find and apply for roles that match their skills and interests."
 ## Built With
 This section lists major frameworks and libraries used in the Volunteering Platform project:
 
@@ -56,18 +58,21 @@ This section lists major frameworks and libraries used in the Volunteering Platf
 
 ## Project Structure
 ```
-smakchet-monorepo
-|----->apps
-        |---->frontend
-|----->packages
-        |---->api-gateway
-        |---->application
-        |---->auth
-        |---->event
-        |---->notification
-        |---->user
-        |---->volumes
-|----->docker-compose.yaml
+smakchet-monorepo/
+├── apps
+     ├── frontend
+├── packages
+     ├── api-gateway
+     ├── application
+     ├── auth
+     ├── event
+     ├── notification
+     ├── user
+     ├── volumes
+├── .gitignore
+├── package.json
+├── docker-compose.yaml
+├── Readme.md
 ```
 
 ## Getting Started
@@ -79,11 +84,33 @@ Ensure you have the following software installed before proceeding:
 [Docker Desktop](https://www.docker.com/products/docker-desktop/)
 
 #### setup steps
-Build and run the Docker containers:
+1. Clone Project
+Open your terminal and run the following command to clone the project repository:
 ```bash
-yarn start:dev
+git clone https://github.com/MeeReak/smakchet-monorepo.git
+```
+2. Navigate to **smakchet-monorepo** folder:
+```bash
+cd smakchet-monorepo
+```
+3. Build and run the Docker containers:
+```bash
+yarn start:build
 ```
 After completing these steps, your project will be successfully set up locally!
+
+other command
+- **Stop Docker**
+```bash
+yarn stop:docker
+```
+## Services
+- auth service :  a secure and scalable solution for user authentication and management.
+- user service : Manage user accounts
+- event service : CRUD operator and manage events
+- application service : manage volunteer who apply for events
+- notification service : Handle notifications and communication within the system.
+
   ## Usage
 Our platform supports two types of users, each with distinct features and functionalities:
 
@@ -101,8 +128,8 @@ Our platform supports two types of users, each with distinct features and functi
 - **Communicate**: Use the platform’s messaging system to interact with volunteers.
 - **Track Attendance**: Monitor which volunteers have been accepted and their attendance status.
 
-## Link UI
-figma-Link(https://www.figma.com/design/FRi5rN0B2IiiIOSwgiPLW0/SmakChet?t=UgDDxAnRQFHbTo4Q-0)
+## UI Design
+You can view our detailed UI design and some flow [here](https://www.figma.com/design/FRi5rN0B2IiiIOSwgiPLW0/SmakChet?t=UgDDxAnRQFHbTo4Q-0)
 ## Contact
 Team Email( smakchet.team@gmail.com)
 
