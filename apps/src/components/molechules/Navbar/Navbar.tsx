@@ -12,15 +12,39 @@ import {
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { getLocalStorage } from "@/utils/localStorage";
+import Cookies from 'js-cookie';
+import axios from "axios";
 
 const Navbar = () => {
   const [hideNavbar, setHideNavbar] = useState(false);
-  const [isLogin, setIsLogin] = useState(true);
+  const [isLogin, setIsLogin] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
   const [notiOpen, setNotiOpen] = useState(false);
 
+    // }// const cookieValue = Cookies.get('session');
+    // if(cookieValue){
+    //   setIsLogin(true);
+    // }else{
+    //   setIsLogin(false);
+    // }
   useEffect(() => {
-    setIsLogin(getLocalStorage("isLogin") ? getLocalStorage("isLogin") : true);
+    const fetchData = async () => {
+      try {
+        const response = await axios.get("http://localhost:3000/v1/user", {
+          withCredentials: true,
+          headers: {
+            'Authorization': `Bearer ${Cookies.get('session')}`
+          }
+        });
+        alert("response have been send to backend");
+        console.log("response", response);
+      } catch (error) {
+        alert("response have not been send to backend");
+        console.error("Error fetching data", error);
+      }
+    };
+
+    fetchData();
   }, []);
 
   const pathname = usePathname();

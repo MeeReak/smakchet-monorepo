@@ -6,14 +6,19 @@ import axios from "axios";
 const Page = () => {
   const router = useRouter();
   const searchParams = useSearchParams();
+  const token = searchParams.get("token");
   const [verificationStatus, setVerificationStatus] = useState<string>("");
   const handleVerifyEmail = async () => {
-    const token = searchParams.get("token");
     if (token) {
       setVerificationStatus("verifying");
       const status = await verifyEmailToken(token);
       console.log("status: " , status);
-      setVerificationStatus(status);
+      if(status == "error"){
+        setVerificationStatus(status);
+      }else{
+        setVerificationStatus("success");
+        window.location.href = "/"
+      }
     } else {
       setVerificationStatus("no-token");
     }
@@ -25,7 +30,6 @@ const Page = () => {
         `http://localhost:3000/v1/auth/verify?token=${token}`
         ,{withCredentials:true}
       );
-      console.log(response.data);
       return response.data.status;
     } catch (error) {
       console.error("Error verifying email:", error);
@@ -77,13 +81,6 @@ const Page = () => {
             >
               Click to Verify Email
             </button>
-            <p className="mt-4 text-sm">
-              If you’re having trouble clicking the "Verify Email Address"
-              button, copy and paste the URL below into your web browser:
-              <a href="" className="text-blue-600">
-                http://localhost:8000/email/verify/3/1ab7a09a3
-              </a>
-            </p>
           </div>
           {verificationStatus === "verifying" && <p className="text-blue-500">Verifying...</p>}
           {verificationStatus === "success" && (

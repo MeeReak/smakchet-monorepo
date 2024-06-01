@@ -50,8 +50,8 @@ const Page = () => {
           },
         }
       );
-      alert("Please Check Your Email to verify");
-      // window.location.href = "/verify-email"
+      //alert("Please Check Your Email to verify");
+      window.location.href = "/verify-email"
       // console.log("respone data:", response.data);
     } catch (error: any | unknown) {
       if (error) {
