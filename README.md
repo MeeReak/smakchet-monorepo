@@ -1,16 +1,22 @@
 <p align="center"><img src="https://github.com/MeeReak/backend-smakchet/assets/156150555/60021f68-ae1a-4ede-b46e-6d3284054cd2" width="120px"></p>
 <h1 align="center">Smakchet</h1>
 
-## Table of Contents
+<details>
+  <summary>Table of Contents</summary>
+
 - [About The Project](#about-the-project)
-- [Business Model Canvas](#business-model-canvas)
-- [Built With](#built-with)
+- [Strategic Overview](#strategic-overview)
+    - [Business Model Canvas](#business-model-canvas)
+    - [Product Vision](#product-vision)
+    - [Vision and Mission](#vision-and-mission)
 - [Project Structure](#project-structure)
 - [Getting Started](#getting-started)
-  - [Prerequisites](#prerequisites)
-  - [Installation](#installation)
+    - [Prerequisites](#prerequisites)
+    - [Installation](#installation)
 - [Usage](#usage)
 - [Contact](#contact)
+
+</details>
 
 ## About The Project
 In a world where community engagement and social responsibility are more important than ever, 
@@ -24,6 +30,12 @@ for both volunteers and hosts. With user-friendly interfaces, robust search func
 and secure communication tools, we make it easy for volunteers to find events that match their interests and for hosts to find the help they need.
 
 Join us in creating a more engaged and connected community, one volunteer opportunity at a time.
+
+## Vision and Mission
+### Vision
+Connect volunteers with impactful opportunities, fostering community engagement and personal growth through meaningful volunteer experiences.
+### Mission
+To provide a seamless platform where organizers can post volunteer opportunities and volunteers can easily find and apply for roles that match their skills and interests.
 ## Business Model Canvas
 
 To explore further details about our project, please click [link](https://docs.google.com/document/d/1VNUB89YcIxfmsaoYeymQYLaif8pki6BO6PQ8GIm3lfM/edit?usp=sharing) to see our business Canvas.
