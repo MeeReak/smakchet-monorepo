@@ -113,8 +113,11 @@ export class UserController {
       const respone = await axios.post("http://user:3003/v1/user", data);
       const jwtToken = await generateToken(respone.data.data._id, user.role!);
 
-      return { message: "User verify email successfully", token: jwtToken , status: "success"};
-
+      return {
+        message: "User verify email successfully",
+        token: jwtToken,
+        status: "success",
+      };
     } catch (error: unknown) {
       console.error("Error during verify", error);
       throw new APIError(
@@ -153,7 +156,7 @@ export class UserController {
     }&redirect_uri=${
       getConfig().googleRedirectUri as string
     }&response_type=code&scope=profile email`;
-    return url;
+    return { url };
   }
 
   @SuccessResponse(StatusCode.OK, "OK")
@@ -227,7 +230,7 @@ export class UserController {
       const url = `https://www.facebook.com/v11.0/dialog/oauth?client_id=${
         getConfig().facebookAppId
       }&redirect_uri=${getConfig().facebookRedirectUri}`;
-      return url;
+      return { url };
     } catch (error: unknown) {
       throw error;
     }
@@ -346,7 +349,7 @@ export class UserController {
       const messageDetails = {
         username: user.username,
         receiverEmail: user.email,
-        template: "resetPasswordSuccess"
+        template: "resetPasswordSuccess",
       };
 
       await publishDirectMessage(
@@ -356,7 +359,6 @@ export class UserController {
         JSON.stringify(messageDetails),
         "Reset password message has been sent to notification service"
       );
-
 
       return {
         message: "Password reset successfully",

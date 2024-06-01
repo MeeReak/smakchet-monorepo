@@ -49,6 +49,7 @@ const proxyConfigs: ProxyConfig = {
             message?: string;
             token?: string;
             errors?: Array<object>;
+            url?: string;
           };
 
           try {
@@ -65,9 +66,15 @@ const proxyConfigs: ProxyConfig = {
               (req as Request).session!.jwt = responseBody.token;
             }
 
+            if (responseBody.url) {
+              console.log(responseBody.url);
+              return res.redirect(responseBody.url);
+            }
+
             // Modify response to send only the message to the client
             res.json({ message: responseBody.message });
           } catch (error) {
+            console.log(error);
             return res.status(500).json({ message: "Error parsing response" });
           }
         });
