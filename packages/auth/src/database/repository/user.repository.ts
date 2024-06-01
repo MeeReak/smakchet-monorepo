@@ -8,10 +8,11 @@ export class UserRepository {
   async CreateUser(userDetail: UserSignUp) {
     try {
       return await UserModel.create(userDetail);
-    } catch (error: unknown) {
+    } catch (error: unknown | any) {
       if (error instanceof DuplicateError) {
         throw error;
       }
+      console.log("err", error.message);
       throw new APIError("Unable to Create User in Database");
     }
   }

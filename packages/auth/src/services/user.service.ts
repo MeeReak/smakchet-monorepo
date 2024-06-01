@@ -45,13 +45,16 @@ export class UserService {
         }
         throw new DuplicateError("You can't sign up with that email!!");
       }
-
+ 
       let newData = { ...userDetail, password: hasdPassword };
-      return await this.userRepo.CreateUser(newData);
+
+      const user = await this.userRepo.CreateUser(newData);
+      return user
     } catch (error: unknown) {
       if (error instanceof DuplicateError) {
         throw error;
       }
+      console.log("err", error);
       throw new APIError("Somthing went wrong!");
     }
   }
