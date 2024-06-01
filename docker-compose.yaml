@@ -5,8 +5,8 @@ services:
     image: rabbitmq:3.13-rc-management-alpine
     restart: always
     environment:
-      - RABBITMQ_DEFAULT_USER=sarun
-      - RABBITMQ_DEFAULT_PASS=mysarun
+      - RABBITMQ_DEFAULT_USER=myuser
+      - RABBITMQ_DEFAULT_PASS=mypassword
     ports:
       # AMQP protocol port
       - "5672:5672"
@@ -40,6 +40,7 @@ services:
       - ./packages/api-gateway/src:/app/src
     environment:
       # OUTSOURCE SERVICE
+      - RABBITMQ_ENDPOINT=amqp://myuser:mypassword@rabbitmq_container:5672
       - AUTH_SERVICE_URL=http://auth:3001
       - NOTIFICATION_SERVICE_URL=http://notification:3002
       - USER_SERVICE_URL=http://user:3003
@@ -83,31 +84,31 @@ services:
     volumes:
       - ./packages/notification/src:/app/src
     environment:
-      - RABBITMQ_ENDPOINT=amqp://sarun:mysarun@rabbitmq_container:5672
+      - RABBITMQ_ENDPOINT=amqp://myuser:mypassword@rabbitmq_container:5672
     depends_on:
       rabbitmq:
         condition: service_healthy
-  event:
-    container_name: event
-    build:
-      context: ./packages/event
-      dockerfile: Dockerfile.dev
-    restart: always
-    ports:
-      - 3004:3004
-    volumes:
-      - ./packages/event/src:/app/src
-  application:
-    container_name: application
-    build:
-      context: ./packages/application
-      dockerfile: Dockerfile.dev
-    restart: always
-    ports:
-      - 3005:3005
-    env_file: ./packages/application/configs/.env
-    volumes:
-      - ./packages/application/src:/app/src
+  # event:
+  #   container_name: event
+  #   build:
+  #     context: ./packages/event
+  #     dockerfile: Dockerfile.dev
+  #   restart: always
+  #   ports:
+  #     - 3004:3004
+  #   volumes:
+  #     - ./packages/event/src:/app/src
+  # application:
+  #   container_name: application
+  #   build:
+  #     context: ./packages/application
+  #     dockerfile: Dockerfile.dev
+  #   restart: always
+  #   ports:
+  #     - 3005:3005
+  #   env_file: ./packages/application/configs/.env
+  #   volumes:
+  #     - ./packages/application/src:/app/src
 networks:
   default:
     driver: bridge

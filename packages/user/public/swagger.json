@@ -208,6 +208,31 @@
 				"security": [],
 				"parameters": []
 			}
+		},
+		"/v1/user/role": {
+			"get": {
+				"operationId": "Findrole",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"properties": {
+										"role": {}
+									},
+									"required": [
+										"role"
+									],
+									"type": "object"
+								}
+							}
+						}
+					}
+				},
+				"security": [],
+				"parameters": []
+			}
 		}
 	},
 	"servers": [

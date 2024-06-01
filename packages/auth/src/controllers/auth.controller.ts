@@ -114,12 +114,13 @@ export class UserController {
       const jwtToken = await generateToken(respone.data.data._id, user.role!);
 
       return { message: "User verify email successfully", token: jwtToken , status: "success"};
-    } catch (error: unknown) {
+    } catch (error: unknown | any) {
       console.error("Error during verify", error);
-      throw new APIError(
-        "An error occurred during verification",
-        StatusCode.InternalServerError
-      );
+      // throw new APIError(
+      //   "An error occurred during verification",
+      //   StatusCode.InternalServerError
+      // );
+      throw new error;
     }
   }
 
@@ -151,8 +152,8 @@ export class UserController {
       getConfig().googleClientId as string
     }&redirect_uri=${
       getConfig().googleRedirectUri as string
-    }&response_type=code&scope=profile email`;
-    return url;
+    }&response_type=cox   de&scope=profile email`;
+    return {url};
   }
 
   @SuccessResponse(StatusCode.OK, "OK")

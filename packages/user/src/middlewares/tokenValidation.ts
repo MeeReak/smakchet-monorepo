@@ -3,7 +3,7 @@ import jwt from "jsonwebtoken";
 
 export const verifyToken = (req: any, _res: any, next: any) => {
   const token = req.headers.authorization?.split(" ")[1]; // Extract token from Authorization header
-
+  console.log(token);
   if (!token) {
     throw new Error("Token not provided");
   }
@@ -14,8 +14,7 @@ export const verifyToken = (req: any, _res: any, next: any) => {
       id: string;
       role: string;
     };
-
-
+    req.role = decodedToken.role;
     req.id = decodedToken.id; // Attach userId to the request object
     next(); // If token is valid, continue to the next middleware or route handler
   } catch (error: any) {

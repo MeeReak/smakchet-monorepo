@@ -167,4 +167,18 @@ export class UserController extends Controller {
       throw new APIError("Error during user creation", StatusCode.BadRequest);
     }
   }
+
+  @Get("/role")
+  @Middlewares(verifyToken)
+  public async findrole(@Request() request:any){
+    try{
+      const roles = request.role;
+      console.log("role",roles);
+      return {
+        role: roles
+      }
+    }catch(error:unknown | any){
+      throw new error;
+    }
+  }
 }
