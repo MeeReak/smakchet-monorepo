@@ -27,6 +27,20 @@ Open your terminal and run the following command to clone the project repository
 ```bash
 git clone https://github.com/MeeReak/smakchet-monorepo.git
 ```
+2. Navigate to application service
+```bash
+cd smakchet-monorepo/packages/application
+```
+3. Install Dependecies
+```bash
+npm install
+```
+or
+```bash
+yarn
+```
+
+
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
