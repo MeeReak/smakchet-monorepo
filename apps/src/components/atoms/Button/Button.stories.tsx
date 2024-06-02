@@ -2,6 +2,8 @@
 import React from "react";
 import { Meta, StoryObj } from "@storybook/react";
 import { Button, ButtonProps } from "./Button";
+import Image from "next/image";
+
 
 // Define metadata for the Button component story
 const meta: Meta<ButtonProps> = {
@@ -26,61 +28,65 @@ type Story = StoryObj<ButtonProps>;
 // Create various stories for the Button component
 export const Primary: Story = {
   args: {
-
-    colorScheme: 'primary',
+    colorScheme: 'White',
     children: 'Primary Button',
+    bgColor: 'primary',
+    className: 'px-6 py-4 rounded-[10px]',
   },
-};
-
-export const Secondary: Story = {
-  args: {
-    colorScheme: 'secondary',
-    children: 'Secondary Button',
-  },
-};
-
-export const Success: Story = {
-  args: {
-    colorScheme: 'Success',
-    children: 'Success Button',
-  },
+  parameters:{
+    design: {
+      type: "figma",
+      url: "https://www.figma.com/file/FRi5rN0B2IiiIOSwgiPLW0/SmakChet?node-id=5144-2789&t=uxxnp03aGYTQQmFP-4",
+    },
+  }
 };
 
 export const Error: Story = {
   args: {
-    colorScheme: 'Error',
-    children: 'Error Button',
+    colorScheme: 'White',
+    children: 'Button',
+    bgColor: 'Error',
+    className: 'px-[17px] py-[13px]'
+  },
+  parameters:{
+    design: {
+      type: "figma",
+      url: "https://www.figma.com/file/FRi5rN0B2IiiIOSwgiPLW0/SmakChet?node-id=4802-3211&t=uxxnp03aGYTQQmFP-4",
+    },
+  }
+};
+
+
+
+export const LeftIcons: Story = {
+  args: {
+    leftIcon: <Image src={"google.svg"} alt={""} width={20} height={20}/>,
+    children: 'Button with Left Icon',
+    className: "p-4"
+  },
+  parameters: {
+    design:{
+      type: "figma",
+      url: "https://www.figma.com/file/FRi5rN0B2IiiIOSwgiPLW0/SmakChet?node-id=5144-2821&t=uxxnp03aGYTQQmFP-4"
+    },
+  }
+};
+
+export const RightIcons: Story = {
+  args: {
+    rightIcon: <Image src={"assets/icons/profile-bold.svg"} alt={""} width={20} height={20}/>,
+    children: 'Button with Right Icon',
+    className: "w-[250px] h-[75px] !flex !flex-row !justify-between items-center"
+  },
+  parameters:{
+    design: { 
+      type: "figma",
+      url: "https://www.figma.com/file/FRi5rN0B2IiiIOSwgiPLW0/SmakChet?node-id=5144-2797&t=uxxnp03aGYTQQmFP-4",
+    },
   },
 };
 
-export const Warning: Story = {
-  args: {
-    colorScheme: 'Warning',
-    children: 'Warning Button',
-  },
-};
 
-export const WithIcons: Story = {
-  args: {
-    leftIcon: <span>🔍</span>,
-    rightIcon: <span>✔️</span>,
-    children: 'Button with Icons',
-  },
-};
-
-export const Rounded: Story = {
-  args: {
-    round: 'full',
-    children: 'Rounded Button',
-  },
-};
-
-export const Large: Story = {
-  args: {
-    size: 'h1',
-    children: 'Large Button',
-  },
-};
 
 export const WithTopBottomIcons: Story = {
   args: {
