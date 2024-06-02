@@ -21,4 +21,10 @@ export const Default: Story = {
     fontWeight: "normal",
     color: "black",
   },
+  parameters: {
+    design:{
+      type: 'figma',
+      url: "https://www.figma.com/file/FRi5rN0B2IiiIOSwgiPLW0/SmakChet?node-id=5082-3753&t=ApRDS3YhtIuQqKEA-4"
+    }
+  }
 };

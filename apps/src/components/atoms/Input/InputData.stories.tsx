@@ -21,20 +21,36 @@ export const Text: Story = {
   args: {
     placeholder: "Text",
     type: "text",
+    className: "p-2 border-1 border-gray-300"
+  },
+  parameters:{
+    design:{
+      type: 'figma',
+      url: 'https://www.figma.com/file/FRi5rN0B2IiiIOSwgiPLW0/SmakChet?node-id=4864-3402&t=ApRDS3YhtIuQqKEA-4'
+    }
   }
 }
 
-export const Email: Story = {
-    args:{
-        placeholder: "Email",
-        type: "email",
-    }
-}
+// export const Email: Story = {
+//     args:{
+//         placeholder: "Email",
+//         type: "email",
+//         className: 'p-2'
+//     },
+    
+// }
 
 export const Password: Story = {
     args: {
-        placeholder: "Password",
-        type: "password"
+        placeholder: "password",
+        className: "p-2 border-1 border-gray-300",
+        type: 'Password'
+    },
+    parameters:{
+      design:{
+        type: 'figma',
+        url: 'https://www.figma.com/file/FRi5rN0B2IiiIOSwgiPLW0/SmakChet?node-id=5339-8017&t=ApRDS3YhtIuQqKEA-4'
+      }
     }
 }
 
