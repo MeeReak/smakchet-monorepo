@@ -39,7 +39,57 @@ or
 ```bash
 yarn
 ```
+## Configuration
+1. Create a .env file
+- Create a .env file in the configs folder
+- Add necessary environment variables. For example:
 
+```bash
+ENABLE_APM=0
+LOG_LEVEL=XXXX
+NODE_ENV=XXXX
+PORT=XXX
+MONGODB_URL= XXXX
+API_GATEWAY_URL = XXXX
+```
+see more detail in .env.sample
+
+## Running the server
+- Start Server
+```bash
+npm run start:dev
+```
+
+## Usage
+### Making Requests
+To use the API Gateway, you will typically make HTTP requests to it. Here are some common examples:
+1. GET Request Example
+```bash
+curl -X GET http://localhost:3000/path/to/your/service
+```
+2. POST Request Example
+```bash
+curl -X POST http://localhost:3000/path/to/your/service \
+-H "Content-Type: application/json" \
+-d '{"key1":"value1", "key2":"value2"}'
+```
+### Endpoint
+List the main endpoints provided by your API Gateway. For example:
+#### Application Service Endpoint
+```bash
+POST /v1/application : apply for event
+PUT /v1/application/:id : update status if candidate passed or failed
+```
+## Contact
+If you have any questions, issues, or suggestions, please feel free to reach out to us. Here are some ways you can contact the maintainers of this project:
+### Email
+- support Email : meereak168@gmail.com
+- Maintainer Email: smakchet.team@gmail.com
+
+## Troubleshooting
+If you encounter any issues, check the following:
+- Ensure Node.js and npm/yarn are installed and up to date.
+- Verify the environment variables in the .env file are correctly set.
 
 
 <!-- MARKDOWN LINKS & IMAGES -->
