@@ -3,7 +3,6 @@
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import {
-  InputSearch,
   Button,
   ButtonIcon,
   NotiDropdown,
@@ -11,30 +10,29 @@ import {
 } from "@/components";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { getLocalStorage } from "@/utils/localStorage";
-import Cookies from 'js-cookie';
+import Cookies from "js-cookie";
 import axios from "axios";
 
 const Navbar = () => {
   const [hideNavbar, setHideNavbar] = useState(false);
-  const [isLogin, setIsLogin] = useState(false);
+  const [isLogin, setIsLogin] = useState(true);
   const [isOpen, setIsOpen] = useState(false);
   const [notiOpen, setNotiOpen] = useState(false);
 
-    // }// const cookieValue = Cookies.get('session');
-    // if(cookieValue){
-    //   setIsLogin(true);
-    // }else{
-    //   setIsLogin(false);
-    // }
+  // }// const cookieValue = Cookies.get('session');
+  // if(cookieValue){
+  //   setIsLogin(true);
+  // }else{
+  //   setIsLogin(false);
+  // }
   useEffect(() => {
     const fetchData = async () => {
       try {
         const response = await axios.get("http://localhost:3000/v1/user", {
           withCredentials: true,
           headers: {
-            'Authorization': `Bearer ${Cookies.get('session')}`
-          }
+            Authorization: `Bearer ${Cookies.get("session")}`,
+          },
         });
         alert("response have been send to backend");
         console.log("response", response);
@@ -90,7 +88,7 @@ const Navbar = () => {
                       viewBox="0 0 24 24"
                       strokeWidth="1.5"
                       stroke="currentColor"
-                      className="text-gray-600 w-7 h-7 transform "
+                      className="text-gray-600 w-7 h-7 transform hidden sm:block"
                     >
                       <path
                         strokeLinecap="round"
@@ -101,7 +99,7 @@ const Navbar = () => {
                   </Link>
                 )}
 
-                <div className=" border-[1px] ml-5 mr-6 h-12"></div>
+                <div className=" border-[1px] ml-5 mr-6 h-12 hidden sm:block"></div>
                 <Link href="/login">
                   <Button
                     round="lg"
@@ -129,7 +127,7 @@ const Navbar = () => {
                 {pathname !== "/create-post" && (
                   <Link href={"/create-post"}>
                     <ButtonIcon
-                      className="bg-gray-100 text-black rounded-full p-2 hover:bg-[#bdd8ff] hover:text-[#207BFF] transition-all duration-300 ease-in-out hidden sm:flex"
+                      className="bg-gray-100 text-gray-700 rounded-full p-2 hover:bg-[#bdd8ff] hover:text-[#207BFF] transition-all duration-300 ease-in-out hidden sm:flex"
                       icon={
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
@@ -150,12 +148,37 @@ const Navbar = () => {
                   </Link>
                 )}
 
+                {/* Conditionally Render Search Bar */}
+                {pathname !== "/search" && pathname !== "/create-post" && (
+                  <Link href={"/favorite"}>
+                    <ButtonIcon
+                      className="bg-gray-100 text-black rounded-full py-2 ml-[10px]  hover:bg-[#bdd8ff] hover:text-[#207BFF] transition-all duration-300 ease-in-out hidden sm:flex"
+                      icon={
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          strokeWidth="1.5"
+                          stroke="currentColor"
+                          className="text-gray-700 w-6 h-6 transform "
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z"
+                          />
+                        </svg>
+                      }
+                    />
+                  </Link>
+                )}
+
                 {/* Favorite */}
 
                 {pathname !== "/favorite" && (
                   <Link href={"/favorite"}>
                     <ButtonIcon
-                      className="bg-gray-100 text-black rounded-full py-2 ml-[10px]  hover:bg-[#bdd8ff] hover:text-[#207BFF] transition-all duration-300 ease-in-out"
+                      className="bg-gray-100 text-gray-700 rounded-full py-2 ml-[10px]  hover:bg-[#bdd8ff] hover:text-[#207BFF] transition-all duration-300 ease-in-out"
                       icon={
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
@@ -198,7 +221,7 @@ const Navbar = () => {
                 {/* Hamburger Bar*/}
                 <Link href={"/"}>
                   <ButtonIcon
-                    className="bg-gray-100 text-black rounded-full p-2 ml-[10px]  hover:bg-[#bdd8ff] hover:text-[#207BFF] transition-all duration-300 ease-in-out flex sm:hidden"
+                    className="bg-gray-100 text-gray-700 rounded-full p-2 ml-[10px]  hover:bg-[#bdd8ff] hover:text-[#207BFF] transition-all duration-300 ease-in-out flex sm:hidden"
                     icon={
                       <svg
                         xmlns="http://www.w3.org/2000/svg"

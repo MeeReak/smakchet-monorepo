@@ -26,6 +26,7 @@
   "dependencies": {
     "@types/mongoose": "^5.11.97",
     "concurrently": "^8.2.2",
+    "js-cookie": "^3.0.5",
     "tsoa": "^6.2.1"
   }
 }
