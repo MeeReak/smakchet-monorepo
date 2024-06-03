@@ -1,7 +1,7 @@
 "use client";
 
 import { Button, ButtonIcon, Typography, Card, Map } from "@/components";
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { useParams } from "next/navigation";
 import { MyContext } from "@/contexts/CardContext";
 import ReqCards from "@/components/organisms/ReqCards/ReqCards";
@@ -40,9 +40,9 @@ const Applicant: React.FC<ApplicantProps> = ({
     console.log("user decline");
   };
   return (
-    <div className="bg-[#FAFAFA] w-full h-full flex justify-center">
+    <div className="bg-[#FAFAFA] w-full h-full ">
       {/* marign left and right */}
-      <div className="flex flex-col gap-y-[53px] ml-[137px] mr-[170px] pt-[44px] absolute">
+      <div className="flex flex-col gap-y-[53px] ml-[137px] mr-[170px] py-[44px]">
         {/* header */}
         <div className="flex flex-row justify-between align-middle items-center">
           <div>
@@ -66,16 +66,20 @@ const Applicant: React.FC<ApplicantProps> = ({
           <div className="flex flex-row gap-x-4">
             {/* Decline button */}
             <Button
-              onclick={handleDecline}
-              className="text-md border-[0.4px] border-[#E0E0E0]  px-[17px] py-[13px] text-[#E23636] trasition ease-out duration-1000 hover:bg-[#E23636] hover:text-white"
+               onclick={handleDecline}
+               size="h2"
+              className="text-lg border-[0.4px] border-[#E0E0E0]  px-[17px] py-[13px] text-[#E23636] trasition ease-out duration-100 hover:bg-[#E23636] hover:text-white"
             >
-              <Link href={"../applicantTable"}>Reject</Link>
+              <Link href={"../applicantTable"}>
+              
+              Reject
+              </Link>
             </Button>
             {/* Accepted button */} 
             <Button
               colorScheme="White"
               bgColor="primary"
-              className="text-md px-[17px] py-[13px] rounded-[10px] !outline-none !border-none transition ease-out duration-300 hover:bg-[#0068FF] hover:scale-x-110"
+              className="text-lg px-[17px] py-[13px] bg-opacity-80 !outline-none !border-none transition ease-out duration-300 hover:bg-[#0068FF]"
               onclick={handleAccept}
             >
               <Link href={"../applicantTable"}>Accepted</Link>
@@ -83,15 +87,9 @@ const Applicant: React.FC<ApplicantProps> = ({
           </div>
         </div>
         {/* body */}
-        <div className="flex flex-row justify-around gap-x-10 ml-[29px] ">
-          {/* left part 
-                - Profile
-                - name
-                - email
-                - phone number
-                - address 
-          */}
-          <div className="border border-[0.2] border-[#E0E0E0] bg-white rounded-[10px] w-[349px] h-fit">
+        <div className="flex flex-row justify-between">
+          {/* left part */}
+          <div className="border border-[0.2] border-[#E0E0E0] bg-white rounded-[10px] w-[349.81px] h-fit sticky left-0 top-50">
             <div className="my-[30px] flex flex-col gap-y-5">
               <Image
                 src={"/../assets/image/profile.png"}
@@ -101,7 +99,7 @@ const Applicant: React.FC<ApplicantProps> = ({
                 className="self-center rounded-full"
               />
               <div className="flex flex-col mx-[22px] gap-y-5">
-                <div className="flex flex-row gap-x-2">
+                <div className="flex flex-row gap-x-2" >
                   <Image
                     src={"/../assets/icons/profile-outline-blue.svg"}
                     width={16}
@@ -140,11 +138,15 @@ const Applicant: React.FC<ApplicantProps> = ({
               </div>
             </div>
           </div>
-          <div className="border-[0.2px] border-gray-300 bg-red-white rounded-[10px] w-[694px] overflow-y-auto h-[80vh]">
+          {/* right part */}
+          
+         
+
+          <div className="border border-[0.2] border-[#E0E0E0] bg-white rounded-[10px] w-[694px] overflow-y-auto h-[80vh]">
             <div className="my-[30px] mx-[51px] flex flex-col gap-y-[49px]">
-              <div className="flex flex-col gap-y-[13px] ">
-                <Typography className="md:text-base">Why do you apply this volunteer?</Typography>
-                <Typography className="md:text-base">
+              <div className="flex flex-col gap-y-[13px]">
+                <Typography>Why do you apply this volunteer?</Typography>
+                <Typography>
                   {" "}
                   ⇒ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
                   do eiusmod tempor incididunt ut labore et dolore magna aliqua.
@@ -155,8 +157,8 @@ const Applicant: React.FC<ApplicantProps> = ({
               </div>
 
               <div className="flex flex-col gap-y-[13px]">
-                <Typography className="md:text-base">Why do you apply this volunteer?</Typography>
-                <Typography className="md:text-base">
+                <Typography>Why do you apply this volunteer?</Typography>
+                <Typography>
                   {" "}
                   ⇒ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
                   do eiusmod tempor incididunt ut labore et dolore magna aliqua.
@@ -167,8 +169,8 @@ const Applicant: React.FC<ApplicantProps> = ({
               </div>
 
               <div className="flex flex-col gap-y-[13px]">
-                <Typography className="md:text-base">Why do you apply this volunteer?</Typography>
-                <Typography className="md:text-base">
+                <Typography>Why do you apply this volunteer?</Typography>
+                <Typography>
                   {" "}
                   ⇒ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
                   do eiusmod tempor incididunt ut labore et dolore magna aliqua.
@@ -179,8 +181,8 @@ const Applicant: React.FC<ApplicantProps> = ({
               </div>
 
               <div className="flex flex-col gap-y-[13px]">
-                <Typography className="md:text-base">Why do you apply this volunteer?</Typography>
-                <Typography className="md:text-base">
+                <Typography>Why do you apply this volunteer?</Typography>
+                <Typography>
                   {" "}
                   ⇒ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
                   do eiusmod tempor incididunt ut labore et dolore magna aliqua.
@@ -191,8 +193,8 @@ const Applicant: React.FC<ApplicantProps> = ({
               </div>
 
               <div className="flex flex-col gap-y-[13px]">
-                <Typography className="md:text-base">Why do you apply this volunteer?</Typography>
-                <Typography className="md:text-base">
+                <Typography>Why do you apply this volunteer?</Typography>
+                <Typography>
                   {" "}
                   ⇒ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
                   do eiusmod tempor incididunt ut labore et dolore magna aliqua.
@@ -203,6 +205,8 @@ const Applicant: React.FC<ApplicantProps> = ({
               </div>
             </div>
           </div>
+         
+         
         </div>
       </div>
     </div>

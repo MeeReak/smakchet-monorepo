@@ -33,10 +33,7 @@ const Page = () => {
                 />
               }
             >
-              <Link href={"../"}>
-
-              Applied
-              </Link>
+              <Typography fontSize="h3">Applied</Typography>
             </Button>
           </div>
           {/* number of Applied & Accepted */}
