@@ -51,7 +51,7 @@ export const CategoryGroup: React.FC<CategoryGroupProps> = ({
   };
 
   return (
-    <div className="max-w-[1024px] m-auto flex items-center space-x-4">
+    <div className="max-w-[1024px] m-auto flex items-center space-x-4 max-[1030px]:px-5">
       {isActive == true && (
         <ButtonIcon
           onclick={() => {

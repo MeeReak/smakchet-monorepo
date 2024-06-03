@@ -1,22 +1,23 @@
 "use client";
 import { NotificationCard } from "@/components/molechules";
-import { MyContext } from "@/contexts/CardContext";
-import { useParams } from "next/navigation";
 import React, { useState } from "react";
 
 interface NotiListProps {
   className?: string;
-  displayCount?: number
+  displayCount?: number;
 }
 
-interface NotificationCardProps{
-  id: string
-  title: string
-  description: string
-  image: string 
+interface NotificationCardProps {
+  id: string;
+  title: string;
+  description: string;
+  image: string;
 }
 
-const NotiCardList: React.FC<NotiListProps> = ({ className, displayCount=1}) => {
+const NotiCardList: React.FC<NotiListProps> = ({
+  className,
+  displayCount = 5,
+}) => {
   const [NotiInfo, setNotiInfo] = useState<NotificationCardProps[]>([
     {
       id: "1",
@@ -66,18 +67,15 @@ const NotiCardList: React.FC<NotiListProps> = ({ className, displayCount=1}) => 
       description: " is about to end",
       image: "/assets/image/cambodia_book_fair.png",
     },
-   
   ]);
 
   return (
     <>
-      {NotiInfo.slice(0, displayCount ).map((item,index) => (
+      {NotiInfo.slice(0, displayCount).map((item, index) => (
         <NotificationCard
           key={index}
-          classname={`${className}`}
           id={item.id}
           title={item.title}
-          description={item.description}
           image={item.image}
         />
       ))}

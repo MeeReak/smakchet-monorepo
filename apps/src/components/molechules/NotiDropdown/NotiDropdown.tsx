@@ -22,7 +22,7 @@ const NotiDropdown: React.FC<NotiDropdownProps> = ({
           setNotiOpen(!notiOpen);
           setIsOpen(false);
         }}
-        className="bg-gray-100 text-black rounded-full p-2 ml-[10px] hover:bg-[#bdd8ff] hover:text-[#207BFF] transition-all duration-300 ease-in-out hidden sm:flex"
+        className="bg-gray-100 text-gray-700 rounded-full p-2 ml-[10px] hover:bg-[#bdd8ff] hover:text-[#207BFF] transition-all duration-300 ease-in-out hidden sm:flex"
         icon={
           <svg
             width="24"
@@ -46,7 +46,7 @@ const NotiDropdown: React.FC<NotiDropdownProps> = ({
         }
       />
       {notiOpen && (
-        <div className="absolute -right-[100%] mt-2 w-[306px] bg-white rounded-md shadow-lg">
+        <div className="absolute sm:flex hidden -right-[100%] mt-2 bg-white rounded-md shadow-lg max-h-[335px] overflow-scroll ">
           <div className="p-2">
             <Typography fontWeight="bold" fontSize="h3">
               Notification
@@ -61,7 +61,7 @@ const NotiDropdown: React.FC<NotiDropdownProps> = ({
                 </Typography>
               </Link>
             </div>
-            <NotiCardList/>
+            <NotiCardList />
           </div>
         </div>
       )}
