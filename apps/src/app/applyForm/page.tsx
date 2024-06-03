@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
   QuestionForm,
   Typography,
@@ -39,7 +39,7 @@ import { useRouter } from "next/navigation";
 //   answer: any;
 // }
 
-// interface FormData {
+// interface Forlgata {
 //   info: EventInfoData;
 //   questions: Question[];
 // }
@@ -60,7 +60,7 @@ const Page = ({
   //   },
   // ]);
 
-  // const [formData, setFormData] = useState<FormData>({
+  // const [forlgata, setForlgata] = useState<Forlgata>({
   //   info: {
   //     id: Math.random().toString(36).substring(2, 15),
   //     name: "",
@@ -126,14 +126,14 @@ const Page = ({
   // };
 
   // const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
-  //   setFormData({
+  //   setForlgata({
   //     info: {
   //       ...eventInfo, // Update info data with eventInfo props
   //     },
   //     questions: [...questions], // Update questions array
   //   });
   // };
-  // console.log(formData);
+  // console.log(forlgata);
 
   // const BackButton = () => {
   // const navigate = useNavigate();
@@ -141,34 +141,31 @@ const Page = ({
   // const handleBack = () => {
   //   navigate(-1); // This will take you back to the previous page
   // };
-
   return (
     <div className="h-full bg-[#FAFAFA] w-full">
-      <div className="py-[113px] px-[240px]">
-        <Button
-          // onclick={handleBack}
-          className="!border-none w-fit"
+      <div className="py-[133px] lg:mx-[180px]  flex flex-col h-full">
+       <Button
+          className="!border-none w-fit flex justify-start !text-2xl !font-semibold"
           leftIcon={
             <Image
               src={"/assets/icons/back.svg"}
               alt={"go back icon"}
-              width={19}
+              width={25}
               height={10}
             />
           }
         >
-          <Typography fontSize="h2" fontWeight="semibold" className="flex justify-start">
-            Apply Form
-          </Typography>
+          Apply Form
         </Button>
+
         <form action={""} className="mt-9 flex flex-col gap-y-[25px]">
           {/* Name, Email Phone number, address section */}
-          <div className="py-[25px] px-[25px] bg-white rounded-[10px]">
+          <div className="py-[30px] px-[25px] bg-white rounded-[10px] flex flex-col gap-y-5">
             {/* Name & Email section */}
-            <div className="flex flex-row justify-between gap-x-[35px] ">
-              <div className="flex flex-col w-full gap-y-5">
+            <div className="flex md:flex-row flex-col justify-between gap-x-[35px] gap-y-5">
+              <div className="flex flex-col w-full lg:gap-y-5 gap-y-3">
                 <label htmlFor="name">
-                  <Typography fontSize="h4">
+                  <Typography className="lg:!text-xl !text-lg !font-normal">
                     Name <span className="text-red-500">*</span>
                   </Typography>
                 </label>
@@ -180,9 +177,9 @@ const Page = ({
                   className=" h-[50px] pl-6 border-1 border-gray-300"
                 />
               </div>
-              <div className="flex flex-col w-full gap-y-5">
+              <div className="flex flex-col w-full lg:gap-y-5 gap-y-3">
                 <label htmlFor="email">
-                  <Typography fontSize="h4">
+                  <Typography className="lg:!text-xl !text-lg !font-normal">
                     Email <span className="text-red-500">*</span>
                   </Typography>
                 </label>
@@ -197,10 +194,10 @@ const Page = ({
             </div>
 
             {/* Phone number and address section */}
-            <div className="flex flex-row justify-between gap-x-[35px] mt-3">
-              <div className="flex flex-col w-full gap-y-5">
+            <div className="flex md:flex-row flex-col justify-between gap-x-[35px] gap-y-5">
+              <div className="flex flex-col w-full lg:gap-y-5 gap-y-3">
                 <label htmlFor="phonenumber">
-                  <Typography fontSize="h4">
+                  <Typography className="lg:!text-xl !text-lg !font-normal">
                     Phone number <span className="text-red-500">*</span>
                   </Typography>
                 </label>
@@ -212,9 +209,9 @@ const Page = ({
                   className=" h-[50px] pl-6 border-1 border-gray-300"
                 />
               </div>
-              <div className="flex flex-col w-full gap-y-5">
+              <div className="flex flex-col w-full lg:gap-y-5 gap-y-3">
                 <label htmlFor="address">
-                  <Typography fontSize="h4">
+                  <Typography className="lg:!text-xl !text-lg !font-normal">
                     Address <span className="text-red-500">*</span>
                   </Typography>
                 </label>
@@ -230,10 +227,10 @@ const Page = ({
           </div>
 
           {/* 2nd question */}
-          <div className="py-[25px] px-[25px] bg-white rounded-[10px] flex flex-col gap-y-[45px]">
-            <div className="flex flex-col w-full gap-y-5">
-              <label htmlFor="name">
-                <Typography fontSize="h4">
+          <div className="py-[30px] px-[25px] bg-white rounded-[10px] flex flex-col gap-y-[45px]">
+            <div className="flex flex-col w-full lg:gap-y-5 gap-y-3">
+              <label className="lg:!text-xl lg:!font-normal">
+                <Typography className="lg:!text-xl !text-lg !font-normal">
                   Why do you want to join Volunteer?
                 </Typography>
               </label>
@@ -245,9 +242,9 @@ const Page = ({
                 className=" h-[50px] pl-6 border-1 border-gray-300"
               />
             </div>
-            <div className="flex flex-col w-full gap-y-5">
+            <div className="flex flex-col w-full lg:gap-y-[18px] gap-y-3">
               <label htmlFor="yes/no">
-                <Typography fontSize="h4">
+                <Typography className="lg:!text-xl !text-lg !font-normal">
                   Have you ever joined volunteer before?
                 </Typography>
               </label>
@@ -259,30 +256,30 @@ const Page = ({
                   name="yes/no"
                   value={"yes"}
                 />
-                <label htmlFor="yes">Yes</label>
+                <label htmlFor="yes" className="text-base lg:font-normal ">Yes</label>
               </div>
               <div className="flex gap-x-[11px]">
                 <input type="radio" id="no" name="yes/no" value={"no"} />
-                <label htmlFor="no">No</label>
+                <label htmlFor="no" className="lg:text-base lg:font-normal">No</label>
               </div>
             </div>
-            <div className="flex flex-col w-full gap-y-5">
+            <div className="flex flex-col w-full gap-y-[18px]">
               <label htmlFor="checkbox">
-                <Typography fontSize="h4">
-                  What are the benefits of Volunteer
+                <Typography className="lg:!text-xl !text-lg !font-normal">
+                  What are the benefits of Volunteer?
                 </Typography>
               </label>
               <div className="flex flex-row gap-x-4">
                 <input type="checkbox" name="options" id="checkbox1" />
-                <label htmlFor="checkbox1">Communication</label>
+                <label htmlFor="checkbox1" className="lg:text-base lg:font-normal">Communication</label>
               </div>
               <div className="flex flex-row gap-x-4">
                 <input type="checkbox" name="options" id="checkbox2" />
-                <label htmlFor="checkbox2">Fun</label>
+                <label htmlFor="checkbox2" className="lg:text-base lg:font-normal">Fun</label>
               </div>
               <div className="flex flex-row gap-x-4">
                 <input type="checkbox" name="options" id="checkbox3" />
-                <label htmlFor="checkbox3">Socialize</label>
+                <label htmlFor="checkbox3" className="lg:text-base lg:font-normal">Socialize</label>
               </div>
             </div>
           </div>
@@ -292,9 +289,8 @@ const Page = ({
           <Button
             type="button"
             bgColor="primary"
-            size="h4"
             colorScheme="White"
-            className="py-2 px-[19px] rounded-[10px]"
+            className="w-[102px] h-[43px] !justify-center rounded-[10px]"
 
             // onclick={handleSubmit}
           >
