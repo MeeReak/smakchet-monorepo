@@ -40,9 +40,9 @@ const Applicant: React.FC<ApplicantProps> = ({
     console.log("user decline");
   };
   return (
-    <div className="bg-[#FAFAFA]">
+    <div className="bg-[#FAFAFA] w-full h-full flex justify-center">
       {/* marign left and right */}
-      <div className="flex flex-col gap-y-[53px] ml-[137px] mr-[170px] mt-[44px]">
+      <div className="flex flex-col gap-y-[53px] ml-[137px] mr-[170px] pt-[44px] absolute">
         {/* header */}
         <div className="flex flex-row justify-between align-middle items-center">
           <div>
@@ -57,7 +57,7 @@ const Applicant: React.FC<ApplicantProps> = ({
                 />
               }
             >
-              <Typography fontSize="h3">
+              <Typography fontSize="h3" fontWeight="medium">
                 <Link href={"../applicantTable"}>{Detailapplicant?.name}</Link>
               </Typography>
             </Button>
@@ -69,12 +69,13 @@ const Applicant: React.FC<ApplicantProps> = ({
               onclick={handleDecline}
               className="text-md border-[0.4px] border-[#E0E0E0]  px-[17px] py-[13px] text-[#E23636] trasition ease-out duration-1000 hover:bg-[#E23636] hover:text-white"
             >
-              <Link href={"../applicantTable"}>Decline</Link>
+              <Link href={"../applicantTable"}>Reject</Link>
             </Button>
-            {/* Accepted button */}
+            {/* Accepted button */} 
             <Button
               colorScheme="White"
-              className="text-md px-[17px] py-[13px] bg-[#207BFF] !outline-none !border-none transition ease-out duration-300 hover:bg-[#0068FF] hover:scale-x-110"
+              bgColor="primary"
+              className="text-md px-[17px] py-[13px] rounded-[10px] !outline-none !border-none transition ease-out duration-300 hover:bg-[#0068FF] hover:scale-x-110"
               onclick={handleAccept}
             >
               <Link href={"../applicantTable"}>Accepted</Link>
@@ -82,7 +83,7 @@ const Applicant: React.FC<ApplicantProps> = ({
           </div>
         </div>
         {/* body */}
-        <div className="flex flex-row justify-around gap-x-10 ml-[29px]">
+        <div className="flex flex-row justify-around gap-x-10 ml-[29px] ">
           {/* left part 
                 - Profile
                 - name
@@ -107,7 +108,7 @@ const Applicant: React.FC<ApplicantProps> = ({
                     height={16}
                     alt="profile-outline-blue"
                   />
-                  <Typography>{Detailapplicant?.name}</Typography>
+                  <Typography className="md:text-base">{Detailapplicant?.name}</Typography>
                 </div>
                 <div className="flex flex-row gap-x-2">
                   <Image
@@ -116,7 +117,7 @@ const Applicant: React.FC<ApplicantProps> = ({
                     height={16}
                     alt="profile-outline-blue"
                   />
-                  <Typography>{Detailapplicant?.gmail}</Typography>
+                  <Typography className="md:text-base">{Detailapplicant?.gmail}</Typography>
                 </div>
                 <div className="flex flex-row gap-x-2">
                   <Image
@@ -125,7 +126,7 @@ const Applicant: React.FC<ApplicantProps> = ({
                     height={16}
                     alt="phone-outline-blue"
                   />
-                  <Typography>01234567</Typography>
+                  <Typography className="md:text-base">01234567</Typography>
                 </div>
                 <div className="flex flex-row gap-x-2">
                   <Image
@@ -134,16 +135,16 @@ const Applicant: React.FC<ApplicantProps> = ({
                     height={16}
                     alt="address-outline-blue"
                   />
-                  <Typography>Phnom Penh</Typography>
+                  <Typography className="md:text-base">Phnom Penh</Typography>
                 </div>
               </div>
             </div>
           </div>
-          <div className="border border-[0.2] border-[#E0E0E0] bg-white rounded-[10px] w-[694px] ">
+          <div className="border-[0.2px] border-gray-300 bg-red-white rounded-[10px] w-[694px] overflow-y-auto h-[80vh]">
             <div className="my-[30px] mx-[51px] flex flex-col gap-y-[49px]">
-              <div className="flex flex-col gap-y-[13px]">
-                <Typography>Why do you apply this volunteere?</Typography>
-                <Typography>
+              <div className="flex flex-col gap-y-[13px] ">
+                <Typography className="md:text-base">Why do you apply this volunteer?</Typography>
+                <Typography className="md:text-base">
                   {" "}
                   ⇒ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
                   do eiusmod tempor incididunt ut labore et dolore magna aliqua.
@@ -154,8 +155,8 @@ const Applicant: React.FC<ApplicantProps> = ({
               </div>
 
               <div className="flex flex-col gap-y-[13px]">
-                <Typography>Why do you apply this volunteere?</Typography>
-                <Typography>
+                <Typography className="md:text-base">Why do you apply this volunteer?</Typography>
+                <Typography className="md:text-base">
                   {" "}
                   ⇒ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
                   do eiusmod tempor incididunt ut labore et dolore magna aliqua.
@@ -166,8 +167,8 @@ const Applicant: React.FC<ApplicantProps> = ({
               </div>
 
               <div className="flex flex-col gap-y-[13px]">
-                <Typography>Why do you apply this volunteere?</Typography>
-                <Typography>
+                <Typography className="md:text-base">Why do you apply this volunteer?</Typography>
+                <Typography className="md:text-base">
                   {" "}
                   ⇒ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
                   do eiusmod tempor incididunt ut labore et dolore magna aliqua.
@@ -178,8 +179,8 @@ const Applicant: React.FC<ApplicantProps> = ({
               </div>
 
               <div className="flex flex-col gap-y-[13px]">
-                <Typography>Why do you apply this volunteere?</Typography>
-                <Typography>
+                <Typography className="md:text-base">Why do you apply this volunteer?</Typography>
+                <Typography className="md:text-base">
                   {" "}
                   ⇒ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
                   do eiusmod tempor incididunt ut labore et dolore magna aliqua.
@@ -190,8 +191,8 @@ const Applicant: React.FC<ApplicantProps> = ({
               </div>
 
               <div className="flex flex-col gap-y-[13px]">
-                <Typography>Why do you apply this volunteere?</Typography>
-                <Typography>
+                <Typography className="md:text-base">Why do you apply this volunteer?</Typography>
+                <Typography className="md:text-base">
                   {" "}
                   ⇒ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
                   do eiusmod tempor incididunt ut labore et dolore magna aliqua.

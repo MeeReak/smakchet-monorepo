@@ -23,6 +23,7 @@ const NotificationCard: React.FC<NotificationCardProp> = ({ title, image }) => {
             {`${title}`} <span className="font-normal"> is about to start</span>
           </Typography>
           <Typography color="blue">11 hours ago</Typography>
+
         </div>
       </div>
     </div>
