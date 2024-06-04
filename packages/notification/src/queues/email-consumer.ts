@@ -45,7 +45,8 @@ export async function consumeAuthEmailMessages(
             appLink: `${getConfig().clientUrl}`,
             appIcon: ``,
             username,
-            verifyLink: `http://localhost:3001/v1/auth/verify?token=${verifyLink}`,
+            //verifyLink: `http://localhost:3000/v1/auth/verify?token=${verifyLink}`,
+            verifyLink: `${getConfig().clientUrl}/v1/auth/verify?token=${verifyLink}`
           };
           break;
         case 'forgotPassword':
