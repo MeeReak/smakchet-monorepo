@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import Image from "next/image";
 import {
   Button,
@@ -10,6 +10,7 @@ import {
 } from "@/components";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { getLocalStorage } from "@/utils/localStorage";
 import Cookies from "js-cookie";
 import axios from "axios";
 
@@ -18,42 +19,32 @@ const Navbar = () => {
   const [isLogin, setIsLogin] = useState(true);
   const [isOpen, setIsOpen] = useState(false);
   const [notiOpen, setNotiOpen] = useState(false);
-
-  // }// const cookieValue = Cookies.get('session');
-  // if(cookieValue){
-  //   setIsLogin(true);
-  // }else{
-  //   setIsLogin(false);
-  // }
-  // useEffect(() => {
-  //   const fetchData = async () => {
-  //     try {
-  //       const response = await axios.get("http://localhost:3000/v1/user", {
-  //         withCredentials: true,
-  //         headers: {
-  //           Authorization: `Bearer ${Cookies.get("session")}`,
-  //         },
-  //       });
-  //       alert("response have been send to backend");
-  //       console.log("response", response);
-  //     } catch (error) {
-  //       alert("response have not been send to backend");
-  //       console.error("Error fetching data", error);
-  //     }
-  //   };
-
-  //   fetchData();
-  // }, []);
+  const [role, setRole] = useState("");
 
   const pathname = usePathname();
 
   useEffect(() => {
     const handleResize = () => {
       const isDetailRoute = window.location.pathname.startsWith("/detail/");
-      const isSmallScreen = window.innerWidth < 640; // Adjust breakpoint as needed
+      const isSmallScreen = window.innerWidth < 640;
       setHideNavbar(isDetailRoute && isSmallScreen);
     };
 
+    const fetchData = async () => {
+      try {
+        const response = await axios.get("http://localhost:3000/v1/user/role", {
+          withCredentials: true,
+        });
+        setRole(response.data.data);
+        setIsLogin(true);
+        console.log(response.data.data);
+        return response.data.data;
+      } catch (error) {
+        console.error("Error fetching data", error);
+      }
+    };
+    fetchData();
+    handleResize(); // Call initially to set the state based on the current window size
     window.addEventListener("resize", handleResize);
 
     // Cleanup function to remove event listener on component unmount
@@ -123,8 +114,35 @@ const Navbar = () => {
               </>
             ) : (
               <>
+                {/* Search */}
+
+                {/* Conditionally Render Search Bar */}
+                {pathname !== "/search" && pathname !== "/create-post" && (
+                  <Link href={"/search"}>
+                    <ButtonIcon
+                      className="bg-gray-100 text-black rounded-full py-2 ml-[10px]  hover:bg-[#bdd8ff] hover:text-[#207BFF] transition-all duration-300 ease-in-out hidden sm:flex"
+                      icon={
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          strokeWidth="1.5"
+                          stroke="currentColor"
+                          className="text-gray-700 w-6 h-6 transform "
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z"
+                          />
+                        </svg>
+                      }
+                    />
+                  </Link>
+                )}
+
                 {/* Create */}
-                {pathname !== "/create-post" && (
+                {pathname !== "/create-post" && role == "Organizer" && (
                   <Link href={"/create-post"}>
                     <ButtonIcon
                       className="bg-gray-100 text-gray-700 rounded-full p-2 hover:bg-[#bdd8ff] hover:text-[#207BFF] transition-all duration-300 ease-in-out hidden sm:flex"
@@ -175,7 +193,7 @@ const Navbar = () => {
 
                 {/* Favorite */}
 
-                {pathname !== "/favorite" && (
+                {pathname !== "/favorite" && role == "Volunteer" && (
                   <Link href={"/favorite"}>
                     <ButtonIcon
                       className="bg-gray-100 text-gray-700 rounded-full py-2 ml-[10px]  hover:bg-[#bdd8ff] hover:text-[#207BFF] transition-all duration-300 ease-in-out"

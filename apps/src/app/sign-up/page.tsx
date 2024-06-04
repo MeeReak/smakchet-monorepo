@@ -49,10 +49,11 @@ const Page = () => {
             "Content-Type": "application/json",
           },
         }
-      );
+      ); 
+      const token =  response.data.verify_token;
       //alert("Please Check Your Email to verify");
-      window.location.href = "/verify-email"
-      // console.log("respone data:", response.data);
+      window.location.href = `/verify-email?token=${token}`
+      //console.log("respone data:", response.data.verify_token);
     } catch (error: any | unknown) {
       if (error) {
         // Check if error exists
