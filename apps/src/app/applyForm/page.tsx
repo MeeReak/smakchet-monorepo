@@ -1,6 +1,5 @@
 "use client";
-
-import React, { useEffect, useState } from "react";
+import React, { FC, FormEvent, useEffect, useState } from "react";
 import {
   QuestionForm,
   Typography,
@@ -10,12 +9,59 @@ import {
   ButtonIcon,
 } from "@/components";
 import Image from "next/image";
+import { validationSchema } from "@/utils/validationSchema";
 
-const Page = () => {
+interface ApplyFormProps {
+  onNext: (ApplyForm: ApplyFormData) => void;
+}
+
+interface ApplyFormData {
+  id?: string;
+  name: string;
+  email: string;
+  address: string;
+  phonenumber: string;
+}
+const Page: FC<ApplyFormProps> = ({ onNext }) => {
+  const [info, setInfo] = useState<ApplyFormData>({
+    id: Math.random().toString(36).substring(2, 15),
+    name: "",
+    email: "",
+    address: "",
+    phonenumber: "",
+  });
+
+  const [errors, setErrors] = useState<any>({});
+
+  const handleChange = (e: any) => {
+    setInfo({ ...info, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = () => {
+    console.log(info.address)
+    validationSchema
+      .validate(info, { abortEarly: false })
+      .then((validData: any) => {
+        console.log("Validation Success: ", validData);
+        setErrors({});
+        onNext(validData);
+      })
+      .catch((err) => {
+        console.error("Validation Error: ", err);
+        if (err && err.inner) { // Check if err and err.inner exist
+          const newErrors = err.inner.reduce((acc: any, error: any) => {
+            acc[error.path] = error.message;
+            return acc;
+          }, {});
+          setErrors(newErrors);
+        }
+      });
+  };
+
   return (
     <div className="h-full bg-[#FAFAFA] w-full">
       <div className="py-[133px] lg:mx-[180px]  flex flex-col h-full">
-       <Button
+        <Button
           className="!border-none w-fit flex justify-start !text-2xl !font-semibold"
           leftIcon={
             <Image
@@ -47,12 +93,18 @@ const Page = () => {
                   </Typography>
                 </label>
                 <InputData
-                  id=""
+                  id="name"
+                  onChange={handleChange}
                   name="name"
                   type={"text"}
                   placeholder="Name"
                   className=" h-[50px] pl-6 border-1 border-gray-300"
                 />
+                {errors.name && (
+                  <Typography className="!text-base" color="red">
+                    {errors.name}
+                  </Typography>
+                )}
               </div>
               <div className="flex flex-col w-full lg:gap-y-5 gap-y-3">
                 <label htmlFor="email">
@@ -61,12 +113,18 @@ const Page = () => {
                   </Typography>
                 </label>
                 <InputData
-                  id=""
+                  id="email"
+                  onChange={handleChange}
                   name="email"
                   type={"email"}
                   placeholder="Email"
                   className=" h-[50px] pl-6 border-1 border-gray-300"
                 />
+                {errors.email && (
+                  <Typography className="!text-base" color="red">
+                    {errors.email}
+                  </Typography>
+                )}
               </div>
             </div>
 
@@ -79,12 +137,18 @@ const Page = () => {
                   </Typography>
                 </label>
                 <InputData
-                  id=""
+                  id="phnomnumber"
+                  onChange={handleChange}
                   name="phonenumber"
                   type={"text"}
                   placeholder="Phone number"
                   className=" h-[50px] pl-6 border-1 border-gray-300"
                 />
+                {errors.phonenumber && (
+                  <Typography className="!text-base" color="red">
+                    {errors.phonenumber}
+                  </Typography>
+                )}
               </div>
               <div className="flex flex-col w-full lg:gap-y-5 gap-y-3">
                 <label htmlFor="address">
@@ -93,12 +157,18 @@ const Page = () => {
                   </Typography>
                 </label>
                 <InputData
-                  id=""
+                  id="address"
+                  onChange={handleChange}
                   name="address"
                   type={"text"}
                   placeholder="Address"
                   className=" h-[50px] pl-6 border-1 border-gray-300"
                 />
+                {errors.address && (
+                  <Typography className="!text-base" color="red">
+                    {errors.address}
+                  </Typography>
+                )}
               </div>
             </div>
           </div>
@@ -112,8 +182,9 @@ const Page = () => {
                 </Typography>
               </label>
               <InputData
-                id=""
-                name="name"
+                id="answer"
+                name="answer"
+                onChange={handleChange}
                 type={"text"}
                 placeholder="Answer"
                 className=" h-[50px] pl-6 border-1 border-gray-300"
@@ -127,17 +198,22 @@ const Page = () => {
               </label>
               <div className="flex gap-x-[11px]">
                 <input
-                  className=""
+                  className="yes/no"
+                  onCanPlay={handleChange}
                   id="yes"
                   type="radio"
                   name="yes/no"
                   value={"yes"}
                 />
-                <label htmlFor="yes" className="text-base lg:font-normal ">Yes</label>
+                <label htmlFor="yes" className="text-base lg:font-normal ">
+                  Yes
+                </label>
               </div>
               <div className="flex gap-x-[11px]">
                 <input type="radio" id="no" name="yes/no" value={"no"} />
-                <label htmlFor="no" className="lg:text-base lg:font-normal">No</label>
+                <label htmlFor="no" className="lg:text-base lg:font-normal">
+                  No
+                </label>
               </div>
             </div>
             <div className="flex flex-col w-full gap-y-[18px]">
@@ -148,15 +224,30 @@ const Page = () => {
               </label>
               <div className="flex flex-row gap-x-4">
                 <input type="checkbox" name="options" id="checkbox1" />
-                <label htmlFor="checkbox1" className="lg:text-base lg:font-normal">Communication</label>
+                <label
+                  htmlFor="checkbox1"
+                  className="lg:text-base lg:font-normal"
+                >
+                  Communication
+                </label>
               </div>
               <div className="flex flex-row gap-x-4">
                 <input type="checkbox" name="options" id="checkbox2" />
-                <label htmlFor="checkbox2" className="lg:text-base lg:font-normal">Fun</label>
+                <label
+                  htmlFor="checkbox2"
+                  className="lg:text-base lg:font-normal"
+                >
+                  Fun
+                </label>
               </div>
               <div className="flex flex-row gap-x-4">
                 <input type="checkbox" name="options" id="checkbox3" />
-                <label htmlFor="checkbox3" className="lg:text-base lg:font-normal">Socialize</label>
+                <label
+                  htmlFor="checkbox3"
+                  className="lg:text-base lg:font-normal"
+                >
+                  Socialize
+                </label>
               </div>
             </div>
           </div>
@@ -168,8 +259,7 @@ const Page = () => {
             bgColor="primary"
             colorScheme="White"
             className="w-[102px] h-[43px] !justify-center rounded-[10px]"
-
-            // onclick={handleSubmit}
+            onclick={handleSubmit}
           >
             Submit
           </Button>
