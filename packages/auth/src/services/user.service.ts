@@ -88,6 +88,7 @@ export class UserService {
   // delect that token from the database
   async verifyEmail(token: string) {
     try {
+
       const exitedToken = await this.tokenRepo.FindTokenByToken({ token });
 
       //check if the token is invalid

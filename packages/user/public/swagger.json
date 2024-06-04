@@ -219,10 +219,10 @@
 							"application/json": {
 								"schema": {
 									"properties": {
-										"role": {}
+										"data": {}
 									},
 									"required": [
-										"role"
+										"data"
 									],
 									"type": "object"
 								}
