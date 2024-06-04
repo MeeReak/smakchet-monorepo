@@ -37,7 +37,7 @@ const UserProfileDropdown: React.FC<UserProfileDropdownProps> = ({
             setIsOpen(!isOpen);
             setNotiOpen(false);
           }}
-          className="ml-[10px] bg-gray-100 hover:bg-[#bdd8ff] text-white rounded-full p-2 max-[640px]:hidden"
+          className="ml-[10px] bg-gray-100 hover:bg-[#bdd8ff] text-white rounded-full p-2 sm:flex hidden"
           icon={
             <svg
               width="24"

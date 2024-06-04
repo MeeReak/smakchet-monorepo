@@ -32,7 +32,6 @@ interface ContextProps {
   CardInfo: CardModal[];
   CardUser: CardUser[];
   setCardInfo: React.Dispatch<React.SetStateAction<CardModal[]>>;
-  setUserInfo: React.Dispatch<React.SetStateAction<CardUser[]>>
   toggleFavorite: (id: string) => void;
   setAccept: (id: string)=> void;
   setDecline: (id: string)=> void;
@@ -42,7 +41,6 @@ export const MyContext = createContext<ContextProps>({
   CardInfo: [],
   CardUser: [],
   setCardInfo: () => {},
-  setUserInfo: () => {},
   toggleFavorite: () => {},
   setAccept: () => {},
   setDecline: () => {},
