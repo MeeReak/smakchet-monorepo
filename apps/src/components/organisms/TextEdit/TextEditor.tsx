@@ -8,17 +8,17 @@ const ReactQuill = dynamic(() => import("react-quill"), { ssr: false });
 
 import "react-quill/dist/quill.snow.css";
 
-interface TextEditorProp{
+interface TextEditorProp {
   onchange?: (str: string) => void;
 }
 
-const TextEditor:React.FC<TextEditorProp> = ({onchange}) => {
+const TextEditor: React.FC<TextEditorProp> = ({ onchange }) => {
   const [content, setContent] = useState("");
   const [isBrowser, setIsBrowser] = useState(false);
 
   const handleChange = (content: string) => {
     setContent(content);
-    if(onchange){
+    if (onchange) {
       onchange(content);
     }
   };
@@ -29,16 +29,11 @@ const TextEditor:React.FC<TextEditorProp> = ({onchange}) => {
 
   const modules = {
     toolbar: [
-      ["bold", "italic", "underline", "strikeout"], // toggled buttons
-      [{ font: [] }],
-
+      ["bold", "italic", "underline"], // toggled buttons
+      ["link"], // Fix the value of the link property
       [{ list: "ordered" }, { list: "bullet" }],
-
-      [{ header: [1, 2, 3, 4, 5, 6, false] }],
     ],
   };
-
-
   return (
     <>
       {isBrowser && (

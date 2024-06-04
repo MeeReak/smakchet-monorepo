@@ -73,7 +73,7 @@ const Page = () => {
               </defs>
             </svg>
           </div>
-          <p>We're happy you're here. Let's get your email address verified:</p>
+          <p>We&apos;re happy you&apos;re here. Let&apos;s get your email address verified:</p>
           <div className="mt-4">
             <button
               className="px-2 py-2 text-blue-200 bg-blue-600 rounded"

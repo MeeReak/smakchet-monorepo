@@ -34,7 +34,10 @@ const FilterButton = () => {
         </Button>
         <div>
           {modalState && (
-            <Popup setModalState={setModalState} children={<FilterForm />} />
+            <Popup setModalState={setModalState}>
+              {" "}
+              <FilterForm />
+            </Popup>
           )}
         </div>
       </div>

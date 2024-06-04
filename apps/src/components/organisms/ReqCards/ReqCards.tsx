@@ -10,6 +10,7 @@ const ReqCards = () => {
         title="Age"
       />
       <ReqCard
+      
         description="Khmer and English (Basic well)"
         imageSrc="/assets/icons/languages.svg"
         title="Language"

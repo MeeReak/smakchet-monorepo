@@ -11,137 +11,7 @@ import {
 } from "@/components";
 import Image from "next/image";
 
-import { useNavigate } from "react-router-dom";
-import Link from "next/link";
-import { useRouter } from "next/navigation";
-
-// interface EventInfoData {
-//   id: string;
-//   name: string;
-//   imageSrc: string;
-//   category: string;
-//   detail: string;
-//   startDate: string;
-//   endDate: string;
-//   startTime: string;
-//   endTime: string;
-//   location: string;
-//   age: string;
-//   language: string;
-//   skill: string;
-//   timeCommitment: string;
-// }
-
-// interface Question {
-//   id: string;
-//   type: string;
-//   question: string;
-//   answer: any;
-// }
-
-// interface FormData {
-//   info: EventInfoData;
-//   questions: Question[];
-// }
-
-const Page = ({
-  onNext,
-  eventInfo,
-}: {
-  onNext: () => void;
-  eventInfo: any;
-}) => {
-  // const [questions, setQuestions] = useState<Question[]>([
-  //   {
-  //     id: Math.random().toString(36).substring(2, 15),
-  //     type: "",
-  //     question: "",
-  //     answer: "",
-  //   },
-  // ]);
-
-  // const [formData, setFormData] = useState<FormData>({
-  //   info: {
-  //     id: Math.random().toString(36).substring(2, 15),
-  //     name: "",
-  //     imageSrc: "",
-  //     category: "",
-  //     detail: "",
-  //     startDate: "",
-  //     endDate: "",
-  //     startTime: "",
-  //     endTime: "",
-  //     location: "",
-  //     age: "",
-  //     language: "",
-  //     skill: "",
-  //     timeCommitment: "",
-  //   },
-  //   questions: [
-  //     {
-  //       id: Math.random().toString(36).substring(2, 15),
-  //       type: "",
-  //       question: "",
-  //       answer: "",
-  //     },
-  //   ],
-  // });
-
-  // const handleQuestionChange = (
-  //   updatedQuestionText: string,
-  //   updatedAnswer: any,
-  //   questionId: string,
-  //   QAtype: string
-  // ) => {
-  //   setQuestions((prevQuestions) =>
-  //     prevQuestions.map((question) =>
-  //       question.id === questionId
-  //         ? {
-  //             ...question,
-  //             type: QAtype,
-  //             question: updatedQuestionText,
-  //             answer: updatedAnswer,
-  //           }
-  //         : question
-  //     )
-  //   );
-  // };
-
-  // const handleAddQuestion = () => {
-  //   setQuestions((prevQuestions) => [
-  //     ...prevQuestions,
-  //     {
-  //       id: Math.random().toString(36).substring(2, 15),
-  //       type: "",
-  //       question: "",
-  //       answer: "",
-  //     }, // Add new question object
-  //   ]);
-  // };
-
-  // const handleRemoveQuestion = (id: string) => {
-  //   setQuestions((prevQuestions) =>
-  //     prevQuestions.filter((question) => question.id !== id)
-  //   );
-  // };
-
-  // const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
-  //   setFormData({
-  //     info: {
-  //       ...eventInfo, // Update info data with eventInfo props
-  //     },
-  //     questions: [...questions], // Update questions array
-  //   });
-  // };
-  // console.log(formData);
-
-  // const BackButton = () => {
-  // const navigate = useNavigate();
-
-  // const handleBack = () => {
-  //   navigate(-1); // This will take you back to the previous page
-  // };
-
+const Page = () => {
   return (
     <div className="h-full bg-[#FAFAFA] w-full">
       <div className="py-[113px] px-[240px]">
@@ -157,7 +27,11 @@ const Page = ({
             />
           }
         >
-          <Typography fontSize="h2" fontWeight="semibold" className="flex justify-start">
+          <Typography
+            fontSize="h2"
+            fontWeight="semibold"
+            className="flex justify-start"
+          >
             Apply Form
           </Typography>
         </Button>
@@ -298,7 +172,7 @@ const Page = ({
 
             // onclick={handleSubmit}
           >
-           Submit
+            Submit
           </Button>
         </div>
       </div>

@@ -38,7 +38,12 @@ const Dropdown: React.FC<DropdownProps> = ({
         >
           {selectedOption || `${placeholder}`}
         </a>
-        <Image src={"/assets/icons/dropdown.svg"} alt={""} width={16} height={16}/>
+        <Image
+          src={"/assets/icons/dropdown.svg"}
+          alt={""}
+          width={16}
+          height={16}
+        />
         <div className="relative">
           <button
             type="button"
@@ -60,7 +65,6 @@ const Dropdown: React.FC<DropdownProps> = ({
             ))}
           </div>
         )}
-        
       </div>
     </div>
   );

@@ -25,25 +25,25 @@ const Navbar = () => {
   // }else{
   //   setIsLogin(false);
   // }
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await axios.get("http://localhost:3000/v1/user", {
-          withCredentials: true,
-          headers: {
-            Authorization: `Bearer ${Cookies.get("session")}`,
-          },
-        });
-        alert("response have been send to backend");
-        console.log("response", response);
-      } catch (error) {
-        alert("response have not been send to backend");
-        console.error("Error fetching data", error);
-      }
-    };
+  // useEffect(() => {
+  //   const fetchData = async () => {
+  //     try {
+  //       const response = await axios.get("http://localhost:3000/v1/user", {
+  //         withCredentials: true,
+  //         headers: {
+  //           Authorization: `Bearer ${Cookies.get("session")}`,
+  //         },
+  //       });
+  //       alert("response have been send to backend");
+  //       console.log("response", response);
+  //     } catch (error) {
+  //       alert("response have not been send to backend");
+  //       console.error("Error fetching data", error);
+  //     }
+  //   };
 
-    fetchData();
-  }, []);
+  //   fetchData();
+  // }, []);
 
   const pathname = usePathname();
 
@@ -150,7 +150,7 @@ const Navbar = () => {
 
                 {/* Conditionally Render Search Bar */}
                 {pathname !== "/search" && pathname !== "/create-post" && (
-                  <Link href={"/favorite"}>
+                  <Link href={"/search"}>
                     <ButtonIcon
                       className="bg-gray-100 text-black rounded-full py-2 ml-[10px]  hover:bg-[#bdd8ff] hover:text-[#207BFF] transition-all duration-300 ease-in-out hidden sm:flex"
                       icon={

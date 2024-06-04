@@ -7,23 +7,24 @@ import { MyContext } from "@/contexts/CardContext";
 import ReqCards from "@/components/organisms/ReqCards/ReqCards";
 import Image from "next/image";
 import Link from "next/link";
-import { ApplicantProps } from "@/@types/applicant";
+// import { ApplicantProps } from "@/@types/applicant";
 
-const Applicant: React.FC<ApplicantProps> = ({
-  id,
-  date,
-  gmail,
-  name,
-  profile,
-  status,
-}) => {
+interface ApplicantProps {
+  id: string;
+  name: string;
+  date: string;
+  gmail: string;
+  profile: string;
+  status: string;
+}
+
+const Applicant: React.FC = () => {
   const { CardUser, setAccept, setDecline } = useContext(MyContext);
   const route = useParams();
   // const applicantId = route.applicantDetail;
   const applicantId = Array.isArray(route.applicantDetail)
-  ? route.applicantDetail[0]
-  : route.applicantDetail;
-
+    ? route.applicantDetail[0]
+    : route.applicantDetail;
 
   const Detailapplicant = CardUser.find((data) => data.id === applicantId);
   console.log("all", Detailapplicant);
@@ -66,16 +67,13 @@ const Applicant: React.FC<ApplicantProps> = ({
           <div className="flex flex-row gap-x-4">
             {/* Decline button */}
             <Button
-               onclick={handleDecline}
-               size="h2"
+              onclick={handleDecline}
+              size="h2"
               className="text-lg border-[0.4px] border-[#E0E0E0]  px-[17px] py-[13px] text-[#E23636] trasition ease-out duration-100 hover:bg-[#E23636] hover:text-white"
             >
-              <Link href={"../applicantTable"}>
-              
-              Reject
-              </Link>
+              <Link href={"../applicantTable"}>Reject</Link>
             </Button>
-            {/* Accepted button */} 
+            {/* Accepted button */}
             <Button
               colorScheme="White"
               bgColor="primary"
@@ -99,14 +97,16 @@ const Applicant: React.FC<ApplicantProps> = ({
                 className="self-center rounded-full"
               />
               <div className="flex flex-col mx-[22px] gap-y-5">
-                <div className="flex flex-row gap-x-2" >
+                <div className="flex flex-row gap-x-2">
                   <Image
                     src={"/../assets/icons/profile-outline-blue.svg"}
                     width={16}
                     height={16}
                     alt="profile-outline-blue"
                   />
-                  <Typography className="md:text-base">{Detailapplicant?.name}</Typography>
+                  <Typography className="md:text-base">
+                    {Detailapplicant?.name}
+                  </Typography>
                 </div>
                 <div className="flex flex-row gap-x-2">
                   <Image
@@ -115,7 +115,9 @@ const Applicant: React.FC<ApplicantProps> = ({
                     height={16}
                     alt="profile-outline-blue"
                   />
-                  <Typography className="md:text-base">{Detailapplicant?.gmail}</Typography>
+                  <Typography className="md:text-base">
+                    {Detailapplicant?.gmail}
+                  </Typography>
                 </div>
                 <div className="flex flex-row gap-x-2">
                   <Image
@@ -139,8 +141,6 @@ const Applicant: React.FC<ApplicantProps> = ({
             </div>
           </div>
           {/* right part */}
-          
-         
 
           <div className="border border-[0.2] border-[#E0E0E0] bg-white rounded-[10px] w-[694px] overflow-y-auto h-[80vh]">
             <div className="my-[30px] mx-[51px] flex flex-col gap-y-[49px]">
@@ -205,8 +205,6 @@ const Applicant: React.FC<ApplicantProps> = ({
               </div>
             </div>
           </div>
-         
-         
         </div>
       </div>
     </div>

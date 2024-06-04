@@ -89,6 +89,7 @@ export class UserController extends Controller {
 
       const eventIds = user?.favorites;
 
+      //loop find the event id
       const eventPromises = eventIds!.map(async (id) => {
         try {
           const response = await axios.get(`http://event:3004/v1/events/${id}`);
