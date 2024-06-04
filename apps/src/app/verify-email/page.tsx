@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState , useEffect } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import axios from "axios";
 
@@ -8,6 +8,12 @@ const Page = () => {
   const searchParams = useSearchParams();
   const token = searchParams.get("token");
   const [verificationStatus, setVerificationStatus] = useState<string>("");
+  // useEffect(() => {
+  //   // Automatically verify email when component mounts
+  //   if (token) {
+  //     handleVerifyEmail();
+  //   }
+  // }, [token]);
   const handleVerifyEmail = async () => {
     if (token) {
       setVerificationStatus("verifying");
