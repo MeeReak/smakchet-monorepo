@@ -50,6 +50,7 @@ const proxyConfigs: ProxyConfig = {
             token?: string;
             errors?: Array<object>;
             url?: string;
+            verify_token?:string;
           };
 
           try {
@@ -71,8 +72,12 @@ const proxyConfigs: ProxyConfig = {
               return res.redirect(responseBody.url);
             }
 
+            if(responseBody.verify_token){
+              return res.json(responseBody);
+            }
+
             // Modify response to send only the message to the client
-            res.json({ message: responseBody.message });
+            res.json({ message: responseBody.message});
           } catch (error) {
             console.log(error);
             return res.status(500).json({ message: "Error parsing response" });
