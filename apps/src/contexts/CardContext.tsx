@@ -184,7 +184,7 @@ const CardContext: React.FC<CardContextProp> = ({ children }) => {
 
   function setAccept(id: string) {
     const updatedUsers = CardUser.map((user) => {
-      if (user.id === id && user.status === "Pending") {
+      if (user.id === id && user.status !== "Accepted") {
         return {
           ...user,
           status: "Accepted",
@@ -199,7 +199,7 @@ const CardContext: React.FC<CardContextProp> = ({ children }) => {
 
   function setDecline(id: string) {
     const updatedUsers = CardUser.map((user) => {
-      if (user.id === id && user.status === "Pending") {
+      if (user.id === id && user.status !== "Rejected") {
         return {
           ...user,
           status: "Rejected",

@@ -20,7 +20,8 @@ interface ButtonProps {
   bottomIcon?: ReactNode;
   onclick?: (e: any) => void;
   onClickParam?: (param: any) => void;
-  type?: any | string;
+  type?: any | string ;
+  disabled?: boolean;
 }
 
 const Button: FC<ButtonProps> = ({
@@ -37,6 +38,7 @@ const Button: FC<ButtonProps> = ({
   onclick,
   onClickParam,
   type,
+  disabled = false,
 }) => {
   const getColorSchemeClass = (scheme: string) => {
     switch (scheme) {
@@ -128,23 +130,22 @@ const Button: FC<ButtonProps> = ({
   const bgColorClass = getBackgroundColorClass(bgColor);
   const roundClass = getRoundClass(round);
 
-  const combinedClassName = `flex items-center justify-start border-[1px] ${colorSchemeClass} ${sizeClass} ${bgColorClass} ${roundClass} ${className}`;
+  const combinedClassName = `flex items-center justify-start border-[1px] ${colorSchemeClass} ${sizeClass} ${bgColorClass} ${roundClass} ${disabled ? "cursor-not-allowed bg-gray-300 hover:bg-gray-300 text-white hover:text-white" : ""} ${className}`;
 
   return (
     <div className={`${combinedClassName} flex flex-col`}>
       {topIcon && <div>{topIcon}</div>}
       <button
-        // className={combinedClassName}
-        onClick={onclick || onClickParam}
+        onClick={disabled ? undefined : (onclick || onClickParam)}
         type={type}
+        disabled={disabled}
+        className="flex items-center"
       >
-        <div className="flex items-center">
-          {leftIcon && <span className="mr-2">{leftIcon}</span>}
-          {children}
-          {rightIcon && <span className="ml-2">{rightIcon}</span>}
-        </div>
+        {leftIcon && <span className="mr-2">{leftIcon}</span>}
+        {children}
+        {rightIcon && <span className="ml-2">{rightIcon}</span>}
       </button>
-        {bottomIcon && <span>{bottomIcon}</span>}
+      {bottomIcon && <span>{bottomIcon}</span>}
     </div>
   );
 };

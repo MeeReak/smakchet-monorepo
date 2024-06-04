@@ -176,6 +176,7 @@ const Page = ({
                   placeholder="Name"
                   className=" h-[50px] pl-6 border-1 border-gray-300"
                 />
+                
               </div>
               <div className="flex flex-col w-full lg:gap-y-5 gap-y-3">
                 <label htmlFor="email">
