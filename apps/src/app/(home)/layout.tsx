@@ -3,7 +3,8 @@ import CardContext from "@/contexts/CardContext";
 import { Metadata } from "next";
 import { Inter } from "next/font/google";
 import ".././globals.css";
-import {Providers} from "../providers"
+import { Providers } from "../providers";
+import { cookies } from "next/headers";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -16,17 +17,22 @@ export const metadata: Metadata = {
 export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
+  const cookieStore = cookies();
+  const session = cookieStore.get("session");
+  const gaSesssion = cookieStore.get("_ga");
+  const sigSession = cookieStore.get("session.sig");
+
   return (
     <html lang="en">
       <head>
         <title>Smakchet</title>
       </head>
       <body className={inter.className}>
-      <Providers>
-        <Navbar />
-        <CardContext>{children}</CardContext>
-        <SecondNarbar />
-      </Providers>
+        <Navbar session={session} sigSession={sigSession}/>
+        <Providers>
+          <CardContext>{children}</CardContext>
+          <SecondNarbar />
+        </Providers>
         {/* <Footer /> */}
       </body>
     </html>
