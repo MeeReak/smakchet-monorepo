@@ -7,6 +7,21 @@
 		"requestBodies": {},
 		"responses": {},
 		"schemas": {
+			"QueryParams": {
+				"properties": {
+					"name": {
+						"type": "string"
+					},
+					"cate": {
+						"type": "string"
+					},
+					"id": {
+						"type": "string"
+					}
+				},
+				"type": "object",
+				"additionalProperties": false
+			},
 			"mongoose.Types.ObjectId": {
 				"type": "string"
 			},
@@ -140,7 +155,7 @@
 		"contact": {}
 	},
 	"paths": {
-		"/v1/events/name": {
+		"/v1/events": {
 			"get": {
 				"operationId": "FindEventByName",
 				"responses": {
@@ -158,41 +173,29 @@
 					{
 						"in": "query",
 						"name": "name",
-						"required": true,
+						"required": false,
 						"schema": {
 							"type": "string"
 						}
-					}
-				]
-			}
-		},
-		"/v1/events/cate": {
-			"get": {
-				"operationId": "FindEventByCate",
-				"responses": {
-					"200": {
-						"description": "Ok",
-						"content": {
-							"application/json": {
-								"schema": {}
-							}
-						}
-					}
-				},
-				"security": [],
-				"parameters": [
+					},
 					{
 						"in": "query",
 						"name": "cate",
-						"required": true,
+						"required": false,
+						"schema": {
+							"type": "string"
+						}
+					},
+					{
+						"in": "query",
+						"name": "id",
+						"required": false,
 						"schema": {
 							"type": "string"
 						}
 					}
 				]
-			}
-		},
-		"/v1/events": {
+			},
 			"post": {
 				"operationId": "CreateEvent",
 				"responses": {
@@ -217,21 +220,6 @@
 						}
 					}
 				}
-			},
-			"get": {
-				"operationId": "FindAllUser",
-				"responses": {
-					"200": {
-						"description": "Ok",
-						"content": {
-							"application/json": {
-								"schema": {}
-							}
-						}
-					}
-				},
-				"security": [],
-				"parameters": []
 			}
 		},
 		"/v1/events/{id}": {
@@ -326,6 +314,23 @@
 						}
 					}
 				]
+			}
+		},
+		"/v1/events/events": {
+			"get": {
+				"operationId": "FindAllEvent",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {}
+							}
+						}
+					}
+				},
+				"security": [],
+				"parameters": []
 			}
 		}
 	},

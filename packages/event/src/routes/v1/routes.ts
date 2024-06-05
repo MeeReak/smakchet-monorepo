@@ -11,6 +11,16 @@ import type { Request as ExRequest, Response as ExResponse, RequestHandler, Rout
 // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
 
 const models: TsoaRoute.Models = {
+    "QueryParams": {
+        "dataType": "refObject",
+        "properties": {
+            "name": {"dataType":"string"},
+            "cate": {"dataType":"string"},
+            "id": {"dataType":"string"},
+        },
+        "additionalProperties": false,
+    },
+    // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
     "mongoose.Types.ObjectId": {
         "dataType": "refAlias",
         "type": {"dataType":"string","validators":{}},
@@ -55,13 +65,13 @@ export function RegisterRoutes(app: Router) {
     //  NOTE: If you do not see routes for all of your controllers in this file, then you might not have informed tsoa of where to look
     //      Please look into the "controllerPathGlobs" config option described in the readme: https://github.com/lukeautry/tsoa
     // ###########################################################################################################
-        app.get('/v1/events/name',
+        app.get('/v1/events',
             ...(fetchMiddlewares<RequestHandler>(EventController)),
             ...(fetchMiddlewares<RequestHandler>(EventController.prototype.FindEventByName)),
 
             async function EventController_FindEventByName(request: ExRequest, response: ExResponse, next: any) {
             const args: Record<string, TsoaRoute.ParameterSchema> = {
-                    name: {"in":"query","name":"name","required":true,"dataType":"string"},
+                    queryParam: {"in":"queries","name":"queryParam","required":true,"ref":"QueryParams"},
             };
 
             // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
@@ -74,36 +84,6 @@ export function RegisterRoutes(app: Router) {
 
               await templateService.apiHandler({
                 methodName: 'FindEventByName',
-                controller,
-                response,
-                next,
-                validatedArgs,
-                successStatus: undefined,
-              });
-            } catch (err) {
-                return next(err);
-            }
-        });
-        // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
-        app.get('/v1/events/cate',
-            ...(fetchMiddlewares<RequestHandler>(EventController)),
-            ...(fetchMiddlewares<RequestHandler>(EventController.prototype.FindEventByCate)),
-
-            async function EventController_FindEventByCate(request: ExRequest, response: ExResponse, next: any) {
-            const args: Record<string, TsoaRoute.ParameterSchema> = {
-                    cate: {"in":"query","name":"cate","required":true,"dataType":"string"},
-            };
-
-            // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
-
-            let validatedArgs: any[] = [];
-            try {
-                validatedArgs = templateService.getValidatedArgs({ args, request, response });
-
-                const controller = new EventController();
-
-              await templateService.apiHandler({
-                methodName: 'FindEventByCate',
                 controller,
                 response,
                 next,
@@ -240,11 +220,11 @@ export function RegisterRoutes(app: Router) {
             }
         });
         // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
-        app.get('/v1/events',
+        app.get('/v1/events/events',
             ...(fetchMiddlewares<RequestHandler>(EventController)),
-            ...(fetchMiddlewares<RequestHandler>(EventController.prototype.FindAllUser)),
+            ...(fetchMiddlewares<RequestHandler>(EventController.prototype.FindAllEvent)),
 
-            async function EventController_FindAllUser(request: ExRequest, response: ExResponse, next: any) {
+            async function EventController_FindAllEvent(request: ExRequest, response: ExResponse, next: any) {
             const args: Record<string, TsoaRoute.ParameterSchema> = {
             };
 
@@ -257,7 +237,7 @@ export function RegisterRoutes(app: Router) {
                 const controller = new EventController();
 
               await templateService.apiHandler({
-                methodName: 'FindAllUser',
+                methodName: 'FindAllEvent',
                 controller,
                 response,
                 next,

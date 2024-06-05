@@ -1,3 +1,4 @@
+import { QueryParams } from "@event/controllers/event.controller";
 import { EventDetail } from "../@types/event.interface";
 import EventModel from "../models/event.model";
 
@@ -42,27 +43,27 @@ export class EventRepository {
     }
   }
 
-  async findEventByCate(cate: string) {
+  async findEventByQueries(queryParams: QueryParams): Promise<any> {
     try {
-      return await EventModel.findOne({ category: cate });
+      const { name, cate, id } = queryParams;
+
+      // Build the query object dynamically based on provided parameters
+      const query: { [key: string]: any } = {}; // Use a generic object type for Mongoose query
+      if (name) query.eventName = name;
+      if (cate) query.category = cate;
+      if (id) query._id = id;
+
+      return await EventModel.find(query);
     } catch (error: unknown) {
-      throw error;
+      throw error; // Or handle the error more gracefully
     }
   }
 
-  async findEventByName(name: string) {
+  async findAllEvent() {
     try {
-      return await EventModel.findOne({ eventName: name });
+      return await EventModel.find();
     } catch (error: unknown) {
       throw error;
-    }
-  }
-
-  async findAllUser(){
-    try{
-      return await EventModel.find()
-    }catch(error: unknown){
-      throw error
     }
   }
 }

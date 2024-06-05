@@ -1,3 +1,4 @@
+import { QueryParams } from "@event/controllers/event.controller";
 import { EventDetail } from "@event/databases/@types/event.interface";
 import { EventRepository } from "@event/databases/repositories/event.reposities";
 import APIError from "@event/Errors/api-error";
@@ -63,27 +64,18 @@ export class EventService {
     }
   }
 
-  //find event by category
-  async findEventByCategory(cate: string){
-    try{
-      return await this.eventRepo.findEventByCate(cate)
-    }catch(error:unknown){
-      throw error
-    }
-  }
-
   //search event by name
-  async findEventByName(name: string){
+  async findEventByQueries(queryParams: QueryParams){
     try{
-      return await this.eventRepo.findEventByName(name)
+      return await this.eventRepo.findEventByQueries(queryParams)
     }catch(error:unknown){
       throw error
     }
   }
 
-  async findAllUser(){
+  async findAllEvent(){
     try{
-      return await this.eventRepo.findAllUser()
+      return await this.eventRepo.findAllEvent()
     }catch(error: unknown){
       throw error
     }

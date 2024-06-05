@@ -25,7 +25,7 @@ export class UserController extends Controller {
   @Get("/")
   public async showAllUser(): Promise<any> {
     try {
-      console.log("Get /")
+      console.log("Get /");
       return await userService.showAllUser();
     } catch (error: unknown) {
       throw error;
@@ -39,20 +39,20 @@ export class UserController extends Controller {
     @Path() id: string
   ): Promise<any> {
     try {
-      console.log("Post /:id")
+      console.log("Post /:id");
       const user = await userService.findUserById(request.id);
 
       // Validate objectId
       if (!mongoose.Types.ObjectId.isValid(id)) {
         throw new Error("Invalid event ID format");
       }
-      const objectId = new mongoose.Types.ObjectId(id);
+
+      const event = await axios.get(`http://event:3004/v1/events?id=${id}`); // fetch event data from event service
 
       // Check for existing favorite using findIndex
       const existingFavoriteIndex = user?.favorites.findIndex((item) =>
-        item.equals(objectId)
+        item.equals(event.data[0]._id)
       );
-      console.log(existingFavoriteIndex);
 
       if (existingFavoriteIndex !== -1) {
         // Remove event from favorites
@@ -66,7 +66,7 @@ export class UserController extends Controller {
       }
 
       // Add event to favorites
-      user?.favorites.push(objectId);
+      user?.favorites.push(event.data[0]._id);
       await user?.save();
 
       return {
@@ -87,7 +87,7 @@ export class UserController extends Controller {
   @Middlewares(verifyToken)
   public async findFavoEvent(@Request() request: any): Promise<any> {
     try {
-      console.log("Get /favorite")
+      console.log("Get /favorite");
       const user = await userService.findUserById(request.id);
 
       const eventIds = user?.favorites;
@@ -125,7 +125,7 @@ export class UserController extends Controller {
   @Post("/")
   public async CreateUser(@Body() RequestBody: IUser): Promise<any> {
     try {
-      console.log("Post /")
+      console.log("Post /");
       const user = await userService.createUser(RequestBody);
 
       return {
@@ -144,7 +144,7 @@ export class UserController extends Controller {
     @Body() userProfileData: IUser
   ): Promise<any> {
     try {
-      console.log("Put /:id")
+      console.log("Put /:id");
       // Call UserService to update user profile using userId from the request object
       const updatedUserProfile = await userService.updateUserProfile(
         id,
@@ -162,12 +162,12 @@ export class UserController extends Controller {
 
   @Get("/role")
   @Middlewares(verifyToken)
-  public async findrole(@Request() request:any){
+  public async findrole(@Request() request: any) {
     try {
       if (!request.role) {
         throw new APIError("Role not found in request", StatusCode.BadRequest);
       }
-      
+
       const roles = request.role;
       console.log("Role found in request:", roles);
       return {
@@ -186,7 +186,7 @@ export class UserController extends Controller {
   @Get("/{id}")
   public async findUserByAuthId(@Path() id: string): Promise<any> {
     try {
-      console.log("Get /:id")
+      console.log("Get /:id");
       const user = await userService.findUserByAuthId(id);
 
       return {
