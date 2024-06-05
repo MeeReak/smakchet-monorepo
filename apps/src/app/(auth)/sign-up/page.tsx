@@ -3,7 +3,7 @@ import React, { useState, useContext, useEffect } from "react";
 import Image from "next/image";
 import { ButtonIcon, InputData, Typography, Button } from "@/components";
 import Link from "next/link";
-import { SignUpProps } from "../../@types/auth";
+import { SignUpProps } from "../../../@types/auth";
 //import { setLocalStorage } from "@/utils/localStorage";
 import signUpschema from "@/utils/signUpSchema";
 import { useSearchParams } from "next/navigation";
@@ -49,10 +49,10 @@ const Page = () => {
             "Content-Type": "application/json",
           },
         }
-      ); 
-      const token =  response.data.verify_token;
+      );
+      const token = response.data.verify_token;
       //alert("Please Check Your Email to verify");
-      window.location.href = `/verify-email?token=${token}`
+      window.location.href = `/verify-email?token=${token}`;
       //console.log("respone data:", response.data.verify_token);
     } catch (error: any | unknown) {
       if (error) {
@@ -76,7 +76,7 @@ const Page = () => {
             console.error("Backend returned an error:", error.response.data);
             setErrors((prev) => ({
               ...prev,
-                email : error.response?.data?.errors[0]?.message
+              email: error.response?.data?.errors[0]?.message,
             }));
           }
         } else {
