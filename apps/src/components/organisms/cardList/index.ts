@@ -1,5 +1,5 @@
 import CardList from "./CardList";
 import MyEventCardList from "./MyEventCardList";
 import NotiCardList from "./NotiCardList";
-
-export { CardList, MyEventCardList, NotiCardList };
+import { HostNotificationCardList } from "./HostNotificationCardList";
+export { CardList, MyEventCardList, NotiCardList, HostNotificationCardList };
