@@ -112,7 +112,7 @@ export class UserController {
       };
 
       const respone = await axios.post("http://user:3003/v1/user", data);
-      console.log("response: " , respone.data);
+      console.log("response: ", respone.data);
       const jwtToken = await generateToken(respone.data.data._id, user.role!);
 
       return {
@@ -120,13 +120,13 @@ export class UserController {
         token: jwtToken,
         status: "success",
       };
-    } catch (error: unknown |any) {
+    } catch (error: unknown | any) {
       console.error("Error during verify", error);
       // throw new APIError(
       //   "An error occurred during verification",
       //   StatusCode.InternalServerError
       // );
-      throw new error;
+      throw new error();
     }
   }
 
@@ -138,13 +138,11 @@ export class UserController {
 
       const user = await this.userService.login({ email, password });
 
-      const respone = await axios.get(
-        `http://user:3003/v1/user/{userId}?userId=${user.id}`
-      );
+      const respone = await axios.get(`http://user:3003/v1/user/${user.id}`);
 
       const jwtToken = await generateToken(respone.data._id, respone.data.role);
 
-      return { message: "sucess", token: jwtToken };
+      return { message: "Login successful.", token: jwtToken };
     } catch (error: unknown) {
       throw new APIError("Invalid email or password", StatusCode.Unauthorized);
     }
@@ -257,14 +255,14 @@ export class UserController {
           getConfig().facebookAppSecret
         }&code=${code}&redirect_uri=${getConfig().facebookRedirectUri}`
       );
-      
+
       const { access_token } = data;
-      
+
       // Use access_token to fetch user profile
       const { data: profile } = await axios.get(
         `https://graph.facebook.com/v13.0/me?fields=name,picture&access_token=${access_token}`
       );
-      
+
       //add user to database if new
       const user = await this.userService.create({
         username: profile.name,
@@ -273,9 +271,9 @@ export class UserController {
         isVerify: true,
         role: "Volunteer",
       });
-      
+
       //generate jwtToken
-      const jwtToken =  await generateToken(user.id, user.username);
+      const jwtToken = await generateToken(user.id, user.username);
 
       return {
         message: "Sign up with facebook successfully",

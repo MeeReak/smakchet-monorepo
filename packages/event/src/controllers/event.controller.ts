@@ -16,27 +16,26 @@ import {
   Put,
   Request,
   Route,
-  Query,
+  Queries,
 } from "tsoa";
+
+export interface QueryParams {
+  name?: string;
+  cate?: string;
+  id?: string;
+}
 
 const eventService = new EventService();
 
 @Route("/v1/events")
 export class EventController extends Controller {
-  @Get("/name")
-  public async FindEventByName(@Query() name: string): Promise<any> {
+  @Get("/")
+  public async FindEventByName(
+    @Queries() queryParam: QueryParams
+  ): Promise<any> {
     try {
-      return await eventService.findEventByName(name);
-    } catch (error: unknown) {
-      throw new APIError("Event Not Found !!", StatusCode.NotFound);
-    }
-  }
-
-  @Get("/cate")
-  public async FindEventByCate(@Query() cate: string): Promise<any> {
-    try {
-      const event = await eventService.findEventByCategory(cate);
-      return event;
+      console.log(queryParam);
+      return await eventService.findEventByQueries(queryParam);
     } catch (error: unknown) {
       throw new APIError("Event Not Found !!", StatusCode.NotFound);
     }
@@ -71,7 +70,7 @@ export class EventController extends Controller {
     }
   }
 
-  @Put("/:id")
+  @Put("/{id}")
   @Middlewares(verifyToken)
   public async UpdateEvent(
     @Request() request: any,
@@ -107,7 +106,7 @@ export class EventController extends Controller {
   }
 
   @Middlewares(verifyToken)
-  @Delete("/:id")
+  @Delete("/{id}")
   public async DeleteEvent(@Path() id: string, @Request() request: any) {
     try {
       if (request.role == "Volunteer") {
@@ -152,10 +151,10 @@ export class EventController extends Controller {
     }
   }
 
-  @Get("/")
-  public async FindAllUser(): Promise<any> {
+  @Get("/events")
+  public async FindAllEvent(): Promise<any> {
     try {
-      const event = await eventService.findAllUser();
+      const event = await eventService.findAllEvent();
 
       if (event.length === 0) {
         throw new APIError("Event Not Found !!", StatusCode.NotFound);
