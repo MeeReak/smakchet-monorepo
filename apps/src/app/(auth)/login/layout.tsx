@@ -1,10 +1,13 @@
 import { Footer, Navbar, SecondNarbar } from "@/components";
 import CardContext from "@/contexts/CardContext";
 import { Metadata } from "next";
-import { Inter } from "next/font/google";
-import "../.././globals.css"
+import { Roboto } from "next/font/google";
+import "../.././globals.css";
 
-const inter = Inter({ subsets: ["latin"] });
+const roboto = Roboto({
+  subsets: ["latin"],
+  weight: ["100", "300", "500", "700"],
+});
 
 export const metadata: Metadata = {
   title: "Smakchet",
@@ -20,7 +23,7 @@ export default function RootLayout({
       <head>
         <title>Smakchet</title>
       </head>
-      <body className={inter.className}>
+      <body className={roboto.className}>
         {/* <Navbar /> */}
         <CardContext>{children}</CardContext>
         <SecondNarbar />
