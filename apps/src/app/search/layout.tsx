@@ -1,11 +1,14 @@
 import { Footer, Navbar, SecondNarbar } from "@/components";
 import CardContext from "@/contexts/CardContext";
 import { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Roboto } from "next/font/google";
 import ".././globals.css";
 import { cookies } from "next/headers";
 
-const inter = Inter({ subsets: ["latin"] });
+const roboto = Roboto({
+  subsets: ["latin"],
+  weight: ["100", "300", "500", "700"],
+});
 
 export const metadata: Metadata = {
   title: "Smakchet | Search",
@@ -26,10 +29,14 @@ export default function RootLayout({
       <head>
         <title>Smakchet</title>
       </head>
-      <body className={inter.className}>
-        <Navbar session={session} gaSession={gaSesssion} sigSession={sigSession}/>
-          <CardContext>{children}</CardContext>
-          <SecondNarbar />
+      <body className={roboto.className}>
+        <Navbar
+          session={session}
+          gaSession={gaSesssion}
+          sigSession={sigSession}
+        />
+        <CardContext>{children}</CardContext>
+        <SecondNarbar />
       </body>
     </html>
   );
