@@ -39,7 +39,7 @@ const Page = () => {
           {/* number of Applied & Accepted */}
           <div className="flex flex-row justify-center items-end gap-x-[13px] ">
             <Button
-              className="cursor-default justify-center items-center w-[141px] h-[50px] border-1 border-opacity-40 border-gray-400 rounded-[10px]"
+              className="!cursor-default justify-center items-center w-[141px] h-[50px] border-1 border-opacity-40 border-gray-400 rounded-[10px]"
               leftIcon={
                 <Image
                   src={"assets/icons/people.svg"}
@@ -52,7 +52,7 @@ const Page = () => {
               {`${totalCandidate}`} Applied
             </Button>
             <Button
-              className="cursor-default items-center justify-center w-[155px] h-[50px] border-1 border-opacity-40 border-gray-400 rounded-[10px]"
+              className="!cursor-default items-center justify-center w-[155px] h-[50px] border-1 border-opacity-40 border-gray-400 rounded-[10px]"
               leftIcon={
                 <Image
                   src={"assets/icons/check-inline.svg"}

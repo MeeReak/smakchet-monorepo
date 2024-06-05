@@ -2,7 +2,7 @@
 
 import { Button, ButtonIcon, Typography, Card, Map } from "@/components";
 import React, { useContext, useEffect, useState } from "react";
-import { useParams } from "next/navigation";
+import { useParams, useRouter } from "next/navigation";
 import { MyContext } from "@/contexts/CardContext";
 import ReqCards from "@/components/organisms/ReqCards/ReqCards";
 import Image from "next/image";
@@ -20,6 +20,7 @@ interface ApplicantProps {
 
 const Applicant: React.FC = () => {
   const { CardUser, setAccept, setDecline } = useContext(MyContext);
+  const router = useRouter(); // Initialize the router
   const route = useParams();
   // const applicantId = route.applicantDetail;
   const applicantId = Array.isArray(route.applicantDetail)
@@ -29,16 +30,16 @@ const Applicant: React.FC = () => {
   const Detailapplicant = CardUser.find((data) => data.id === applicantId);
   console.log("all", Detailapplicant);
 
-  const handleAccept = (e: React.MouseEvent) => {
+  const handleAccept = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
     setAccept(applicantId);
-    console.log("user accept");
+    router.back()
   };
 
-  const handleDecline = (e: React.MouseEvent) => {
+  const handleDecline = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
     setDecline(applicantId);
-    console.log("user decline");
+    router.back()
   };
   return (
     <div className="bg-[#FAFAFA] w-full h-full ">
@@ -69,18 +70,20 @@ const Applicant: React.FC = () => {
             <Button
               onclick={handleDecline}
               size="h2"
-              className="text-lg border-[0.4px] border-[#E0E0E0]  px-[17px] py-[13px] text-[#E23636] trasition ease-out duration-100 hover:bg-[#E23636] hover:text-white"
+              disabled={Detailapplicant?.status === 'Rejected'}
+              className="text-lg border-[0.4px] border-[#E0E0E0]  px-[17px] py-[13px] text-[#E23636] trasition ease-out duration-100 hover:bg-[#E23636] hover:text-white"   
             >
-              <Link href={"../applicantTable"}>Reject</Link>
+              Reject
             </Button>
             {/* Accepted button */}
             <Button
               colorScheme="White"
+              disabled={Detailapplicant?.status === 'Accepted'}
               bgColor="primary"
               className="text-lg px-[17px] py-[13px] bg-opacity-80 !outline-none !border-none transition ease-out duration-300 hover:bg-[#0068FF]"
               onclick={handleAccept}
             >
-              <Link href={"../applicantTable"}>Accepted</Link>
+              Accepted
             </Button>
           </div>
         </div>
@@ -142,8 +145,44 @@ const Applicant: React.FC = () => {
           </div>
           {/* right part */}
 
-          <div className="border border-[0.2] border-[#E0E0E0] bg-white rounded-[10px] w-[694px] overflow-y-auto h-[80vh]">
+          <div className="border border-[0.2] border-[#E0E0E0] bg-white rounded-[10px] w-[694px] !overflow-y-scroll scrollbar-default max-h-[80vh]">
             <div className="my-[30px] mx-[51px] flex flex-col gap-y-[49px]">
+              <div className="flex flex-col gap-y-[13px]">
+                <Typography>Why do you apply this volunteer?</Typography>
+                <Typography>
+                  {" "}
+                  ⇒ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
+                  do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                  Ut enim ad minim veniam, quis nostrud exercitation ullamco
+                  laboris nisi ut aliquip ex ea commodo consequat. Duis aute
+                  irure dolor
+                </Typography>
+              </div>
+
+              <div className="flex flex-col gap-y-[13px]">
+                <Typography>Why do you apply this volunteer?</Typography>
+                <Typography>
+                  {" "}
+                  ⇒ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
+                  do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                  Ut enim ad minim veniam, quis nostrud exercitation ullamco
+                  laboris nisi ut aliquip ex ea commodo consequat. Duis aute
+                  irure dolor
+                </Typography>
+              </div>
+
+              <div className="flex flex-col gap-y-[13px]">
+                <Typography>Why do you apply this volunteer?</Typography>
+                <Typography>
+                  {" "}
+                  ⇒ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
+                  do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                  Ut enim ad minim veniam, quis nostrud exercitation ullamco
+                  laboris nisi ut aliquip ex ea commodo consequat. Duis aute
+                  irure dolor
+                </Typography>
+              </div>
+
               <div className="flex flex-col gap-y-[13px]">
                 <Typography>Why do you apply this volunteer?</Typography>
                 <Typography>
