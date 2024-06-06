@@ -2,7 +2,8 @@
 import React, { useState , useEffect } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import axios from "axios";
-
+import Link from "next/link";
+import Image from "next/image";
 const Page = () => {
   const router = useRouter();
   const searchParams = useSearchParams();
@@ -19,8 +20,18 @@ const Page = () => {
   }
   return (
     <div>
-      <div className="flex items-center justify-center min-h-screen p-5 bg-gray-200 min-w-screen">
+      <div className="flex flex-col items-center justify-center min-h-screen p-5 bg-gray-200 min-w-screen gap-y-[67px]">
+      <Link href={"/"}>
+          {" "}
+          <Image
+            src={"assets/image/smakchet_logo.svg"}
+            alt={"Smakchet logo"}
+            width={172}
+            height={32}
+          />
+        </Link>
         <div className="max-w-xl p-8 text-center text-gray-800 bg-white shadow-xl lg:max-w-3xl rounded-3xl lg:p-12">
+       
           <h3 className="text-2xl">Thanks for signing up for Smakchet.com!</h3>
           <div className="flex justify-center">
             <svg

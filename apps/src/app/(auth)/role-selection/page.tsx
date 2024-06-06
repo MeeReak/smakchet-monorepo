@@ -25,16 +25,16 @@ const RoleChoosing = () => {
   return (
     <>
       <div className="h-screen bg-[#f0f2f5] ">
-        <div className="flex flex-col items-center justify-center mb-20">
-          <Link href={"/"}>
-            <Image
-              className="pt-20 pb-10"
-              src={"assets/icons/smakchet-logo.svg"}
-              alt="smakchet-logo"
-              width={140}
-              height={50}
-            />
-          </Link>
+        <div className="flex flex-col items-center justify-center pt-[70px] mb-20">
+        <Link href={"/"}>
+          {" "}
+          <Image
+            src={"assets/image/smakchet_logo.svg"}
+            alt={"Smakchet logo"}
+            width={172}
+            height={32}
+          />
+        </Link>
           <Typography fontSize="h1" fontWeight="semibold" className="pb-3">
             Select Your Role
           </Typography>

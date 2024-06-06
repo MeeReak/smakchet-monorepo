@@ -48,14 +48,16 @@ const Page = () => {
 
   return (
     <div>
-      <div className="flex flex-col items-center min-h-screen p-5 bg-gray-200 min-w-screen">
-        <Image
-          src={"assets/icons/smakchet-logo.svg"}
-          alt={"Smakchet logo"}
-          width={140}
-          height={50}
-          className="mt-7"
-        />
+      <div className="flex flex-col items-center min-h-screen p-5 pt-[70px] bg-gray-200 min-w-screen">
+      <Link href={"/"}>
+          {" "}
+          <Image
+            src={"assets/image/smakchet_logo.svg"}
+            alt={"Smakchet logo"}
+            width={172}
+            height={32}
+          />
+        </Link>
         <div className="max-w-xl p-8 text-center text-gray-800 bg-white shadow-xl lg:max-w-3xl rounded-3xl lg:p-12 mt-3 ">
           <header>
             {verificationStatus === "verifying" ? (

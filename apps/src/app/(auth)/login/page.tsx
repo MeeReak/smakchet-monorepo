@@ -49,14 +49,14 @@ const Page = () => {
   return (
     <div>
       {/* logo */}
-      <div className="flex flex-col items-center mt-12 mb-20">
+      <div className="flex flex-col items-center pt-[70px] mb-20">
         <Link href={"/"}>
           {" "}
           <Image
-            src={"assets/icons/smakchet-logo.svg"}
+            src={"assets/image/smakchet_logo.svg"}
             alt={"Smakchet logo"}
-            width={140}
-            height={50}
+            width={172}
+            height={32}
           />
         </Link>
 
