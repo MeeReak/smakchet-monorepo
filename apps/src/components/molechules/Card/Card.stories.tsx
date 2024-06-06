@@ -2,6 +2,7 @@ import React from 'react';
 import { Meta, StoryObj } from '@storybook/react';
 import { Card } from '@/components/molechules/Card/Card';
 import  CardProvider  from '@/contexts/CardContext';
+import { userEvent } from '@storybook/test';
 
 // Define metadata for the Card component story
 const meta: Meta<typeof Card> = {
@@ -53,6 +54,14 @@ export const Favorite: Story = {
       type: 'figma',
       url: 'https://www.figma.com/file/FRi5rN0B2IiiIOSwgiPLW0/SmakChet?node-id=4758-21509&t=ApRDS3YhtIuQqKEA-4',
     },
+  },
+  play: async ({ canvasElement }) => {
+    const favoriteButton = canvasElement.querySelector('[data-testid="favorite-button"]');
+    if (favoriteButton) {
+      await userEvent.click(favoriteButton); // Simulates user clicking the button
+    } else {
+      console.warn("Favorite button not found");
+    }
   },
 };
 
