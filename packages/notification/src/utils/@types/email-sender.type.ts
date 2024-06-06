@@ -4,6 +4,7 @@ export interface IEmailLocals {
   username?: string;
   verifyLink?: string;
   resetLink?: string;
+  token?:string;
 }
 
 export interface EmailApi {

@@ -112,7 +112,7 @@ export class UserController {
       };
 
       const respone = await axios.post("http://user:3003/v1/user", data);
-      console.log("response: ", respone.data);
+      console.log("response: " , respone.data);
       const jwtToken = await generateToken(respone.data.data._id, user.role!);
 
       return {
@@ -120,13 +120,13 @@ export class UserController {
         token: jwtToken,
         status: "success",
       };
-    } catch (error: unknown | any) {
+    } catch (error: unknown |any) {
       console.error("Error during verify", error);
       // throw new APIError(
       //   "An error occurred during verification",
       //   StatusCode.InternalServerError
       // );
-      throw new error();
+      throw new error;
     }
   }
 
