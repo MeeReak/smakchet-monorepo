@@ -50,9 +50,9 @@ const Page = () => {
           },
         }
       ); 
-      const token =  response.data.verify_token;
+      //const token =  response.data.verify_token;
       //alert("Please Check Your Email to verify");
-      window.location.href = `/verify-email?token=${token}`
+      window.location.href = `/send-email?email=${data.email}`;
       //console.log("respone data:", response.data.verify_token);
     } catch (error: any | unknown) {
       if (error) {

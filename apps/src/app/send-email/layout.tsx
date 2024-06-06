@@ -18,7 +18,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        <title>Smakchet | Sign up</title>
+        <title>Smakchet | Send Email</title>
       </head>
       <body className={inter.className}>
         {/* <Navbar /> */}
