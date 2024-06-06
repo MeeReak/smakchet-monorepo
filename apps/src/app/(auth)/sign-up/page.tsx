@@ -48,7 +48,7 @@ const Page = () => {
           headers: {
             "Content-Type": "application/json",
           },
-        }
+        },
       ); 
       //const token =  response.data.verify_token;
       //alert("Please Check Your Email to verify");

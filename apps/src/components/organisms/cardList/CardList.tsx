@@ -12,7 +12,7 @@ const CardList: React.FC<CardListProps> = ({ cate }) => {
   const filteredCards = cate === "All" ? CardInfo : CardInfo.filter((item) => item.cate === cate);
 
   return (
-    <div className="max-[1030px]:px-5 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 justify-items-center">
+    <div className="max-[1030px]:px-5 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 justify-items-center ">
       {filteredCards.map((item, index) => (
         <Card
           key={index}
