@@ -5,7 +5,7 @@ import  CardProvider  from '@/contexts/CardContext';
 
 // Define metadata for the Card component story
 const meta: Meta<typeof Card> = {
-  title: 'MyApp/Components/Card',
+  title: 'Smakchet/Molecules/Card',
   component: Card,
   decorators: [(Story) => <CardProvider><Story /></CardProvider>],
   parameters: {
@@ -74,20 +74,20 @@ export const WithImage: Story = {
   },
 };
 
-export const WithoutImage: Story = {
+export const SkeletonCard: Story = {
   args: {
     src: '',
-    alt: 'No Image Card',
-    title: 'Card without Image',
-    date: '2023-06-01',
-    location: 'No Image Location',
+    alt: '',
+    title: '',
+    date: '',
+    location: '',
     id: '4',
     isFavorite: false,
   },
   parameters: {
     design: {
       type: 'figma',
-      url: 'https://www.figma.com/file/FRi5rN0B2IiiIOSwgiPLW0/SmakChet?node-id=4758-21509&t=ApRDS3YhtIuQqKEA-4',
+      url: 'https://www.figma.com/file/FRi5rN0B2IiiIOSwgiPLW0/SmakChet?node-id=6068-10026&t=a2pYJUTApcxfHTDa-4',
     },
   },
 };
