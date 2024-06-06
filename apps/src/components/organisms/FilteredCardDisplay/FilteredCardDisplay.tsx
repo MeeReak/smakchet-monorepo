@@ -1,7 +1,7 @@
 "use client";
 
 import { CategoryGroup } from "@/components/molechules";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { CardList } from "../cardList";
 
 const FilteredCardDisplay = () => {
@@ -9,7 +9,6 @@ const FilteredCardDisplay = () => {
 
   const [cate, setCate] = useState<string>("All");
 
-  // const [data, setData] = useState([]);
 
   // const getData = async () => {
   //   try {

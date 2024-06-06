@@ -7,7 +7,7 @@ import { cookies } from "next/headers";
 
 const roboto = Roboto({
   subsets: ["latin"],
-  weight: ["100", "300", "500", "700"],
+  weight: ["400"],
 });
 
 export const metadata: Metadata = {
