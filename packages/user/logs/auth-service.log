@@ -500,3 +500,54 @@
 [2024-06-05T03:12:10.727Z] [32minfo[39m: 	[32mresponse sent[39m
 [2024-06-05T03:12:16.606Z] [34mdebug[39m: 	[34mrequest received: [39m
 [2024-06-05T03:12:16.610Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-06T01:47:25.442Z] [32minfo[39m: 	[32mMongoDB connected[39m
+[2024-06-06T01:47:25.447Z] [32minfo[39m: 	[32mSuccessfully connected to MongoDB[39m
+[2024-06-06T01:47:25.450Z] [32minfo[39m: 	[32mServer is listening on port: 3003[39m
+[2024-06-06T01:47:36.115Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-06T01:47:36.132Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-06T01:56:21.466Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-06T01:56:21.548Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-06T01:56:45.788Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-06T01:56:45.799Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-06T01:56:45.811Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-06T01:56:45.820Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-06T01:56:46.202Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-06T01:56:46.209Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-06T01:56:55.717Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-06T01:56:55.725Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-06T01:57:51.343Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-06T01:57:51.358Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-06T01:58:09.864Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-06T01:58:09.871Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-06T01:58:10.475Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-06T01:58:10.483Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-06T01:58:21.717Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-06T01:58:21.726Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-06T01:58:24.578Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-06T01:58:24.585Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-06T01:59:41.486Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-06T01:59:41.492Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-06T01:59:46.433Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-06T01:59:46.438Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-06T01:59:54.139Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-06T01:59:54.147Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-06T01:59:58.463Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-06T01:59:58.487Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-06T02:01:06.955Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-06T02:01:06.961Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-06T02:01:12.366Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-06T02:01:12.373Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-06T02:01:29.610Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-06T02:01:29.616Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-06T02:01:49.954Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-06T02:01:49.966Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-06T02:02:11.373Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-06T02:02:11.378Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-06T02:02:19.883Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-06T02:02:19.890Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-06T02:05:01.122Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-06T02:05:01.128Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-06T02:07:09.292Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-06T02:07:09.297Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-06T02:08:05.611Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-06T02:08:05.622Z] [32minfo[39m: 	[32mresponse sent[39m
