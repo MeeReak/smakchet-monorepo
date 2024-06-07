@@ -23,7 +23,7 @@ export default function RootLayout({
       <head>
         <title>Smakchet</title>
       </head>
-      <body className={roboto.className}>
+      <body className={`bg-[#FAFAFA] max-h-full ${roboto.className}`}>
         {/* <Navbar /> */}
         <CardContext>{children}</CardContext>
         {/* <SecondNarbar /> */}
