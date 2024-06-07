@@ -1,4 +1,4 @@
-import { Navbar, SecondNarbar } from "@/components";
+import { Navbar, SecondNarbar,Footer } from "@/components";
 import CardContext from "@/contexts/CardContext";
 import { Metadata } from "next";
 import { Roboto } from "next/font/google";
@@ -39,7 +39,7 @@ export default function RootLayout({
         <CardContext>{children}</CardContext>
         <SecondNarbar />
 
-        {/* <Footer /> */}
+        <Footer />
       </body>
     </html>
   );

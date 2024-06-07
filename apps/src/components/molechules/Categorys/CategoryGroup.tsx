@@ -37,7 +37,7 @@ export const CategoryGroup = () => {
   };
 
   return (
-    <div className="max-w-[1024px] m-auto flex items-center space-x-4 max-[1030px]:px-5">
+    <div className="max-w-[1024px]  flex items-center space-x-4 max-[1030px]:px-5">
       {isActive == true && (
         <ButtonIcon
           onclick={() => {
@@ -63,7 +63,7 @@ export const CategoryGroup = () => {
         />
       )}
       <div
-        className="flex items-center overflow-x-auto hide-scrollbar"
+        className="flex items-center overflow-x-auto hide-scrollbar "
         ref={containerRef}
       >
         <div className="flex items-center space-x-3">
@@ -100,7 +100,7 @@ export const CategoryGroup = () => {
               viewBox="0 0 24 24"
               strokeWidth="1.5"
               stroke="currentColor"
-              className="size-6 border-2 rounded-full p-1"
+              className="size-6 border-2 rounded-full p-1  mt-[10px] "
             >
               <path
                 strokeLinecap="round"

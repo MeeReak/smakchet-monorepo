@@ -42,10 +42,10 @@ const SubNarbar = ({ role }: { role: string }) => {
             <Link href="/">
               <Image
                 className="pb-2"
-                src={"/assets/icons/smakchet-logo.svg"}
+                src={"/assets/image/smakchet_logo.svg"}
                 alt="smakchet-logo"
-                width={140}
-                height={50}
+                width={159}
+                height={43}
               />
             </Link>
           </div>
