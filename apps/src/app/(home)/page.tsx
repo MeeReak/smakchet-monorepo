@@ -1,10 +1,13 @@
-"use client";
-
 import React from "react";
 import { Trending, FilteredCardDisplay } from "@/components";
 import Image from "next/image";
 
-const Homepage = () => {
+
+const homepage = ({
+  searchParams,
+}: {
+  searchParams: { [key: string]: string | undefined };
+}) => {
   return (
     <>
       <div className="max-w-[1024px] m-auto space-y-4 z-10 mt-[100px] mb-20">
@@ -30,10 +33,10 @@ const Homepage = () => {
           }
         />
 
-        <FilteredCardDisplay />
+        <FilteredCardDisplay searchParams={searchParams} />
       </div>
     </>
   );
 };
 
-export default Homepage;
+export default homepage;

@@ -53,7 +53,7 @@ export class EventRepository {
       if (cate) query.category = cate;
       if (id) query._id = id;
 
-      return await EventModel.find(query);
+      return await EventModel.find(query ? query : {});
     } catch (error: unknown) {
       throw error; // Or handle the error more gracefully
     }

@@ -1,26 +1,41 @@
+import { CardProps } from "@/@types/card";
 import { Card } from "@/components/molechules";
-import { MyContext } from "@/contexts/CardContext";
-import React, { useContext } from "react";
+import React from "react";
 
-interface CardListProps {
+async function getData({ cate }: { cate: string }) {
+  try {
+    const api = `http://localhost:3000/v1/events?cate=${cate}`;
+    const response = await fetch(api, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+
+    return await response.json();
+  } catch (error: unknown | any) {
+    console.error("Error fetching data:", error);
+  }
+}
+
+interface FilterProps {
   cate: string;
 }
 
-const CardList: React.FC<CardListProps> = ({ cate }) => {
-  const { CardInfo } = useContext(MyContext);
-
-  const filteredCards = cate === "All" ? CardInfo : CardInfo.filter((item) => item.cate === cate);
+const CardList: React.FC<FilterProps> = async ({ cate }) => {
+  const category = cate ? (cate === "All" ? "" : cate) : "";
+  const data = await getData({ cate: category });
 
   return (
     <div className="max-[1030px]:px-5 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 justify-items-center">
-      {filteredCards.map((item, index) => (
+      {data.map((item: CardProps, index: number) => (
         <Card
           key={index}
-          id={item.id}
-          src={item.src}
-          alt={item.alt}
-          title={item.title}
-          date={item.date}
+          _id={item._id}
+          thumbnail={item.thumbnail}
+          alt={item.thumbnail}
+          eventName={item.eventName}
+          Date={item.Date}
           location={item.location}
           isFavorite={item.isFavorite}
         />

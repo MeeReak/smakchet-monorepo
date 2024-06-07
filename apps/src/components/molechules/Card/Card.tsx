@@ -1,29 +1,25 @@
-"use client";
 import { Typography } from "@/components";
 import Image from "next/image";
-import React, { useContext } from "react";
+import React from "react";
 import Link from "next/link";
-import { MyContext } from "@/contexts/CardContext";
 import { CardProps } from "@/@types/card";
 
 const Card: React.FC<CardProps> = ({
-  src,
+  thumbnail,
   alt,
-  title,
-  date,
+  eventName,
+  Date,
   location,
-  id,
+  _id,
   isFavorite,
 }) => {
-  const { toggleFavorite } = useContext(MyContext);
-
   return (
     <>
-      <Link href={`/detail/${id}`}>
+      <Link href={`/detail/${_id}`}>
         <div className="h-[340px] p-[10px] pb-[5px] space-y-2 rounded-[10px] relative shadow-[0_3px_10px_rgb(0,0,0,0.2)]">
           <div>
             <Image
-              src={src}
+              src={thumbnail}
               alt={alt}
               width={300}
               height={200}
@@ -37,16 +33,11 @@ const Card: React.FC<CardProps> = ({
               viewBox="0 0 24 24"
               strokeWidth={1.5}
               stroke="currentColor"
-              onClick={(e) => {
-                e.preventDefault();
-                toggleFavorite(id);
-              }}
               className={
                 isFavorite
                   ? `w-6 h-6 absolute top-3 right-3 fill-[#FF2020] stroke-none z-10`
                   : `w-6 h-6 absolute top-3 right-3 stroke-white fill-[rgba(0,0,0,0.15)] z-10`
               }
-              
             >
               <path
                 strokeLinecap="round"
@@ -61,7 +52,7 @@ const Card: React.FC<CardProps> = ({
               fontSize="h4"
               fontWeight="semibold"
             >
-              {title}
+              {eventName}
             </Typography>
 
             <div className="space-y-1">
@@ -82,7 +73,7 @@ const Card: React.FC<CardProps> = ({
                 </svg>
 
                 <Typography fontSize="h5" className="pl-[5px]  text-gray-600">
-                  {date}
+                  {Date.startDate}
                 </Typography>
               </div>
               <div className="flex items-center">

@@ -2,33 +2,12 @@
 
 import React, { useRef, useState } from "react";
 import { Button, ButtonIcon } from "@/components";
+import { categories } from "@/consts";
+import { useRouter } from "next/navigation";
 
-interface CategoryGroupProps {
-  setFiltered: (index: number) => void;
-  filtered: number;
-  setCate: (Cate: string) => void;
-}
-
-export const CategoryGroup: React.FC<CategoryGroupProps> = ({
-  setFiltered,
-  filtered,
-  setCate,
-}) => {
-  const [type, setType] = useState([
-    "All",
-    "Education",
-    "Exhibition",
-    "Workshop",
-    "Environmental",
-    "Charity",
-    "Sport",
-    "Technology",
-    "Music",
-    "Art",
-    "Food",
-  ]);
-
+export const CategoryGroup = () => {
   const [isActive, setIsActive] = useState(false);
+  const [cate, setCate] = useState<string>("All");
 
   const containerRef = useRef<HTMLDivElement>(null);
 
@@ -48,6 +27,13 @@ export const CategoryGroup: React.FC<CategoryGroupProps> = ({
         behavior: "smooth",
       });
     }
+  };
+
+  const router = useRouter();
+
+  const handleFilter = (cate: string) => {
+    router.push(`?cate=${cate}`);
+    setCate(cate);
   };
 
   return (
@@ -81,22 +67,22 @@ export const CategoryGroup: React.FC<CategoryGroupProps> = ({
         ref={containerRef}
       >
         <div className="flex items-center space-x-3">
-          {type.map((item: string, index: number) => (
+          {categories.map((item, index) => (
             <Button
               onclick={() => {
-                setFiltered(index);
-                setCate(item);
+                handleFilter(item.label);
+                console.log(item.label);
               }}
               round="full"
               size="h5"
-              className={` border px-4 py-2 sm:text-base ${
-                filtered === index
-                  ? "bg-[#207bff] text-white"
-                  : "hover:bg-[#bdd8ff] hover:text-[#207BFF] hover:border-[#207BFF]"
-              } transition-all duration-150 ease-in-out`}
               key={index}
+              className={
+                cate && cate === item.label
+                  ? "bg-[#207bff] text-white border px-4 py-2 sm:text-base "
+                  : " border px-4 py-2 sm:text-base "
+              }
             >
-              {item}
+              {item.label}
             </Button>
           ))}
         </div>
