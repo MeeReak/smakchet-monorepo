@@ -31,7 +31,7 @@ const Trending: React.FC<TrendingProps> = ({
     };
   }, []);
   return (
-    <div className="max-[1030px]:px-5">
+    <div className="max-[1030px]:px-5 ">
       <Typography
         fontSize="h2"
         fontWeight="bold"

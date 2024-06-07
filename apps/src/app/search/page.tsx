@@ -1,6 +1,6 @@
 "use client";
 import React, { useContext, useState } from "react";
-import { Card, InputData, Typography } from "@/components";
+import { Card, FilterButton, InputData, Typography } from "@/components";
 import { MyContext } from "@/contexts/CardContext";
 
 const SearchPage = () => {
@@ -19,7 +19,7 @@ const SearchPage = () => {
         <div className="flex justify-center space-x-3">
           <div className="relative max-[640px] flex justify-between">
             <InputData
-              className="w-[350px] py-3 pl-5 rounded-[10px] border-gray-200 flex justify-between "
+              className="w-[350px] py-3 pl-5 rounded-[25px] border-gray-200 flex justify-between "
               onChange={(event: any) => handleOnChange(event)}
               placeholder={"Search"}
               type={"string"}
@@ -41,6 +41,7 @@ const SearchPage = () => {
               </svg>
             </div>
           </div>
+          <FilterButton/>
         </div>
         <div>
           <Typography

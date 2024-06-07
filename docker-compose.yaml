@@ -88,16 +88,16 @@ services:
     depends_on:
       rabbitmq:
         condition: service_healthy
-  event:
-    container_name: event
-    build:
-      context: ./packages/event
-      dockerfile: Dockerfile.dev
-    restart: always
-    ports:
-      - 3004:3004
-    volumes:
-      - ./packages/event/src:/app/src
+  # event:
+  #   container_name: event
+  #   build:
+  #     context: ./packages/event
+  #     dockerfile: Dockerfile.dev
+  #   restart: always
+  #   ports:
+  #     - 3004:3004
+  #   volumes:
+  #     - ./packages/event/src:/app/src
   # application:
   #   container_name: application
   #   build:
