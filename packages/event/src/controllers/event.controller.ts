@@ -29,6 +29,7 @@ const eventService = new EventService();
 
 @Route("/v1/events")
 export class EventController extends Controller {
+  //find event by id, name, cate
   @Get("/")
   public async FindEventByName(
     @Queries() queryParam: QueryParams
@@ -151,17 +152,4 @@ export class EventController extends Controller {
     }
   }
 
-  @Get("/events")
-  public async FindAllEvent(): Promise<any> {
-    try {
-      const event = await eventService.findAllEvent();
-
-      if (event.length === 0) {
-        throw new APIError("Event Not Found !!", StatusCode.NotFound);
-      }
-      return event;
-    } catch (error: unknown) {
-      throw error;
-    }
-  }
 }

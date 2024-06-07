@@ -1,9 +1,14 @@
 interface CardProps {
-  id: string;
-  src: string;
+  _id: string;
+  thumbnail: string;
   alt: string;
-  title: string;
-  date: string;
+  eventName: string;
+  Date:{
+    startDate?: string;
+    endDate?: string;
+    startTime?: string;
+    endTime?: string;
+  }
   location: string;
   isFavorite?: boolean;
 }
