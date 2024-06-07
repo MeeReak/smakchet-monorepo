@@ -16,6 +16,7 @@
     "@nextui-org/popover": "^2.1.21",
     "@nextui-org/react": "^2.3.6",
     "@nextui-org/select": "^2.1.27",
+    "@storybook/icons": "^1.2.9",
     "@types/react-datepicker": "^6.2.0",
     "@types/react-icons": "^3.0.0",
     "axios": "^1.6.8",
