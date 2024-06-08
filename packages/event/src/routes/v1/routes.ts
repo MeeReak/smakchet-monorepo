@@ -17,6 +17,8 @@ const models: TsoaRoute.Models = {
             "name": {"dataType":"string"},
             "cate": {"dataType":"string"},
             "id": {"dataType":"string"},
+            "page": {"dataType":"string","required":true},
+            "limit": {"dataType":"string","required":true},
         },
         "additionalProperties": false,
     },
