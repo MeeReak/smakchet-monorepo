@@ -12,9 +12,11 @@ async function getData({ cate }: { cate: string }) {
       },
     });
 
-    return await response.json();
+    const result = await response.json();
+    return result;
   } catch (error: unknown | any) {
     console.error("Error fetching data:", error);
+    console.log(error.message);
   }
 }
 
@@ -26,21 +28,26 @@ const CardList: React.FC<FilterProps> = async ({ cate }) => {
   const category = cate ? (cate === "All" ? "" : cate) : "";
   const data = await getData({ cate: category });
 
+  console.log("=======================================", data);
+
   return (
-    <div className="max-[1030px]:px-5 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 justify-items-center">
-      {data.map((item: CardProps, index: number) => (
-        <Card
-          key={index}
-          _id={item._id}
-          thumbnail={item.thumbnail}
-          alt={item.thumbnail}
-          eventName={item.eventName}
-          Date={item.Date}
-          location={item.location}
-          isFavorite={item.isFavorite}
-        />
-      ))}
-    </div>
+    <>
+      <div className="max-[1030px]:px-5 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 justify-items-center">
+        {data.map((item: CardProps, index: number) => (
+          <Card
+            key={index}
+            _id={item._id}
+            thumbnail={item.thumbnail}
+            alt={item.thumbnail}
+            eventName={item.eventName}
+            Date={item.Date}
+            location={item.location}
+            isFavorite={item.isFavorite}
+          />
+        ))}
+      </div>
+      {/* <SubCardList data={data} /> */}
+    </>
   );
 };
 

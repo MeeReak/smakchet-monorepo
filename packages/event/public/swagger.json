@@ -17,8 +17,18 @@
 					},
 					"id": {
 						"type": "string"
+					},
+					"page": {
+						"type": "string"
+					},
+					"limit": {
+						"type": "string"
 					}
 				},
+				"required": [
+					"page",
+					"limit"
+				],
 				"type": "object",
 				"additionalProperties": false
 			},
@@ -190,6 +200,22 @@
 						"in": "query",
 						"name": "id",
 						"required": false,
+						"schema": {
+							"type": "string"
+						}
+					},
+					{
+						"in": "query",
+						"name": "page",
+						"required": true,
+						"schema": {
+							"type": "string"
+						}
+					},
+					{
+						"in": "query",
+						"name": "limit",
+						"required": true,
 						"schema": {
 							"type": "string"
 						}

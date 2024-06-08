@@ -23,6 +23,8 @@ export interface QueryParams {
   name?: string;
   cate?: string;
   id?: string;
+  page: string;
+  limit: string;
 }
 
 const eventService = new EventService();
@@ -151,5 +153,4 @@ export class EventController extends Controller {
       throw new APIError("Event Not Found !!", StatusCode.NotFound);
     }
   }
-
 }

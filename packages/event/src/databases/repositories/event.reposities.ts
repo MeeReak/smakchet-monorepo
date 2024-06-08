@@ -45,7 +45,7 @@ export class EventRepository {
 
   async findEventByQueries(queryParams: QueryParams): Promise<any> {
     try {
-      const { name, cate, id } = queryParams;
+      const { name, cate, id, limit, page } = queryParams;
 
       // Build the query object dynamically based on provided parameters
       const query: { [key: string]: any } = {}; // Use a generic object type for Mongoose query
@@ -53,7 +53,18 @@ export class EventRepository {
       if (cate) query.category = cate;
       if (id) query._id = id;
 
-      return await EventModel.find(query ? query : {});
+      const Page = parseInt(page);
+      const sizePage = parseInt(limit);
+      const startIndex = (Page - 1) * sizePage;
+      const endIndex = Page * sizePage;
+
+      console.log(startIndex, endIndex);
+
+      const event = await EventModel.find(query ? query : {});
+
+      const paginatedProducts = event.slice(startIndex, endIndex);
+
+      return paginatedProducts;
     } catch (error: unknown) {
       throw error; // Or handle the error more gracefully
     }

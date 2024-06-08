@@ -29,7 +29,6 @@ export default function RootLayout({
     <html lang="en">
       <head>
         <title>Smakchet</title>
-        
       </head>
       <body className={roboto.className}>
         <Navbar session={session} sigSession={sigSession} />
@@ -37,7 +36,7 @@ export default function RootLayout({
           <CardContext>{children}</CardContext>
           <SecondNarbar />
         </Providers>
-        <Footer />
+        {/* <Footer /> */}
       </body>
     </html>
   );

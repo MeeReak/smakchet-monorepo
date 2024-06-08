@@ -7,6 +7,7 @@ import { verify } from "jsonwebtoken";
 
 async function verifyUser(req: Request, _res: Response, _next: NextFunction) {
   try {
+    console.log("helllo", req.session);
     if (!req.session!.jwt) {
       logger.error(
         "Token is not available. Gateway Service verifyUser() method error"
@@ -19,7 +20,8 @@ async function verifyUser(req: Request, _res: Response, _next: NextFunction) {
 
     await verify(req.session?.jwt, publickey, { algorithms: ["RS256"] });
     _next();
-  } catch (error) {
+  } catch (error: any) {
+    console.log(error.message);
     _next(error);
   }
 }
