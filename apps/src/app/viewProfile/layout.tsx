@@ -40,7 +40,7 @@ export default function RootLayout({
           <CardContext>{children}</CardContext>
           <SecondNarbar />
         </Providers>
-        {/* <Footer /> */}
+        <Footer />
       </body>
     </html>
   );

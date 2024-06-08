@@ -16,7 +16,7 @@ const meta: Meta<typeof InputSearch> = {
 export default meta;
 type Story = StoryObj<typeof InputSearch>;
 
-export const Date: Story = {
+export const Search: Story = {
     args:{
       onChange: action('seach')
     },

@@ -9,7 +9,12 @@ interface HostNotificationCardProp {
   description: string;
   time: string;
 }
-const HostNotificationCard: FC<HostNotificationCardProp> = ({ title, image, description, time }) => {
+const HostNotificationCard: FC<HostNotificationCardProp> = ({
+  title,
+  image,
+  description,
+  time,
+}) => {
   return (
     <div>
       <div className="flex items-center justify-start gap-4 p-3 md:w-[630px] hover:bg-gray-100 rounded-[5px] cursor-pointer">
@@ -22,10 +27,10 @@ const HostNotificationCard: FC<HostNotificationCardProp> = ({ title, image, desc
         />
         <div className="w-full flex flex-col gap-3">
           <Typography fontWeight="medium" className="!text-base">
-            {`${title}`} <span className="font-normal text-base">{`${description}`}</span>
+            {`${title}`}{" "}
+            <span className="font-normal text-base">{`${description}`}</span>
           </Typography>
           <Typography color="blue">{`${time}`}</Typography>
-
         </div>
       </div>
     </div>

@@ -17,8 +17,18 @@
 					},
 					"id": {
 						"type": "string"
+					},
+					"page": {
+						"type": "string"
+					},
+					"limit": {
+						"type": "string"
 					}
 				},
+				"required": [
+					"page",
+					"limit"
+				],
 				"type": "object",
 				"additionalProperties": false
 			},
@@ -193,6 +203,22 @@
 						"schema": {
 							"type": "string"
 						}
+					},
+					{
+						"in": "query",
+						"name": "page",
+						"required": true,
+						"schema": {
+							"type": "string"
+						}
+					},
+					{
+						"in": "query",
+						"name": "limit",
+						"required": true,
+						"schema": {
+							"type": "string"
+						}
 					}
 				]
 			},
@@ -314,23 +340,6 @@
 						}
 					}
 				]
-			}
-		},
-		"/v1/events/events": {
-			"get": {
-				"operationId": "FindAllEvent",
-				"responses": {
-					"200": {
-						"description": "Ok",
-						"content": {
-							"application/json": {
-								"schema": {}
-							}
-						}
-					}
-				},
-				"security": [],
-				"parameters": []
 			}
 		}
 	},

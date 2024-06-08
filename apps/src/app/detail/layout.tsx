@@ -38,7 +38,7 @@ export default function RootLayout({
         <CardContext>{children}</CardContext>
         <SecondNarbar />
 
-        {/* <Footer /> */}
+        <Footer />
       </body>
     </html>
   );
