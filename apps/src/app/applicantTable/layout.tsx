@@ -28,7 +28,7 @@ export default function RootLayout({
       <head>
         <title>Smakchet</title>
       </head>
-      <body className={`bg-[#FAFAFA] ${roboto.className}`}>
+      <body className={`bg-[#FAFAFA] max-h-full ${roboto.className}`}>
         {/* <Navbar session={session} sigSession={sigSession} /> */}
         <Providers>
           <CardContext>{children}</CardContext>
