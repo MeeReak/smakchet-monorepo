@@ -4,10 +4,12 @@ import { authChannel } from "@auth/server";
 import { UserService } from "@auth/services/user.service";
 import { StatusCode } from "@auth/utils/consts";
 import getConfig from "@auth/utils/createConfig";
+import { decodedToken } from "@auth/utils/decodeToken";
 import { generateToken } from "@auth/utils/generate";
 import { logger } from "@auth/utils/logger";
 import axios from "axios";
-import { Body, Get, Post, Query, Route, SuccessResponse } from "tsoa";
+import { Body, Get, Header, Post, Query, Route, SuccessResponse } from "tsoa";
+
 
 interface SignUpRequestBody {
   username: string;
@@ -112,7 +114,6 @@ export class UserController {
       };
 
       const respone = await axios.post("http://user:3003/v1/user", data);
-      console.log("response: " , respone.data);
       const jwtToken = await generateToken(respone.data.data._id, user.role!);
 
       return {
@@ -137,10 +138,10 @@ export class UserController {
       const { email, password } = requestBody;
 
       const user = await this.userService.login({ email, password });
-
+      
       const respone = await axios.get(`http://user:3003/v1/user/${user.id}`);
 
-      const jwtToken = await generateToken(respone.data._id, respone.data.role);
+      const jwtToken = await generateToken(respone.data.data._id, respone.data.data.role);
 
       return { message: "Login successful.", token: jwtToken };
     } catch (error: unknown) {
@@ -384,10 +385,18 @@ export class UserController {
   }
 
   @Get("/logout")
-  async Logout() {
-    try {
-    } catch (error: unknown) {
-      throw error;
+  async logout(@Header("authorization") authorization: string): Promise<any> {
+    try{
+      const token = authorization?.split(" ")[1];
+      const decodedUser = await decodedToken(token);
+      const isLogout = await this.userService.logout(decodedUser)
+      
+      if(!isLogout){
+        throw new APIError("Unable to logout!")
+      }
+      return {message: "Success logout", isLogout: isLogout}
+    }catch(error: unknown){
+      throw error
     }
   }
 }

@@ -7,6 +7,7 @@ import { StatusCode } from "@auth/utils/consts";
 import APIError from "@auth/Errors/api-error";
 import DuplicateError from "@auth/Errors/duplicat-error";
 import mongoose from "mongoose";
+import axios from "axios";
 
 export class UserService {
   private userRepo: UserRepository;
@@ -257,6 +258,19 @@ export class UserService {
       await user?.save();
 
       return user;
+    } catch (error: unknown) {
+      throw error;
+    }
+  }
+  async logout(decodedUser:any){
+    try {
+      const { id } = decodedUser;
+      console.log("id from service: ", id);
+      const existingUser = await axios.get(`http://user:3003/v1/user/${id}`);
+      if (!existingUser) {
+        throw new APIError("No user found!", StatusCode.NotFound);
+      }
+      return true;
     } catch (error: unknown) {
       throw error;
     }
