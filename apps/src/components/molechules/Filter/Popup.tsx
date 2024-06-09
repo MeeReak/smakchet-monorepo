@@ -2,11 +2,12 @@ import {Icon} from "@/components";
 import React from "react";
 
 interface PopupProps {
-  setModalState: (state: boolean) => void;
+  setModalState: (state: boolean) => void
+ 
   children?: React.ReactNode;
 }
 
-const Popup: React.FC<PopupProps> = ({ children, setModalState }) => {
+const Popup: React.FC<PopupProps> = ({ children, setModalState,  }) => {
   return (
     <div className="fixed inset-0 z-50 backdrop-filter backdrop-blur-lg flex justify-center items-center">
       {/* Background overlay */}

@@ -7,15 +7,17 @@ interface ReqCardProp {
   title?: string;
   description?: string;
   imageSrc?: string;
+  onClick?: () => void;
 }
 
 const ReqCard: React.FC<ReqCardProp> = ({
   title,
   description,
   imageSrc = "",
+  onClick,
 }) => {
   return (
-    <div className="h-[70px] pl-6 border bg-white border-gray-200 flex cursor-pointer hover:bg-gray-100 items-center rounded-[10px]">
+    <div className="h-[70px] pl-6 border bg-white border-gray-200 flex cursor-pointer hover:bg-gray-100 items-center rounded-[10px]" onClick={onClick}>
       <div className="flex items-start space-x-4">
         <Image src={imageSrc} alt="age" width={24} height={24}/>
         <div>
