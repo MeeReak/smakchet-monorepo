@@ -1,10 +1,11 @@
 import { CardProps } from "@/@types/card";
 import { Card } from "@/components/molechules";
 import React from "react";
+import ScrollCard from "./ScrollCard";
 
 async function getData({ cate }: { cate: string }) {
   try {
-    const api = `http://localhost:3000/v1/events?cate=${cate}`;
+    const api = `http://localhost:3000/v1/events?page=1&limit=6&cate=${cate}`;
     const response = await fetch(api, {
       method: "GET",
       headers: {
@@ -46,7 +47,8 @@ const CardList: React.FC<FilterProps> = async ({ cate }) => {
           />
         ))}
       </div>
-      {/* <SubCardList data={data} /> */}
+
+      {(!cate || cate == "All") && <ScrollCard />}
     </>
   );
 };

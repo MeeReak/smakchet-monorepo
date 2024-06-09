@@ -53,6 +53,7 @@ export class EventRepository {
       if (cate) query.category = cate;
       if (id) query._id = id;
 
+      console.log(page, limit);
       const Page = parseInt(page);
       const sizePage = parseInt(limit);
       const startIndex = (Page - 1) * sizePage;

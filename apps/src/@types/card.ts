@@ -11,6 +11,7 @@ interface CardProps {
   }
   location: string;
   isFavorite?: boolean;
+  isLoading?: boolean;
 }
 
 export type { CardProps };
