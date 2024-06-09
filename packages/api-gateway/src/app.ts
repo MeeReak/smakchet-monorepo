@@ -9,8 +9,8 @@ import { applyRateLimit } from "./middlewares/rate-limits";
 import applyProxy from "./middlewares/proxy";
 import { logger } from "./utils/logger";
 import { StatusCode } from "./utils/consts";
-// import { verifyUser } from "./middlewares/auth-middleware";
-// import unless from "./middlewares/unless-route";
+import { verifyUser } from "./middlewares/auth-middleware";
+import unless from "./middlewares/unless-route";
 
 // Create express app
 const app = express();
@@ -61,7 +61,7 @@ app.disable("x-powered-by");
 // ===================
 // JWT Middleware
 // ===================
-// app.use(unless("/v1/auth", verifyUser));
+app.use(unless("/v1/auth", verifyUser));
 
 // ===================
 // Proxy Middleware

@@ -132,19 +132,17 @@ const FormPost = ({
     });
   };
   console.log(formData);
+    const navigate = useNavigate();
 
-  // const BackButton = () => {
-    // const navigate = useNavigate();
-
-    // const handleBack = () => {
-    //   navigate(-1); // This will take you back to the previous page
-    // };
+    const handleBack = () => {
+      navigate(-1); // This will take you back to the previous page
+    };
 
   return (
     <div className="h-full bg-[#FAFAFA] w-full ">
       <div className="md:py-[113px] md:px-[240px] py-[100px]">
         <Button
-        // onclick={handleBack}
+        onclick={handleBack}
           className="!border-none text-start w-fit"
           leftIcon={
             <Image
