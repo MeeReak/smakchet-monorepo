@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import { ButtonIcon, Typography } from "@/components/atoms";
 import Link from "next/link";
 import Image from "next/image";
+import axios from "axios";
 
 interface UserProfileDropdownProps {
   isOpen: boolean;
@@ -16,6 +17,30 @@ const UserProfileDropdown: React.FC<UserProfileDropdownProps> = ({
   setNotiOpen,
 }) => {
   const isProfile = false;
+
+  const handleLogout  = async () =>{
+    try{
+      const response = await axios.get(
+        "http://localhost:3000/v1/auth/logout",
+        {
+          withCredentials: true,
+        }
+      );
+      console.log("response : ", response.data);
+      window.location.href = "/";
+    }catch(error){
+      if (axios.isAxiosError(error)) {
+        // Handle axios errors (e.g., network errors or backend errors)
+        if (error.response) {
+          // Server responded with a status other than 200 range
+          console.error("Backend returned an error:", error.response.data);
+        }
+      } else {
+        // Handle other potential errors (e.g., axios errors)
+        console.error("Error:", error); // Log the entire error object
+      }
+    }
+  }
 
   return (
     <div>
@@ -77,7 +102,7 @@ const UserProfileDropdown: React.FC<UserProfileDropdownProps> = ({
               </Typography>
             </Link>
 
-            <Link href={""}>
+            <Link href={""} onClick={handleLogout}>
               <Typography className="p-3 hover:bg-gray-100" fontSize="h4">
                 Log out
               </Typography>

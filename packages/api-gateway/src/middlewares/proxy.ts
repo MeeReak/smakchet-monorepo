@@ -51,6 +51,7 @@ const proxyConfigs: ProxyConfig = {
             errors?: Array<object>;
             url?: string;
             verify_token?:string;
+            isLogout?:boolean;
           };
 
           try {
@@ -74,6 +75,11 @@ const proxyConfigs: ProxyConfig = {
 
             if(responseBody.verify_token){
               return res.json(responseBody);
+            }
+
+            if(responseBody.isLogout){
+              res.clearCookie("session");
+              res.clearCookie("session.sig");
             }
 
             // Modify response to send only the message to the client
@@ -140,6 +146,7 @@ const proxyConfigs: ProxyConfig = {
             message?: string;
             token?: string;
             errors?: Array<object>;
+            data?:Array<object>;
           };
 
           try {
@@ -148,6 +155,9 @@ const proxyConfigs: ProxyConfig = {
             // If Response Error
             if (responseBody.errors) {
               return res.status(proxyRes.statusCode!).json(responseBody);
+            }
+            if (responseBody.data){
+              return res.json(responseBody);
             }
 
             return res.status(proxyRes.statusCode!).json(responseBody);

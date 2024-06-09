@@ -21,7 +21,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        <title>Smakchet</title>
+        <title>Smakchet | Login</title>
       </head>
       <body className={roboto.className}>
         {/* <Navbar /> */}

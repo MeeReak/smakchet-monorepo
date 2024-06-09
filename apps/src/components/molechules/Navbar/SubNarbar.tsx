@@ -50,7 +50,7 @@ const SubNarbar = ({ role }: { role: string }) => {
             </Link>
           </div>
           <div className=" flex flex-row items-center ">
-            {!role && (
+            {(!role || role == undefined)&& (
               <>
                 {/* Conditionally Render Search Bar */}
                 {pathname !== "/search" && pathname !== "/create-post" && (

@@ -6,6 +6,7 @@ import Link from "next/link";
 import logInSchema from "@/utils/logInSchema";
 import { setLocalStorage } from "@/utils/localStorage";
 import { LoginProps } from "@/@types/auth";
+import axios from "axios";
 
 const Page = () => {
   const [data, setData] = useState<LoginProps>({
@@ -28,21 +29,52 @@ const Page = () => {
     e.preventDefault();
     try {
       await logInSchema.validate(data, { abortEarly: false });
-      const isLogin = true;
-      setLocalStorage("isLogin", isLogin);
+      const response = await axios.post(
+        "http://localhost:3000/v1/auth/login",
+        data,
+        {
+          withCredentials: true,
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
+      console.log("response : ", response.data);
+      //const isLogin = true;
+      // setLocalStorage("isLogin", isLogin);
+      window.location.href = "/";
     } catch (error: any | unknown) {
-      const fieldErrors: { [key: string]: string } = {};
-
-      // Error From Yup
-      error.inner.forEach((err: any) => {
-        fieldErrors[err.path] = err.message;
-      });
-      console.log("Field Error", fieldErrors);
-      setErrors((prev) => ({
-        ...prev,
-        ...fieldErrors,
-      }));
-      return;
+      if (error) {
+        // Check if error exists
+        // Handle validation errors
+        if (error.name === "ValidationError") {
+          // Check for Yup validation error
+          const fieldErrors: { [key: string]: string } = {};
+          error.inner.forEach((err: any) => {
+            fieldErrors[err.path] = err.message;
+          });
+          console.error("Validation Errors:", fieldErrors);
+          setErrors((prev) => ({
+            ...prev,
+            ...fieldErrors,
+          }));
+        } else if (axios.isAxiosError(error)) {
+          // Handle axios errors (e.g., network errors or backend errors)
+          if (error.response) {
+            // Server responded with a status other than 200 range
+            console.error("Backend returned an error:", error.response.data);
+            setErrors((prev) => ({
+              ...prev,
+              email: error.response?.data?.errors[0]?.message,
+            }));
+          }
+        } else {
+          // Handle other potential errors (e.g., axios errors)
+          console.error("Error:", error); // Log the entire error object
+          // Display a generic error message to the user
+          setErrors({ ...errors });
+        }
+      }
     }
   }
 
