@@ -1,7 +1,10 @@
 "use client";
 
 import { ButtonIcon, FavPage, Typography } from "@/components";
-import SubmitForm from "@/components/organisms/submitForm/submitForm";
+import Popup from "@/components/molechules/Filter/Popup";
+import PopupReq from "@/components/molechules/PopupReq/PopupReq";
+import { RequireDetail } from "@/components/molechules/ReqCardDetail/RequireDetail";
+
 import { MyContext } from "@/contexts/CardContext";
 import React, { useContext } from "react";
 
@@ -12,7 +15,7 @@ const Page = () => {
 
   return (
     <>
-      <div className="xl:w-[1024px] w-screen m-auto space-y-5 z-10 mt-[100px] mb-20">
+      <div className="xl:w-[1024px] w-screen m-auto space-y-5 z-10 mt-[100px] mb-20 ">
         <div className="flex justify-between items-center px-5">
           <div className="flex items-center">
             <ButtonIcon

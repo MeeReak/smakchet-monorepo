@@ -258,15 +258,16 @@ const Page = () => {
                 align="center"
                 fontWeight="bold"
                 className="mt-[20px]"
+                fontSize="h3"
               >
                 Call Center
               </Typography>
-              <Typography align="center" className="mt-[20px] ">
+              <Typography align="center" className="mt-[20px]" fontSize="h5">
                 Contact us through this number
               </Typography>
               <div className="mt-[20px] flex justify-center items-center flex-col">
-                <Typography>+855 67791524</Typography>
-                <Typography>+855 85854469</Typography>
+                <Typography fontSize="h5">+855 67791524</Typography>
+                <Typography fontSize="h5">+855 85854469</Typography>
               </div>
             </div>
           </div>
@@ -300,6 +301,7 @@ const Page = () => {
                 align="center"
                 fontWeight="bold"
                 className="mt-[20px]"
+                fontSize="h3"
               >
                 Message Directly
               </Typography>
