@@ -3,6 +3,7 @@ import Image from "next/image";
 import React from "react";
 import Link from "next/link";
 import { CardProps } from "@/@types/card";
+import { formatDateTime } from "@/utils/formatTime";
 
 const Card: React.FC<CardProps> = ({
   thumbnail,
@@ -17,7 +18,7 @@ const Card: React.FC<CardProps> = ({
   return (
     <>
       <Link href={isLoading ? "#" : `/detail/${_id}`}>
-        <div className="h-[340px] p-[10px] pb-[5px] space-y-2 rounded-[10px] relative shadow-[0_3px_10px_rgb(0,0,0,0.2)]">
+        <div className="bg-white h-[340px] p-[10px] pb-[5px] space-y-2 rounded-[10px] relative shadow-[0_3px_10px_rgb(0,0,0,0.2)]">
           <div>
             {isLoading ? (
               <div className="w-[300px] h-[200px] bg-gray-300 rounded animate-pulse" />
@@ -85,8 +86,11 @@ const Card: React.FC<CardProps> = ({
                         d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 0 1 2.25-2.25h13.5A2.25 2.25 0 0 1 21 7.5v11.25m-18 0A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75m-18 0v-7.5A2.25 2.25 0 0 1 5.25 9h13.5A2.25 2.25 0 0 1 21 11.25v7.5"
                       />
                     </svg>
-                    <Typography fontSize="h5" className="pl-[5px] text-gray-600">
-                      {Date.startDate}
+                    <Typography
+                      fontWeight="medium"
+                      className="pl-[5px] text-[13px] text-gray-600"
+                    >
+                      {formatDateTime(Date.startDate)}
                     </Typography>
                   </>
                 )}

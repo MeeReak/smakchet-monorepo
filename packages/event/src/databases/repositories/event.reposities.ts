@@ -49,7 +49,7 @@ export class EventRepository {
 
       // Build the query object dynamically based on provided parameters
       const query: { [key: string]: any } = {}; // Use a generic object type for Mongoose query
-      if (name) query.eventName = name;
+      if (name) query.eventName = { $regex: name, $options: "i" }; // Case-insensitive partial match
       if (cate) query.category = cate;
       if (id) query._id = id;
 
