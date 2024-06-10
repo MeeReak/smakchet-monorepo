@@ -12,6 +12,7 @@ import {
 import Dropdown from "@/components/molechules/Dropdown/Dropdown";
 import TextEditor from "@/components/organisms/TextEdit";
 import { eventValidationSchema } from "@/utils/eventValidationSchema";
+import { Textarea } from "@nextui-org/react";
 import Link from "next/link";
 import React, { useState } from "react";
 
@@ -149,57 +150,73 @@ const EventInfo: React.FC<EventInfoProps> = ({ onNext }) => {
   };
 
   return (
-    <div className="lg:w-[855px] m-auto space-y-5 z-10 mt-20 w-screen mb-20">
-      <Typography fontWeight="bold" fontSize="h3" className="max-[1030px]:ml-3">
-        Event’s Detail
+    <div className="xl:mx-[300px] lg:mx-[200px] md:mx-[100px] space-y-[25px] z-10 pt-[113px] ">
+      <Typography fontWeight="bold" fontSize="h2">
+        Create post
       </Typography>
-      <div className="container mx-auto mt-8">
+      <div className="mx-auto mt-[33px]">
         <FileInput onChange={handleFileUpload} />
       </div>
       {errors.imageSrc && (
         <p className="text-red-500 mb-2 pl-8">{errors.imageSrc}</p>
       )}
-      <div>
-        <form onSubmit={handleSubmit} className="max-[1030px]:mx-5">
-          <label htmlFor="eventname">
-            <Typography fontWeight="medium" fontSize="h4">
-              Event Name
-            </Typography>
-          </label>
-          <InputData
-            id="eventname"
-            onChange={handleChange}
-            name="name"
-            type="text"
-            placeholder="Event Name"
-            className="w-full mt-3 mb-3 py-4 pl-5 border border-gray-200"
-          />
-          {errors.name && <p className="text-red-500 mb-2">{errors.name}</p>}
+      <div className="gap-y-5">
+        <form onSubmit={handleSubmit}>
+          {/* event name, category, detail */}
+          <div className="bg-white lg:py-[25px] lg:px-5 rounded-[10px] flex flex-col space-y-5 px-5">
+            <div className="flex md:flex-row lg:space-x-[35px]">
+              {/* Event name */}
+              <div className="flex flex-col w-full">
+                <label htmlFor="eventname">
+                  <Typography fontWeight="medium" fontSize="h4">
+                    Event Name
+                  </Typography>
+                </label>
+                <InputData
+                  id="eventname"
+                  onChange={handleChange}
+                  name="name"
+                  type="text"
+                  placeholder="Event Name"
+                  className=" mt-3 mb-3 py-3 pl-5 border border-gray-200"
+                />
+                {errors.name && (
+                  <p className="text-red-500 mb-2">{errors.name}</p>
+                )}
+              </div>
 
-          <label htmlFor="category">
-            <Typography fontWeight="medium" fontSize="h4">
-              Category
-            </Typography>
-          </label>
-          <Dropdown
-            classname="mt-3 mb-3 w-full"
-            options={options}
-            onChange={handleSelectCategory}
-            placeholder={"Select Event's category"}
-          />
-          {errors.category && (
-            <p className="text-red-500 mb-2">{errors.category}</p>
-          )}
-          <label htmlFor="detail">
-            <Typography fontWeight="semibold" fontSize="h4">
-              Detail
-            </Typography>
-          </label>
-          <TextEditor onchange={handleChangeContent} />
-          {errors.detail && (
-            <p className="text-red-500 mb-3">{errors.detail}</p>
-          )}
+              {/* Category */}
+              <div className="flex flex-col w-full">
+                <label htmlFor="category">
+                  <Typography fontWeight="medium" fontSize="h4">
+                    Category
+                  </Typography>
+                </label>
+                <Dropdown
+                  classname="mt-3 mb-3 w-full"
+                  options={options}
+                  onChange={handleSelectCategory}
+                  placeholder={"Select Event's category"}
+                />
+                {errors.category && (
+                  <p className="text-red-500 mb-2">{errors.category}</p>
+                )}
+              </div>
+            </div>
 
+          <div>
+
+            <label htmlFor="detail">
+              <Typography fontWeight="medium" fontSize="h4">
+                Event&apos;s Detail
+              </Typography>
+            </label>
+            <TextEditor onchange={handleChangeContent} />
+          </div>
+          </div>
+          
+          {/* Date time and location */}
+          <div className="bg-white lg:py-[25px] lg:px-5 rounded-[10px] flex flex-col space-y-5 gap-y-5 px-5 mt-[25px]">
           <Typography fontWeight="bold" fontSize="h2">
             Datetime and Location
           </Typography>
@@ -278,17 +295,13 @@ const EventInfo: React.FC<EventInfoProps> = ({ onNext }) => {
           {errors.location && (
             <p className="text-red-500 mb-2">{errors.location}</p>
           )}
+          </div>
+          
 
-          {/* Address of event */}
-
-          <Typography fontWeight="bold" fontSize="h3" className="mt-5 mb-5">
-            Address
-          </Typography>
-
-          <MapBox onchange={handleAddress} />
+        
 
           {/* Requirements */}
-
+          <div className="bg-white lg:py-[25px] lg:px-5 rounded-[10px] flex flex-col px-5 mt-[25px]">
           <Typography fontWeight="bold" fontSize="h3" className="mt-5 mb-5">
             Requirements
           </Typography>
@@ -352,6 +365,14 @@ const EventInfo: React.FC<EventInfoProps> = ({ onNext }) => {
           {errors.timeCommitment && (
             <p className="text-red-500 mb-2">{errors.timeCommitment}</p>
           )}
+          </div>
+            {/* Address of event */}
+
+            <Typography fontWeight="bold" fontSize="h3" className="mt-5 mb-5">
+            Address
+          </Typography>
+
+          <MapBox onchange={handleAddress} />
           <div className="flex justify-end my-5">
             <Button
               type="submit"
