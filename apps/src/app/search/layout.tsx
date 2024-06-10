@@ -1,4 +1,4 @@
-import { Footer, Navbar, SecondNarbar } from "@/components";
+import { Navbar, SecondNarbar } from "@/components";
 import CardContext from "@/contexts/CardContext";
 import { Metadata } from "next";
 import { Roboto } from "next/font/google";
@@ -21,7 +21,7 @@ export default function RootLayout({
 }: Readonly<{ children: React.ReactNode }>) {
   const cookieStore = cookies();
   const session = cookieStore.get("session");
-  const gaSesssion = cookieStore.get("_ga");
+  // const gaSesssion = cookieStore.get("_ga");
   const sigSession = cookieStore.get("session.sig");
 
   return (
@@ -32,11 +32,11 @@ export default function RootLayout({
       <body className={`bg-[#FAFAFA] max-h-full ${roboto.className}`}>
         <Navbar
           session={session}
-          gaSession={gaSesssion}
+          // gaSession={gaSesssion}
           sigSession={sigSession}
         />
         <CardContext>{children}</CardContext>
-        <Footer/>
+        {/* <Footer/> */}
         <SecondNarbar />
       </body>
     </html>

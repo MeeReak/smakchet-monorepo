@@ -35,7 +35,7 @@ const SubNarbar = ({ role }: { role: string }) => {
 
   return (
     <header className={hideNavbar ? "hidden" : ""}>
-      <div className="fixed top-0 left-0 right-0 m-auto z-50 bg-opacity-50 backdrop-blur-md bg-white shadow-custom">
+      <div className="fixed top-0 left-0 right-0 m-auto z-50 bg-opacity-50 backdrop-blur-md bg-white shadow-sm">
         <div className="h-[80px] flex flex-row justify-between aligns-center max-[1030px]:p-5 max-[1030px]:pl-[10px] max-w-[1024px] m-auto  ">
           <div className="flex flex-row justify-right items-center">
             {/* Logo */}
