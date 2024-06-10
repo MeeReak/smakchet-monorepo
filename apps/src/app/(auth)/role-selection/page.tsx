@@ -24,25 +24,29 @@ const RoleChoosing = () => {
 
   return (
     <>
-      <div className="h-screen bg-[#f0f2f5] ">
+      <div className="h-screen bg-[#FAFAFA] ">
         <div className="flex flex-col items-center justify-center pt-[70px] mb-20">
-        <Link href={"/"}>
-          {" "}
-          <Image
-            src={"assets/image/smakchet_logo.svg"}
-            alt={"Smakchet logo"}
-            width={172}
-            height={32}
-          />
-        </Link>
-          <Typography fontSize="h1" fontWeight="semibold" className="pb-3">
+          <Link href={"/"}>
+            {" "}
+            <Image
+              src={"assets/image/smakchet_logo.svg"}
+              alt={"Smakchet logo"}
+              width={172}
+              height={32}
+            />
+          </Link>
+          <Typography
+            fontSize="h2"
+            fontWeight="semibold"
+            className="pb-3 mt-14"
+          >
             Select Your Role
           </Typography>
-          <Typography className="pb-5">
-            What do you want to register as ?
+          <Typography className="pb-5" fontSize="h3" fontWeight="medium">
+            Which role do u want to register as?
           </Typography>
           {/* option */}
-          <div className="flex flex-row gap-9 pb-9">
+          <div className="flex flex-row gap-9 pb-9 mt-7">
             <button
               onClick={handleClick}
               id="1"
@@ -51,17 +55,22 @@ const RoleChoosing = () => {
               }`}
             >
               <Image
-                src={"/assets/image/cambodia_book_fair.png"}
+                src={"/assets/image/host1.png"}
                 alt="smakchet-logo"
                 width={150}
                 height={150}
-                className="rounded-full border-gray-200 border-2"
+                className="rounded-full w-[125px] h-[125px] object-cover  "
               ></Image>
               <div className="flex items-center flex-col">
-                <Typography fontSize="h3" fontWeight="semibold">
+                <Typography fontSize="h3" fontWeight="medium">
                   Organizer
                 </Typography>
-                <Typography fontSize="h5" fontWeight="medium" color="blue">
+                <Typography
+                  fontSize="h5"
+                  fontWeight="normal"
+                  color="grey"
+                  className="mt-2"
+                >
                   Create and manage events
                 </Typography>
               </div>
@@ -75,17 +84,22 @@ const RoleChoosing = () => {
               }`}
             >
               <Image
-                src={"/assets/image/cambodia_book_fair.png"}
+                src={"/assets/image/volunteerpic.png"}
                 alt="smakchet-logo"
                 width={150}
                 height={150}
-                className="rounded-full border-gray-200 border-2"
+                className="rounded-full w-[125px] h-[125px] "
               ></Image>
               <div className="flex items-center flex-col">
-                <Typography fontSize="h3" fontWeight="semibold">
+                <Typography fontSize="h3" fontWeight="medium">
                   Volunteer
                 </Typography>
-                <Typography fontSize="h5" fontWeight="medium" color="blue">
+                <Typography
+                  fontSize="h5"
+                  fontWeight="normal"
+                  color="grey"
+                  className="mt-2"
+                >
                   Find events and volunteer
                 </Typography>
               </div>
@@ -93,12 +107,12 @@ const RoleChoosing = () => {
           </div>
 
           <Link href={`/sign-up?role=${roles[active]}`}>
-            <Button className="bg-[#207BFF] align-middle justify-center text-white py-4 px-48 rounded-lg font-semibold hover:cursor-pointer">
+            <Button className="bg-[#207BFF] align-middle justify-center text-white py-4 px-48 rounded-lg  hover:cursor-pointer h-[50px] mt-3">
               Continue
             </Button>
           </Link>
 
-          <Typography align="center" className="mt-4">
+          <Typography align="center" className="mt-4" fontSize="h5">
             Already have an account ?{" "}
             <Link
               href={"/login"}
