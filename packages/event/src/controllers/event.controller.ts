@@ -25,6 +25,8 @@ export interface QueryParams {
   id?: string;
   page: string;
   limit: string;
+  date?: string;
+  location?: string;
 }
 
 const eventService = new EventService();

@@ -1,4 +1,5 @@
 "use client";
+
 import React, { useState } from "react";
 import { Button, InputData } from "@/components/atoms";
 import Popup from "./Popup";
@@ -7,11 +8,10 @@ import { useRouter } from "next/navigation";
 
 const FilterButton = () => {
   const [modalState, setModalState] = useState(false);
-  const [name, setName] = useState<string>("");
+  // const [name, setName] = useState<string>("");
   const router = useRouter();
 
   const handleOnChange = (event: any) => {
-    setName(event.target.value);
     router.push(`?name=${event.target.value}`);
   };
 
