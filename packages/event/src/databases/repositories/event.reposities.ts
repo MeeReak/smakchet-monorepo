@@ -45,13 +45,15 @@ export class EventRepository {
 
   async findEventByQueries(queryParams: QueryParams): Promise<any> {
     try {
-      const { name, cate, id, limit, page } = queryParams;
+      const { name, cate, id, limit, page, date, location } = queryParams;
 
       // Build the query object dynamically based on provided parameters
       const query: { [key: string]: any } = {}; // Use a generic object type for Mongoose query
       if (name) query.eventName = { $regex: name, $options: "i" }; // Case-insensitive partial match
       if (cate) query.category = cate;
       if (id) query._id = id;
+      if (location) query.location = location;
+      if (date) query.Date.startDate = date;
 
       console.log(page, limit);
       const Page = parseInt(page);

@@ -88,7 +88,7 @@ const Card: React.FC<CardProps> = ({
                     </svg>
                     <Typography
                       fontWeight="medium"
-                      className="pl-[5px] text-[13px] text-gray-600"
+                      className="pl-[5px] text-[15px] text-gray-600"
                     >
                       {formatDateTime(Date.startDate)}
                     </Typography>
@@ -119,7 +119,7 @@ const Card: React.FC<CardProps> = ({
                         d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1 1 15 0Z"
                       />
                     </svg>
-                    <Typography color="red" className="pl-[5px] text-gray-600">
+                    <Typography color="red" className="pl-[5px] text-[15px] text-gray-600">
                       {location}
                     </Typography>
                   </>
