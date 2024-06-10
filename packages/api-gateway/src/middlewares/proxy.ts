@@ -86,6 +86,11 @@ const proxyConfigs: ProxyConfig = {
               res.clearCookie("session.sig");
             }
 
+            if(responseBody.isLogout){
+              res.clearCookie("session");
+              res.clearCookie("session.sig");
+            }
+
             // Modify response to send only the message to the client
             res.json({ message: responseBody.message});
           } catch (error) {
