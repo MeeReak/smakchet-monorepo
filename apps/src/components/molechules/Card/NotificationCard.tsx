@@ -10,7 +10,8 @@ interface NotificationCardProp {
 const NotificationCard: React.FC<NotificationCardProp> = ({ title, image }) => {
   return (
     <div>
-      <div className="flex items-center justify-start gap-x-[10px] pt-3 pb-[3px] hover:bg-gray-200 rounded-[5px] cursor-pointer xl:mr-[20%] border-b-1 border-gray-300 border-opacity-30">
+      <div className="flex items-center justify-start gap-x-[10px] py-3 px-2 mx-5 md:mx-0 hover:bg-gray-200 rounded-[5px] cursor-pointer border-b-1 border-gray-300 
+      border-opacity-20 transition ease-out delay-100 hover:translate-y-1">
         <Image
           src={`${image}`}
           alt={"event Image"}
@@ -19,7 +20,7 @@ const NotificationCard: React.FC<NotificationCardProp> = ({ title, image }) => {
           height={60}
         />
         <div className="w-full">
-          <Typography  className="!text-[16px] !font-medium">
+          <Typography  className="!text-[16px] !font-medium line-clamp-none">
             {`${title}`} 
           <span className="!font-light !text-base"> is about to start</span>
           </Typography>
