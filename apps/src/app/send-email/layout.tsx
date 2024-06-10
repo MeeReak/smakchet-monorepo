@@ -1,13 +1,17 @@
 import { Footer, Navbar, SecondNarbar } from "@/components";
 import CardContext from "@/contexts/CardContext";
 import { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Roboto } from "next/font/google";
 import ".././globals.css";
+import { cookies } from "next/headers";
 
-const inter = Inter({ subsets: ["latin"] });
+const roboto = Roboto({
+  subsets: ["latin"],
+  weight: ["400"],
+});
 
 export const metadata: Metadata = {
-  title: "Smakchet",
+  title: "Smakchet | Search",
   description: `"SmakChet" is a Website that include all your needed about volunteers. We have process all of your detail about event, date mange users etc.`,
   // icons: "/icons/logo.svg",
 };
@@ -15,16 +19,17 @@ export const metadata: Metadata = {
 export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
+
+
   return (
     <html lang="en">
       <head>
-        <title>Smakchet | Send Email</title>
+        <title>Smakchet</title>
       </head>
-      <body className={inter.className}>
-        {/* <Navbar /> */}
+      <body className={`bg-[#FAFAFA] max-h-full ${roboto.className}`}>
+        
         <CardContext>{children}</CardContext>
-        {/* <SecondNarbar /> */}
-        {/* <Footer /> */}
+    
       </body>
     </html>
   );

@@ -20,9 +20,18 @@ const InputDate: React.FC<InputDateProp> = ({ placeholder, id, className, value,
   }, []); // Run this effect only once on component mount
 
   const handleTimeChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setSelectedTime(event.target.value);
+    const selectedDate = event.target.value; // Get the user-selected date
+
+    // Format the date to DD-MM-YYYY
+    const formattedDate = new Date(selectedDate).toLocaleDateString('en-US', {
+      day: '2-digit',
+      month: '2-digit',
+      year: 'numeric',
+    });
+    console.log(formattedDate);
+    setSelectedTime(formattedDate);
     if (onchange) {
-      onchange(event.target.value); // Call the callback with selected date
+      onchange(selectedTime); // Call the callback with selected date
     }
   };
 

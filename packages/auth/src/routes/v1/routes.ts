@@ -341,10 +341,11 @@ export function RegisterRoutes(app: Router) {
         // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
         app.get('/v1/auth/logout',
             ...(fetchMiddlewares<RequestHandler>(UserController)),
-            ...(fetchMiddlewares<RequestHandler>(UserController.prototype.Logout)),
+            ...(fetchMiddlewares<RequestHandler>(UserController.prototype.logout)),
 
-            async function UserController_Logout(request: ExRequest, response: ExResponse, next: any) {
+            async function UserController_logout(request: ExRequest, response: ExResponse, next: any) {
             const args: Record<string, TsoaRoute.ParameterSchema> = {
+                    authorization: {"in":"header","name":"authorization","required":true,"dataType":"string"},
             };
 
             // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
@@ -356,7 +357,7 @@ export function RegisterRoutes(app: Router) {
                 const controller = new UserController();
 
               await templateService.apiHandler({
-                methodName: 'Logout',
+                methodName: 'logout',
                 controller,
                 response,
                 next,
