@@ -16,12 +16,12 @@ const HostNotificationCard: FC<HostNotificationCardProp> = ({
   time,
 }) => {
   return (
-    <div>
-      <div className="flex items-center justify-start gap-4 p-3 md:w-[630px] hover:bg-gray-100 rounded-[5px] cursor-pointer">
+    <div>  
+      <div className="flex items-center justify-start gap-4 p-3 w-full hover:bg-gray-100 rounded-[5px] cursor-pointer">
         <Image
           src={`${image}`}
           alt={"Image"}
-          className="rounded-full"
+          className={`rounded-full`}
           width={68}
           height={68}
         />
@@ -37,4 +37,4 @@ const HostNotificationCard: FC<HostNotificationCardProp> = ({
   );
 };
 
-export default HostNotificationCard;
+export {HostNotificationCard};
