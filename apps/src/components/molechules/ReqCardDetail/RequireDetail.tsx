@@ -1,5 +1,5 @@
-import { ButtonIcon, Typography } from "@/components/atoms";
-import React, { Dispatch, SetStateAction, useState } from "react";
+import { Typography } from "@/components/atoms";
+import React, { Dispatch, SetStateAction } from "react";
 import Image from "next/image";
 import { Requirement } from "@/@types/card";
 

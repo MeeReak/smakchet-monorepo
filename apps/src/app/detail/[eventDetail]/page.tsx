@@ -86,7 +86,7 @@ const page = async ({ params }: { params: { eventDetail: string } }) => {
               width={640}
               height={640}
               className="max-[640px]:w-full relative object-cover"
-            />
+            /> */}
             <div className="absolute flex justify-between w-[97%] mt-1 sm:hidden">
               <div>
                 <Link href="/">
@@ -162,9 +162,9 @@ const page = async ({ params }: { params: { eventDetail: string } }) => {
           </div>
         </div>
 
-        <header className="pt-5 flex items-center px-[10px]">
-          <div className="w-[60%]">
-            <Typography
+        /* <header className="pt-5 flex items-center px-[10px]">
+          <div className="w-[60%]"> */}
+            /* <Typography
               fontSize="h3"
               fontWeight="bold"
             >{`${data[0]?.eventName}`}</Typography>
