@@ -1,12 +1,9 @@
 "use client";
 
-import React, { useState, useRef } from "react";
+import React, { useState } from "react";
 import "mapbox-gl/dist/mapbox-gl.css";
 import Map, {
   Marker,
-  Popup,
-  NavigationControl,
-  GeolocateControl,
 } from "react-map-gl";
 
 interface MapboxProp{

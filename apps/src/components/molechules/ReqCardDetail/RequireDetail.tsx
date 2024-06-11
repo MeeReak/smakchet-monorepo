@@ -1,56 +1,42 @@
 import { ButtonIcon, Typography } from "@/components/atoms";
 import React, { Dispatch, SetStateAction, useState } from "react";
 import Image from "next/image";
-import Popup from "../Filter/Popup";
+import { Requirement } from "@/@types/card";
 
-interface RequireDetailProps {
-  className?: string;
-  title?: string;
-  description?: string;
-  imageSrc?: string;
-  setIsvisible?: Dispatch<SetStateAction<boolean>>;
-}
-
-export const RequireDetail: React.FC<RequireDetailProps> = ({
-    className,
-    title,
-    description,
-    imageSrc="",
-    setIsvisible
+export const RequireDetail = ({
+  setIsvisible,
+  requirement,
+}: {
+  setIsvisible: Dispatch<SetStateAction<boolean>>;
+  requirement: Requirement;
 }) => {
-
   const handleClose = () => {
     if (setIsvisible) {
       setIsvisible(false);
     }
   };
 
-
   return (
     <div>
-      <div className="w-[701px] h-[377px] bg-white rounded-lg shadow-sm space-x-5 border">
+      <div className="relative w-[600px] py-6 px-3 bg-white rounded-lg shadow-sm space-x-5 border">
         {/* icon x */}
-        <ButtonIcon
-          onclick={handleClose}
-          icon={
-            <svg
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              className="ml-2 mt-[4px]"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M6 18L18 6M6 6L18 18"
-                stroke="black"
-                strokeWidth="1.5"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-            </svg>
-          }
-        />
+        <svg
+          onClick={handleClose}
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          className="absolute top-4 right-4 cursor-pointer"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M6 18L18 6M6 6L18 18"
+            stroke="black"
+            strokeWidth="1.5"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+        </svg>
         {/* age */}
         <div>
           <Typography fontWeight="semibold" fontSize="h3">
@@ -58,7 +44,7 @@ export const RequireDetail: React.FC<RequireDetailProps> = ({
           </Typography>
         </div>
         <div>
-          <div className="flex mt-[15px] gap-2">
+          <div className="flex mt-6 gap-2">
             <Image
               src={"/assets/icons/age-icon.svg"}
               alt={""}
@@ -68,9 +54,8 @@ export const RequireDetail: React.FC<RequireDetailProps> = ({
             <Typography fontSize="h4">Minimum Age: 18 years</Typography>
           </div>
           <div className="mt-[5px]">
-            <Typography fontSize="h5" color="grey">
-              In order to join the program you need to be at least 18 years old
-              on the program start date.
+            <Typography fontSize="h4">
+              {requirement.age}
             </Typography>
           </div>
         </div>
@@ -86,8 +71,8 @@ export const RequireDetail: React.FC<RequireDetailProps> = ({
             <Typography fontSize="h4">Language Skills</Typography>
           </div>
           <div className="mt-[5px]">
-            <Typography fontSize="h5" color="grey">
-              You need to speak English (basic level)
+            <Typography fontSize="h4" color="grey">
+              {requirement.language}
             </Typography>
           </div>
         </div>
@@ -103,9 +88,8 @@ export const RequireDetail: React.FC<RequireDetailProps> = ({
             <Typography fontSize="h4">Other Skills</Typography>
           </div>
           <div className="mt-[5px]">
-            <Typography fontSize="h5" color="grey">
-              You need to be friendly and communication otherwise to provide
-              customer and give them a happy moment
+            <Typography fontSize="h4" color="grey">
+              {requirement.skill}
             </Typography>
           </div>
         </div>
@@ -121,9 +105,8 @@ export const RequireDetail: React.FC<RequireDetailProps> = ({
             <Typography fontSize="h4">Time Commitment</Typography>
           </div>
           <div className="mt-[5px]">
-            <Typography fontSize="h5" color="grey">
-              Your helping hand will be required on Monday, Tuesday from 07:00 -
-              17:00
+            <Typography fontSize="h4" color="grey">
+              {requirement.timeCommitment}
             </Typography>
           </div>
         </div>
