@@ -66,9 +66,9 @@
 		"contact": {}
 	},
 	"paths": {
-		"/v1/user": {
+		"/v1/user/info/{id}": {
 			"get": {
-				"operationId": "ShowAllUser",
+				"operationId": "GetSser",
 				"responses": {
 					"200": {
 						"description": "Ok",
@@ -80,32 +80,16 @@
 					}
 				},
 				"security": [],
-				"parameters": []
-			},
-			"post": {
-				"operationId": "CreateUser",
-				"responses": {
-					"200": {
-						"description": "Ok",
-						"content": {
-							"application/json": {
-								"schema": {}
-							}
+				"parameters": [
+					{
+						"in": "path",
+						"name": "id",
+						"required": true,
+						"schema": {
+							"type": "string"
 						}
 					}
-				},
-				"security": [],
-				"parameters": [],
-				"requestBody": {
-					"required": true,
-					"content": {
-						"application/json": {
-							"schema": {
-								"$ref": "#/components/schemas/IUser"
-							}
-						}
-					}
-				}
+				]
 			}
 		},
 		"/v1/user/{id}": {
@@ -207,6 +191,33 @@
 				},
 				"security": [],
 				"parameters": []
+			}
+		},
+		"/v1/user": {
+			"post": {
+				"operationId": "CreateUser",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {}
+							}
+						}
+					}
+				},
+				"security": [],
+				"parameters": [],
+				"requestBody": {
+					"required": true,
+					"content": {
+						"application/json": {
+							"schema": {
+								"$ref": "#/components/schemas/IUser"
+							}
+						}
+					}
+				}
 			}
 		},
 		"/v1/user/role": {

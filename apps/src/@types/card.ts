@@ -3,15 +3,22 @@ interface CardProps {
   thumbnail: string;
   alt: string;
   eventName: string;
-  Date:{
+  Date: {
     startDate?: string;
     endDate?: string;
     startTime?: string;
     endTime?: string;
-  }
+  };
   location: string;
   isFavorite?: boolean;
   isLoading?: boolean;
 }
 
-export type { CardProps };
+interface Requirement {
+  age: string;
+  language: string;
+  skill: string;
+  timeCommitment: string;
+}
+
+export type { CardProps, Requirement };
