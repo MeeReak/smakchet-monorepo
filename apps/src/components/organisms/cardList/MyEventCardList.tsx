@@ -9,7 +9,7 @@ const MyEventCardList = () => {
 
   return (
     <>
-      <div className="space-y-4 py-5 pl-[17px] pr-[47px] flex flex-col">
+      <div className="md:space-y-4 py-5 xl:pl-[17px] xl:pr-[47px] px-3 flex flex-col">
         {CardInfo.map((item, index) => (
           <MyEventCard
             key={index}
