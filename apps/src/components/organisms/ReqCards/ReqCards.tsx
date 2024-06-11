@@ -6,14 +6,13 @@ import { RequireDetail } from "@/components/molechules/ReqCardDetail/RequireDeta
 import React, { useState } from "react";
 
 const ReqCards = () => {
-  const [selectedCard, setSelectedCard] = useState(null); 
+ 
   const [isVisible, setIsVisible] = useState<boolean>(false);
   // Function to handle card click event
   const handleCardClick = () => {
-    // Set the selected card details
-    // setSelectedCard(card);
-    // Show the popu
+      // Show the popup
       setIsVisible(true);
+  
   };
     return (
       <div className="space-y-3">

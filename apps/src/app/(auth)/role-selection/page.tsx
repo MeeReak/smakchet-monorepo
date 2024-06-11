@@ -59,7 +59,7 @@ const RoleChoosing = () => {
                 alt="smakchet-logo"
                 width={150}
                 height={150}
-                className="rounded-full w-[125px] h-[125px] object-cover  "
+                className="rounded-full w-[150px] h-[150px] object-cover  "
               ></Image>
               <div className="flex items-center flex-col">
                 <Typography fontSize="h3" fontWeight="medium">
@@ -84,11 +84,11 @@ const RoleChoosing = () => {
               }`}
             >
               <Image
-                src={"/assets/image/volunteerpic.png"}
+                src={"/assets/image/volunteering.png"}
                 alt="smakchet-logo"
                 width={150}
                 height={150}
-                className="rounded-full w-[125px] h-[125px] "
+                className="rounded-full w-[150px] h-[150px] "
               ></Image>
               <div className="flex items-center flex-col">
                 <Typography fontSize="h3" fontWeight="medium">

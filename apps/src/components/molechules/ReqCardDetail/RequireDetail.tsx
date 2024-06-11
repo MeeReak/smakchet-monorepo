@@ -30,27 +30,29 @@ export const RequireDetail: React.FC<RequireDetailProps> = ({
     <div>
       <div className="w-[701px] h-[377px] bg-white rounded-lg shadow-sm space-x-5 border">
         {/* icon x */}
-        <ButtonIcon
-          onclick={handleClose}
-          icon={
-            <svg
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              className="ml-2 mt-[4px]"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M6 18L18 6M6 6L18 18"
-                stroke="black"
-                strokeWidth="1.5"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-            </svg>
-          }
-        />
+        <div>
+          <ButtonIcon
+            onclick={handleClose}
+            icon={
+              <svg
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                className="ml-2 mt-[4px]"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M6 18L18 6M6 6L18 18"
+                  stroke="black"
+                  strokeWidth="1.5"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </svg>
+            }
+          />
+        </div>
         {/* age */}
         <div>
           <Typography fontWeight="semibold" fontSize="h3">

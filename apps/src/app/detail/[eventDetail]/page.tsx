@@ -23,14 +23,14 @@ const Homepage = () => {
         {/* banner */}
         <div className="sm:pt-[100px] flex justify-center">
           <div className="w-[700px] max-[640px]:w-[390px] max-[640px]:h-[273px] h-[325.7px] object-cover flex justify-center">
-            <Image
+            {/* <Image
               src={DetailEvent?.src as string}
               alt={DetailEvent?.alt as string}
               layout="responsive"
               width={640}
               height={640}
               className="max-[640px]:w-full relative object-cover"
-            />
+            /> */}
             <div className="absolute flex justify-between w-[97%] mt-1 sm:hidden">
               <div>
                 <Link href="/">
@@ -108,10 +108,10 @@ const Homepage = () => {
 
         <header className="pt-5 flex items-center px-[10px]">
           <div className="w-[60%]">
-            <Typography
+            {/* <Typography
               fontSize="h3"
               fontWeight="bold"
-            >{`${DetailEvent?.title}`}</Typography>
+            >{`${DetailEvent?.title}`}</Typography> */}
           </div>
           <div className="w-[40%] flex justify-end gap-2">
             <ButtonIcon
@@ -246,7 +246,7 @@ const Homepage = () => {
             You might also be interested in
           </Typography>
           <div className="grid xl:grid-cols-3 gap-[22px] max-[640px]:grid-cols-1 mx-auto justify-items-center max-[640px]:space-y-2 overflow-hidden">
-            {CardInfo.filter((item) => item.id !== User)
+            {/* {CardInfo.filter((item) => item.id !== User)
               .slice(0, 3)
               .map((item, index) => (
                 <Card
@@ -258,7 +258,7 @@ const Homepage = () => {
                   date={item.date}
                   location={item.location}
                 />
-              ))}
+              ))} */}
           </div>
         </div>
       </div>
