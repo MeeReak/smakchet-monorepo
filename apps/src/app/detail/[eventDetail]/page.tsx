@@ -1,31 +1,87 @@
-"use client";
-
 import { Button, ButtonIcon, Typography, Card } from "@/components";
-import React, { useContext } from "react";
-import { useParams } from "next/navigation";
-import { MyContext } from "@/contexts/CardContext";
-import { Map } from "@/components";
+import React from "react";
+import { MapView } from "@/components";
 import ReqCards from "@/components/organisms/ReqCards/ReqCards";
 import Image from "next/image";
 import Link from "next/link";
+import { CardProps } from "@/@types/card";
 
-const Homepage = () => {
-  const { CardInfo } = useContext(MyContext);
+async function getData({ id }: { id: string }) {
+  try {
+    const api = `http://localhost:3000/v1/events?page=1&limit=1&id=${id}`;
+    const response = await fetch(api, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      cache: "no-cache",
+    });
 
-  const route = useParams();
-  const User = route.eventDetail;
+    const result = await response.json();
+    return result;
+  } catch (error: unknown | any) {
+    console.error("Error fetching data:", error);
+    console.log(error.message);
+  }
+}
 
-  const DetailEvent = CardInfo.find((data) => data.id === User);
+async function getUserData({ id }: { id: string }) {
+  try {
+    const api = `http://localhost:3003/v1/user/info/${id}`;
+    const response = await fetch(api, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
 
+    const result = await response.json();
+    return result;
+  } catch (error: unknown | any) {
+    console.error("Error fetching data:", error);
+    console.log(error.message);
+  }
+}
+
+async function getSimilarData({ cate }: { cate: string }) {
+  try {
+    const api = `http://localhost:3000/v1/events?page=1&limit=3&cate=${cate}`;
+    const response = await fetch(api, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+
+    const result = await response.json();
+    return result;
+  } catch (error: unknown | any) {
+    console.error("Error fetching data:", error);
+    console.log(error.message);
+  }
+}
+
+const page = async ({ params }: { params: { eventDetail: string } }) => {
+  const data = await getData({ id: params.eventDetail });
+  console.log("Hi", params.eventDetail);
+  console.log("============================", data);
+
+  const userData = await getUserData({ id: data[0].orgId });
+  console.log("============================", userData);
+
+  const similarData = await getSimilarData({ cate: data[0].category });
+  console.log("============================", similarData);
+
+  console.log(userData.username);
   return (
     <div className="bg-[#fafafa]">
       <div className="xl:w-[1024px] m-auto ">
         {/* banner */}
         <div className="sm:pt-[100px] flex justify-center">
           <div className="w-[700px] max-[640px]:w-[390px] max-[640px]:h-[273px] h-[325.7px] object-cover flex justify-center">
-            {/* <Image
-              src={DetailEvent?.src as string}
-              alt={DetailEvent?.alt as string}
+            <Image
+              src={data[0]?.thumbnail}
+              alt={data[0]?.thumbnail}
               layout="responsive"
               width={640}
               height={640}
@@ -106,12 +162,12 @@ const Homepage = () => {
           </div>
         </div>
 
-        <header className="pt-5 flex items-center px-[10px]">
-          <div className="w-[60%]">
-            {/* <Typography
+        /* <header className="pt-5 flex items-center px-[10px]">
+          <div className="w-[60%]"> */}
+            /* <Typography
               fontSize="h3"
               fontWeight="bold"
-            >{`${DetailEvent?.title}`}</Typography> */}
+            >{`${data[0]?.eventName}`}</Typography>
           </div>
           <div className="w-[40%] flex justify-end gap-2">
             <ButtonIcon
@@ -179,18 +235,7 @@ const Homepage = () => {
             Event&#39;s Detail
           </Typography>
           <Typography align="left" fontSize="h4">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat
-            vel repellendus fugiat eius, quibusdam sapiente esse. At repellat
-            perspiciatis iusto hic nobis inventore voluptatibus neque iste,
-            itaque corporis nemo doloribus consectetur. Facilis ex debitis
-            provident vel animi nam alias asperiores tempore. Quidem odit,
-            corrupti aspernatur voluptatibus neque dignissimos placeat quo
-            veritatis? Adipisci fugiat quos, perspiciatis dicta ipsa dignissimos
-            corrupti tenetur temporibus. Recusandae accusamus maiores velit
-            laudantium adipisci sint non corporis explicabo corrupti, veritatis,
-            laboriosam aliquid maxime esse inventore aliquam vitae odio nesciunt
-            reiciendis? A officiis, sapiente quis odio quisquam, eius laboriosam
-            totam id ipsum, possimus consequatur vitae alias velit nemo!
+            {data[0].description}
           </Typography>
         </div>
         {/* requirement */}
@@ -199,66 +244,69 @@ const Homepage = () => {
             <Typography fontSize="h3" fontWeight="bold" className="mb-5">
               Requirement
             </Typography>
-            <ReqCards />
+            <ReqCards requirement={data[0].requirement} />
           </div>
           <div className="px-5">
-            <Typography fontSize="h3" fontWeight="bold" className="mb-5 sm:pt-0 pt-5">
+            <Typography
+              fontSize="h3"
+              fontWeight="bold"
+              className="mb-5 sm:pt-0 pt-5"
+            >
               Location
             </Typography>
-            <Map
+            <MapView
               classname="w-full h-[85%]"
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3908.3126568670227!2d104.92259197489524!3d11.601044088602363!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x310951f3148296db%3A0x5b289f3f5cef444!2sSabaiCode!5e0!3m2!1skm!2skh!4v1709280237207!5m2!1skm!2skh"
+              lat="11.5661342"
+              lng="104.8985639"
             />
           </div>
         </div>
-        <hr className=" w-full h-[2px] bg-black opacity-30"></hr>
+        <hr className="mt-5 w-full h-[2px] bg-black opacity-30"></hr>
 
-        <Button
-          className=" w-fit !border-none py-4 px-3"
-          leftIcon={
-            <Image
-              src={"/assets/image/host_profile.png"}
-              alt={"host profile"}
-              width={57}
-              height={57}
-            />
-          }
-        >
+        <div className="flex p-5">
+          <Image
+            className="rounded-full object-cover h-12 w-12"
+            src={userData.profile}
+            width={50}
+            height={50}
+            alt="User Profile"
+          />
           <div className="ml-4 flex flex-col ">
             <Typography fontSize="h4" fontWeight="semibold">
-              {" "}
-              Pheng Sokleng
+              {userData.username}
             </Typography>
             <Typography color="blue" fontSize="h5">
-              {" "}
               View Profile
             </Typography>
           </div>
-        </Button>
+        </div>
 
         {/* You may like */}
-        <div className="mt-5">
+        <div>
           <Typography
             fontSize="h3"
             fontWeight="bold"
-            className="mb-5 xl:text-left max-[640px]:text-center"
+            className="mb-5 md:pl-0 sm:pl-5 pl-5"
           >
             You might also be interested in
           </Typography>
-          <div className="grid xl:grid-cols-3 gap-[22px] max-[640px]:grid-cols-1 mx-auto justify-items-center max-[640px]:space-y-2 overflow-hidden">
-            {/* {CardInfo.filter((item) => item.id !== User)
-              .slice(0, 3)
-              .map((item, index) => (
-                <Card
-                  key={index}
-                  id={item.id}
-                  src={item.src}
-                  alt={item.alt}
-                  title={item.title}
-                  date={item.date}
-                  location={item.location}
-                />
-              ))} */}
+          <div>
+            {
+              <div className="max-[1030px]:px-5 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 justify-items-start mb-5">
+                {similarData.map((item: CardProps, index: number) => (
+                  <Card
+                    key={index}
+                    _id={item._id}
+                    thumbnail={item.thumbnail}
+                    alt={item.thumbnail}
+                    eventName={item.eventName}
+                    Date={item.Date}
+                    location={item.location}
+                    isFavorite={item.isFavorite}
+                  />
+                ))}
+              </div>
+            }
           </div>
         </div>
       </div>
@@ -266,4 +314,4 @@ const Homepage = () => {
   );
 };
 
-export default Homepage;
+export default page;

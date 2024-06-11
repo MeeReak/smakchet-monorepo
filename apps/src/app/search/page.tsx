@@ -1,48 +1,40 @@
-"use client";
-import React, { useContext, useState } from "react";
-import { Card, FilterButton, InputData, Typography } from "@/components";
-import { MyContext } from "@/contexts/CardContext";
+import React from "react";
+import { Card, FilterButton, Typography } from "@/components";
+import { CardProps } from "@/@types/card";
 
-const SearchPage = () => {
-  const [search, setSearch] = useState("");
-  const { CardInfo } = useContext(MyContext);
+async function getData({ name }: { name: string }) {
+  try {
+    const api = `http://localhost:3000/v1/events?page=1&limit=18&name=${name}`;
+    const response = await fetch(api, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
 
-  const handleOnChange = (event: any) => {
-    setSearch(event.target.value);
-  };
-  const findCard = CardInfo.filter((item) =>
-    item.title.toLowerCase().includes(search.toLowerCase())
-  );
+    const result = await response.json();
+    return result;
+  } catch (error: unknown | any) {
+    console.error("Error fetching data:", error);
+    console.log(error.message);
+  }
+}
+
+const SearchPage = async ({
+  searchParams,
+}: {
+  searchParams: { [key: string]: string | undefined };
+}) => {
+  const search = searchParams.name ? searchParams.name : "";
+  const data = await getData({ name: search });
+
+  console.log("=======================================", data);
+
   return (
     <>
       <div className="mt-[90px] xl:w-[1024px] w-screen m-auto space-y-5 z-10 ">
-        <div className="flex justify-center space-x-3">
-          <div className="relative max-[640px] flex justify-between">
-            <InputData
-              className="w-[350px] py-3 pl-5 rounded-[25px] border-gray-200 flex justify-between "
-              onChange={(event: any) => handleOnChange(event)}
-              placeholder={"Search"}
-              type={"string"}
-            />
-            <div>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                strokeWidth="1.5"
-                stroke="currentColor"
-                className="text-gray-500 w-6 h-6 absolute right-4 top-1/2 transform -translate-y-1/2"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z"
-                />
-              </svg>
-            </div>
-          </div>
-          <FilterButton/>
-        </div>
+        <FilterButton />
+
         <div>
           <Typography
             className="mt-5 ml-5 sm:ml-auto"
@@ -52,33 +44,31 @@ const SearchPage = () => {
             Search Result
           </Typography>
         </div>
-        {findCard.length > 0 ? (
-          <div className="max-[1030px]:px-5 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 justify-items-center">
-            {findCard.map((item) => {
-              return (
-                <Card
-                  key={item.id}
-                  id={item.id}
-                  src={item.src}
-                  alt={item.alt}
-                  title={item.title}
-                  date={item.date}
-                  location={item.location}
-                  isFavorite={item.isFavorite}
-                />
-              );
-            })}
-          </div>
-        ) : (
-          <div className="w-full">
+        {data.length === 0 && searchParams.name ? (
+          <div className="h-[300px] flex items-center justify-center">
             <Typography
               align="center"
-              fontSize="h2"
+              fontSize="h3"
               fontWeight="semibold"
               color="grey"
             >
               No Event
             </Typography>
+          </div>
+        ) : (
+          <div className="max-[1030px]:px-5 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 justify-items-center">
+            {data.map((item: CardProps, index: number) => (
+              <Card
+                key={index}
+                _id={item._id}
+                thumbnail={item.thumbnail}
+                alt={item.thumbnail}
+                eventName={item.eventName}
+                Date={item.Date}
+                location={item.location}
+                isFavorite={item.isFavorite}
+              />
+            ))}
           </div>
         )}
       </div>

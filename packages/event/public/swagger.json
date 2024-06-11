@@ -23,6 +23,12 @@
 					},
 					"limit": {
 						"type": "string"
+					},
+					"date": {
+						"type": "string"
+					},
+					"location": {
+						"type": "string"
 					}
 				},
 				"required": [
@@ -216,6 +222,22 @@
 						"in": "query",
 						"name": "limit",
 						"required": true,
+						"schema": {
+							"type": "string"
+						}
+					},
+					{
+						"in": "query",
+						"name": "date",
+						"required": false,
+						"schema": {
+							"type": "string"
+						}
+					},
+					{
+						"in": "query",
+						"name": "location",
+						"required": false,
 						"schema": {
 							"type": "string"
 						}

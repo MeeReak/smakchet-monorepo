@@ -11,6 +11,7 @@ async function getData({ cate }: { cate: string }) {
       headers: {
         "Content-Type": "application/json",
       },
+      cache: "no-cache",
     });
 
     const result = await response.json();
@@ -28,8 +29,6 @@ interface FilterProps {
 const CardList: React.FC<FilterProps> = async ({ cate }) => {
   const category = cate ? (cate === "All" ? "" : cate) : "";
   const data = await getData({ cate: category });
-
-  console.log("=======================================", data);
 
   return (
     <>

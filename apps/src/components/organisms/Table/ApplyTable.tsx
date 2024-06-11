@@ -20,7 +20,7 @@ const ApplyTable: React.FC<ApplyTableProps> = ({
 
   return (
     <div>
-      <table className= {`w-fit table-auto rounded-t-[15px] overflow-hidden} ${className}`}>
+      <table className= {`w-fit table-auto !rounded-t-[15px] overflow-hidden ${className}`}>
         {/* table header */}
         <thead className="bg-[#D2E5FF] h-[60px] text-start ">
           <tr className="text-center w-fit">

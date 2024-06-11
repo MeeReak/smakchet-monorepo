@@ -3,7 +3,7 @@ import React, { useContext } from "react";
 import { Typography, Button, ApplyTable } from "@/components";
 import { MyContext } from "@/contexts/CardContext";
 import Image from "next/image";
-import { Table } from "@nextui-org/react";
+// import { Table } from "@nextui-org/react";
 import Link from "next/link";
 
 const Page = () => {
@@ -16,7 +16,7 @@ const Page = () => {
   console.log(totalCandidate);
 
   return (
-    <div className="bg-[#FAFAFA] w-full h-screen justify-center items-start flex">
+    <div className="bg-[#FAFAFA] w-full h-screen justify-center items-start flex mb-10">
       <div className="w-fit ml-[121px] mr-[128px]">
         {/* Header section */}
         <div className="mt-[30px] mb-[55px] flex flex-row items-center justify-between ">
@@ -67,7 +67,7 @@ const Page = () => {
           </div>
         </div>
         {/* Table of applied volunteer */}
-        <div className="mb-20">
+        <div className="">
           <ApplyTable />
         </div>
       </div>

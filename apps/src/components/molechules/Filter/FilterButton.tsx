@@ -1,14 +1,47 @@
 "use client";
+
 import React, { useState } from "react";
-import { Button } from "@/components/atoms";
+import { Button, InputData } from "@/components/atoms";
 import Popup from "./Popup";
 import FilterForm from "./FilterForm";
+import { useRouter } from "next/navigation";
 
 const FilterButton = () => {
   const [modalState, setModalState] = useState(false);
+  // const [name, setName] = useState<string>("");
+  const router = useRouter();
+
+  const handleOnChange = (event: any) => {
+    router.push(`?name=${event.target.value}`);
+  };
+
   return (
     <>
-      <div>
+      <div className="flex justify-center space-x-3">
+        <div className="relative max-[640px] flex justify-between">
+          <InputData
+            className="w-[350px] py-3 pl-5 rounded-[25px] border-gray-200 flex justify-between "
+            onChange={(event: any) => handleOnChange(event)}
+            placeholder={"Search"}
+            type={"string"}
+          />
+          <div>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              strokeWidth="1.5"
+              stroke="currentColor"
+              className="text-gray-500 w-6 h-6 absolute right-4 top-1/2 transform -translate-y-1/2"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z"
+              />
+            </svg>
+          </div>
+        </div>
         <Button
           onclick={() => setModalState(true)}
           round="full"
