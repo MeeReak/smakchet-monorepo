@@ -138,6 +138,7 @@ const proxyConfigs: ProxyConfig = {
         logger.info(`Headers Sent: ${JSON.stringify(proxyReq.getHeaders())}`);
         const expressReq = req as Request;
 
+        console.log("==========================",expressReq.session)
         // Extract JWT token from session
         const token = expressReq.session!.jwt;
         proxyReq.setHeader("Authorization", `Bearer ${token}`);
@@ -147,7 +148,6 @@ const proxyConfigs: ProxyConfig = {
         proxyRes.on("data", function (chunk: Buffer) {
           originalBody.push(chunk);
         });
-        console.log(originalBody);
         proxyRes.on("end", function () {
           const bodyString = Buffer.concat(originalBody).toString("utf8");
 
@@ -213,6 +213,7 @@ const proxyConfigs: ProxyConfig = {
         );
         logger.info(`Headers Sent: ${JSON.stringify(proxyReq.getHeaders())}`);
         const expressReq = req as Request;
+        console.log("jjjjjjjjjjjjjjjjjjjjj",expressReq.session)
 
         // Extract JWT token from session
         const token = expressReq.session!.jwt;

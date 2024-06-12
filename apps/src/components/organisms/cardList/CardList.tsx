@@ -11,7 +11,6 @@ async function getData({ cate }: { cate: string }) {
       headers: {
         "Content-Type": "application/json",
       },
-      cache: "no-cache",
     });
 
     const result = await response.json();

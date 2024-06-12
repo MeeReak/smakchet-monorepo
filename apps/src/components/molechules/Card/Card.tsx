@@ -1,9 +1,12 @@
+"use client";
+
 import { Typography } from "@/components";
 import Image from "next/image";
 import React from "react";
 import Link from "next/link";
 import { CardProps } from "@/@types/card";
 import { formatDateTime } from "@/utils/formatTime";
+import axios from "axios";
 
 const Card: React.FC<CardProps> = ({
   thumbnail,
@@ -15,6 +18,23 @@ const Card: React.FC<CardProps> = ({
   isFavorite,
   isLoading,
 }) => {
+  async function toggleFavorite({ id }: { id: string }) {
+    try {
+      const api = `http://localhost:3000/v1/user/favorite/${id}`;
+      const response = await axios.post(api, {}, {
+        headers: {
+          'Content-Type': 'application/json',
+          withCredentials: true,
+        },
+      });
+      const result = response.data;  
+      return result;
+    } catch (error) {
+      console.error('Error fetching data:', error);
+    }
+  }
+  
+
   return (
     <>
       <Link href={isLoading ? "#" : `/detail/${_id}`}>
@@ -33,6 +53,10 @@ const Card: React.FC<CardProps> = ({
             )}
             {!isLoading && (
               <svg
+                onClick={(e) => {
+                  e.preventDefault();
+                  toggleFavorite({ id: _id });
+                }}
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
                 width="24"
@@ -119,7 +143,10 @@ const Card: React.FC<CardProps> = ({
                         d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1 1 15 0Z"
                       />
                     </svg>
-                    <Typography color="red" className="pl-[5px] text-[15px] text-gray-600">
+                    <Typography
+                      color="red"
+                      className="pl-[5px] text-[15px] text-gray-600"
+                    >
                       {location}
                     </Typography>
                   </>

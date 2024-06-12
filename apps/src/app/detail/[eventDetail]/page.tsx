@@ -27,7 +27,7 @@ async function getData({ id }: { id: string }) {
 
 async function getUserData({ id }: { id: string }) {
   try {
-    const api = `http://localhost:3003/v1/user/info/${id}`;
+    const api = `http://localhost:3000/v1/user/info/${id}`;
     const response = await fetch(api, {
       method: "GET",
       headers: {

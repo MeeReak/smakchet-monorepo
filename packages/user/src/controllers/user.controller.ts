@@ -32,7 +32,7 @@ export class UserController extends Controller {
     }
   }
 
-  @Post("/{id}")
+  @Post("/favorite/{id}")
   @Middlewares(verifyToken)
   public async addFavoEvent(
     @Request() request: any,
