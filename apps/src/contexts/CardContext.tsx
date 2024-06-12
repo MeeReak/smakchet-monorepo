@@ -19,7 +19,10 @@ export interface CardUser {
   name: string;
   date: string;
   gmail: string;
-  profile: string;     
+  profile: string; 
+  address: string;
+  about: string;
+  phone: string;    
   status: string
 }
 
@@ -114,8 +117,11 @@ const CardContext: React.FC<CardContextProp> = ({ children }) => {
       name: "Peng maleap",
       date: "Feb 08, 2020",
       gmail: "pengmaleap@gmail.com",
-      profile: "/assets/image/leap.svg",
+      profile: "/assets/image/leap.jpg",
       status: "Pending",
+      address: "Phnom Penh",
+      about: "It such a great oppurtunity here!! To be one of the SmakChet member I hope to get alots of information and unlock new experience here:3 Thank!!",
+      phone: "067******"
     },
     {
       id: "2",
@@ -124,6 +130,9 @@ const CardContext: React.FC<CardContextProp> = ({ children }) => {
       gmail: "kimlarng@gmail.com",
       profile: "/assets/image/leap.svg",
       status: "Pending",
+      address: "Phnom Penh",
+      about: "It such a great oppurtunity here!! To be one of the SmakChet member I hope to get alots of information and unlock new experience here:3 Thank!!",
+      phone: "067******"
     },
     {
       id: "3",
@@ -132,6 +141,9 @@ const CardContext: React.FC<CardContextProp> = ({ children }) => {
       gmail: "sarun@gmail.com",
       profile: "/assets/image/leap.svg",
       status: "Pending",
+      address: "Phnom Penh",
+      about: "It such a great oppurtunity here!! To be one of the SmakChet member I hope to get alots of information and unlock new experience here:3 Thank!!",
+      phone: "067******"
     },
     {
       id: "4",
@@ -140,6 +152,9 @@ const CardContext: React.FC<CardContextProp> = ({ children }) => {
       gmail: "reak@gmail.com",
       profile: "/assets/image/leap.svg",
       status: "Pending",
+      address: "Phnom Penh",
+      about: "It such a great oppurtunity here!! To be one of the SmakChet member I hope to get alots of information and unlock new experience here:3 Thank!!",
+      phone: "067******"
     },
     {
       id: "5",
@@ -148,6 +163,9 @@ const CardContext: React.FC<CardContextProp> = ({ children }) => {
       gmail: "nith@gmail.com",
       profile: "/assets/image/leap.svg",
       status: "Pending",
+      address: "Phnom Penh",
+      about: "It such a great oppurtunity here!! To be one of the SmakChet member I hope to get alots of information and unlock new experience here:3 Thank!!",
+      phone: "067******"
     },
     {
       id: "6",
@@ -156,6 +174,9 @@ const CardContext: React.FC<CardContextProp> = ({ children }) => {
       gmail: "helloo@gmail.com",
       profile: "/assets/image/leap.svg",
       status: "Pending",
+      address: "Phnom Penh",
+      about: "It such a great oppurtunity here!! To be one of the SmakChet member I hope to get alots of information and unlock new experience here:3 Thank!!",
+      phone: "067******"
     },
   ]);
 
