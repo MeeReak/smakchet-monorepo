@@ -31,14 +31,14 @@ const QuestionForm: React.FC<QuestionFormProps> = ({
   const [QAType, setQAType] = useState("Writing Answer");
 
   const handleAnswerChange = (updatedAnswer: any) => {
-    onQuestionChange(question.question, updatedAnswer, QAType, question.id);
+    onQuestionChange(question.label, updatedAnswer, QAType, question.id);
   };
   const handleSelectType = (selectedOption: any) => {
     setQAType(selectedOption);
   };
 
   const handleQuestionChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    onQuestionChange(event.target.value, question.answer, QAType, question.id);
+    onQuestionChange(event.target.value, question.answers, QAType, question.id);
     console.log(QAType);
   };
 

@@ -61,17 +61,18 @@ export class EventController extends Controller {
         );
       }
 
-      const detailEvent = { ...requestBody, orgId: request.id };
+      const detailEvent = { ...requestBody, orgId: request.id , viewer:0 };
       const event = await eventService.createEvent(detailEvent);
       return {
         message: "Event Created Successfully!",
         data: event,
       };
     } catch (error: unknown) {
-      throw new APIError(
-        "An error occurred during event creation. Please try again later",
-        StatusCode.InternalServerError
-      );
+      // throw new APIError(
+      //   "An error occurred during event creation. Please try again later",
+      //   StatusCode.InternalServerError
+      // );
+      throw error;
     }
   }
 

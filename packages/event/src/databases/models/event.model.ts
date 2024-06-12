@@ -29,8 +29,8 @@ const eventSchema = new Schema(
       type: String,
     },
     Date: {
-      startDate: Date,
-      endDate: Date,
+      startDate: String,
+      endDate: String,
       startTime: String,
       endTime: String,
     },
@@ -43,9 +43,10 @@ const eventSchema = new Schema(
     createdAt: { type: Date, default: Date.now() },
     formSubmission: [
       {
+        id  : mongoose.Types.ObjectId,
         label: String,
         fieldType: String,
-        answers: [String], // Array to store multiple answers
+        answers: mongoose.Schema.Types.Mixed, // Array to store multiple answers
       },
     ],
   },

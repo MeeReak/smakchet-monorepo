@@ -10,37 +10,41 @@ import {
   ButtonIcon,
 } from "@/components";
 import Image from "next/image";
+import axios from "axios";
 
-import { useNavigate } from "react-router-dom";
-
-interface EventInfoData {
-  id: string;
-  name: string;
-  imageSrc: string;
-  category: string;
-  detail: string;
-  startDate: string;
-  endDate: string;
+interface dateModel{
+  startDate: null | String;
+  endDate: null | String;
   startTime: string;
   endTime: string;
-  location: string;
+}
+interface requirementModel{
   age: string;
   language: string;
   skill: string;
   timeCommitment: string;
 }
 
-interface Question {
-  id: string;
-  type: string;
-  question: string;
-  answer: any;
+interface Question{
+  id:string;
+  fieldType:string;
+  label:string;
+  answers:any;
 }
 
-interface FormData {
-  info: EventInfoData;
-  questions: Question[];
+interface EventInfoData {
+  id?: string;
+  eventName: string;
+  thumbnail: string;
+  category: string;
+  description: string;
+  Date:dateModel;
+  location: string;
+  address: any;
+  requirement:requirementModel;
+  formSubmission: Question[];
 }
+
 
 const FormPost = ({
   onNext,
@@ -52,37 +56,41 @@ const FormPost = ({
   const [questions, setQuestions] = useState<Question[]>([
     {
       id: Math.random().toString(36).substring(2, 15),
-      type: "",
-      question: "",
-      answer: "",
+      fieldType: "",
+      label: "",
+      answers: "",
     },
   ]);
 
-  const [formData, setFormData] = useState<FormData>({
-    info: {
+  const [formData, setFormData] = useState<any>({
       id: Math.random().toString(36).substring(2, 15),
-      name: "",
-      imageSrc: "",
+      eventName: "",
+      thumbnail: "",
       category: "",
-      detail: "",
-      startDate: "",
-      endDate: "",
-      startTime: "",
-      endTime: "",
-      location: "",
-      age: "",
-      language: "",
-      skill: "",
-      timeCommitment: "",
-    },
-    questions: [
-      {
-        id: Math.random().toString(36).substring(2, 15),
-        type: "",
-        question: "",
-        answer: "",
+      description: "",
+      Date:{
+        startDate: null,
+        endDate: null,
+        startTime: "",
+        endTime: "",
       },
-    ],
+      location: "",
+      address:"",
+      requirement:{
+        age: "",
+        language: "",
+        skill: "",
+        timeCommitment: "",
+      },
+    //   formSubmission: [
+    //   {
+    //     id: Math.random().toString(36).substring(2, 15),
+    //     fieldType: "",
+    //     label: "",
+    //     answers: "",
+    //   },
+    // ],
+      formSubmission: []
   });
 
   const handleQuestionChange = (
@@ -96,9 +104,9 @@ const FormPost = ({
         question.id === questionId
           ? {
               ...question,
-              type: QAtype,
-              question: updatedQuestionText,
-              answer: updatedAnswer,
+              fieldType: QAtype,
+              label: updatedQuestionText,
+              answers: updatedAnswer,
             }
           : question
       )
@@ -110,9 +118,9 @@ const FormPost = ({
       ...prevQuestions,
       {
         id: Math.random().toString(36).substring(2, 15),
-        type: "",
-        question: "",
-        answer: "",
+        fieldType: "",
+        label: "",
+        answers: "",
       }, // Add new question object
     ]);
   };
@@ -123,26 +131,71 @@ const FormPost = ({
     );
   };
 
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
-    setFormData({
-      info: {
-        ...eventInfo, // Update info data with eventInfo props
-      },
-      questions: [...questions], // Update questions array
-    });
-  };
-  console.log(formData);
-    const navigate = useNavigate();
-
-    const handleBack = () => {
-      navigate(-1); // This will take you back to the previous page
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+  
+    // Function to strip custom ids from the data
+    const stripCustomIds = (data: any) => {
+      const { id, formSubmission, ...rest } = data;
+      const cleanedFormSubmission = formSubmission?.map(({ id, ...otherProps }: any) => otherProps) || [];
+      return { ...rest, formSubmission: cleanedFormSubmission };
     };
+  
+    try {
+      // Prepare data by stripping custom ids
+      const cleanedEventInfo = stripCustomIds(eventInfo);
+      const cleanedQuestions = questions.map((question: any) => {
+        const { id, ...otherProps } = question;
+        return otherProps;
+      });
+  
+      const preparedFormData = {
+        ...cleanedEventInfo,
+        formSubmission: cleanedQuestions,
+      };
+  
+      console.log("preparedFormData:  ", preparedFormData);
+  
+      const response = await axios.post(
+        "http://localhost:3000/v1/events",
+        preparedFormData,
+        {
+          withCredentials: true,
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
+  
+      console.log("response in form post : ", response.data);
+  
+      window.location.href = "/";
+    } catch (error: unknown | any) {
+      if (error.response) {
+        console.error("Server Error:", error.response.data);
+        console.error("Status Code:", error.response.status);
+        console.error("Headers:", error.response.headers);
+      } else if (error.request) {
+        console.error("No response received:", error.request);
+      } else {
+        console.error("Request setup Error:", error.message);
+      }
+      console.error("Error config:", error.config);
+    }
+  };
+  
+  
+  console.log(formData);
+    // const navigate = useNavigate();
+
+    // const handleBack = () => {
+    //   navigate(-1); // This will take you back to the previous page
+    // };
 
   return (
     <div className="h-full bg-[#FAFAFA] w-full ">
       <div className="md:py-[113px] md:px-[240px] py-[100px]">
         <Button
-        onclick={handleBack}
           className="!border-none text-start w-fit"
           leftIcon={
             <Image
@@ -225,68 +278,6 @@ const FormPost = ({
             </div>
           </div>
 
-          {/* 2nd question */}
-          <div className="py-[25px] px-[25px] bg-white rounded-[10px] flex flex-col gap-y-[45px]">
-            {/* Why */}
-            <div className="flex flex-col w-full gap-y-5">
-              
-              <label htmlFor="name">
-                <Typography fontSize="h3">
-                  Why do you want to join Volunteer?{" "}
-                </Typography>
-              </label>
-              <InputData
-                id=""
-                name="name"
-                type={"text"}
-                placeholder="Answer"
-                className=" h-[50px] pl-6 border-1 border-gray-300"
-              />
-            </div>
-            {/* Have u ever joined */}
-            <div className="flex flex-col w-full gap-y-5">
-              <label htmlFor="yes/no">
-                <Typography fontSize="h3">
-                  Have you ever joined volunteer before?
-                </Typography>
-              </label>
-              <div className="flex gap-x-[11px]">
-                <input
-                  className=""
-                  id="yes"
-                  type="radio"
-                  name="yes/no"
-                  value={"yes"}
-                />
-                <label htmlFor="yes">Yes</label>
-              </div>
-              <div className="flex gap-x-[11px]">
-                <input type="radio" id="no" name="yes/no" value={"no"} />
-                <label htmlFor="no">No</label>
-              </div>
-            </div>
-            {/* benefit */}
-            <div className="flex flex-col w-full gap-y-5">
-              <label htmlFor="checkbox">
-                <Typography fontSize="h3">
-                  What are the benefits of Volunteer ?
-                </Typography>
-              </label>
-              <div className="flex flex-row gap-x-4">
-                <input type="checkbox" name="options" id="checkbox1" />
-                <label htmlFor="checkbox1">Communication</label>
-              </div>
-              <div className="flex flex-row gap-x-4">
-                <input type="checkbox" name="options" id="checkbox2" />
-                <label htmlFor="checkbox2">Fun</label>
-              </div>
-              <div className="flex flex-row gap-x-4">
-                <input type="checkbox" name="options" id="checkbox3" />
-                <label htmlFor="checkbox3">Socialize</label>
-              </div>
-            </div>
-          </div>
-
           {/* add more question */}
           <div className="py-[25px] px-[25px] bg-white rounded-[10px] flex flex-col gap-y-5">
             <Typography fontSize="h3">Add your Question</Typography>
@@ -295,7 +286,7 @@ const FormPost = ({
                 <div key={question.id}>
                   <QuestionForm
                     question={question}
-                    removeQuestion={() => handleRemoveQuestion(question.id)}
+                    removeQuestion={() => handleRemoveQuestion(question?.id)}
                     onQuestionChange={(
                       updatedQuestionText,
                       updatedAnswer,
@@ -304,7 +295,7 @@ const FormPost = ({
                       handleQuestionChange(
                         updatedQuestionText,
                         updatedAnswer,
-                        question.id,
+                        question?.id,
                         questionType
                       )
                     }
