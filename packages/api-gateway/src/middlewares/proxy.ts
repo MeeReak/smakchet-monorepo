@@ -138,6 +138,8 @@ const proxyConfigs: ProxyConfig = {
         logger.info(`Headers Sent: ${JSON.stringify(proxyReq.getHeaders())}`);
         const expressReq = req as Request;
 
+        console.log("======================express session==============", expressReq.session);
+
         // Extract JWT token from session
         const token = expressReq.session!.jwt;
         proxyReq.setHeader("Authorization", `Bearer ${token}`);

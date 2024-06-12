@@ -1,32 +1,25 @@
 "use client";
 
-import React, { useState, useRef } from "react";
+import React, { useState } from "react";
 import "mapbox-gl/dist/mapbox-gl.css";
-import Map, {
-  Marker,
-  Popup,
-  NavigationControl,
-  GeolocateControl,
-} from "react-map-gl";
+import Map, { Marker, NavigationControl, GeolocateControl } from "react-map-gl";
 
-interface MapboxProp{
-  onchange ?: (markers:any) => void; 
+interface MapboxProp {
+  onchange?: (marker: { lng: number; lat: number }) => void;
 }
 
-const MapBox:React.FC<MapboxProp> = ({onchange}) => {
-  const [markers, setMarkers] = useState<
-    { longitude: number; latitude: number }[]
-  >([]);
+const MapBox: React.FC<MapboxProp> = ({ onchange }) => {
+  const [marker, setMarker] = useState<{ lng: number; lat: number } | null>(null);
 
   const handleMapClick = (e: any) => {
     const { lngLat } = e;
     const newMarker = {
-      longitude: lngLat.lng,
-      latitude: lngLat.lat,
+      lng: lngLat.lng,
+      lat: lngLat.lat,
     };
-    setMarkers([newMarker]);
-    if(onchange){
-      onchange([newMarker]);
+    setMarker(newMarker);
+    if (onchange) {
+      onchange(newMarker);
     }
   };
 
@@ -39,17 +32,18 @@ const MapBox:React.FC<MapboxProp> = ({onchange}) => {
           latitude: 12.5657,
           zoom: 7,
         }}
-        style={{ width: "screen", height: 400, zIndex: 10 }}
+        style={{ width: "100%", height: 400, zIndex: 10 }}
         mapStyle="mapbox://styles/mapbox/streets-v9"
         onClick={handleMapClick}
       >
-        {markers.map((marker, index) => (
+        {marker && (
           <Marker
-            key={index}
-            longitude={marker.longitude}
-            latitude={marker.latitude}
+            longitude={marker.lng}
+            latitude={marker.lat}
           />
-        ))}
+        )}
+        <NavigationControl />
+        <GeolocateControl />
       </Map>
     </main>
   );

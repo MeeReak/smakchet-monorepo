@@ -6,7 +6,7 @@ interface InputDateProp {
   id?: string;
   className: string;
   value?: string;
-  onchange?: (date: null | string) => void; // Callback for selected date
+  onchange?: (date: null | string ) => void; // Callback for selected date
 }
 
 const InputDate: React.FC<InputDateProp> = ({ placeholder, id, className, value, onchange }) => {
@@ -31,7 +31,7 @@ const InputDate: React.FC<InputDateProp> = ({ placeholder, id, className, value,
     console.log(formattedDate);
     setSelectedTime(formattedDate);
     if (onchange) {
-      onchange(selectedTime); // Call the callback with selected date
+      onchange(formattedDate); // Call the callback with selected date
     }
   };
 
