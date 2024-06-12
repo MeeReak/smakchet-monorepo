@@ -15,7 +15,7 @@ export class EventService {
     try {
       return await this.eventRepo.createEvent(eventDetail);
     } catch (error: unknown) {
-      throw error;
+      throw new Error("error from service");
     }
   }
 

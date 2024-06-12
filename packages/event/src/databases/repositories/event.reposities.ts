@@ -7,7 +7,7 @@ export class EventRepository {
     try {
       return await EventModel.create(eventDetail);
     } catch (error: unknown) {
-      throw error;
+      throw new Error("error from repo");
     }
   }
 

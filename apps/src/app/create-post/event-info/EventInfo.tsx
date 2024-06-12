@@ -20,59 +20,98 @@ interface EventInfoProps {
   onNext: (eventInfo: EventInfoData) => void;
 }
 
+interface dateModel{
+    startDate: string | null;
+    endDate: string | null;
+    startTime: string;
+    endTime: string;
+}
+interface requirementModel{
+    age: string;
+    language: string;
+    skill: string;
+    timeCommitment: string;
+}
+
+interface addressModel{
+  lat: String | number;
+  lng: String | number;
+}
+
 interface EventInfoData {
   id?: string;
-  name: string;
-  imageSrc: string;
+  eventName: string;
+  thumbnail: string;
   category: string;
-  detail: string;
-  startDate: Date | null;
-  endDate: Date | null;
-  startTime: string;
-  endTime: string;
+  description: string;
+  Date:dateModel;
   location: string;
-  address: any;
-  age: string;
-  language: string;
-  skill: string;
-  timeCommitment: string;
+  address: addressModel;
+  requirement:requirementModel;
 }
 
 const EventInfo: React.FC<EventInfoProps> = ({ onNext }) => {
-  const options = ["education", "workshop", "sport", "charity"];
+  const options = ["Sport", "Education", "Workshop", "Charity"];
   const locations = ["Phnom Penh", "Takeo", "Kandal", "Kep"];
 
   const [isEnddateValidate, setisEnddateValidate] = useState(true);
 
   const [info, setInfo] = useState<EventInfoData>({
     id: Math.random().toString(36).substring(2, 15),
-    name: "",
-    imageSrc: "",
+    eventName: "",
+    thumbnail: "",
     category: "",
-    detail: "",
-    startDate: null,
-    endDate: null,
-    startTime: "",
-    endTime: "",
+    description: "",
+    Date:{
+      startDate: null,
+      endDate: null,
+      startTime: "",
+      endTime: "",
+    },
     location: "",
-    address: "",
-    age: "",
-    language: "",
-    skill: "",
-    timeCommitment: "",
+    address: {
+      lat: "",
+      lng: ""
+    },
+    requirement:{
+      age: "",
+      language: "",
+      skill: "",
+      timeCommitment: "",
+    }
   });
 
   const [errors, setErrors] = useState<any>({});
 
-  function handleChange(e: any) {
-    setInfo({ ...info, [e.target.name]: e.target.value });
-  }
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target;
+
+    setInfo((prevState) => {
+      const keys = name.split(".");
+
+      // Creating a copy of the state object
+      let nestedState: any = { ...prevState };
+
+      // Traversing the nested structure to the desired property
+      let current = nestedState;
+      for (let i = 0; i < keys.length - 1; i++) {
+        current = current[keys[i]];
+      }
+
+      // Updating the desired property
+      current[keys[keys.length - 1]] = value;
+
+      return nestedState;
+    });
+  };
+  
 
   function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
-    const start = new Date(info.startDate!);
-    const end = new Date(info.endDate!);
-    console.log(info.detail);
+    const start = new Date(info.Date.startDate!);
+    const end = new Date(info.Date.endDate!);
+    console.log("convert start date : " , start);
+    //console.log(info.description);
     // Check date validity
     if (end < start) {
       setisEnddateValidate(false); // Reflect invalid end date
@@ -81,6 +120,9 @@ const EventInfo: React.FC<EventInfoProps> = ({ onNext }) => {
     } else {
       setisEnddateValidate(true); // Reset date validation state if valid
     }
+
+    // Log the current state before validation
+    console.log("Info state before validation:", info);
 
     // Validate the form using Yup schema
     eventValidationSchema
@@ -99,6 +141,7 @@ const EventInfo: React.FC<EventInfoProps> = ({ onNext }) => {
           return acc;
         }, {});
         setErrors(newErrors); // Update state to reflect new errors
+        console.log("errors : ",err.message);
       });
   }
 
@@ -112,40 +155,52 @@ const EventInfo: React.FC<EventInfoProps> = ({ onNext }) => {
 
   const handleFileUpload = (files: FileList) => {
     // Handle the uploaded files here
-    setInfo({ ...info, imageSrc: files[0].name });
+    setInfo({ ...info, thumbnail: files[0].name });
   };
 
   const handleTimeSelect = (time: string) => {
-    setInfo({ ...info, startTime: time });
+    setInfo({ ...info, Date:{...info.Date , startTime: time }});
   };
 
   const handleStartDate = (dateString: string | null) => {
     if (dateString) {
       const parsedDate = new Date(dateString); // Parse the string to Date object
-      setInfo({ ...info, startDate: parsedDate });
+      const startdate = parsedDate.toISOString();
+      // console.log("start date: " , parsedDate);
+      setInfo({ ...info, Date:{...info.Date , startDate: startdate }});
     } else {
-      setInfo({ ...info, startDate: null }); // Set to null for cleared date
+      setInfo({ ...info, Date:{...info.Date , startDate: null }}); // Set to null for cleared date
     }
+    //setInfo({...info , date:{...info.date , startDate:dateString}})
   };
 
   const handleEndDate = (dateString: string | null) => {
     if (dateString) {
+      // console.log("End Date : " , dateString);
       const parsedDate = new Date(dateString); // Parse the string to Date object
-      setInfo({ ...info, endDate: parsedDate });
+      const enddate = parsedDate.toISOString();
+      setInfo({ ...info, Date:{...info.Date , endDate: enddate }});
     } else {
-      setInfo({ ...info, endDate: null }); // Set to null for cleared date
+      setInfo({ ...info, Date:{...info.Date , endDate: null }}); // Set to null for cleared date
     }
+    //setInfo({...info , date:{...info.date , startDate:dateString}})
   };
 
   const handleSelectEndTime = (time: string) => {
-    setInfo({ ...info, endTime: time });
+    setInfo({ ...info, Date:{...info.Date,endTime: time }});
   };
 
   const handleChangeContent = (content: string) => {
-    setInfo({ ...info, detail: content });
+    setInfo({ ...info, description: content });
   };
 
-  const handleAddress = (markers: any) => {
+  const handleAddress = (marker: any) => {
+    
+    const markers = {
+      lat : marker.lat.toString(),
+      lng : marker.lng.toString()
+    }
+    console.log("marker: ", markers);
     setInfo({ ...info, address: markers });
   };
 
@@ -158,7 +213,7 @@ const EventInfo: React.FC<EventInfoProps> = ({ onNext }) => {
         <FileInput onChange={handleFileUpload} />
       </div>
       {errors.imageSrc && (
-        <p className="text-red-500 mb-2 pl-8">{errors.imageSrc}</p>
+        <p className="text-red-500 mb-2 pl-8">{errors.thumbnail}</p>
       )}
       <div className="gap-y-5">
         <form onSubmit={handleSubmit}>
@@ -175,13 +230,13 @@ const EventInfo: React.FC<EventInfoProps> = ({ onNext }) => {
                 <InputData
                   id="eventname"
                   onChange={handleChange}
-                  name="name"
+                  name="eventName"
                   type="text"
                   placeholder="Event Name"
                   className=" mt-3 mb-3 py-3 pl-5 border border-gray-200"
                 />
                 {errors.name && (
-                  <p className="text-red-500 mb-2">{errors.name}</p>
+                  <p className="text-red-500 mb-2">{errors.eventName}</p>
                 )}
               </div>
 
@@ -204,171 +259,181 @@ const EventInfo: React.FC<EventInfoProps> = ({ onNext }) => {
               </div>
             </div>
 
-          <div>
+            <div>
+              <label htmlFor="detail">
+                <Typography fontWeight="medium" fontSize="h4">
+                  Event&apos;s Detail
+                </Typography>
+              </label>
+              <TextEditor onchange={handleChangeContent} />
+            </div>
+          </div>  
 
-            <label htmlFor="detail">
-              <Typography fontWeight="medium" fontSize="h4">
-                Event&apos;s Detail
-              </Typography>
-            </label>
-            <TextEditor onchange={handleChangeContent} />
-          </div>
-          </div>
-          
           {/* Date time and location */}
           <div className="bg-white lg:py-[25px] lg:px-5 rounded-[10px] flex flex-col space-y-5 gap-y-5 px-5 mt-[25px]">
-          <Typography fontWeight="bold" fontSize="h2">
-            Datetime and Location
-          </Typography>
-          <div className="flex flex-col md:flex-row gap-4 mt-5">
-            <div className="md:w-[50%]">
-              <Typography fontWeight="semibold" fontSize="h4">
-                Start Date
-              </Typography>
-              <InputDate
-                className="border border-gray-200 w-[98%] mt-3 mb-3 p-4 rounded-lg outline-none text-xs text-gray-400 sm:text-base"
-                onchange={handleStartDate}
-              />
-              {errors.startDate && (
-                <p className="text-red-500 mb-2">{errors.startDate}</p>
-              )}
-            </div>
-            <div className="md:w-[50%]">
-              <Typography fontWeight="semibold" fontSize="h4">
-                End Date
-              </Typography>
-              <InputDate
-                className={`border-2 w-[98%] mt-3 mb-3 p-4 rounded-lg outline-none text-xs text-gray-400 sm:text-base ${
-                  isEnddateValidate ? "border-gray-200" : "border-red-500"
-                }`}
-                onchange={handleEndDate}
-              />
-              {errors.endDate && (
-                <p className="text-red-500 mb-2">{errors.endDate}</p>
-              )}
-              {!isEnddateValidate && (
-                <p className="text-red-500 text-xs sm:text-sm">
-                  Please check the dates: The end date cannot be earlier than
-                  the start date.
-                </p>
-              )}
-            </div>
-          </div>
-          <div className="flex flex-col md:flex-row gap-4 mt-5">
-            <div className="md:w-[50%]">
-              <Typography fontWeight="semibold" fontSize="h4">
-                Start Time
-              </Typography>
-              <CustomTimePicker
-                onSelectTime={handleTimeSelect}
-                classname="w-[98%] mt-3 mb-3 border text-gray-400 border-gray-200 py-4 pl-5"
-              />
-              {errors.startTime && (
-                <p className="text-red-500 mb-2 ">{errors.startTime}</p>
-              )}
-            </div>
-            <div className="md:w-[50%]">
-              <Typography fontWeight="semibold" fontSize="h4">
-                End Time
-              </Typography>
-              <CustomTimePicker
-                onSelectTime={handleSelectEndTime}
-                classname="w-[98%] mt-3 mb-3 border text-gray-400 border-gray-200 py-4 pl-5"
-              />
-              {errors.endTime && (
-                <p className="text-red-500 mb-2">{errors.endTime}</p>
-              )}
-            </div>
-          </div>
-          <label htmlFor="location">
-            <Typography fontWeight="semibold" fontSize="h4">
-              Location
+            <Typography fontWeight="bold" fontSize="h2">
+              Datetime and Location
             </Typography>
-          </label>
+            <div className="flex flex-col md:flex-row gap-4 mt-5">
+              <div className="md:w-[50%]">
+                <Typography fontWeight="semibold" fontSize="h4">
+                  Start Date
+                </Typography>
+                <InputDate
+                  className="border border-gray-200 w-[98%] mt-3 mb-3 p-4 rounded-lg outline-none text-xs text-gray-400 sm:text-base"
+                  onchange={handleStartDate}
+                />
+                {errors.startDate && (
+                  <p className="text-red-500 mb-2">{errors.Date.startDate}</p>
+                )}
+              </div>
+              <div className="md:w-[50%]">
+                <Typography fontWeight="semibold" fontSize="h4">
+                  End Date
+                </Typography>
+                <InputDate
+                  className={`border-2 w-[98%] mt-3 mb-3 p-4 rounded-lg outline-none text-xs text-gray-400 sm:text-base ${
+                    isEnddateValidate ? "border-gray-200" : "border-red-500"
+                  }`}
+                  onchange={handleEndDate}
+                />
+                {errors.endDate && (
+                  <p className="text-red-500 mb-2">{errors.Date.endDate}</p>
+                )}
+                {!isEnddateValidate && (
+                  <p className="text-red-500 text-xs sm:text-sm">
+                    Please check the dates: The end date cannot be earlier than
+                    the start date.
+                  </p>
+                )}
+              </div>
+            </div>
+            <div className="flex flex-col md:flex-row gap-4 mt-5">
+              <div className="md:w-[50%]">
+                <Typography fontWeight="semibold" fontSize="h4">
+                  Start Time
+                </Typography>
+                <CustomTimePicker
+                  onSelectTime={handleTimeSelect}
+                  classname="w-[98%] mt-3 mb-3 border text-gray-400 border-gray-200 py-4 pl-5"
+                />
+                {errors.startTime && (
+                  <p className="text-red-500 mb-2 ">{errors.Date.startTime}</p>
+                )}
+              </div>
+              <div className="md:w-[50%]">
+                <Typography fontWeight="semibold" fontSize="h4">
+                  End Time
+                </Typography>
+                <CustomTimePicker
+                  onSelectTime={handleSelectEndTime}
+                  classname="w-[98%] mt-3 mb-3 border text-gray-400 border-gray-200 py-4 pl-5"
+                />
+                {errors.endTime && (
+                  <p className="text-red-500 mb-2">{errors.Date.endTime}</p>
+                )}
+              </div>
+            </div>
+            <label htmlFor="location">
+              <Typography fontWeight="semibold" fontSize="h4">
+                Location
+              </Typography>
+            </label>
 
-          <Dropdown
-            classname="mt-3 mb-3 w-full"
-            options={locations}
-            onChange={handleSelectlocation}
-            placeholder={"Select Event's Location"}
-          />
-          {errors.location && (
-            <p className="text-red-500 mb-2">{errors.location}</p>
-          )}
+            <Dropdown
+              classname="mt-3 mb-3 w-full"
+              options={locations}
+              onChange={handleSelectlocation}
+              placeholder={"Select Event's Location"}
+            />
+            {errors.location && (
+              <p className="text-red-500 mb-2">{errors.location}</p>
+            )}
           </div>
-          
-
-        
 
           {/* Requirements */}
           <div className="bg-white lg:py-[25px] lg:px-5 rounded-[10px] flex flex-col px-5 mt-[25px]">
-          <Typography fontWeight="bold" fontSize="h3" className="mt-5 mb-5">
-            Requirements
-          </Typography>
-          <label htmlFor="age">
-            <Typography fontWeight="semibold" fontSize="h4">
-              Age
-            </Typography>
-          </label>
-          <InputData
-            onChange={handleChange}
-            name="age"
-            id="age"
-            type="text"
-            placeholder="Your Requirement"
-            className="w-full mt-3 mb-3 py-4 pl-5 border border-gray-200"
-          />
-          {errors.age && <p className="text-red-500 mb-2">{errors.age}</p>}
-          <label htmlFor="language">
-            <Typography fontWeight="semibold" fontSize="h4">
-              Language
-            </Typography>
-          </label>
-          <InputData
-            onChange={handleChange}
-            name="language"
-            id="language"
-            type="text"
-            placeholder="Your Requirement"
-            className="w-full mt-3 mb-3 py-4 pl-5 border border-gray-200"
-          />
-          {errors.language && (
-            <p className="text-red-500 mb-2">{errors.language}</p>
-          )}
-          <label htmlFor="skill">
-            <Typography fontWeight="semibold" fontSize="h4">
-              Skill
-            </Typography>
-          </label>
-          <InputData
-            onChange={handleChange}
-            name="skill"
-            id="skill"
-            type="text"
-            placeholder="Your Requirement"
-            className="w-full mt-3 mb-3 py-4 pl-5 border border-gray-200"
-          />
-          {errors.skill && <p className="text-red-500 mb-2">{errors.skill}</p>}
-          <label htmlFor="timeCommitment">
-            <Typography fontWeight="semibold" fontSize="h4">
-              Time Commitment
-            </Typography>
-          </label>
-          <InputData
-            onChange={handleChange}
-            name="timeCommitment"
-            id="timeCommitment"
-            type="text"
-            placeholder="Your Requirement"
-            className="w-full mt-3 mb-3 py-4 pl-5 border border-gray-200"
-          />
-          {errors.timeCommitment && (
-            <p className="text-red-500 mb-2">{errors.timeCommitment}</p>
-          )}
-          </div>
-            {/* Address of event */}
-
             <Typography fontWeight="bold" fontSize="h3" className="mt-5 mb-5">
+              Requirements
+            </Typography>
+            <div className="grid grid-cols-2 gap-x-5">
+              <div>
+                <label htmlFor="age">
+                  <Typography fontWeight="semibold" fontSize="h4">
+                    Age
+                  </Typography>
+                </label>
+                <InputData
+                  onChange={handleChange}
+                  name="requirement.age"
+                  id="age"
+                  type="text"
+                  placeholder="Your Requirement"
+                  className="w-full mt-3 mb-3 py-4 pl-5 border border-gray-200"
+                />
+                {errors.age && (
+                  <p className="text-red-500 mb-2">{errors.requirement.age}</p>
+                )}
+              </div>
+              <div>
+                <label htmlFor="language">
+                  <Typography fontWeight="semibold" fontSize="h4">
+                    Language
+                  </Typography>
+                </label>
+                <InputData
+                  onChange={handleChange}
+                  name="requirement.language"
+                  id="language"
+                  type="text"
+                  placeholder="Your Requirement"
+                  className="w-full mt-3 mb-3 py-4 pl-5 border border-gray-200"
+                />
+                {errors.language && (
+                  <p className="text-red-500 mb-2">{errors.requirement.language}</p>
+                )}
+              </div>
+              <div>
+                <label htmlFor="skill">
+                  <Typography fontWeight="semibold" fontSize="h4">
+                    Skill
+                  </Typography>
+                </label>
+                <InputData
+                  onChange={handleChange}
+                  name="requirement.skill"
+                  id="skill"
+                  type="text"
+                  placeholder="Your Requirement"
+                  className="w-full mt-3 mb-3 py-4 pl-5 border border-gray-200"
+                />
+                {errors.skill && (
+                  <p className="text-red-500 mb-2">{errors.requirement.skill}</p>
+                )}
+              </div>
+              <div>
+                <label htmlFor="timeCommitment">
+                  <Typography fontWeight="semibold" fontSize="h4">
+                    Time Commitment
+                  </Typography>
+                </label>
+                <InputData
+                  onChange={handleChange}
+                  name="requirement.timeCommitment"
+                  id="timeCommitment"
+                  type="text"
+                  placeholder="Your Requirement"
+                  className="w-full mt-3 mb-3 py-4 pl-5 border border-gray-200"
+                />
+                {errors.timeCommitment && (
+                  <p className="text-red-500 mb-2">{errors.requirement.timeCommitment}</p>
+                )}
+              </div>
+            </div>
+          </div>
+          {/* Address of event */}
+
+          <Typography fontWeight="bold" fontSize="h3" className="mt-5 mb-5">
             Address
           </Typography>
 

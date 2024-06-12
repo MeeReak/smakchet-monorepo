@@ -33,7 +33,7 @@ export default function RootLayout({
       <body className={`bg-[#FAFAFA] max-h-full ${roboto.className}`}>
         <Navbar
           session={session}
-          gaSession={gaSesssion}
+          //gaSession={gaSesssion}
           sigSession={sigSession}
         />
         <CardContext>{children}</CardContext>
