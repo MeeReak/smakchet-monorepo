@@ -15,7 +15,7 @@ async function getUserProfile(
   const response = await axios.get("http://localhost:3000/v1/user/role", {
     withCredentials: true,
     headers: {
-      Cookie: ` ${session!.name}=${
+      Cookie: `${session!.name}=${
         session!.value
       }; ${sigSession!.name}=${sigSession!.value}`,
     },
