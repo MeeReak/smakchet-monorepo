@@ -1,13 +1,17 @@
 import React from "react";
 import { Trending, FilteredCardDisplay } from "@/components";
 import Image from "next/image";
-
+import { cookies } from "next/headers";
 
 const homepage = ({
   searchParams,
 }: {
   searchParams: { [key: string]: string | undefined };
 }) => {
+  const cookieStore = cookies();
+  const session = cookieStore.get("session");
+  const sigSession = cookieStore.get("session.sig");
+
   return (
     <>
       <div className="max-w-[1024px] m-auto space-y-4 z-10 pt-[80px] mb-20">
@@ -33,7 +37,7 @@ const homepage = ({
           }
         />
 
-        <FilteredCardDisplay searchParams={searchParams} />
+        <FilteredCardDisplay session={session} sigSession={sigSession} searchParams={searchParams} />
       </div>
     </>
   );

@@ -4546,3 +4546,1164 @@
 [2024-06-12T01:40:18.917Z] [32minfo[39m: 	[32mServer is listening on port: 3004[39m
 [2024-06-12T02:02:09.322Z] [32minfo[39m: 	[32mMongoDB disconnected[39m
 [2024-06-12T02:02:19.847Z] [32minfo[39m: 	[32mMongoDB connected[39m
+[2024-06-12T02:22:33.725Z] [32minfo[39m: 	[32mMongoDB connected[39m
+[2024-06-12T02:22:33.727Z] [32minfo[39m: 	[32mSuccessfully connected to MongoDB[39m
+[2024-06-12T02:22:33.729Z] [32minfo[39m: 	[32mServer is listening on port: 3004[39m
+[2024-06-12T02:37:23.579Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T02:37:25.055Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T02:37:53.376Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T02:37:54.108Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T02:37:54.352Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T02:38:00.749Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T02:38:05.257Z] [32minfo[39m: 	[32mMongoDB disconnected[39m
+[2024-06-12T02:38:14.593Z] [32minfo[39m: 	[32mMongoDB connected[39m
+[2024-06-12T02:38:16.553Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T02:38:16.562Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T02:39:24.027Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T02:39:24.876Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T02:40:09.455Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T02:40:09.478Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T02:40:09.642Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T02:40:09.661Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T03:21:18.729Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T03:21:18.992Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T03:22:13.787Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T03:22:13.971Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T03:24:43.092Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T03:24:43.271Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T03:24:43.351Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T03:24:43.500Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T03:24:46.151Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T03:24:46.401Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T03:24:48.613Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T03:24:48.999Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T03:26:07.440Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T03:26:08.055Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T03:26:33.301Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T03:26:33.506Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T03:30:06.069Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T03:30:06.305Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T03:35:14.862Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T03:35:15.079Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T03:36:37.627Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T03:36:37.792Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T03:37:23.929Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T03:37:24.231Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T03:38:21.946Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T03:38:22.131Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T03:43:25.977Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T03:43:26.508Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T03:44:22.906Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T03:44:23.074Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T03:45:13.828Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T03:45:13.854Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T03:45:14.093Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T03:45:18.327Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T03:45:33.250Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T03:45:33.867Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T03:45:46.630Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T03:45:47.397Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T03:46:19.674Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T03:46:20.141Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T03:46:33.434Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T03:46:33.785Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T03:57:56.170Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T03:57:57.889Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T03:58:06.198Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T03:58:06.683Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T03:59:25.240Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T03:59:25.454Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T03:59:27.185Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T03:59:27.422Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T04:00:15.092Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T04:00:15.536Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T04:01:33.387Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T04:01:33.578Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T04:02:05.665Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T04:02:06.328Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T04:02:09.031Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T04:02:09.965Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T04:03:03.409Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T04:03:03.567Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T04:03:03.954Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T04:03:03.970Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T04:03:39.400Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T04:03:39.657Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T04:05:03.925Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T04:05:04.004Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T04:05:05.361Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T04:05:05.382Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T04:05:38.110Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T04:05:38.210Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T04:05:38.424Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T04:05:38.560Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T04:05:57.430Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T04:05:57.434Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T04:05:57.577Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T04:05:57.587Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T04:06:16.215Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T04:06:16.382Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T04:06:29.241Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T04:06:29.243Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T04:06:29.308Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T04:06:29.316Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T04:08:05.071Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T04:08:05.630Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T04:09:57.161Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T04:09:57.497Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T04:13:51.522Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T04:13:53.696Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T04:15:16.272Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T04:15:16.494Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T04:16:30.647Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T04:16:30.805Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T04:16:31.292Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T04:16:32.454Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T04:17:55.574Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T04:17:56.122Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T04:17:59.457Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T04:17:59.697Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T04:18:33.983Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T04:18:34.071Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T04:18:34.282Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T04:18:34.563Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T04:18:37.667Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T04:18:37.672Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T04:18:37.919Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T04:18:37.922Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T04:19:04.839Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T04:19:04.988Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T04:19:05.296Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T04:19:05.725Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T04:19:07.750Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T04:19:08.039Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T04:20:08.335Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T04:20:08.359Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T04:20:08.442Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T04:20:08.752Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T04:20:47.036Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T04:20:47.128Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T04:21:39.105Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T04:21:39.177Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T04:22:21.596Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T04:22:21.642Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T04:22:21.696Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T04:22:21.701Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T04:24:15.509Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T04:24:15.615Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T04:24:15.715Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T04:24:15.919Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T04:24:52.501Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T04:24:52.747Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T04:28:44.938Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T04:28:45.171Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T04:29:14.783Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T04:29:28.474Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T04:30:33.209Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T04:30:33.736Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T04:31:12.062Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T04:31:17.001Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T04:35:14.623Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T04:35:15.619Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T04:35:50.617Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T04:35:51.599Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T04:35:54.967Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T04:35:55.332Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T04:37:23.359Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T04:37:23.872Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T04:38:07.467Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T04:38:07.644Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T04:38:07.655Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T04:38:08.011Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T04:38:31.764Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T04:38:32.772Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T04:40:57.308Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T04:40:57.927Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T04:41:51.948Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T04:41:52.732Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T04:42:57.232Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T04:42:58.566Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T04:43:26.345Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T04:43:27.783Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T04:43:45.456Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T04:43:46.543Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T04:43:49.753Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T04:43:51.138Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T04:44:21.972Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T04:44:22.814Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T04:45:02.110Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T04:45:02.157Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T04:45:02.595Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T04:45:02.770Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T04:45:08.560Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T04:45:08.951Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T04:45:16.886Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T04:45:17.338Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T04:45:23.045Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T04:45:23.171Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T04:45:27.592Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T04:45:27.792Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T04:45:34.215Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T04:45:34.290Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T04:45:58.709Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T04:45:59.113Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T04:46:05.689Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T04:46:05.779Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T04:46:23.634Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T04:46:23.640Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T04:46:23.873Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T04:46:23.882Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T04:46:44.370Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T04:46:44.486Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T04:46:44.617Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T04:46:44.683Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T04:47:13.860Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T04:47:13.874Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T04:47:14.754Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T04:47:16.531Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T04:47:28.817Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T04:47:28.866Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T04:47:30.241Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T04:47:31.452Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T04:48:25.385Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T04:48:25.977Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T04:48:31.139Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T04:48:33.026Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T04:48:39.719Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T04:48:41.642Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T05:06:01.927Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T05:06:02.534Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T05:06:02.544Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T05:06:02.674Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T05:21:03.518Z] [32minfo[39m: 	[32mMongoDB connected[39m
+[2024-06-12T05:21:03.521Z] [32minfo[39m: 	[32mSuccessfully connected to MongoDB[39m
+[2024-06-12T05:21:03.524Z] [32minfo[39m: 	[32mServer is listening on port: 3004[39m
+[2024-06-12T05:21:18.458Z] [32minfo[39m: 	[32mMongoDB connected[39m
+[2024-06-12T05:21:18.461Z] [32minfo[39m: 	[32mSuccessfully connected to MongoDB[39m
+[2024-06-12T05:21:18.463Z] [32minfo[39m: 	[32mServer is listening on port: 3004[39m
+[2024-06-12T05:22:06.863Z] [32minfo[39m: 	[32mMongoDB connected[39m
+[2024-06-12T05:22:06.866Z] [32minfo[39m: 	[32mSuccessfully connected to MongoDB[39m
+[2024-06-12T05:22:06.869Z] [32minfo[39m: 	[32mServer is listening on port: 3004[39m
+[2024-06-12T05:22:47.591Z] [32minfo[39m: 	[32mMongoDB connected[39m
+[2024-06-12T05:22:47.594Z] [32minfo[39m: 	[32mSuccessfully connected to MongoDB[39m
+[2024-06-12T05:22:47.598Z] [32minfo[39m: 	[32mServer is listening on port: 3004[39m
+[2024-06-12T05:25:32.778Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T05:25:32.875Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T05:25:48.031Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T05:25:48.086Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T05:26:29.569Z] [32minfo[39m: 	[32mMongoDB connected[39m
+[2024-06-12T05:26:29.575Z] [32minfo[39m: 	[32mSuccessfully connected to MongoDB[39m
+[2024-06-12T05:26:29.584Z] [32minfo[39m: 	[32mServer is listening on port: 3004[39m
+[2024-06-12T05:26:35.722Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T05:26:35.912Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T05:28:24.519Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T05:28:24.609Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T05:28:25.830Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T05:28:25.883Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T05:32:13.276Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T05:32:13.345Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T05:32:33.594Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T05:32:33.627Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T05:33:37.212Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T05:33:37.250Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T05:33:37.316Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T05:33:37.815Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T05:34:02.169Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T05:34:02.229Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T05:36:31.232Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T05:36:31.303Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T05:42:56.780Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T05:42:57.921Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T05:46:09.533Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T05:46:09.616Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T05:46:13.276Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T05:46:13.351Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T05:46:39.999Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T05:46:40.066Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T05:47:01.977Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T05:47:02.114Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T05:47:21.367Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T05:47:21.470Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T05:47:27.470Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T05:47:27.657Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T05:47:29.665Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T05:47:29.764Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T05:47:32.661Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T05:47:32.761Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T05:47:53.718Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T05:47:53.721Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T05:47:53.809Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T05:47:53.830Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T05:47:53.835Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T05:47:53.846Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T05:47:53.847Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T05:47:53.848Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T05:48:23.043Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T05:48:23.089Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T06:03:14.665Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T06:03:14.774Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T06:03:41.368Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T06:03:41.399Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T06:03:41.419Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T06:03:41.460Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T06:04:25.587Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T06:04:25.675Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T06:04:25.756Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T06:04:25.835Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T06:04:56.072Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T06:04:56.145Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T06:04:56.213Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T06:04:56.236Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T06:05:45.779Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T06:05:45.830Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T06:06:01.763Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T06:06:01.850Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T06:06:02.038Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T06:06:02.248Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T06:06:49.005Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T06:06:49.222Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T06:07:11.080Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T06:07:11.133Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T06:07:15.240Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T06:07:15.313Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T06:07:22.084Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T06:07:22.146Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T06:07:35.113Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T06:07:35.190Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T06:07:45.067Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T06:07:45.145Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T06:07:54.909Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T06:07:54.975Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T06:08:18.386Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T06:08:18.438Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T06:08:18.440Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T06:08:18.513Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T06:10:48.345Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T06:10:48.434Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T06:10:57.558Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T06:10:57.617Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T06:11:33.148Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T06:11:33.220Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T06:11:45.925Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T06:11:45.991Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T06:11:55.046Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T06:11:55.141Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T06:12:13.573Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T06:12:13.692Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T06:14:26.795Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T06:14:26.856Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T06:14:26.891Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T06:14:26.926Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T06:18:03.697Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T06:18:03.793Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T06:18:17.422Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T06:18:17.487Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T06:18:51.934Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T06:18:52.053Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T06:19:54.478Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T06:19:54.537Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T06:20:34.328Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T06:20:34.418Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T06:20:34.499Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T06:20:34.564Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T06:20:47.528Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T06:20:47.539Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T06:20:47.594Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T06:20:47.610Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T06:22:16.101Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T06:22:16.163Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T06:22:16.165Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T06:22:16.259Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T06:23:15.963Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T06:23:16.264Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T06:23:27.399Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T06:23:27.457Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T06:23:27.502Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T06:23:27.879Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T06:23:52.171Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T06:23:52.243Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T06:24:10.586Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T06:24:10.652Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T06:24:16.264Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T06:24:16.326Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T06:24:21.257Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T06:24:21.309Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T06:24:23.400Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T06:24:23.460Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T06:26:58.932Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T06:26:59.081Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T06:28:06.788Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T06:28:06.836Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T06:28:06.884Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T06:28:06.909Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T06:28:53.983Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T06:28:54.047Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T06:28:54.051Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T06:28:54.142Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T06:28:54.149Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T06:28:54.538Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T06:30:07.303Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T06:30:07.375Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T06:30:07.382Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T06:30:07.599Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T06:30:08.200Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T06:30:08.258Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T06:30:50.605Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T06:30:51.293Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T06:31:23.695Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T06:31:23.786Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T06:31:23.990Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T06:31:24.049Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T06:32:58.556Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T06:32:58.655Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T06:32:58.665Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T06:32:59.032Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T06:32:59.964Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T06:33:01.790Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T06:33:48.243Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T06:33:48.336Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T06:33:48.468Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T06:33:48.481Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T06:34:39.146Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T06:34:39.242Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T06:34:39.547Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T06:34:39.638Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T06:35:03.806Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T06:35:04.705Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T06:35:15.603Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T06:35:15.985Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T06:35:37.835Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T06:35:37.842Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T06:35:38.549Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T06:35:38.559Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T06:36:18.288Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T06:36:18.533Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T06:36:18.615Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T06:36:18.658Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T06:37:33.272Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T06:37:34.386Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T06:38:18.137Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T06:38:18.817Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T06:39:05.919Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T06:39:08.816Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T06:39:08.932Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T06:39:09.050Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T06:39:12.133Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T06:39:12.457Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T06:39:40.832Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T06:39:41.115Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T06:39:41.296Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T06:39:41.955Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T06:39:59.848Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T06:40:00.522Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T06:41:14.544Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T06:41:14.600Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T06:41:14.782Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T06:41:14.798Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T06:41:30.570Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T06:41:31.230Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T06:41:35.977Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T06:41:36.362Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T06:41:38.092Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T06:41:38.644Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T06:43:13.753Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T06:43:13.857Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T06:43:29.204Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T06:43:29.273Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T06:43:32.454Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T06:43:32.535Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T06:43:36.333Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T06:43:36.382Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T06:44:20.254Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T06:44:20.260Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T06:44:20.319Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T06:44:20.437Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T06:44:51.238Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T06:44:51.292Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T06:46:17.903Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T06:46:18.215Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T06:47:33.365Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T06:47:33.418Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T06:47:40.430Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T06:47:40.560Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T06:51:25.035Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T06:51:25.484Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T06:51:25.582Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T06:51:25.646Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T06:51:44.000Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T06:51:44.050Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T06:51:59.826Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T06:51:59.893Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T06:52:06.168Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T06:52:06.253Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T06:53:00.312Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T06:53:00.407Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T06:54:06.813Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T06:54:07.245Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T06:54:28.854Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T06:54:28.911Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T06:57:05.392Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T06:57:05.657Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T06:57:48.485Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T06:57:48.762Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T06:57:48.977Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T06:57:48.999Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T06:59:08.560Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T06:59:08.766Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T06:59:55.353Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T06:59:55.655Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T06:59:56.959Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T06:59:57.072Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T07:00:12.871Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T07:00:13.036Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T07:00:32.375Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T07:00:32.479Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T07:01:36.222Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T07:01:36.268Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T07:01:36.330Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T07:01:36.343Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T07:01:47.025Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T07:01:47.115Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T07:02:09.261Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T07:02:09.317Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T07:03:15.039Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T07:03:15.106Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T07:03:20.979Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T07:03:21.056Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T07:03:21.213Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T07:03:21.308Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T07:03:27.125Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T07:03:27.177Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T07:03:29.596Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T07:03:29.669Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T07:03:31.210Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T07:03:31.265Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T07:03:59.345Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T07:03:59.698Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T07:10:56.230Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T07:10:56.492Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T07:11:07.156Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T07:11:07.397Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T07:11:12.940Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T07:11:13.051Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T07:11:16.509Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T07:11:16.900Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T07:11:21.851Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T07:11:22.032Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T07:11:25.043Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T07:11:25.301Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T07:13:28.642Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T07:13:28.720Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T07:18:26.565Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T07:18:26.728Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T07:25:45.797Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T07:25:45.883Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T07:25:46.046Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T07:25:46.058Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T07:26:07.290Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T07:26:07.295Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T07:26:07.335Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T07:26:07.354Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T07:26:07.361Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T07:26:07.392Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T07:26:44.239Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T07:26:44.325Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T07:26:44.478Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T07:26:44.493Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T07:27:03.672Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T07:27:03.676Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T07:27:03.723Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T07:27:03.728Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T07:27:24.735Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T07:27:24.917Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T07:27:54.879Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T07:27:54.997Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T07:28:30.567Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T07:28:30.571Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T07:28:30.636Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T07:28:30.660Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T07:28:50.305Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T07:28:50.370Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T07:28:57.660Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T07:28:57.715Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T07:29:21.925Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T07:29:21.974Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T07:29:32.688Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T07:29:32.742Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T07:30:05.455Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T07:30:05.625Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T07:30:51.100Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T07:30:51.207Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T07:31:15.111Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T07:31:15.172Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T07:31:30.566Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T07:31:30.613Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T07:31:46.562Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T07:31:46.609Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T07:31:52.485Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T07:31:52.537Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T07:32:02.156Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T07:32:02.254Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T07:32:05.861Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T07:32:05.916Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T07:32:08.553Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T07:32:08.597Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T07:32:09.363Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T07:32:09.410Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T07:32:16.025Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T07:32:16.079Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T07:35:12.677Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T07:35:12.831Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T07:35:22.955Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T07:35:23.004Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T07:35:27.508Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T07:35:27.570Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T07:35:29.258Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T07:35:29.324Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T07:35:30.267Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T07:35:30.338Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T07:35:37.280Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T07:35:37.377Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T07:35:37.664Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T07:35:37.786Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T07:35:38.363Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T07:35:38.414Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T07:35:56.120Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T07:35:56.167Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T07:36:23.815Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T07:36:23.864Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T07:36:26.938Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T07:36:26.992Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T07:39:27.825Z] [32minfo[39m: 	[32mMongoDB connected[39m
+[2024-06-12T07:39:27.832Z] [32minfo[39m: 	[32mSuccessfully connected to MongoDB[39m
+[2024-06-12T07:39:27.840Z] [32minfo[39m: 	[32mServer is listening on port: 3004[39m
+[2024-06-12T07:40:03.742Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T07:40:04.057Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T07:40:04.421Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T07:40:04.505Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T07:40:07.436Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T07:40:07.521Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T07:40:24.557Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T07:40:24.639Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T07:40:32.352Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T07:40:32.400Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T07:40:32.577Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T07:40:32.621Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T07:41:13.681Z] [32minfo[39m: 	[32mMongoDB connected[39m
+[2024-06-12T07:41:13.684Z] [32minfo[39m: 	[32mSuccessfully connected to MongoDB[39m
+[2024-06-12T07:41:13.689Z] [32minfo[39m: 	[32mServer is listening on port: 3004[39m
+[2024-06-12T07:42:35.466Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T07:42:35.501Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T07:42:35.636Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T07:42:35.973Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T07:42:55.234Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T07:42:55.289Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T07:42:55.501Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T07:42:55.573Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T07:43:20.133Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T07:43:20.349Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T07:43:21.961Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T07:43:22.038Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T07:43:31.436Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T07:43:31.489Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T07:43:31.672Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T07:43:31.763Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T07:44:01.574Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T07:44:01.657Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T07:44:01.839Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T07:44:01.910Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T07:44:23.929Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T07:44:23.981Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T07:44:24.207Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T07:44:24.255Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T07:45:19.213Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T07:45:19.321Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T07:45:46.429Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T07:45:46.551Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T07:46:07.244Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T07:46:07.325Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T07:46:19.628Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T07:46:19.685Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T07:46:31.873Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T07:46:31.955Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T07:46:32.070Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T07:46:32.148Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T07:47:38.787Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T07:47:38.917Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T07:47:39.021Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T07:47:39.037Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T07:47:40.900Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T07:47:40.904Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T07:47:40.971Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T07:47:40.987Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T07:47:46.241Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T07:47:46.352Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T07:48:00.704Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T07:48:00.754Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T07:48:00.852Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T07:48:00.902Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T07:49:47.311Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T07:49:47.442Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T07:49:47.664Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T07:49:47.753Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T07:49:59.390Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T07:49:59.445Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T07:49:59.475Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T07:49:59.528Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T07:50:01.097Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T07:50:01.144Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T07:50:01.169Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T07:50:01.216Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T07:50:36.356Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T07:50:36.412Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T07:50:36.614Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T07:50:36.690Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T07:50:47.934Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T07:50:47.982Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T07:50:49.718Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T07:50:49.783Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T07:51:01.313Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T07:51:01.381Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T07:51:16.860Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T07:51:16.920Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T07:51:17.017Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T07:51:17.103Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T07:58:07.423Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T07:58:07.611Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T07:58:07.910Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T07:58:07.963Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T08:15:51.916Z] [32minfo[39m: 	[32mMongoDB disconnected[39m
+[2024-06-12T08:23:39.527Z] [32minfo[39m: 	[32mMongoDB connected[39m
+[2024-06-12T08:24:50.322Z] [32minfo[39m: 	[32mMongoDB disconnected[39m
+[2024-06-12T08:29:03.205Z] [32minfo[39m: 	[32mMongoDB connected[39m
+[2024-06-12T08:30:15.535Z] [32minfo[39m: 	[32mMongoDB disconnected[39m
+[2024-06-12T08:30:26.263Z] [32minfo[39m: 	[32mMongoDB connected[39m
+[2024-06-12T08:56:39.066Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T08:56:40.059Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T08:56:41.996Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T08:56:42.156Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T08:58:45.072Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T08:58:45.151Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T09:01:03.153Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T09:01:03.204Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T09:01:03.406Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T09:01:03.451Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T09:01:44.008Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T09:01:44.077Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T09:01:56.536Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T09:01:56.620Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T09:02:06.638Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T09:02:06.719Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T09:02:09.229Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T09:02:09.290Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T09:02:11.413Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T09:02:11.472Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T09:02:13.366Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T09:02:13.414Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T09:02:26.845Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T09:02:27.004Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T09:02:34.651Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T09:02:34.702Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T09:23:34.483Z] [32minfo[39m: 	[32mMongoDB connected[39m
+[2024-06-12T09:23:34.490Z] [32minfo[39m: 	[32mSuccessfully connected to MongoDB[39m
+[2024-06-12T09:23:34.495Z] [32minfo[39m: 	[32mServer is listening on port: 3004[39m
+[2024-06-12T09:25:15.999Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T09:25:16.708Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T09:25:57.803Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T09:25:57.951Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T09:26:05.872Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T09:26:05.918Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T11:21:08.468Z] [32minfo[39m: 	[32mMongoDB connected[39m
+[2024-06-12T11:21:08.472Z] [32minfo[39m: 	[32mSuccessfully connected to MongoDB[39m
+[2024-06-12T11:21:08.476Z] [32minfo[39m: 	[32mServer is listening on port: 3004[39m
+[2024-06-12T11:23:26.482Z] [32minfo[39m: 	[32mMongoDB connected[39m
+[2024-06-12T11:23:26.554Z] [32minfo[39m: 	[32mSuccessfully connected to MongoDB[39m
+[2024-06-12T11:23:26.579Z] [32minfo[39m: 	[32mServer is listening on port: 3004[39m
+[2024-06-12T11:23:36.333Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T11:23:36.436Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T11:30:20.559Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T11:30:20.948Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T11:53:59.798Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T11:53:59.963Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T11:56:18.761Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T11:56:18.884Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T12:10:49.519Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T12:10:49.628Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T12:11:14.638Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T12:11:14.718Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T12:11:33.599Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T12:11:33.759Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T12:11:33.771Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T12:11:33.888Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T12:11:52.908Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T12:11:52.963Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T12:11:54.425Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T12:11:54.477Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T12:12:48.480Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T12:12:48.500Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T12:12:48.540Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T12:12:49.083Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T12:13:02.212Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T12:13:02.282Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T12:14:17.478Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T12:14:17.536Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T12:14:45.289Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T12:14:45.305Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T12:14:45.341Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T12:14:45.378Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T12:17:21.972Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T12:17:22.047Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T12:17:36.095Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T12:17:36.166Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T12:18:00.274Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T12:18:00.281Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T12:18:00.354Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T12:18:00.358Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T12:18:00.660Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T12:18:00.734Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T12:18:12.540Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T12:18:12.672Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T12:18:30.131Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T12:18:30.199Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T12:18:34.109Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T12:18:34.162Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T12:18:59.056Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T12:18:59.090Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T12:18:59.109Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T12:18:59.151Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T12:19:45.283Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T12:19:45.325Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T12:19:45.340Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T12:19:45.386Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T12:20:12.275Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T12:20:12.329Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T12:20:47.238Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T12:20:47.307Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T12:20:52.045Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T12:20:52.106Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T12:21:12.714Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T12:21:12.784Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T12:21:18.027Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T12:21:18.072Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T12:22:21.455Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T12:22:21.504Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T12:23:44.926Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T12:23:44.994Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T12:24:39.674Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T12:24:39.725Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T12:24:44.295Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T12:24:44.354Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T12:24:51.881Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T12:24:51.966Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T12:25:08.000Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T12:25:08.058Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T12:25:33.268Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T12:25:33.275Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T12:25:33.341Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T12:25:33.347Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T12:25:45.457Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T12:25:45.532Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T12:26:26.581Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T12:26:26.650Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T12:26:31.931Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T12:26:31.979Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T12:26:38.819Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T12:26:38.879Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T12:26:57.386Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T12:26:57.459Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T12:27:02.931Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T12:27:03.067Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T12:27:20.625Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T12:27:20.692Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T12:27:43.979Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T12:27:44.051Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T12:27:44.238Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T12:27:44.291Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T12:28:09.427Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T12:28:09.474Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T12:28:18.114Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T12:28:18.160Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T12:28:28.503Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T12:28:28.581Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T12:29:28.623Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T12:29:28.690Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T12:29:43.514Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T12:29:43.597Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T12:29:59.134Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T12:29:59.191Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T12:30:03.060Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T12:30:03.167Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T12:30:07.571Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T12:30:07.637Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T12:30:19.454Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T12:30:19.516Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T12:30:25.704Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T12:30:25.834Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T12:30:57.300Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T12:30:57.359Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T12:30:57.433Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T12:30:57.461Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T12:31:19.440Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T12:31:19.523Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T12:31:30.019Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T12:31:30.086Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T12:31:40.329Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T12:31:40.420Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T12:31:42.881Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T12:31:42.972Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T12:31:49.274Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T12:31:49.679Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T12:32:13.806Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T12:32:13.905Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T12:32:31.999Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T12:32:32.071Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T12:32:37.107Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T12:32:37.177Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T12:32:53.399Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T12:32:53.483Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T12:33:18.301Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T12:33:18.354Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T12:33:25.186Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T12:33:25.247Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T12:33:40.434Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T12:33:40.438Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T12:33:40.450Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T12:33:40.511Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T12:33:40.516Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T12:33:41.036Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T12:33:50.719Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T12:33:50.773Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T12:34:29.763Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T12:34:29.908Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T12:34:47.865Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T12:34:47.937Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T12:34:48.883Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T12:34:48.942Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T12:39:44.910Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T12:39:45.036Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T12:39:46.006Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T12:39:46.066Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T12:40:01.895Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T12:40:01.997Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T12:40:02.900Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T12:40:02.984Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T12:40:07.232Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T12:40:07.341Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T12:40:17.313Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T12:40:17.388Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T12:40:18.303Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T12:40:18.355Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T12:40:21.452Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T12:40:21.526Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T12:40:23.838Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T12:40:23.903Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T12:40:25.854Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T12:40:25.857Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T12:40:25.928Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T12:40:25.934Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T12:40:33.156Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T12:40:33.216Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T12:40:55.666Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T12:40:55.719Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T12:41:10.078Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T12:41:10.080Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T12:41:10.151Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T12:41:10.153Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T12:41:34.803Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T12:41:34.806Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T12:41:34.906Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T12:41:34.909Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T12:41:37.290Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T12:41:37.293Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T12:41:37.366Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T12:41:37.368Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T12:42:26.832Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T12:42:26.898Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T12:42:31.767Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T12:42:31.847Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T12:42:34.211Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T12:42:34.269Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T12:43:41.577Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T12:43:41.656Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T12:43:41.708Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T12:43:41.770Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T12:43:49.110Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T12:43:49.177Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T12:43:50.790Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T12:43:50.853Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T12:43:52.495Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T12:43:52.498Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T12:43:52.554Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T12:43:52.556Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T12:44:23.091Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T12:44:23.095Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T12:44:23.124Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T12:44:23.130Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T12:44:23.158Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T12:44:23.161Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T12:44:23.207Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T12:44:23.659Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T12:44:23.825Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T12:44:23.828Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T12:44:23.872Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T12:44:23.875Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T12:45:26.163Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T12:45:26.237Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T12:46:25.760Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T12:46:25.830Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T12:46:33.067Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T12:46:33.126Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T12:46:36.576Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T12:46:36.580Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T12:46:36.631Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T12:46:36.635Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T12:47:10.043Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T12:47:10.109Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T12:47:13.892Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T12:47:13.955Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T12:48:05.977Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T12:48:06.027Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T12:48:15.081Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T12:48:15.149Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T12:48:17.601Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T12:48:17.673Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T12:48:53.083Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T12:48:53.153Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T12:48:58.165Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T12:48:58.243Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T12:49:58.979Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T12:49:59.047Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T12:50:04.771Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T12:50:04.853Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T12:50:08.230Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T12:50:08.234Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T12:50:08.275Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T12:50:08.303Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T12:50:17.585Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T12:50:17.590Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T12:50:17.654Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T12:50:17.667Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T12:50:35.968Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T12:50:35.973Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T12:50:36.030Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T12:50:36.033Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T12:51:02.243Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T12:51:02.247Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T12:51:02.306Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T12:51:02.309Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T12:51:05.585Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T12:51:05.590Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T12:51:05.644Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T12:51:05.646Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T12:51:17.178Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T12:51:17.181Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T12:51:17.244Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T12:51:17.248Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T12:51:29.757Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T12:51:29.760Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T12:51:29.839Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T12:51:29.842Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T12:51:36.864Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T12:51:36.869Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T12:51:36.932Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T12:51:36.936Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T12:51:50.553Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T12:51:50.559Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T12:51:50.647Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T12:51:50.650Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T12:51:53.228Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T12:51:53.232Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T12:51:53.294Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T12:51:53.297Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T12:51:58.934Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T12:51:58.937Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T12:51:58.995Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T12:51:58.998Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T12:52:03.684Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T12:52:03.688Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T12:52:03.760Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T12:52:03.762Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T12:52:29.032Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T12:52:29.038Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T12:52:29.083Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T12:52:29.087Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T12:52:29.447Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T12:52:29.451Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T12:52:29.493Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T12:52:29.514Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T12:52:52.682Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T12:52:52.684Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T12:52:52.771Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T12:52:52.776Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T12:53:00.998Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T12:53:01.000Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T12:53:01.075Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T12:53:01.078Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T12:53:44.166Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T12:53:44.170Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T12:53:44.233Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T12:53:44.236Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T12:53:45.987Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T12:53:45.994Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T12:53:46.044Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T12:53:46.046Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T12:54:06.406Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T12:54:06.409Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T12:54:06.492Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T12:54:06.496Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T12:54:17.797Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T12:54:17.800Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T12:54:17.850Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T12:54:17.852Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T12:54:35.986Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T12:54:35.988Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T12:54:36.034Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T12:54:36.037Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T12:54:36.051Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T12:54:36.053Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T12:54:36.127Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T12:54:36.128Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T12:54:51.659Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T12:54:51.662Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T12:54:51.759Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T12:54:51.761Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T12:55:15.430Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T12:55:15.432Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T12:55:15.490Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T12:55:15.500Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T12:55:32.297Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T12:55:32.304Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T12:55:32.364Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T12:55:32.366Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T12:56:19.601Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T12:56:19.604Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T12:56:19.658Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T12:56:19.660Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T12:56:34.041Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T12:56:34.044Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T12:56:34.101Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T12:56:34.105Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T12:57:56.295Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T12:57:56.298Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T12:57:56.344Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T12:57:56.365Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T12:57:59.355Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T12:57:59.357Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T12:57:59.436Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T12:57:59.441Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T12:57:59.534Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T12:57:59.536Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T12:57:59.591Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T12:57:59.593Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T12:58:03.992Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T12:58:04.041Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T12:58:05.031Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T12:58:05.086Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T12:58:05.664Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T12:58:05.721Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T12:58:06.695Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T12:58:06.750Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T12:58:08.097Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T12:58:08.154Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-12T12:58:10.731Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-12T12:58:10.797Z] [32minfo[39m: 	[32mresponse sent[39m
