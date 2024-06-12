@@ -1,17 +1,38 @@
-"use client";
-
 import { ButtonIcon, FavPage, Typography } from "@/components";
-import Popup from "@/components/molechules/Filter/Popup";
-import PopupReq from "@/components/molechules/PopupReq/PopupReq";
-import { RequireDetail } from "@/components/molechules/ReqCardDetail/RequireDetail";
+import { RequestCookie } from "next/dist/compiled/@edge-runtime/cookies";
+import { cookies } from "next/headers";
+import React from "react";
 
-import { MyContext } from "@/contexts/CardContext";
-import React, { useContext } from "react";
+async function getFavoriteData({
+  session,
+  sigSession,
+}: {
+  session: RequestCookie | undefined;
+  sigSession: RequestCookie | undefined;
+}) {
+  try {
+    const api = `http://localhost:3000/v1/user/favorite`;
+    const respone = await fetch(api, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        Cookie: `${session!.name}=${session!.value}; ${sigSession!.name}=${
+          sigSession!.value
+        }`,
+        cache: "no-cache",
+      },
+    });
+    return await respone.json();
+  } catch (error: unknown) {
+    console.error("Error in getFavoriteData", error);
+  }
+}
 
-const Page = () => {
-  const { CardInfo } = useContext(MyContext);
-
-  const data = CardInfo.filter((item: any) => item.isFavorite === true);
+const Page = async () => {
+  const cookieStore = cookies();
+  const session = cookieStore.get("session");
+  const sigSession = cookieStore.get("session.sig");
+  const favoriteData = await getFavoriteData({ session, sigSession });
 
   return (
     <>
@@ -47,11 +68,11 @@ const Page = () => {
           </div>
           <div className="px-4 py-2 rounded-lg border-[1px] border-gray-200 text-center flex justify-center items-center ">
             <Typography fontSize="h3" color="blue">
-              {data.length} Events
+              {favoriteData!.data.length} Events
             </Typography>
           </div>
         </div>
-        <FavPage />
+        <FavPage data={favoriteData!.data} />
       </div>
     </>
   );

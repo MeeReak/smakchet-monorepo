@@ -10,8 +10,8 @@ interface CardProps {
     endTime?: string;
   };
   location: string;
-  isFavorite?: boolean;
   isLoading?: boolean;
+  isFavorite?: Array<string> | undefined;
 }
 
 interface Requirement {

@@ -1,9 +1,7 @@
-"use client";
-import React, { useState } from "react";
+import React from "react";
 import Image from "next/image";
 import { InputData, Typography, Button } from "@/components";
 import Link from "next/link";
-import schema from "@/utils/signUpSchema";
 
 const page = () => {
   return (
@@ -41,9 +39,11 @@ const page = () => {
             type="email"
             name="email"
             placeholder={"Email"}
-            className={"w-[350px] border text-base border-gray-200 py-4 pl-5 mt-4 mb-2"}
+            className={
+              "w-[350px] border text-base border-gray-200 py-4 pl-5 mt-4 mb-2"
+            }
           />
-             <Typography align="right">
+          <Typography align="right">
             <Link href={"../login"} className="text-blue-500">
               Back to Login
             </Link>
@@ -53,7 +53,6 @@ const page = () => {
           <Button className="!bg-blue-500 w-full align-middle justify-center text-white py-4 rounded-[10px]  hover:cursor-pointer">
             Continue
           </Button>
-       
         </form>
       </div>
     </div>
