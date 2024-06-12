@@ -60,7 +60,7 @@ const Page: FC<ApplyFormProps> = ({ onNext }) => {
 
   return (
     <div className="h-full bg-[#FAFAFA] w-full">
-      <div className="py-[133px] lg:mx-[180px]  flex flex-col h-full">
+      <div className="md:py-[133px] py-[100px] xl:mx-[300px] lg:mx-[200px] md:mx-[100px] mx-5  flex flex-col h-full">
         <Button
           className="!border-none w-fit flex justify-start !text-2xl !font-semibold"
           leftIcon={
@@ -81,7 +81,7 @@ const Page: FC<ApplyFormProps> = ({ onNext }) => {
           </Typography>
         </Button>
 
-        <form action={""} className="mt-9 flex flex-col gap-y-[25px]">
+        <form action={""} className="md:mt-9 mt-5 flex flex-col gap-y-[25px]">
           {/* Name, Email Phone number, address section */}
           <div className="py-[30px] px-[25px] bg-white rounded-[10px] flex flex-col gap-y-5">
             {/* Name & Email section */}
@@ -101,7 +101,7 @@ const Page: FC<ApplyFormProps> = ({ onNext }) => {
                   className=" h-[50px] pl-6 border-1 border-gray-300"
                 />
                 {errors.name && (
-                  <Typography className="!text-base" color="red">
+                  <Typography className="!text-base -mt-3" color="red">
                     {errors.name}
                   </Typography>
                 )}
@@ -121,7 +121,7 @@ const Page: FC<ApplyFormProps> = ({ onNext }) => {
                   className=" h-[50px] pl-6 border-1 border-gray-300"
                 />
                 {errors.email && (
-                  <Typography className="!text-base" color="red">
+                  <Typography className="!text-base -mt-3" color="red">
                     {errors.email}
                   </Typography>
                 )}
@@ -145,7 +145,7 @@ const Page: FC<ApplyFormProps> = ({ onNext }) => {
                   className=" h-[50px] pl-6 border-1 border-gray-300"
                 />
                 {errors.phonenumber && (
-                  <Typography className="!text-base" color="red">
+                  <Typography className="!text-base -mt-3" color="red">
                     {errors.phonenumber}
                   </Typography>
                 )}
@@ -165,7 +165,7 @@ const Page: FC<ApplyFormProps> = ({ onNext }) => {
                   className=" h-[50px] pl-6 border-1 border-gray-300"
                 />
                 {errors.address && (
-                  <Typography className="!text-base" color="red">
+                  <Typography className="!text-base -mt-3" color="red">
                     {errors.address}
                   </Typography>
                 )}
@@ -196,58 +196,65 @@ const Page: FC<ApplyFormProps> = ({ onNext }) => {
                   Have you ever joined volunteer before?
                 </Typography>
               </label>
-              <div className="flex gap-x-[11px]">
-                <input
-                  className="yes/no"
-                  onCanPlay={handleChange}
-                  id="yes"
-                  type="radio"
-                  name="yes/no"
-                  value={"yes"}
-                />
-                <label htmlFor="yes" className="text-base lg:font-normal ">
-                  Yes
-                </label>
-              </div>
-              <div className="flex gap-x-[11px]">
-                <input type="radio" id="no" name="yes/no" value={"no"} />
-                <label htmlFor="no" className="lg:text-base lg:font-normal">
-                  No
-                </label>
+
+              <div className="flex flex-col gap-y-5">
+
+                <div className="flex gap-x-[11px]">
+                  <input
+                    className="yes/no"
+                    onCanPlay={handleChange}
+                    id="yes"
+                    type="radio"
+                    name="yes/no"
+                    value={"yes"}
+                  />
+                  <label htmlFor="yes" className="text-base lg:font-normal ">
+                    Yes
+                  </label>
+                </div>
+                <div className="flex gap-x-[11px]">
+                  <input type="radio" id="no" name="yes/no" value={"no"} />
+                  <label htmlFor="no" className="lg:text-base lg:font-normal">
+                    No
+                  </label>
+                </div>
               </div>
             </div>
-            <div className="flex flex-col w-full gap-y-[18px]">
+            <div className="flex flex-col w-full gap-y-3 lg:gap-y-[18px]">
               <label htmlFor="checkbox">
                 <Typography className="lg:!text-xl !text-lg !font-normal">
                   What are the benefits of Volunteer?
                 </Typography>
               </label>
-              <div className="flex flex-row gap-x-4">
-                <input type="checkbox" name="options" id="checkbox1" />
-                <label
-                  htmlFor="checkbox1"
-                  className="lg:text-base lg:font-normal"
-                >
-                  Communication
-                </label>
-              </div>
-              <div className="flex flex-row gap-x-4">
-                <input type="checkbox" name="options" id="checkbox2" />
-                <label
-                  htmlFor="checkbox2"
-                  className="lg:text-base lg:font-normal"
-                >
-                  Fun
-                </label>
-              </div>
-              <div className="flex flex-row gap-x-4">
-                <input type="checkbox" name="options" id="checkbox3" />
-                <label
-                  htmlFor="checkbox3"
-                  className="lg:text-base lg:font-normal"
-                >
-                  Socialize
-                </label>
+              <div className="flex flex-col gap-y-5">
+
+                <div className="flex flex-row gap-x-4">
+                  <input type="checkbox" name="options" id="checkbox1" />
+                  <label
+                    htmlFor="checkbox1"
+                    className="lg:text-base lg:font-normal"
+                  >
+                    Communication
+                  </label>
+                </div>
+                <div className="flex flex-row gap-x-4">
+                  <input type="checkbox" name="options" id="checkbox2" />
+                  <label
+                    htmlFor="checkbox2"
+                    className="lg:text-base lg:font-normal"
+                  >
+                    Fun
+                  </label>
+                </div>
+                <div className="flex flex-row gap-x-4">
+                  <input type="checkbox" name="options" id="checkbox3" />
+                  <label
+                    htmlFor="checkbox3"
+                    className="lg:text-base lg:font-normal"
+                  >
+                    Socialize
+                  </label>
+                </div>
               </div>
             </div>
           </div>
