@@ -4,6 +4,8 @@ import { ButtonIcon, FavPage, Typography } from "@/components";
 import Popup from "@/components/molechules/Filter/Popup";
 import PopupReq from "@/components/molechules/PopupReq/PopupReq";
 import { RequireDetail } from "@/components/molechules/ReqCardDetail/RequireDetail";
+import Hamburger_detail from "@/components/molechules/hamburger/Hamburger_detail";
+
 
 import { MyContext } from "@/contexts/CardContext";
 import React, { useContext } from "react";
@@ -52,6 +54,7 @@ const Page = () => {
           </div>
         </div>
         <FavPage />
+        <Hamburger_detail/>
       </div>
     </>
   );
