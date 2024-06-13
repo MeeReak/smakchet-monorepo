@@ -7,28 +7,63 @@
 		"requestBodies": {},
 		"responses": {},
 		"schemas": {
-			"FormResponse": {
+			"UserProp": {
+				"properties": {
+					"name": {
+						"type": "string"
+					},
+					"email": {
+						"type": "string"
+					},
+					"phonenumber": {
+						"type": "string"
+					},
+					"address": {
+						"type": "string"
+					}
+				},
+				"required": [
+					"name",
+					"email",
+					"phonenumber",
+					"address"
+				],
+				"type": "object",
+				"additionalProperties": false
+			},
+			"AnswerProp": {
 				"properties": {
 					"label": {
 						"type": "string"
 					},
-					"answer": {
-						"anyOf": [
-							{
-								"type": "string"
-							},
-							{
-								"items": {
-									"type": "string"
-								},
-								"type": "array"
-							}
-						]
-					}
+					"answer": {}
 				},
 				"required": [
 					"label",
 					"answer"
+				],
+				"type": "object",
+				"additionalProperties": false
+			},
+			"ResponseBodyProp": {
+				"properties": {
+					"eventId": {
+						"type": "string"
+					},
+					"userInfo": {
+						"$ref": "#/components/schemas/UserProp"
+					},
+					"responses": {
+						"items": {
+							"$ref": "#/components/schemas/AnswerProp"
+						},
+						"type": "array"
+					}
+				},
+				"required": [
+					"eventId",
+					"userInfo",
+					"responses"
 				],
 				"type": "object",
 				"additionalProperties": false
@@ -68,10 +103,7 @@
 					"content": {
 						"application/json": {
 							"schema": {
-								"items": {
-									"$ref": "#/components/schemas/FormResponse"
-								},
-								"type": "array"
+								"$ref": "#/components/schemas/ResponseBodyProp"
 							}
 						}
 					}

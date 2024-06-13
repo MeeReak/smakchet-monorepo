@@ -63,16 +63,8 @@ async function getSimilarData({ cate }: { cate: string }) {
 
 const page = async ({ params }: { params: { eventDetail: string } }) => {
   const data = await getData({ id: params.eventDetail });
-  console.log("Hi", params.eventDetail);
-  console.log("============================", data);
-
   const userData = await getUserData({ id: data[0].orgId });
-  console.log("============================", userData);
-
   const similarData = await getSimilarData({ cate: data[0].category });
-  console.log("============================", similarData);
-
-  console.log(userData.username);
   return (
     <div className="bg-[#fafafa]">
       <div className="xl:w-[1024px] m-auto ">
@@ -86,7 +78,7 @@ const page = async ({ params }: { params: { eventDetail: string } }) => {
               width={640}
               height={640}
               className="max-[640px]:w-full relative object-cover"
-            /> */}
+            />
             <div className="absolute flex justify-between w-[97%] mt-1 sm:hidden">
               <div>
                 <Link href="/">
@@ -161,10 +153,11 @@ const page = async ({ params }: { params: { eventDetail: string } }) => {
             </div>
           </div>
         </div>
-
-        /* <header className="pt-5 flex items-center px-[10px]">
-          <div className="w-[60%]"> */}
-            /* <Typography
+        {" "}
+        <header className="pt-5 flex items-center px-[10px]">
+          <div className="w-[60%]">
+            {" "}
+            <Typography
               fontSize="h3"
               fontWeight="bold"
             >{`${data[0]?.eventName}`}</Typography>
@@ -215,17 +208,18 @@ const page = async ({ params }: { params: { eventDetail: string } }) => {
                 </svg>
               }
             />
-            <Button
-              round="lg"
-              colorScheme="White"
-              bgColor="primary"
-              className="justify-center py-3 px-6"
-            >
-              Apply
-            </Button>
+            <Link href={`${data[0]?._id}/apply-form`}>
+              <Button
+                round="lg"
+                colorScheme="White"
+                bgColor="primary"
+                className="justify-center py-3 px-6"
+              >
+                Apply
+              </Button>
+            </Link>
           </div>
         </header>
-
         <div className="px-5 mt-4 py-5  bg-white rounded-[10px]">
           <Typography
             fontSize="h3"
@@ -234,8 +228,7 @@ const page = async ({ params }: { params: { eventDetail: string } }) => {
           >
             Event&#39;s Detail
           </Typography>
-          <Typography align="left" fontSize="h4">
-            {data[0].description}
+          <Typography align="left" fontSize="h4" htmlContent={data[0].description}>
           </Typography>
         </div>
         {/* requirement */}
@@ -256,13 +249,12 @@ const page = async ({ params }: { params: { eventDetail: string } }) => {
             </Typography>
             <MapView
               classname="w-full h-[85%]"
-              lat="11.5661342"
-              lng="104.8985639"
+              lat={data[0].address.lat}
+              lng={data[0].address.lng}
             />
           </div>
         </div>
         <hr className="mt-5 w-full h-[2px] bg-black opacity-30"></hr>
-
         <div className="flex p-5">
           <Image
             className="rounded-full object-cover h-12 w-12"
@@ -280,7 +272,6 @@ const page = async ({ params }: { params: { eventDetail: string } }) => {
             </Typography>
           </div>
         </div>
-
         {/* You may like */}
         <div>
           <Typography
