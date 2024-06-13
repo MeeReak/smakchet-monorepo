@@ -1,7 +1,8 @@
 import React, { ReactNode, FC } from "react";
 
 interface TypographyProps {
-  children: ReactNode;
+  children?: ReactNode;
+  htmlContent?: string;
   className?: string;
   align?: "left" | "justify" | "right" | "center";
   fontSize?: "h1" | "h2" | "h3" | "h4" | "h5";
@@ -12,6 +13,7 @@ interface TypographyProps {
 
 const Typography: FC<TypographyProps> = ({
   children,
+  htmlContent,
   className,
   align = "",
   fontSize = "",
@@ -50,25 +52,6 @@ const Typography: FC<TypographyProps> = ({
         return "text-xs";
     }
   };
-
-  // const typographyFontSize = (fontSize: string, screensize: string) => {
-  //   switch (fontSize) {
-  //     case "h1":
-  //       return "text-[16px] md:text-[20px] lg:text-[24px] xl:text-[36px]";
-  //     case "h2":
-  //       return "text-[14px] md:text-[18px] lg:text-[20px] xl:text-[32px]";
-  //     case "h3":
-  //       return "text-[12px] md:text-[16px] lg:text-[18px] xl:text-[24px]";
-  //     case "h4":
-  //       return "text-[10px] md:text-[14px] lg:text-[16px] xl:text-[20px]";
-  //     case "h5":
-  //       return "text-[8px] md:text-[12px] lg:text-[14px] xl:text-[16px]";
-  //     case "h6":
-  //       return "text-[5px] md:text-[10px] lg:text-[12px] xl:text-[14px]";
-  //     default:
-  //       return "text-base";
-  //   }
-  // };
 
   const typographyfontWeight = (fontWeight: string) => {
     switch (fontWeight) {
@@ -109,15 +92,26 @@ const Typography: FC<TypographyProps> = ({
 
   return (
     <div>
-      <p
-        className={`${typographyfontWeightStyles}
-      ${typographyFontSizeStyles}
-      ${typographyAlignStyles}
-      ${typographyColorStyle}
-      ${className}`}
-      >
-        {children}
-      </p>
+      {htmlContent ? (
+        <div
+          className={`${typographyfontWeightStyles}
+          ${typographyFontSizeStyles}
+          ${typographyAlignStyles}
+          ${typographyColorStyle}
+          ${className}`}
+          dangerouslySetInnerHTML={{ __html: htmlContent }}
+        ></div>
+      ) : (
+        <div
+          className={`${typographyfontWeightStyles}
+          ${typographyFontSizeStyles}
+          ${typographyAlignStyles}
+          ${typographyColorStyle}
+          ${className}`}
+        >
+          {children}
+        </div>
+      )}
     </div>
   );
 };

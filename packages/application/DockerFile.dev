@@ -6,6 +6,7 @@ COPY tsconfig.json ./
 COPY src ./src
 COPY private_key.pem ./
 COPY public/swagger.json ./public/swagger.json
+COPY configs/.env ./configs/.env
 RUN ls -a
 RUN npm install && npm install -g nodemon
 

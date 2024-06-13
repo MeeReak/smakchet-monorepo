@@ -98,17 +98,17 @@ services:
       - 3004:3004
     volumes:
       - ./packages/event/src:/app/src
-  # application:
-  #   container_name: application
-  #   build:
-  #     context: ./packages/application
-  #     dockerfile: Dockerfile.dev
-  #   restart: always
-  #   ports:
-  #     - 3005:3005
-  #   env_file: ./packages/application/configs/.env
-  #   volumes:
-  #     - ./packages/application/src:/app/src
+  application:
+    container_name: application
+    build:
+      context: ./packages/application
+      dockerfile: Dockerfile.dev
+    restart: always
+    ports:
+      - 3005:3005
+    env_file: ./packages/application/configs/.env
+    volumes:
+      - ./packages/application/src:/app/src
 networks:
   default:
     driver: bridge

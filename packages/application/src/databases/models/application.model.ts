@@ -16,6 +16,12 @@ const applicationSchema = new Schema(
     submitOn: {
       type: Date,
     },
+    userInfo: {
+      name:String,
+      email: String,
+      address: String,
+      phonenumber: String,
+    },
     responses: [
       {
         label: String,

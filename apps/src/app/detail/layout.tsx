@@ -21,7 +21,7 @@ export default function RootLayout({
 }: Readonly<{ children: React.ReactNode }>) {
   const cookieStore = cookies();
   const session = cookieStore.get("session");
-  const gaSesssion = cookieStore.get("_ga");
+  //const gaSesssion = cookieStore.get("_ga");
   const sigSession = cookieStore.get("session.sig");
 
   return (
@@ -32,7 +32,7 @@ export default function RootLayout({
       <body className={roboto.className}>
         <Navbar
           session={session}
-          gaSession={gaSesssion}
+          //gaSession={gaSesssion}
           sigSession={sigSession}
         />
         <CardContext>{children}</CardContext>

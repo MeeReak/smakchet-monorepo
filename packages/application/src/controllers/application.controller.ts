@@ -9,22 +9,38 @@ import {
   Put,
   Path,
 } from "tsoa";
-import { validateInput } from "@application/middlewares/input-validation";
 import { verifyToken } from "@application/middlewares/tokenValidation";
-import { applyEventRequestBodySchema } from "@application/schemas/application.schema";
 import { ApplicationService } from "@application/services/application.service";
 import APIError from "@application/errors/api-error";
+import { logger } from "@application/utils/logger";
+import { StatusCode } from "@application/utils/consts";
+import { validateInput } from "@application/middlewares/input-validation";
+import { formResponseSchema } from "@application/schemas/application.schema";
 
-interface FormResponse {
+interface AnswerProp {
   label: string;
-  answer: string | string[];
+  answer: any;
+}
+
+interface UserProp {
+  name: string;
+  email: string;
+  phonenumber: string;
+  address: string;
+}
+
+interface ResponseBodyProp {
+  eventId: string;
+  userInfo: UserProp;
+  responses: AnswerProp[];
 }
 
 interface FormSubmit {
-  userId: string;
   eventId: string;
+  userId: string;
   submitOn: string;
-  responses: FormResponse[];
+  userInfo: UserProp;
+  responses: AnswerProp[];
 }
 
 const AppService = new ApplicationService();
@@ -35,20 +51,24 @@ export class ApplicationController extends Controller {
   // Apply for Event
 
   @Post("/")
-  @Middlewares([verifyToken, validateInput(applyEventRequestBodySchema)])
+  @Middlewares(validateInput(formResponseSchema))
+  @Middlewares(verifyToken)
   public async ApplyEvent(
     @Request() request: any,
-    @Body() body: FormResponse[]
+    @Body() body: ResponseBodyProp
   ): Promise<any> {
     try {
-      const userId = request.userId;
+      logger.info("Under user Id");
+      const userId = request.id;
+
+      logger.info("userId : ", userId);
 
       const formSubmit: FormSubmit = {
         userId: userId,
-        eventId: "2",
         submitOn: new Date().toISOString(),
-        responses: body,
+        ...body,
       };
+      logger.info("formSubmit: ", formSubmit);
 
       const formSubmitEvent = await AppService.applyEvent(formSubmit);
 
@@ -57,7 +77,10 @@ export class ApplicationController extends Controller {
         data: formSubmitEvent,
       };
     } catch (error: unknown | any) {
-      throw new APIError("Error during application submission", error);
+      throw new APIError(
+        "Error during application submission",
+        StatusCode.InternalServerError
+      );
     }
   }
 

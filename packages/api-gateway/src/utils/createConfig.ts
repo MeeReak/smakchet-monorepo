@@ -17,7 +17,8 @@ function createConfig(configPath: string) {
     "AUTH_SERVICE_URL",
     "USER_SERVICE_URL",
     "NOTIFICATION_SERVICE_URL",
-    "EVENT_SERVICE_URL"
+    "EVENT_SERVICE_URL",
+    "APPLICATION_SERVICE_URL"
   ];
 
   const missingConfig = requiredConfig.filter((key) => !process.env[key]);
@@ -41,6 +42,7 @@ function createConfig(configPath: string) {
     userServiceUrl: process.env.USER_SERVICE_URL,
     notificationUrl: process.env.NOTIFICATION_SERVICE_URL,
     eventServiceUrl: process.env.EVENT_SERVICE_URL,
+    applicationServiceUrl: process.env.APPLICATION_SERVICE_URL,
   };
 }
 
