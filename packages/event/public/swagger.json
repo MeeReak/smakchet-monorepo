@@ -270,6 +270,23 @@
 				}
 			}
 		},
+		"/v1/events/trending": {
+			"get": {
+				"operationId": "FindTrendingEvent",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {}
+							}
+						}
+					}
+				},
+				"security": [],
+				"parameters": []
+			}
+		},
 		"/v1/events/{id}": {
 			"put": {
 				"operationId": "UpdateEvent",

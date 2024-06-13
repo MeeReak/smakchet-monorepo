@@ -34,6 +34,8 @@ const Page = async () => {
   const sigSession = cookieStore.get("session.sig");
   const favoriteData = await getFavoriteData({ session, sigSession });
 
+  console.log("============",favoriteData)
+
   return (
     <>
       <div className="xl:w-[1024px] w-screen m-auto space-y-5 z-10 mt-[100px] mb-20 ">
@@ -72,7 +74,7 @@ const Page = async () => {
             </Typography>
           </div>
         </div>
-        <FavPage data={favoriteData!.data} />
+        <FavPage data={favoriteData ? favoriteData!.data : []} />
       </div>
     </>
   );

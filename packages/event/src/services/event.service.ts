@@ -73,9 +73,9 @@ export class EventService {
     }
   }
 
-  async findAllEvent(){
+  async FindEventByView(){
     try{
-      return await this.eventRepo.findAllEvent()
+      return await this.eventRepo.findEventByView()
     }catch(error: unknown){
       throw error
     }
