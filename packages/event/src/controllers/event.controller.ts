@@ -121,8 +121,22 @@ export class EventController extends Controller {
     }
   }
 
-  @Middlewares(verifyToken)
+  @Post("{eventId}/update-view")
+  public async UpdateView(@Path() eventId: string): Promise<any> {
+    try {
+      console.log("Helo")
+      const event = await eventService.UpdateView(eventId);
+      return event;
+    } catch (error: unknown) {
+      throw new APIError(
+        "An error occurred during event update. Please try again later",
+        StatusCode.InternalServerError
+      );
+    }
+  }
+
   @Delete("/{id}")
+  @Middlewares(verifyToken)
   public async DeleteEvent(@Path() id: string, @Request() request: any) {
     try {
       if (request.role == "Volunteer") {
