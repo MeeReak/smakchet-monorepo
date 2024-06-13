@@ -48,10 +48,38 @@ const Card: React.FC<CardProps> = ({
     }
   }
 
+  async function increaseView({ id }: { id: string }) {
+    try {
+      const api = `http://localhost:3004/v1/events/${id}/update-view`;
+      const response = await axios.post(
+        api,
+        {},
+        {
+          withCredentials: true,
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
+
+      setIsActive(!isActive);
+      return response;
+    } catch (error: unknown | any) {
+      console.error("Error fetching data:", error);
+      console.log(error.message);
+    }
+  }
+
   return (
     <>
       <Link href={isLoading ? "#" : `/detail/${_id}`}>
-        <div className="bg-white h-[340px] p-[10px] pb-[5px] space-y-2 rounded-[10px] relative shadow-[0_3px_10px_rgb(0,0,0,0.2)]">
+        <div
+          onClick={(e) => {
+            e.preventDefault();
+            increaseView({ id: _id });
+          }}
+          className="bg-white h-[340px] p-[10px] pb-[5px] space-y-2 rounded-[10px] relative shadow-[0_3px_10px_rgb(0,0,0,0.2)]"
+        >
           <div>
             {isLoading ? (
               <div className="w-[300px] h-[200px] bg-gray-300 rounded animate-pulse" />

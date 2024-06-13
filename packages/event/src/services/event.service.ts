@@ -64,7 +64,7 @@ export class EventService {
     }
   }
 
-  //search event by name
+  //search event by queries
   async findEventByQueries(queryParams: QueryParams){
     try{
       return await this.eventRepo.findEventByQueries(queryParams)
@@ -80,5 +80,14 @@ export class EventService {
       throw error
     }
   }
+
+  async UpdateView(id: string){
+    try{
+      return await this.eventRepo.updateView(id)
+    }catch(error: unknown){
+      throw error
+    }
+  }
+
 
 }

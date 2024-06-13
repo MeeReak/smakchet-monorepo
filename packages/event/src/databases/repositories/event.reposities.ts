@@ -80,4 +80,16 @@ export class EventRepository {
       throw error;
     }
   }
+
+  async updateView(id: string) {
+    try {
+      return await EventModel.findByIdAndUpdate(
+        id,
+        { $inc: { viewer: 1 } },
+        { new: true }
+      );
+    } catch (error: unknown) {
+      throw error;
+    }
+  }
 }
