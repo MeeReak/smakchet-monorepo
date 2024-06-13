@@ -36,7 +36,7 @@ const Navbar = async ({
   const role = await getUserProfile(session, sigSession);
   return (
     <>
-      <SubNarbar role={role.role} />
+      <SubNarbar role={role ? role.role : ""} />
     </>
   );
 };

@@ -43,7 +43,13 @@ const ReqCards = ({ requirement }: { requirement: Requirement }) => {
         imageSrc="/assets/icons/timecommit.svg"
         title="Time Commitment"
       />
-      <Button size="h4" className="text-[#207bff] border-[#207bff] py-3">Learn more</Button>
+      <Button
+        onclick={handleCardClick}
+        size="h4"
+        className="text-[#207bff] border-[#207bff] py-3"
+      >
+        Learn more
+      </Button>
       {isVisible && (
         <PopupReq requirement={requirement} setVisible={setIsVisible} />
       )}

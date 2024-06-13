@@ -46,8 +46,9 @@ export class UserController extends Controller {
       if (!mongoose.Types.ObjectId.isValid(id)) {
         throw new Error("Invalid event ID format");
       }
+      console.log("=================", id);
 
-      const api = `http://localhost:3004/v1/events?page=1&limit=6&id=${id}`;
+      const api = `http://event:3004/v1/events?page=1&limit=6&id=${id}`;
       const event = await axios.get(api); // fetch event data from event service
 
       // Check for existing favorite using findIndex
@@ -75,7 +76,8 @@ export class UserController extends Controller {
         data: user,
       };
     } catch (error: any) {
-      console.error("Error adding/removing favorite:", error);
+      // console.log(error.message);
+      console.error("Error adding/removing favorite:", error.message);
       // You can customize the error response here based on error type
       throw new APIError(
         "Error adding/removing favorite",
@@ -96,7 +98,7 @@ export class UserController extends Controller {
       //loop find the event id
       const eventPromises = eventIds!.map(async (id) => {
         try {
-          const api = `http://localhost:3004/v1/events?page=1&limit=18&id=${id}`;
+          const api = `http://event:3004/v1/events?page=1&limit=18&id=${id}`;
           const response = await axios.get(api);
           console.log(
             `Response for id ${id}: ${prettyPrintJson(response.data)}`

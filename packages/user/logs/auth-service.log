@@ -5229,3 +5229,59 @@
 [2024-06-12T12:58:10.671Z] [34mdebug[39m: 	[34mrequest received: [39m
 [2024-06-12T12:58:10.727Z] [32minfo[39m: 	[32mresponse sent[39m
 [2024-06-12T12:58:10.801Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-13T01:46:54.715Z] [32minfo[39m: 	[32mMongoDB connected[39m
+[2024-06-13T01:46:54.722Z] [32minfo[39m: 	[32mSuccessfully connected to MongoDB[39m
+[2024-06-13T01:46:54.726Z] [32minfo[39m: 	[32mServer is listening on port: 3003[39m
+[2024-06-13T01:52:12.482Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-13T01:52:12.697Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-13T01:52:12.732Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-13T01:52:12.810Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-13T01:52:12.909Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-13T01:52:13.051Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-13T01:52:13.441Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-13T01:52:13.455Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-13T01:52:36.568Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-13T01:52:37.269Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-13T01:52:39.419Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-13T01:52:39.895Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-13T01:52:41.590Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-13T01:52:42.070Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-13T03:30:25.055Z] [32minfo[39m: 	[32mMongoDB connected[39m
+[2024-06-13T03:30:25.058Z] [32minfo[39m: 	[32mSuccessfully connected to MongoDB[39m
+[2024-06-13T03:30:25.061Z] [32minfo[39m: 	[32mServer is listening on port: 3003[39m
+[2024-06-13T03:30:34.946Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-13T03:30:35.085Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-13T03:30:35.144Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-13T03:30:35.524Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-13T03:31:22.607Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-13T03:31:23.015Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-13T03:31:32.313Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-13T03:31:33.245Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-13T03:31:35.656Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-13T03:31:36.078Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-13T03:32:22.295Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-13T03:32:22.347Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-13T03:32:22.591Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-13T03:32:22.834Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-13T03:32:25.347Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-13T03:32:25.381Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-13T03:32:25.398Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-13T03:32:25.559Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-13T03:32:26.250Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-13T03:32:26.397Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-13T03:32:27.614Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-13T03:32:29.795Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-13T03:33:39.776Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-13T03:33:39.856Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-13T03:33:39.987Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-13T03:33:40.161Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-13T03:33:58.991Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-13T03:33:59.283Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-13T03:34:13.898Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-13T03:34:14.092Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-13T03:34:14.967Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-13T03:34:15.138Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-13T03:36:23.154Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-13T03:36:23.718Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-06-13T03:36:25.669Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-06-13T03:36:26.293Z] [32minfo[39m: 	[32mresponse sent[39m

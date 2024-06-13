@@ -2,8 +2,35 @@ import React from "react";
 import { Trending, FilteredCardDisplay } from "@/components";
 import Image from "next/image";
 import { cookies } from "next/headers";
+import { RequestCookie } from "next/dist/compiled/@edge-runtime/cookies";
 
-const homepage = ({
+async function getTrendingData({
+  session,
+  sigSession,
+}: {
+  session: RequestCookie | undefined;
+  sigSession: RequestCookie | undefined;
+}) {
+  const api = `http://localhost:3000/v1/events/trending`;
+  try {
+    const response = await fetch(api, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        Cookie: `${session!.name}=${session!.value}; ${sigSession!.name}=${
+          sigSession!.value
+        }`,
+      },
+      cache: "no-cache",
+    });
+
+    return await response.json();
+  } catch (error: unknown) {
+    console.error("Error in getTrendingData", error);
+  }
+}
+
+const homepage = async ({
   searchParams,
 }: {
   searchParams: { [key: string]: string | undefined };
@@ -11,7 +38,9 @@ const homepage = ({
   const cookieStore = cookies();
   const session = cookieStore.get("session");
   const sigSession = cookieStore.get("session.sig");
+  const trendingData = await getTrendingData({ session, sigSession });
 
+  console.log("======================trendingData", trendingData[0]);
   return (
     <>
       <div className="max-w-[1024px] m-auto space-y-4 z-10 pt-[80px] mb-20">
@@ -19,7 +48,7 @@ const homepage = ({
           className="flex gap-4 max-[640px]:overflow-hidden max-[640px]:overflow-x-auto mt-[25px] "
           topEvent={
             <Image
-              src="/assets/image/volunteer.svg"
+              src={trendingData[0].thumbnail}
               alt=""
               width={500}
               height={200}
@@ -28,7 +57,7 @@ const homepage = ({
           }
           secondEvent={
             <Image
-              src="/assets/image/volunteer.svg"
+              src={trendingData[1].thumbnail}
               alt=""
               width={500}
               height={200}
@@ -37,7 +66,11 @@ const homepage = ({
           }
         />
 
-        <FilteredCardDisplay session={session} sigSession={sigSession} searchParams={searchParams} />
+        <FilteredCardDisplay
+          session={session}
+          sigSession={sigSession}
+          searchParams={searchParams}
+        />
       </div>
     </>
   );

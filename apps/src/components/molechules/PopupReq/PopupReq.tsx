@@ -10,7 +10,12 @@ const PopupReq = ({
   requirement: Requirement;
 }) => {
   return (
-    <div className="fixed inset-0 z-50 backdrop-filter bg-black/50 flex justify-center items-center">
+    <div
+      onClick={() => {
+        setVisible(false);
+      }}
+      className="fixed inset-0 z-50 backdrop-filter bg-black/50 flex justify-center items-center"
+    >
       {/* Background overlay */}
 
       {/* Modal content */}

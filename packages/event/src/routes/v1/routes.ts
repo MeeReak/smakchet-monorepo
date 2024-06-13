@@ -99,6 +99,35 @@ export function RegisterRoutes(app: Router) {
             }
         });
         // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
+        app.get('/v1/events/trending',
+            ...(fetchMiddlewares<RequestHandler>(EventController)),
+            ...(fetchMiddlewares<RequestHandler>(EventController.prototype.FindTrendingEvent)),
+
+            async function EventController_FindTrendingEvent(request: ExRequest, response: ExResponse, next: any) {
+            const args: Record<string, TsoaRoute.ParameterSchema> = {
+            };
+
+            // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
+
+            let validatedArgs: any[] = [];
+            try {
+                validatedArgs = templateService.getValidatedArgs({ args, request, response });
+
+                const controller = new EventController();
+
+              await templateService.apiHandler({
+                methodName: 'FindTrendingEvent',
+                controller,
+                response,
+                next,
+                validatedArgs,
+                successStatus: undefined,
+              });
+            } catch (err) {
+                return next(err);
+            }
+        });
+        // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
         app.post('/v1/events',
             ...(fetchMiddlewares<RequestHandler>(EventController)),
             ...(fetchMiddlewares<RequestHandler>(EventController.prototype.CreateEvent)),

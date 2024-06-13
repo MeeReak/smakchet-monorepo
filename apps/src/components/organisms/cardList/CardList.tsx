@@ -77,7 +77,7 @@ const CardList: React.FC<FilterProps> = async ({
             eventName={item.eventName}
             Date={item.Date}
             location={item.location}
-            isFavorite={info.data.favorites}
+            isFavorite={info ? info.data.favorites : []}
           />
         ))}
       </div>

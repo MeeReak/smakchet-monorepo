@@ -46,6 +46,16 @@ export class EventController extends Controller {
     }
   }
 
+  @Get("/trending")
+  public async FindTrendingEvent(): Promise<any> {
+    try {
+      const event = await eventService.FindEventByView();
+      return event;
+    } catch (error: unknown) {
+      throw new APIError("Event Not Found !!", StatusCode.NotFound);
+    }
+  }
+
   @Post("/")
   @Middlewares(validateInput(EventDetailSchema))
   @Middlewares(verifyToken)
@@ -61,7 +71,7 @@ export class EventController extends Controller {
         );
       }
 
-      const detailEvent = { ...requestBody, orgId: request.id , viewer:0 };
+      const detailEvent = { ...requestBody, orgId: request.id, viewer: 0 };
       const event = await eventService.createEvent(detailEvent);
       return {
         message: "Event Created Successfully!",
