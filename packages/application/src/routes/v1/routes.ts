@@ -11,11 +11,32 @@ import type { Request as ExRequest, Response as ExResponse, RequestHandler, Rout
 // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
 
 const models: TsoaRoute.Models = {
-    "FormResponse": {
+    "UserProp": {
+        "dataType": "refObject",
+        "properties": {
+            "name": {"dataType":"string","required":true},
+            "email": {"dataType":"string","required":true},
+            "phonenumber": {"dataType":"string","required":true},
+            "address": {"dataType":"string","required":true},
+        },
+        "additionalProperties": false,
+    },
+    // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
+    "AnswerProp": {
         "dataType": "refObject",
         "properties": {
             "label": {"dataType":"string","required":true},
-            "answer": {"dataType":"union","subSchemas":[{"dataType":"string"},{"dataType":"array","array":{"dataType":"string"}}],"required":true},
+            "answer": {"dataType":"any","required":true},
+        },
+        "additionalProperties": false,
+    },
+    // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
+    "ResponseBodyProp": {
+        "dataType": "refObject",
+        "properties": {
+            "eventId": {"dataType":"string","required":true},
+            "userInfo": {"ref":"UserProp","required":true},
+            "responses": {"dataType":"array","array":{"dataType":"refObject","ref":"AnswerProp"},"required":true},
         },
         "additionalProperties": false,
     },
@@ -37,7 +58,7 @@ export function RegisterRoutes(app: Router) {
             async function ApplicationController_ApplyEvent(request: ExRequest, response: ExResponse, next: any) {
             const args: Record<string, TsoaRoute.ParameterSchema> = {
                     request: {"in":"request","name":"request","required":true,"dataType":"object"},
-                    body: {"in":"body","name":"body","required":true,"dataType":"array","array":{"dataType":"refObject","ref":"FormResponse"}},
+                    body: {"in":"body","name":"body","required":true,"ref":"ResponseBodyProp"},
             };
 
             // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa

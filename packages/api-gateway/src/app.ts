@@ -9,8 +9,8 @@ import { applyRateLimit } from "./middlewares/rate-limits";
 import applyProxy from "./middlewares/proxy";
 import { logger } from "./utils/logger";
 import { StatusCode } from "./utils/consts";
-// import { verifyUser } from "./middlewares/auth-middleware";
-// import unless from "./middlewares/unless-route";
+import { verifyUser } from "./middlewares/auth-middleware";
+import unless from "./middlewares/unless-route";
 
 // Create express app
 const app = express();
@@ -45,10 +45,12 @@ app.use(helmet());
 app.use(
   cors({
     origin:
-      getConfig().env !== "development" ? "*" : ["http://localhost:9000" as string],
+      getConfig().env !== "development"
+        ? "*"
+        : ["http://localhost:9000" as string],
     credentials: true, // attach token from client
     methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
-    allowedHeaders: ["Content-Type", "Authorization"],
+    allowedHeaders: ["Content-Type","Authorization"],
   })
 );
 
@@ -61,7 +63,20 @@ app.disable("x-powered-by");
 // ===================
 // JWT Middleware
 // ===================
-// app.use(unless("/v1/auth", verifyUser));
+app.use((req, _res, next) => {
+  console.log("Request Path: ", req.path);
+  next();
+});
+
+// Conditions array
+const conditions = [
+  { path: "/v1/auth" }, // Exclude all routes starting with /v1/auth
+  { path: "/v1/events", method: "GET" }, // Exclude GET requests starting with /v1/events
+  { path: "/v1/user/info" },
+];
+
+// Use verifyUser middleware with the unless function
+app.use(unless(conditions, verifyUser));
 
 // ===================
 // Proxy Middleware

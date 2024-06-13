@@ -208,17 +208,18 @@ const page = async ({ params }: { params: { eventDetail: string } }) => {
                 </svg>
               }
             />
-            <Button
-              round="lg"
-              colorScheme="White"
-              bgColor="primary"
-              className="justify-center py-3 px-6"
-            >
-              Apply
-            </Button>
+            <Link href={`${data[0]?._id}/apply-form`}>
+              <Button
+                round="lg"
+                colorScheme="White"
+                bgColor="primary"
+                className="justify-center py-3 px-6"
+              >
+                Apply
+              </Button>
+            </Link>
           </div>
         </header>
-
         <div className="px-5 mt-4 py-5  bg-white rounded-[10px]">
           <Typography
             fontSize="h3"
@@ -227,8 +228,7 @@ const page = async ({ params }: { params: { eventDetail: string } }) => {
           >
             Event&#39;s Detail
           </Typography>
-          <Typography align="left" fontSize="h4">
-            {data[0].description}
+          <Typography align="left" fontSize="h4" htmlContent={data[0].description}>
           </Typography>
         </div>
         {/* requirement */}
@@ -255,7 +255,6 @@ const page = async ({ params }: { params: { eventDetail: string } }) => {
           </div>
         </div>
         <hr className="mt-5 w-full h-[2px] bg-black opacity-30"></hr>
-
         <div className="flex p-5">
           <Image
             className="rounded-full object-cover h-12 w-12"
@@ -273,7 +272,6 @@ const page = async ({ params }: { params: { eventDetail: string } }) => {
             </Typography>
           </div>
         </div>
-
         {/* You may like */}
         <div>
           <Typography

@@ -1,8 +1,17 @@
 import { z } from "zod";
 
 export const formResponseSchema = z.object({
-    label: z.string(),
-    answer: z.union([z.string(), z.array(z.string())]),
+    eventId:z.string(),
+    userInfo:z.object({
+        name: z.string(),
+        email: z.string(),
+        phonenumber: z.string(),
+        address: z.string()
+    }),
+    responses: z.array(
+        z.object({
+            label: z.string(),
+            answer: z.union([z.string(), z.array(z.string())]),
+        })
+    )
 });
-
-export const applyEventRequestBodySchema = z.array(formResponseSchema);

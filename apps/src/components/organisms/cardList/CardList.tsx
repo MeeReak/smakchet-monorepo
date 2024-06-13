@@ -6,7 +6,7 @@ import { RequestCookie } from "next/dist/compiled/@edge-runtime/cookies";
 
 async function getData({ cate }: { cate: string }) {
   try {
-    const api = `http://localhost:3004/v1/events?page=1&limit=6&cate=${cate}`;
+    const api = `http://localhost:3000/v1/events?page=1&limit=6&cate=${cate}`;
     const response = await fetch(api, {
       method: "GET",
       headers: {
@@ -39,7 +39,7 @@ async function getUserInfo({
           sigSession!.value
         }`,
       },
-      cache: "no-cache",
+      cache : "no-cache",
     });
 
     const result = await response.json();
