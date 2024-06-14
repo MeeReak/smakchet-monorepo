@@ -8,7 +8,7 @@ const meta: Meta<typeof FileInput> = {
   title: "Smakchet/Atoms/FileInput",
   component: FileInput,
   parameters: {
-    layout: "centered",
+    layout: "padded",
   },
   tags: ["autodocs"],
 };

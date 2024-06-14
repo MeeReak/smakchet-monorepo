@@ -2,6 +2,7 @@ import React from "react";
 import { Meta, StoryObj } from "@storybook/react";
 import { userEvent, within } from "@storybook/test";
 import MyEventCard from "./MyEventCard";
+
 import Image from "next/image";
 
 const meta: Meta<typeof MyEventCard> = {
@@ -27,7 +28,7 @@ export const Default: Story = {
   },
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
-    const mycard = await canvas.getByText('Phnom Penh');
+    const mycard = await canvas.getByText('National day of Science Technology and Innovation 2024');
     await userEvent.hover(mycard);
   },
 

@@ -105,17 +105,3 @@ export const RightIcons: Story = {
     await userEvent.click(button);
   },
 };
-
-export const WithTopBottomIcons: Story = {
-  args: {
-    topIcon: <span>🔝</span>,
-    children: 'Button with Top and Bottom Icons',
-    bottomIcon: <span>🔻</span>,
-    onclick: action('Top and Bottom icons button clicked'),
-  },
-  play: async ({ canvasElement }) => {
-    const canvas = within(canvasElement);
-    const button = await canvas.getByRole('button');
-    await userEvent.click(button);
-  },
-};
