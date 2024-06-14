@@ -37,14 +37,21 @@ export const Text: Story = {
   }, 
 }
 
-// export const Email: Story = {
-//     args:{
-//         placeholder: "Email",
-//         type: "email",
-//         className: 'p-2'
-//     },
+export const Email: Story = {
+    args:{
+        placeholder: "Email",
+        type: "email",
+        className: "p-4 border-1 border-gray-300",
+        onChange: action('email input')
+    },
+    parameters:{
+      design:{
+        type: 'figma',
+        url: 'https://www.figma.com/file/FRi5rN0B2IiiIOSwgiPLW0/SmakChet?node-id=6678-5621&t=kSazDewV8SaOAH4i-4'
+      }
+    },
     
-// }
+}
 
 export const Password: Story = {
     args: {
@@ -69,7 +76,13 @@ export const Password: Story = {
 export const Checkbox: Story = {
     args: {
         type: "checkbox",
-        onChange: action('checkbox clicked')
+        onChange: action('checkbox clicked'),
+    },
+    parameters:{
+      design:{
+        type: 'figma',
+        url: 'https://www.figma.com/file/FRi5rN0B2IiiIOSwgiPLW0/SmakChet?node-id=6678-5632&t=kSazDewV8SaOAH4i-4'
+      }
     },
     play: async ({ canvasElement }) => {
       const canvas = within(canvasElement);
@@ -81,8 +94,13 @@ export const Checkbox: Story = {
 export const Radio: Story = {
     args:{
         type: "radio",
-        onChange: action('radio clicked')
-        
+        onChange: action('radio clicked') 
+    },
+    parameters:{
+      design:{
+        type: 'figma',
+        url: 'https://www.figma.com/file/FRi5rN0B2IiiIOSwgiPLW0/SmakChet?node-id=6678-5642&t=kSazDewV8SaOAH4i-4'
+      }
     },
     play: async ({ canvasElement }) => {
       const canvas = within(canvasElement);

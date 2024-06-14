@@ -2,7 +2,7 @@ import React from "react";
 import Image from "next/image";
 import { ButtonIcon, Typography } from "@/components";
 import DeleteButton from "../Delete/deleteButton";
-
+import { formatDateTime } from "@/utils/formatTime";
 interface MyEventCardProps {
   src: string;
   alt: string;
@@ -64,7 +64,7 @@ console.log(id)
             </svg>
 
             <Typography fontSize="h4" color="blue" className="pl-[5px]">
-              {date}
+              {formatDateTime(date)}
             </Typography>
           </div>
           <div className="flex items-start">
