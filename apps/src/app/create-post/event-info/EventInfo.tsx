@@ -212,7 +212,7 @@ const EventInfo: React.FC<EventInfoProps> = ({ onNext }) => {
       <div className="mx-auto mt-[33px]">
         <FileInput onChange={handleFileUpload} />
       </div>
-      {errors.imageSrc && (
+      {errors.thumbnail && (
         <p className="text-red-500 mb-2 pl-8">{errors.thumbnail}</p>
       )}
       <div className="gap-y-5">
@@ -235,7 +235,7 @@ const EventInfo: React.FC<EventInfoProps> = ({ onNext }) => {
                   placeholder="Event Name"
                   className=" mt-3 mb-3 py-3 pl-5 border border-gray-200"
                 />
-                {errors.name && (
+                {errors.eventName && (
                   <p className="text-red-500 mb-2">{errors.eventName}</p>
                 )}
               </div>
