@@ -26,12 +26,12 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        <title>Smakchet</title>
+        <title>Smakchet | Profile</title>
       </head>
       <body className={`bg-[#FAFAFA] max-h-full ${roboto.className}`}>
         <Navbar
           session={session}
-          gaSession={gaSesssion}
+          //gaSession={gaSesssion}
           sigSession={sigSession}
         />
         <CardContext>{children}</CardContext>

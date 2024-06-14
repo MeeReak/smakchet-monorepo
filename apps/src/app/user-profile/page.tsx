@@ -8,6 +8,7 @@ import axios from "axios";
 const Page = () => {
   const [user, setUser] = useState({
     profile: "",
+    profileFile: "",
     username: "",
     email: "",
     phonenumber: "",
@@ -16,12 +17,22 @@ const Page = () => {
   });
   const [loading, setLoading] = useState(true);
 
-  
-
   function handleChange(e: any) {
     const { name, value } = e.target;
     setUser((pre) => ({ ...pre, [name]: value }));
   }
+
+  const handleFileChange = (event: any) => {
+    const files = event.target.files;
+    if (files && files.length > 0) {
+      const selectedFile = files[0];
+      setUser((prevUser) => ({
+        ...prevUser,
+        profileFile: selectedFile,
+      }));
+      console.log("picture:", selectedFile);
+    }
+  };
 
   const getUserProfile = async () => {
     const response = await axios.get("http://localhost:3000/v1/user", {
@@ -31,8 +42,23 @@ const Page = () => {
       },
     });
 
-    return response.data.data
-  }
+    return response.data.data;
+  };
+
+  const handleUpdateProfile = async () => {
+    const formData = new FormData();
+
+    if (user.profileFile) {
+      formData.append("profile", user.profileFile);
+    }
+    formData.append("username", user.username);
+    formData.append("email", user.email);
+    formData.append("phonenumber", user.phonenumber);
+    formData.append("address", user.address);
+    formData.append("bio", user.bio);
+  
+    console.log("formData:", formData);
+  };
 
   useEffect(() => {
     const fetchData = async () => {
@@ -40,14 +66,13 @@ const Page = () => {
         const data = await getUserProfile();
         setUser(data);
       } catch (error) {
-        console.log("error : ",error)
+        console.log("error:", error);
       } finally {
         setLoading(false); // Set loading to false once data is fetched or an error occurs
       }
     };
     fetchData();
   }, []);
-
 
   if (loading) {
     return (
@@ -57,7 +82,7 @@ const Page = () => {
     ); // Render a loading state while data is being fetched
   }
 
-  console.log("user Info : " , user);
+  console.log("user Info:", user);
 
   return (
     <>
@@ -75,25 +100,35 @@ const Page = () => {
               width={200}
               height={150}
             />
-            <ButtonIcon
-              className="absolute -bottom-2 -right-2 bg-white shadow-[0_3px_10px_rgb(0,0,0,0.2)]"
-              icon={
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  strokeWidth="1.5"
-                  stroke="currentColor"
-                  className="w-6 h-6"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="m16.862 4.487 1.687-1.688a1.875 1.875 0 1 1 2.652 2.652L10.582 16.07a4.5 4.5 0 0 1-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 0 1 1.13-1.897l8.932-8.931Zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0 1 15.75 21H5.25A2.25 2.25 0 0 1 3 18.75V8.25A2.25 2.25 0 0 1 5.25 6H10"
-                  />
-                </svg>
-              }
-            />
+
+            <label className="p-3 absolute -bottom-2 -right-2 bg-white shadow-[0_3px_10px_rgb(0,0,0,0.2)] cursor-pointer rounded-full" htmlFor="fileInput">
+              {/* <ButtonIcon
+                icon={
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    strokeWidth="1.5"
+                    stroke="currentColor"
+                    className="w-6 h-6"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="m16.862 4.487 1.687-1.688a1.875 1.875 0 1 1 2.652 2.652L10.582 16.07a4.5 4.5 0 0 1-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 0 1 1.13-1.897l8.932-8.931Zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0 1 15.75 21H5.25A2.25 2.25 0 0 1 3 18.75V8.25A2.25 2.25 0 0 1 5.25 6H10"
+                    />
+                  </svg>
+                }
+              /> */}
+              <Image src={"/assets/icons/update_pic.svg"} alt={"update_pic"} width={18.75} height={18.75} className="">
+              </Image>
+            </label>
+            <input
+                id="fileInput"
+                type="file"
+                className="sr-only"
+                onChange={handleFileChange} // Replace with your own handler function if needed
+              />
           </div>
           {/* Information User */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
@@ -141,7 +176,7 @@ const Page = () => {
                 }}
                 type="text"
                 defaultValue={user.phonenumber ? `${user.phonenumber}` : ""}
-                placeholder={"Enter yout phone number"}
+                placeholder={"Enter your phone number"}
                 className="py-4 pl-4 w-full sm:pr-[10px] md:pr-[60px] lg:pr-[70px] border text-base border-gray-200 bg-gray-100 mb-2 font-semibold"
               />
             </div>
@@ -181,16 +216,6 @@ const Page = () => {
         </div>
         <div className="flex gap-3 justify-end mt-5">
           <Button
-            onclick={() => {
-              setUser({
-                profile:"",
-                username: "",
-                email: "",
-                phonenumber: "",
-                address: "",
-                bio: ""
-              });
-            }}
             className="px-8 py-3"
             round="xl"
             colorScheme="primary"
@@ -199,7 +224,7 @@ const Page = () => {
           </Button>
           <Button
             onclick={() => {
-              console.log(user);
+              handleUpdateProfile();
             }}
             className="px-10 py-3"
             round="xl"

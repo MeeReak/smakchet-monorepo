@@ -18,6 +18,7 @@ const userSchema = new Schema(
     createdAt: { type: Date, default: Date.now() },
     profile: {
       type: String,
+      default : "https://external-preview.redd.it/fDt7sVZyX_qsBEhLYDeV6U4kpEss9vu_zckdYQ1IP30.jpg?auto=webp&s=793cc48be9d4b31c47ba1d9050fb05547de0b147",
     },
     address: {
       type: String,
