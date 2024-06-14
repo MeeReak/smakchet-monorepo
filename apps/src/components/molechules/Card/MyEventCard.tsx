@@ -10,6 +10,8 @@ interface MyEventCardProps {
   date: string;
   location: string;
   id: string;
+  modalState: string | null;
+  setModalState: React.Dispatch<React.SetStateAction<string | null>>;
 }
 
 const MyEventCard: React.FC<MyEventCardProps> = ({
@@ -19,12 +21,11 @@ const MyEventCard: React.FC<MyEventCardProps> = ({
   date,
   location,
   id,
+  modalState,
+  setModalState,
 }) => {
   console.log(id);
 
-  function setModalState(arg0: boolean): void {
-    throw new Error("Function not implemented.");
-  }
 
   return (
     <>
@@ -63,7 +64,7 @@ const MyEventCard: React.FC<MyEventCardProps> = ({
               />
             </svg>
 
-            <Typography className="pl-[5px] md:!text-sm !text-[8px] md:!text-[#207BFF] !text-gray-500">
+            <Typography className="pl-[5px] md:!text-sm !text-[8px]  !text-gray-500">
               {date}
             </Typography>
           </div>
@@ -89,7 +90,7 @@ const MyEventCard: React.FC<MyEventCardProps> = ({
               />
             </svg>
 
-            <Typography className="pl-[5px] md:!text-sm !text-[8px] md:!text-red-500 !text-gray-500">
+            <Typography className="pl-[5px] md:!text-sm !text-[8px] !text-gray-500">
               {location}
             </Typography>
           </div>
@@ -115,7 +116,8 @@ const MyEventCard: React.FC<MyEventCardProps> = ({
               </svg>
             }
           />
-          <DeleteButton id={id} />
+          <DeleteButton id={id} modalState={modalState} setModalState={setModalState} />
+
         </div>
       </div>
     </>
