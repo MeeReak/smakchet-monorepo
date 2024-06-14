@@ -311,8 +311,6 @@ const proxyConfigs: ProxyConfig = {
       //       logger.info(`bodyString here ${bodyString}`);
       //       responseBody = JSON.parse(bodyString);
 
-
-
       //       logger.info(`responbody here: ${responseBody.token}`);
       //       // If Response Error
       //       // if (responseBody.errors) {

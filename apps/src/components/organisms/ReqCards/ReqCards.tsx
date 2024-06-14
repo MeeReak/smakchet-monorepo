@@ -15,8 +15,6 @@ const ReqCards = ({ requirement }: { requirement: Requirement }) => {
     setIsVisible(true);
   };
 
-  console.log(requirement);
-
   return (
     <div className="space-y-3">
       <ReqCard

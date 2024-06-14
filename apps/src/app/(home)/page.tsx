@@ -40,7 +40,6 @@ const homepage = async ({
   const sigSession = cookieStore.get("session.sig");
   const trendingData = await getTrendingData({ session, sigSession });
 
-  console.log("======================trendingData", trendingData[0]);
   return (
     <>
       <div className="max-w-[1024px] m-auto space-y-4 z-10 pt-[80px] mb-20">

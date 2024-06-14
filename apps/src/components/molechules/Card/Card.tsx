@@ -51,7 +51,7 @@ const Card: React.FC<CardProps> = ({
   async function increaseView({ id }: { id: string }) {
     try {
       const api = `http://localhost:3004/v1/events/${id}/update-view`;
-      const response = await axios.post(
+      await axios.post(
         api,
         {},
         {
@@ -61,9 +61,6 @@ const Card: React.FC<CardProps> = ({
           },
         }
       );
-
-      setIsActive(!isActive);
-      return response;
     } catch (error: unknown | any) {
       console.error("Error fetching data:", error);
       console.log(error.message);
@@ -75,7 +72,7 @@ const Card: React.FC<CardProps> = ({
       <Link href={isLoading ? "#" : `/detail/${_id}`}>
         <div
           onClick={(e) => {
-            e.preventDefault();
+            e.stopPropagation();
             increaseView({ id: _id });
           }}
           className="bg-white h-[340px] p-[10px] pb-[5px] space-y-2 rounded-[10px] relative shadow-[0_3px_10px_rgb(0,0,0,0.2)]"
@@ -95,6 +92,7 @@ const Card: React.FC<CardProps> = ({
             {!isLoading && (
               <svg
                 onClick={(e) => {
+                  e.stopPropagation();
                   e.preventDefault();
                   toggleFavorite({ id: _id });
                 }}
