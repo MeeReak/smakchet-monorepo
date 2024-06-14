@@ -4,9 +4,9 @@ import { ButtonIcon, Card, CategoryGroup, FilterButton, FilteredCardDisplay, Pos
 import Link from "next/link";
 const page = () => {
   return (
-    <div>
+    <div className="w-screen h-screen pt-[150px]">
       {/* Profile Image */}
-      {/* <div className=" flex flex-col items-center mt-[150px]">
+      <div className=" flex flex-col items-center">
         <Image
           className=" mb-[13px]"
           src={"/assets/image/book_fair_logo.png"}
@@ -44,7 +44,7 @@ const page = () => {
             }
           />
         </div>
-      </div> */}
+      </div>
     {/* <FilteredCardDisplay /> */}
     <PostAboutDisplay/>
     {/* <FilteredCardDisplay/> */}

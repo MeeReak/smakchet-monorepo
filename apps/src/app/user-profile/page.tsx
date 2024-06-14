@@ -1,22 +1,63 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import { Button, ButtonIcon, InputData, Typography } from "@/components";
+import axios from "axios";
 
 const Page = () => {
   const [user, setUser] = useState({
-    name: "",
+    profile: "",
+    username: "",
     email: "",
-    phone: "",
+    phonenumber: "",
     address: "",
-    aboutUser: "",
+    bio: "",
   });
+  const [loading, setLoading] = useState(true);
+
+  
 
   function handleChange(e: any) {
     const { name, value } = e.target;
     setUser((pre) => ({ ...pre, [name]: value }));
   }
+
+  const getUserProfile = async () => {
+    const response = await axios.get("http://localhost:3000/v1/user", {
+      withCredentials: true,
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+
+    return response.data.data
+  }
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const data = await getUserProfile();
+        setUser(data);
+      } catch (error) {
+        console.log("error : ",error)
+      } finally {
+        setLoading(false); // Set loading to false once data is fetched or an error occurs
+      }
+    };
+    fetchData();
+  }, []);
+
+
+  if (loading) {
+    return (
+      <div className="w-screen h-screen flex justify-center items-center text-3xl">
+        Loading...
+      </div>
+    ); // Render a loading state while data is being fetched
+  }
+
+  console.log("user Info : " , user);
 
   return (
     <>
@@ -28,8 +69,8 @@ const Page = () => {
           {/* Profile Picture */}
           <div className="relative w-[200px] h-[200px]  ">
             <Image
-              className=" object-cover w-[200px] h-[200px] rounded-[10px]"
-              src="/assets/image/leap.jpg"
+              className="object-cover w-[200px] h-[200px] rounded-[10px]"
+              src={`${user.profile}`}
               alt="logo"
               width={200}
               height={150}
@@ -67,7 +108,7 @@ const Page = () => {
                   handleChange(e);
                 }}
                 type="text"
-                defaultValue="Peng Maleap"
+                defaultValue={`${user.username}`}
                 placeholder={"Enter your fullname"}
                 className="py-4 pl-4 w-full sm:pr-[10px] md:pr-[60px] lg:pr-[70px] border text-base border-gray-200 bg-gray-100 mb-2 font-semibold"
               />
@@ -83,7 +124,7 @@ const Page = () => {
                   handleChange(e);
                 }}
                 type="text"
-                defaultValue="pengmaleap456@gmail.com"
+                defaultValue={`${user.email}`}
                 placeholder={"Enter yout email"}
                 className="py-4 pl-4 w-full sm:pr-[10px] md:pr-[60px] lg:pr-[70px] border text-base border-gray-200 bg-gray-100 mb-2 font-semibold"
               />
@@ -99,7 +140,7 @@ const Page = () => {
                   handleChange(e);
                 }}
                 type="text"
-                defaultValue="012 345 678"
+                defaultValue={user.phonenumber ? `${user.phonenumber}` : ""}
                 placeholder={"Enter yout phone number"}
                 className="py-4 pl-4 w-full sm:pr-[10px] md:pr-[60px] lg:pr-[70px] border text-base border-gray-200 bg-gray-100 mb-2 font-semibold"
               />
@@ -115,7 +156,7 @@ const Page = () => {
                   handleChange(e);
                 }}
                 type="text"
-                defaultValue="Phnom Penh"
+                defaultValue={user.address ? `${user.address}` : ""}
                 placeholder={"Enter your address"}
                 className="py-4 pl-4 w-full sm:pr-[10px] md:pr-[60px] lg:pr-[70px] border text-base border-gray-200 bg-gray-100 mb-2 font-semibold"
               />
@@ -131,8 +172,8 @@ const Page = () => {
             onChange={(e) => {
               handleChange(e);
             }}
-            name="aboutUser"
-            defaultValue="This is me"
+            name="bio"
+            defaultValue={user.bio ? `${user.bio}` : ""}
             className="outline-none p-4 resize-none border w-full border-gray-200 bg-gray-100 rounded-lg font-semibold"
             cols={23}
             rows={5}
@@ -142,11 +183,12 @@ const Page = () => {
           <Button
             onclick={() => {
               setUser({
-                name: "",
+                profile:"",
+                username: "",
                 email: "",
-                phone: "",
+                phonenumber: "",
                 address: "",
-                aboutUser: "",
+                bio: ""
               });
             }}
             className="px-8 py-3"

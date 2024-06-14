@@ -27,6 +27,7 @@ const Card: React.FC<CardProps> = ({
   const [isActive, setIsActive] = useState<boolean>(checkIsActive);
 
   async function toggleFavorite({ id }: { id: string }) {
+    
     try {
       const api = `http://localhost:3000/v1/user/favorite/${id}`;
       const response = await axios.post(

@@ -1,8 +1,11 @@
 "use client";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Image from "next/image";
-import { Button, ButtonIcon, CardList, Typography, Map } from "@/components";
+import { Button, ButtonIcon, CardList, Typography } from "../../../components";
 import Link from "next/link";
+import { useSearchParams } from "next/navigation";
+import axios from "axios";
+//import {Map} from "/../../../components/molechules/Map"
 
 const Page = () => {
     // default is about
@@ -13,6 +16,28 @@ const Page = () => {
     setActiveButton(buttonName);
    
   };
+
+  const searchParams = useSearchParams();
+  const userId = searchParams.get("id");
+
+  const getUserData = async () => {
+    const response = await axios.get(`http://localhost:3000/v1/user/${userId}`, {
+      withCredentials: true,
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+    return response.data.data;
+  }
+
+
+  useEffect(() => {
+    getUserData();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  const userInfo = getUserData();
+
   return (
     <div className="xl:mx-[300px] lg:mx-[200px] md:mx-[100px] md:py-[167px] py-[100px] flex flex-col item-center align-middle">
       {/* Profile image */}
@@ -79,7 +104,7 @@ const Page = () => {
 
       <div>
         {activeButton === "posts" ? (
-          <Typography>Cardlist</Typography>
+          <Typography>{userInfo}</Typography>
         ) : activeButton === "about" ? (
           <div className=" h-full md:mx-20 mx-[30px] md:mt-[50px] mt-5 flex flex-col gap-y-10">
             {/* about */}
@@ -149,10 +174,10 @@ const Page = () => {
             </div>
 
             {/* Map */}
-            <Map
+            {/* <Map
               classname="w-full md:h-[433px] h-[263px]"
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3908.3126568670227!2d104.92259197489524!3d11.601044088602363!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x310951f3148296db%3A0x5b289f3f5cef444!2sSabaiCode!5e0!3m2!1skm!2skh!4v1709280237207!5m2!1skm!2skh"
-            />
+            /> */}
           </div>
         ) : null}
       </div>
