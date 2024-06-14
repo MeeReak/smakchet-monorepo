@@ -34,13 +34,6 @@ export class UserServices {
     }
   }
 
-  async showAllUser(){
-    try {
-      return await this.userRepo.showAllUser()
-    } catch (error: unknown) {
-      throw error
-    }
-  }
 
   // find user by id
   async findUserById(id: string){

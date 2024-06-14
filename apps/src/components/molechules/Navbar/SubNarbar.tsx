@@ -10,7 +10,7 @@ import {
 } from "@/components";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import Hamburger_host from "../hamburger/Hamburger_detail";
+
 import Hamburger_detail from "../hamburger/Hamburger_detail";
 
 const SubNarbar = ({ role }: { role: string }) => {
@@ -199,14 +199,14 @@ console.log(isSidebarOpen, 'sidebar')
               />
             )}
 
-            {!role && (
+            {role && (
               <>
                 {" "}
                 {/* Hamburger Bar*/}
                 <Link href={"/"}>
                   <ButtonIcon
                     onclick={toggleSidebar}
-                    className="bg-gray-100 text-gray-700 rounded-full p-2 ml-[10px]  hover:bg-[#bdd8ff] hover:text-[#207BFF] transition-all duration-300 ease-in-out flex sm:hidden"
+                    className=" bg-gray-100 text-gray-700 rounded-full p-2 ml-[10px]  hover:bg-[#bdd8ff] hover:text-[#207BFF] transition-all duration-300 ease-in-out flex sm:hidden"
                     icon={
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -229,9 +229,7 @@ console.log(isSidebarOpen, 'sidebar')
             )}
 
             {/* Sidebar */}
-            {isSidebarOpen && <Hamburger_detail />}
-
-
+            {isSidebarOpen && <Hamburger_detail closeSidebar={toggleSidebar} />}
           </div>
         </div>
       </div>

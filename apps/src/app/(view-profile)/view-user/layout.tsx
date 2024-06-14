@@ -2,7 +2,8 @@ import { Footer, Navbar, SecondNarbar } from "@/components";
 import CardContext from "@/contexts/CardContext";
 import { Metadata } from "next";
 import { Roboto } from "next/font/google";
-import ".././globals.css";
+import "../.././globals.css";
+import { Providers } from "../../providers";
 import { cookies } from "next/headers";
 
 const roboto = Roboto({
@@ -11,7 +12,7 @@ const roboto = Roboto({
 });
 
 export const metadata: Metadata = {
-  title: "Smakchet",
+  title: "Smakchet | View",
   description: `"SmakChet" is a Website that include all your needed about volunteers. We have process all of your detail about event, date mange users etc.`,
   // icons: "/icons/logo.svg",
 };
@@ -32,12 +33,14 @@ export default function RootLayout({
       <body className={`bg-[#FAFAFA] max-h-full ${roboto.className}`}>
         <Navbar
           session={session}
-          // gaSession={gaSesssion}
+          gaSession={gaSesssion}
           sigSession={sigSession}
         />
-        <CardContext>{children}</CardContext>
-        <SecondNarbar />
-        {/* <Footer /> */}
+        <Providers>
+          <CardContext>{children}</CardContext>
+          <SecondNarbar />
+        </Providers>
+        <Footer />
       </body>
     </html>
   );

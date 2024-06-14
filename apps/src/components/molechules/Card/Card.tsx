@@ -2,7 +2,7 @@
 
 import { Typography } from "@/components";
 import Image from "next/image";
-import React from "react";
+import React, { useMemo, useState } from "react";
 import Link from "next/link";
 import { CardProps } from "@/@types/card";
 import { formatDateTime } from "@/utils/formatTime";
@@ -18,22 +18,35 @@ const Card: React.FC<CardProps> = ({
   isFavorite,
   isLoading,
 }) => {
+  const checkIsActive = useMemo(
+    () =>
+      isFavorite?.find((eachFavorite) => eachFavorite === _id) ? true : false,
+    [isFavorite, _id]
+  );
+
+  const [isActive, setIsActive] = useState<boolean>(checkIsActive);
+
   async function toggleFavorite({ id }: { id: string }) {
     try {
       const api = `http://localhost:3000/v1/user/favorite/${id}`;
-      const response = await axios.post(api, {}, {
-        headers: {
-          'Content-Type': 'application/json',
+      const response = await axios.post(
+        api,
+        {},
+        {
           withCredentials: true,
-        },
-      });
-      const result = response.data;  
-      return result;
-    } catch (error) {
-      console.error('Error fetching data:', error);
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
+
+      setIsActive(!isActive);
+      return response;
+    } catch (error: unknown | any) {
+      console.error("Error fetching data:", error);
+      console.log(error.message);
     }
   }
-  
 
   return (
     <>
@@ -65,7 +78,7 @@ const Card: React.FC<CardProps> = ({
                 strokeWidth={1.5}
                 stroke="currentColor"
                 className={
-                  isFavorite
+                  isActive
                     ? `w-6 h-6 absolute top-3 right-3 fill-[#FF2020] stroke-none z-10`
                     : `w-6 h-6 absolute top-3 right-3 stroke-white fill-[rgba(0,0,0,0.15)] z-10`
                 }

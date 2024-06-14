@@ -40,9 +40,9 @@ export function RegisterRoutes(app: Router) {
     // ###########################################################################################################
         app.get('/v1/user/info/:id',
             ...(fetchMiddlewares<RequestHandler>(UserController)),
-            ...(fetchMiddlewares<RequestHandler>(UserController.prototype.getSser)),
+            ...(fetchMiddlewares<RequestHandler>(UserController.prototype.getUserInfo)),
 
-            async function UserController_getSser(request: ExRequest, response: ExResponse, next: any) {
+            async function UserController_getUserInfo(request: ExRequest, response: ExResponse, next: any) {
             const args: Record<string, TsoaRoute.ParameterSchema> = {
                     id: {"in":"path","name":"id","required":true,"dataType":"string"},
             };
@@ -56,7 +56,7 @@ export function RegisterRoutes(app: Router) {
                 const controller = new UserController();
 
               await templateService.apiHandler({
-                methodName: 'getSser',
+                methodName: 'getUserInfo',
                 controller,
                 response,
                 next,
@@ -190,7 +190,7 @@ export function RegisterRoutes(app: Router) {
             }
         });
         // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
-        app.get('/v1/user/role',
+        app.get('/v1/user',
             ...(fetchMiddlewares<RequestHandler>(UserController)),
             ...(fetchMiddlewares<RequestHandler>(UserController.prototype.findrole)),
 

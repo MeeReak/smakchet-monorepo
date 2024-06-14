@@ -1,14 +1,21 @@
 import { Typography } from "@/components/atoms";
-import React from "react";
+import React, { useState } from "react";
 
-const Hamburger_detail = () => {
+interface Hamburger_detailProp {
+  closeSidebar: any
+}
+
+
+const Hamburger_detail: React.FC<Hamburger_detailProp> = ({closeSidebar}) => {
+
+
   const role = false;
 
-  return (
-    <div className="w-[251px] h-[844px] bg-white">
-      <div className="flex justify-end items-end pt-[82px] mr-[18px]">
+  return (<>
+  <div className="fixed md:hidden w-[265px] h-[844px] mt-[654px] bg-white ">
+      <div className="flex justify-end items-end pt-[82px] mr-[27px]">
         <svg
-          width="24"
+          onClick={closeSidebar}
           height="24"
           viewBox="0 0 24 24"
           fill="none"
@@ -25,7 +32,7 @@ const Hamburger_detail = () => {
       </div>
       <div>
         {/* home */}
-        <div className="gap-[22px] flex ml-[18px]">
+        <div className="gap-[22px] flex ml-[18px] mt-[34px] ">
           <svg
             width="20"
             height="20"
@@ -249,8 +256,7 @@ const Hamburger_detail = () => {
       <Typography className="mt-[15px] text-[#616161] ml-[18px]" fontSize="h5">
         Conatct us
       </Typography>
-    </div>
+    </div></>
   );
 };
-
 export default Hamburger_detail;

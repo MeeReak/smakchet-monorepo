@@ -63,16 +63,9 @@ async function getSimilarData({ cate }: { cate: string }) {
 
 const page = async ({ params }: { params: { eventDetail: string } }) => {
   const data = await getData({ id: params.eventDetail });
-  console.log("Hi", params.eventDetail);
-  console.log("============================", data);
-
   const userData = await getUserData({ id: data[0].orgId });
-  console.log("============================", userData);
-
   const similarData = await getSimilarData({ cate: data[0].category });
-  console.log("============================", similarData);
 
-  console.log(userData.username);
   return (
     <div className="bg-[#fafafa]">
       <div className="xl:w-[1024px] m-auto ">
@@ -86,7 +79,7 @@ const page = async ({ params }: { params: { eventDetail: string } }) => {
               width={640}
               height={640}
               className="max-[640px]:w-full relative object-cover"
-            /> */}
+            />
             <div className="absolute flex justify-between w-[97%] mt-1 sm:hidden">
               <div>
                 <Link href="/">
@@ -162,9 +155,9 @@ const page = async ({ params }: { params: { eventDetail: string } }) => {
           </div>
         </div>
 
-        /* <header className="pt-5 flex items-center px-[10px]">
-          <div className="w-[60%]"> */}
-            /* <Typography
+        <header className="pt-5 flex items-center px-[10px]">
+          <div className="w-[60%]">
+            <Typography
               fontSize="h3"
               fontWeight="bold"
             >{`${data[0]?.eventName}`}</Typography>
@@ -256,8 +249,8 @@ const page = async ({ params }: { params: { eventDetail: string } }) => {
             </Typography>
             <MapView
               classname="w-full h-[85%]"
-              lat="11.5661342"
-              lng="104.8985639"
+              lat={data[0].address.lat}
+              lng={data[0].address.lng}
             />
           </div>
         </div>
@@ -293,18 +286,20 @@ const page = async ({ params }: { params: { eventDetail: string } }) => {
           <div>
             {
               <div className="max-[1030px]:px-5 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 justify-items-start mb-5">
-                {similarData.map((item: CardProps, index: number) => (
-                  <Card
-                    key={index}
-                    _id={item._id}
-                    thumbnail={item.thumbnail}
-                    alt={item.thumbnail}
-                    eventName={item.eventName}
-                    Date={item.Date}
-                    location={item.location}
-                    isFavorite={item.isFavorite}
-                  />
-                ))}
+                {similarData
+                  .filter((item: CardProps) => item._id !== data[0]._id)
+                  .map((item: CardProps, index: number) => (
+                    <Card
+                      key={index}
+                      _id={item._id}
+                      thumbnail={item.thumbnail}
+                      alt={item.thumbnail}
+                      eventName={item.eventName}
+                      Date={item.Date}
+                      location={item.location}
+                      isFavorite={item.isFavorite}
+                    />
+                  ))}
               </div>
             }
           </div>

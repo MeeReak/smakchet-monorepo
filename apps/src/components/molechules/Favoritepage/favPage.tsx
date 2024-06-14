@@ -1,25 +1,35 @@
-"use client";
-import { MyContext } from "@/contexts/CardContext";
-import React, { useContext } from "react";
+import React from "react";
 import { Card } from "../Card";
+import { CardProps } from "@/@types/card";
 
-const FavPage = () => {
-  const { CardInfo } = useContext(MyContext);
+const FavPage = ({ data }: { data: CardProps[] }) => {
+  console.log("===========================", data[0]);
+
   return (
     <>
-      <div className="max-[1030px]:px-5 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 justify-items-center">
-        {CardInfo.filter((item) => item.isFavorite).map((item, index) => (
-          <Card
-            key={item.id} // Assuming `item.id` is unique; otherwise, you can fallback to index
-            id={item.id}
-            src={item.src}
-            alt={item.alt}
-            title={item.title}
-            date={item.date}
-            location={item.location}
-            isFavorite={item.isFavorite}
-          />
-        ))}
+      <div
+        className={
+          data
+            ? ` w-screen max-[1030px]:px-5 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 justify-items-start`
+            : `h-[50vh] flex items-center justify-center`
+        }
+      >
+        {data ? (
+          data.map((item, index: number) => (
+            <Card
+              key={index}
+              _id={item._id}
+              thumbnail={item.thumbnail}
+              alt={item.thumbnail}
+              eventName={item.eventName}
+              Date={item.Date}
+              location={item.location}
+              isFavorite={[item._id]}
+            />
+          ))
+        ) : (
+          <div>There is no favorite event</div>
+        )}
       </div>
     </>
   );

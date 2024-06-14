@@ -12,15 +12,14 @@ async function getUserProfile(
     return;
   }
   // ${gaSession?.name}=${gaSession!.value};
-  const response = await axios.get("http://localhost:3000/v1/user/role", {
+  const response = await axios.get("http://localhost:3000/v1/user", {
     withCredentials: true,
     headers: {
-      Cookie: `${session!.name}=${
-        session!.value
-      }; ${sigSession!.name}=${sigSession!.value}`,
+      Cookie: `${session!.name}=${session!.value}; ${sigSession!.name}=${
+        sigSession!.value
+      }`,
     },
   });
-  console.log("response", response.data.data);
   return response.data.data;
 }
 
@@ -37,7 +36,7 @@ const Navbar = async ({
   const role = await getUserProfile(session, sigSession);
   return (
     <>
-      <SubNarbar role={role} />
+      <SubNarbar role={role ? role.role : ""} />
     </>
   );
 };

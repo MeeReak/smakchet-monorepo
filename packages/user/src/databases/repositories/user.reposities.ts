@@ -40,14 +40,6 @@ class UserRepository {
     }
   }
 
-  async showAllUser() {
-    try {
-      return await UserModel.find();
-    } catch (error: unknown) {
-      throw error;
-    }
-  }
-
   //find user by id
   async findUserById(id: string) {
     try {

@@ -23,9 +23,9 @@ const userService = new UserServices();
 @Route("/v1/user")
 export class UserController extends Controller {
   @Get("/info/{id}")
-  public async getSser(@Path() id: string): Promise<any> {
+  public async getUserInfo(@Path() id: string): Promise<any> {
     try {
-      console.log("Get /");
+      console.log("Get /info/{id}");
       return await userService.findUserById(id);
     } catch (error: unknown) {
       throw error;
@@ -39,7 +39,7 @@ export class UserController extends Controller {
     @Path() id: string
   ): Promise<any> {
     try {
-      console.log("Post /:id");
+      console.log("Post /:id", request.id);
       const user = await userService.findUserById(request.id);
 
       // Validate objectId
@@ -47,7 +47,8 @@ export class UserController extends Controller {
         throw new Error("Invalid event ID format");
       }
 
-      const event = await axios.get(`http://event:3004/v1/events?id=${id}`); // fetch event data from event service
+      const api = `http://localhost:3004/v1/events?page=1&limit=6&id=${id}`;
+      const event = await axios.get(api); // fetch event data from event service
 
       // Check for existing favorite using findIndex
       const existingFavoriteIndex = user?.favorites.findIndex((item) =>
@@ -73,7 +74,7 @@ export class UserController extends Controller {
         message: "Event added to favorites successfully",
         data: user,
       };
-    } catch (error) {
+    } catch (error: any) {
       console.error("Error adding/removing favorite:", error);
       // You can customize the error response here based on error type
       throw new APIError(
@@ -95,11 +96,12 @@ export class UserController extends Controller {
       //loop find the event id
       const eventPromises = eventIds!.map(async (id) => {
         try {
-          const response = await axios.get(`http://event:3004/v1/events/${id}`);
+          const api = `http://localhost:3004/v1/events?page=1&limit=18&id=${id}`;
+          const response = await axios.get(api);
           console.log(
             `Response for id ${id}: ${prettyPrintJson(response.data)}`
           );
-          return response.data;
+          return response.data[0];
         } catch (error) {
           console.error(`Error fetching data for id ${id}:`, error);
           return null; // or handle differently if needed
@@ -160,17 +162,17 @@ export class UserController extends Controller {
     }
   }
 
-  @Get("/role")
+  @Get("/")
   @Middlewares(verifyToken)
-  public async findrole(@Request() request: any) {
+  public async findrole(@Request() request: any): Promise<any> {
     try {
       if (!request.role) {
         throw new APIError("Role not found in request", StatusCode.BadRequest);
       }
-      const roles = request.role;
-      console.log("Role found in request:", roles);
+      const user = await userService.findUserById(request.id);
+
       return {
-        data: roles,
+        data: user!,
       };
     } catch (error: unknown) {
       console.error("Error fetching role:", error);
