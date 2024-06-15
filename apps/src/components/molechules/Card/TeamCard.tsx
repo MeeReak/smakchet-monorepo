@@ -14,7 +14,7 @@ const TeamCard = () => {
               alt={"profile"}
               width={100}
               height={100}
-              className="rounded-full border border-[#207bff]" 
+              className="rounded-full border-2 border-[#207bff]" 
             ></Image>
         </div>
         <div>
