@@ -5,7 +5,7 @@ import helmet from "helmet";
 import cors from "cors";
 import compression from "compression";
 import { urlencoded } from "body-parser";
-import getConfig from "../src/utils/config";
+// import getConfig from "../src/utils/config";
 import loggerMiddleware from "./middlewares/logger-handler";
 import { RegisterRoutes } from "./routes/v1/routes";
 import * as swaggerDocument from "../public/swagger.json";
@@ -14,7 +14,7 @@ import swaggerUi from "swagger-ui-express";
 const app = express();
 
 // Get the Configs
-const config = getConfig(process.env.NODE_ENV);
+// const config = getConfig(process.env.NODE_ENV);
 
 // =======================
 // Security Middlewares
@@ -24,7 +24,7 @@ app.use(hpp());
 app.use(helmet());
 app.use(
   cors({
-    origin: config.apiGatewayUrl,
+    origin: ["http://localhost:3000" as string],
     credentials: true,
     methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
   })

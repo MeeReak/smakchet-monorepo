@@ -2,24 +2,14 @@ import React from "react";
 import { Trending, FilteredCardDisplay } from "@/components";
 import Image from "next/image";
 import { cookies } from "next/headers";
-import { RequestCookie } from "next/dist/compiled/@edge-runtime/cookies";
 
-async function getTrendingData({
-  session,
-  sigSession,
-}: {
-  session: RequestCookie | undefined;
-  sigSession: RequestCookie | undefined;
-}) {
+async function getTrendingData() {
   const api = `http://localhost:3000/v1/events/trending`;
   try {
     const response = await fetch(api, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
-        Cookie: `${session!.name}=${session!.value}; ${sigSession!.name}=${
-          sigSession!.value
-        }`,
       },
       cache: "no-cache",
     });
@@ -38,7 +28,9 @@ const homepage = async ({
   const cookieStore = cookies();
   const session = cookieStore.get("session");
   const sigSession = cookieStore.get("session.sig");
-  const trendingData = await getTrendingData({ session, sigSession });
+  const trendingData = await getTrendingData();
+
+  console.log("=================", trendingData);
 
   return (
     <>
