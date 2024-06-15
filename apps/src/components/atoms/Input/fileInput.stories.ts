@@ -2,7 +2,7 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import FileInput from "./fileInput";
 import { action } from "@storybook/addon-actions";
-import { userEvent, within } from "@storybook/testing-library";
+import { userEvent, within } from "@storybook/test";
 
 const meta: Meta<typeof FileInput> = {
   title: "Smakchet/Atoms/FileInput",

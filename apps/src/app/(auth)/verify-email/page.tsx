@@ -1,13 +1,13 @@
 "use client";
-import React, { useState, useEffect } from "react";
-import { useRouter, useSearchParams } from "next/navigation";
+
+import React, { useState, useEffect, Suspense } from "react";
+import { useSearchParams } from "next/navigation";
 import axios from "axios";
 import Image from "next/image";
 import { Button } from "@/components";
 import Link from "next/link";
 
-const Page = () => {
-  const router = useRouter();
+const VerifyEmail = () => {
   const searchParams = useSearchParams();
   const token = searchParams.get("token");
   const [verificationStatus, setVerificationStatus] =
@@ -44,13 +44,13 @@ const Page = () => {
 
   useEffect(() => {
     handleVerifyEmail();
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
-    <div>
+    <React.Fragment>
       <div className="flex flex-col items-center min-h-screen p-5 pt-[70px] bg-gray-200 min-w-screen">
-      <Link href={"/"}>
+        <Link href={"/"}>
           {" "}
           <Image
             src={"assets/image/smakchet_logo.svg"}
@@ -174,7 +174,15 @@ const Page = () => {
           </div>
         </div>
       </div>
-    </div>
+    </React.Fragment>
+  );
+};
+
+const Page = () => {
+  return (
+    <Suspense>
+      <VerifyEmail />
+    </Suspense>
   );
 };
 

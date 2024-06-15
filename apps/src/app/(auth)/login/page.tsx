@@ -4,7 +4,6 @@ import Image from "next/image";
 import { ButtonIcon, InputData, Typography, Button } from "@/components";
 import Link from "next/link";
 import logInSchema from "@/utils/logInSchema";
-import { setLocalStorage } from "@/utils/localStorage";
 import { LoginProps } from "@/@types/auth";
 import axios from "axios";
 

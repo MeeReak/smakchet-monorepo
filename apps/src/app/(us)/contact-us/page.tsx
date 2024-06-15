@@ -1,7 +1,6 @@
 "use client";
-import { Button, ButtonIcon, Typography, Map, InputData } from "@/components";
+import { Button, ButtonIcon, Typography, InputData } from "@/components";
 import React, { useState } from "react";
-import Image from "next/image";
 import * as Yup from "yup";
 import Link from "next/link";
 const Page = () => {
@@ -510,12 +509,8 @@ const Page = () => {
             </Typography>
             <hr className="w-[73px] h-[3px] bg-[#207BFF]"></hr>
           </div>
-          <div className="w-[1026px] h-[493px] mt-[40px] ">
-            <Map
-              classname="w-full h-[403px]"
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3908.3126568670227!2d104.92259197489524!3d11.601044088602363!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x310951f3148296db%3A0x5b289f3f5cef444!2sSabaiCode!5e0!3m2!1skm!2skh!4v1709280237207!5m2!1skm!2skh"
-            />
-          </div>
+          {/* <div className="w-[1026px] h-[493px] mt-[40px] ">
+          </div> */}
         </div>
       </div>
     </div>

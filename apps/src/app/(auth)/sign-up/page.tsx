@@ -1,15 +1,14 @@
 "use client";
-import React, { useState, useContext, useEffect } from "react";
+import React, { useState, Suspense } from "react";
 import Image from "next/image";
 import { ButtonIcon, InputData, Typography, Button } from "@/components";
 import Link from "next/link";
 import { SignUpProps } from "../../../@types/auth";
-//import { setLocalStorage } from "@/utils/localStorage";
 import signUpschema from "@/utils/signUpSchema";
 import { useSearchParams } from "next/navigation";
 import axios from "axios";
 
-const Page = () => {
+const SignUp = () => {
   const searchParams = useSearchParams();
   const searchValue = searchParams.get("role") || "";
   const [data, setData] = useState<SignUpProps>({
@@ -48,8 +47,8 @@ const Page = () => {
           headers: {
             "Content-Type": "application/json",
           },
-        },
-      ); 
+        }
+      );
       //const token =  response.data.verify_token;
       //alert("Please Check Your Email to verify");
       window.location.href = `/send-email?email=${data.email}`;
@@ -93,7 +92,7 @@ const Page = () => {
     <div>
       {/* logo */}
       <div className="flex flex-col items-center pt-[70px] mb-20">
-      <Link href={"/"}>
+        <Link href={"/"}>
           {" "}
           <Image
             src={"assets/image/smakchet_logo.svg"}
@@ -226,6 +225,14 @@ const Page = () => {
         </form>
       </div>
     </div>
+  );
+};
+
+const Page = () => {
+  return (
+    <Suspense>
+      <SignUp />
+    </Suspense>
   );
 };
 

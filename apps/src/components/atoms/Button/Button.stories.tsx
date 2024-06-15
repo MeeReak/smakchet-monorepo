@@ -4,7 +4,7 @@ import { Meta, StoryObj } from "@storybook/react";
 import { Button, ButtonProps } from "./Button";
 import Image from "next/image";
 import { action } from "@storybook/addon-actions";
-import { userEvent, within } from "@storybook/testing-library";
+import { userEvent, within } from "@storybook/test";
 // Define metadata for the Button component story
 const meta: Meta<ButtonProps> = {
   title: "Smakchet/Atoms/Button",
