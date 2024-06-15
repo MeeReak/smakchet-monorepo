@@ -42,7 +42,6 @@ const Card: React.FC<CardProps> = ({
       );
 
       setIsActive(!isActive);
-      
       return response;
     } catch (error: unknown | any) {
       console.error("Error fetching data:", error);
