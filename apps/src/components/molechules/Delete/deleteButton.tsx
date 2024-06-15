@@ -6,17 +6,19 @@ import { Delete } from "./delete";
 export interface FilterButtonProps {
   className?: string;
   id: string;
+  modalState: string | null;
+  setModalState: React.Dispatch<React.SetStateAction<string | null>>;
 }
 
-const DeleteButton: React.FC<FilterButtonProps> = ({ className, id }) => {
+const DeleteButton: React.FC<FilterButtonProps> = ({ className, id, modalState, setModalState }) => {
 
-  const [modalState, setModalState] = useState(false);
+  // const [modalState, setModalState] = useState(false);
   
   return (
     <div className="relative">
       <ButtonIcon
-        onclick={() => setModalState(true)}
-        className="border-[1px] border-[#FF2020] rounded-md hidden group-hover:flex hover:border-[2px] transition-all !h-10 !w-[40px] "
+        onclick={() => setModalState(id)}
+        className="xl:border-[1px] xl:border-[#FF2020] rounded-md xl:hidden inline xl:group-hover:flex xl:hover:border-[2px] transition-all xl:!h-10 xl:!w-10 !w-[15px] !h-[15px] md:!w-8 md:!h-8"
         icon={
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -34,8 +36,8 @@ const DeleteButton: React.FC<FilterButtonProps> = ({ className, id }) => {
           </svg>
         }
       />
-      {modalState && <Delete setModalState={setModalState} id={id}></Delete>}
-    </div>
+      {/* {modalState === id && <Delete setModalState={() => setModalState(null)} id={id} />} */}
+      </div>
   );
 };
 

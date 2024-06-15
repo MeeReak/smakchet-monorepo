@@ -18,10 +18,10 @@ export const Delete: React.FC<DeleteProps> = ({ id, setModalState }) => {
   return (
     <div className="fixed inset-0 flex items-center justify-center bg-gray-800 bg-opacity-50 z-50">
       <div className="bg-white p-5 rounded-[10px] shadow-xl xl:w-[395px] ">
-        <Typography align="center" fontSize="h5" fontWeight="semibold" >
+        <Typography align="center" fontSize="h4" fontWeight="normal" >
           Are you sure ?
         </Typography>
-        <Typography align="center" fontSize="h5" fontWeight="semibold"  className="mb-5">
+        <Typography align="center" fontSize="h4" fontWeight="normal"  className="mb-5">
         This property will be deleted this event
         </Typography>
         <div className="flex justify-center gap-4">
