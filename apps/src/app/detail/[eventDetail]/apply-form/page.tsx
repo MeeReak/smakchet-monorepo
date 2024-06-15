@@ -103,10 +103,9 @@ const Page: FC<ApplyFormProps> = ({ onNext, params }) => {
           }
         );
 
-        console.log("response : " , response);
+        console.log("response : ", response);
 
-        window.location.href = `detail/${params.eventDetail}`;
-    
+        window.location.href = `/detail/${params.eventDetail}`;
       })
       .catch((err) => {
         console.error("Validation Error: ", err);
@@ -116,7 +115,7 @@ const Page: FC<ApplyFormProps> = ({ onNext, params }) => {
             return acc;
           }, {});
           setErrors(newErrors);
-        }else if (err.response) {
+        } else if (err.response) {
           console.error("Server Error:", err.response.data);
           console.error("Status Code:", err.response.status);
           console.error("Headers:", err.response.headers);
@@ -296,7 +295,10 @@ const Page: FC<ApplyFormProps> = ({ onNext, params }) => {
                 );
               } else if (item.fieldType === "Multi Choice") {
                 return (
-                  <div className="flex flex-col w-full gap-y-[18px]">
+                  <div
+                    className="flex flex-col w-full gap-y-[18px]"
+                    key={index}
+                  >
                     <label htmlFor="checkbox">
                       <Typography className="lg:!text-xl !text-lg !font-normal">
                         {item.label}
@@ -319,11 +321,11 @@ const Page: FC<ApplyFormProps> = ({ onNext, params }) => {
                                       )?.answer || []),
                                       answer,
                                     ]
-                                  : responses.find(
-                                      (res) => res.label === item.label
-                                    )?.answer.filter(
-                                      (ans: string) => ans !== answer
-                                    ) || []
+                                  : responses
+                                      .find((res) => res.label === item.label)
+                                      ?.answer.filter(
+                                        (ans: string) => ans !== answer
+                                      ) || []
                               )
                             }
                           />
@@ -340,7 +342,10 @@ const Page: FC<ApplyFormProps> = ({ onNext, params }) => {
                 );
               } else if (item.fieldType === "Yes/No") {
                 return (
-                  <div className="flex flex-col w-full lg:gap-y-[18px] gap-y-3">
+                  <div
+                    className="flex flex-col w-full lg:gap-y-[18px] gap-y-3"
+                    key={index}
+                  >
                     <label htmlFor="yes/no">
                       <Typography className="lg:!text-xl !text-lg !font-normal">
                         {item.label}
