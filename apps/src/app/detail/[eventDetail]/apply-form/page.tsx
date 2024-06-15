@@ -1,18 +1,9 @@
 "use client";
-import React, { FC, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Typography, Button, InputData } from "@/components";
 import Image from "next/image";
 import { validationSchema } from "@/utils/validationSchema";
 import axios from "axios";
-
-interface paramModel {
-  eventDetail: string;
-}
-
-interface ApplyFormProps {
-  onNext: (ApplyForm: ApplyFormData) => void;
-  params: paramModel;
-}
 
 interface ApplyFormData {
   id?: string;
@@ -27,7 +18,7 @@ interface ResponseModel {
   answer: any;
 }
 
-const Page: FC<ApplyFormProps> = ({ onNext, params }) => {
+const Page = ({ params }: { params: { eventDetail: string } }) => {
   const [userInfo, setuserInfo] = useState<ApplyFormData>({
     name: "",
     email: "",

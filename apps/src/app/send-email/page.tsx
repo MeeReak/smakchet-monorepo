@@ -1,15 +1,14 @@
 "use client";
-import React, { useState , useEffect } from "react";
-import { useRouter, useSearchParams } from "next/navigation";
-import axios from "axios";
+import React, { Suspense } from "react";
+import { useSearchParams } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
-const Page = () => {
-  const router = useRouter();
+
+const SendEmail = () => {
   const searchParams = useSearchParams();
   const gmail = searchParams.get("email");
 
-  const handleVerifyEmail = () =>{
+  const handleVerifyEmail = () => {
     if (gmail) {
       const emailProvider = gmail.split("@")[1];
       const redirectTo = emailProvider.includes("gmail")
@@ -17,11 +16,11 @@ const Page = () => {
         : `https://mail.${emailProvider}`;
       window.location.href = redirectTo;
     }
-  }
+  };
   return (
-    <div>
+    <React.Fragment>
       <div className="flex flex-col items-center justify-center min-h-screen p-5 bg-gray-200 min-w-screen gap-y-[67px]">
-      <Link href={"/"}>
+        <Link href={"/"}>
           {" "}
           <Image
             src={"assets/image/smakchet_logo.svg"}
@@ -31,7 +30,6 @@ const Page = () => {
           />
         </Link>
         <div className="max-w-xl p-8 text-center text-gray-800 bg-white shadow-xl lg:max-w-3xl rounded-3xl lg:p-12">
-       
           <h3 className="text-2xl">Thanks for signing up for Smakchet.com!</h3>
           <div className="flex justify-center">
             <svg
@@ -65,7 +63,10 @@ const Page = () => {
               </defs>
             </svg>
           </div>
-          <p>We're happy you're here. Let's get your email address verified:</p>
+          <p>
+            We&apos;re happy you&apos;re here. Let&apos;s get your email address
+            verified:
+          </p>
           <div className="mt-4">
             <button
               className="px-2 py-2 text-blue-200 bg-blue-600 rounded"
@@ -76,7 +77,15 @@ const Page = () => {
           </div>
         </div>
       </div>
-    </div>
+    </React.Fragment>
+  );
+};
+
+const Page = () => {
+  return (
+    <Suspense>
+      <SendEmail />
+    </Suspense>
   );
 };
 

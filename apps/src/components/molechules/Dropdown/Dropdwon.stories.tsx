@@ -2,7 +2,7 @@ import React from "react";
 import { Meta, StoryObj } from "@storybook/react";
 import Dropdown from "./Dropdown"; // Adjust the import path as needed
 import { action } from "@storybook/addon-actions";
-import { userEvent, within } from "@storybook/testing-library";
+import { userEvent, within } from "@storybook/test";
 
 // Define metadata for the Dropdown component story
 const meta: Meta<typeof Dropdown> = {

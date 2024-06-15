@@ -1,15 +1,13 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { Suspense, useState } from "react";
 import Image from "next/image";
 import { Button, Typography } from "@/components";
 import Link from "next/link";
 
-
-
-const roles = {
-  "1": "Organizer" ,
-  "2": "Volunteer" 
+const roles: { [key: string]: string } = {
+  "1": "Organizer",
+  "2": "Volunteer",
 };
 
 const RoleChoosing = () => {
@@ -19,11 +17,10 @@ const RoleChoosing = () => {
     e: React.MouseEvent<HTMLElement> | React.TouchEvent<HTMLElement>
   ) {
     setActive(e.currentTarget.id);
-  
   }
 
   return (
-    <>
+    <Suspense>
       <div className="h-screen bg-[#FAFAFA] ">
         <div className="flex flex-col items-center justify-center pt-[70px] mb-20">
           <Link href={"/"}>
@@ -124,7 +121,7 @@ const RoleChoosing = () => {
           </Typography>
         </div>
       </div>
-    </>
+    </Suspense>
   );
 };
 

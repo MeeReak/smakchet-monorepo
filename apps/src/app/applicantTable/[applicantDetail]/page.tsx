@@ -1,6 +1,6 @@
 "use client";
 
-import { Button, ButtonIcon, Typography, Card, Map } from "@/components";
+import { Button, ButtonIcon, Typography, Card } from "@/components";
 import React, { useContext, useEffect, useState } from "react";
 import { useParams, useRouter } from "next/navigation";
 import { MyContext } from "@/contexts/CardContext";
