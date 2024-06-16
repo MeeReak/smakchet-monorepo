@@ -13,7 +13,7 @@ import swaggerUi from "swagger-ui-express";
 
 const app = express();
 
-// Get the Configs
+// Get the Configs!
 const config = getConfig(process.env.NODE_ENV);
 
 // =======================
