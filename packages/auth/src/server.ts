@@ -10,7 +10,7 @@ const config = getConfig();
 
 export let authChannel: Channel;
 
-// READ FILE JWT PUBLIC KEY FIRST
+// READ FILE JWT PUBLIC KEY FIRST!
 export const privateKey = fs.readFileSync(
   path.join(__dirname, "../private_key.pem"),
   "utf-8"
