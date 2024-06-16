@@ -5,10 +5,12 @@
   "license": "MIT",
   "scripts": {
     "start:dev": "nodemon -r tsconfig-paths/register --legacy-watch -L src/server.ts",
-    "start:prod": "pm2 start ./build/src/server.js -i 5 --attach --watch",
+    "start": "pm2 start ecosystem.config.js",
     "stop": "pm2 stop all",
+    "restart": "pm2 restart ecosystem.config.js",
     "delete": "pm2 delete all",
-    "build": "tsc --project tsconfig.json && ts-node tools/copyAssets.ts",
+    "build": "tsc --project tsconfig.json && tsc-alias -p tsconfig.json && cp package.json ./build/&& cp -R configs ./build/ && cp ecosystem.config.js ./build/",
+    "clean": "rm -rf ./build && rm -rf ./src//*.js && rm -rf ./src//*.js.map",
     "test": "jest --coverage --detectOpenHandles=false"
   },
   "dependencies": {
