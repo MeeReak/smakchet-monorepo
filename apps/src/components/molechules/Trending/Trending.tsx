@@ -1,19 +1,29 @@
 "use client";
-import { Typography } from "@/components";
+import { Button, Typography } from "@/components";
 import React, { ReactNode } from "react";
 import { useState, useEffect } from "react";
+import Image from "next/image";
+import { formatDateTime } from "@/utils/formatTime";
+
+interface EventProps {
+  thumbnail: string;
+  eventName: string;
+  Date: string;
+  location: string;
+}
 
 interface TrendingProps {
-  topEvent?: ReactNode;
-  secondEvent?: ReactNode;
+  topEvent?: EventProps;
+  secondEvent?: EventProps;
   className?: string;
 }
+
 const Trending: React.FC<TrendingProps> = ({
   topEvent,
   secondEvent,
   className,
 }) => {
-  const [ScreenSize, setScreenSize] = useState("sm");
+  const [screenSize, setScreenSize] = useState("sm");
 
   useEffect(() => {
     const mediaQuery = window.matchMedia("(min-width: 1280px)");
@@ -30,6 +40,46 @@ const Trending: React.FC<TrendingProps> = ({
       mediaQuery.removeEventListener("change", handleScreenChange);
     };
   }, []);
+
+  const renderEvent = (event: EventProps) => (
+    <div className="relative group h-[250px] w-[500px]">
+      <Image
+        src={event.thumbnail}
+        alt=""
+        layout="fill"
+        objectFit="cover"
+        className="rounded-xl"
+      />
+      <div className="absolute bottom-0  w-full bg-[#050000] bg-opacity-65 flex flex-col gap-y-[6px] justify-start opacity-0 xl:group-hover:opacity-80 transition-opacity py-2 px-4 rounded-b-xl">
+        <div>
+          <Typography
+            align="left"
+            color="white"
+            fontSize="h5"
+            fontWeight="bold"
+          >
+            {event.eventName}
+          </Typography>
+        </div>
+        <div className="flex flex-row gap-x-[5px]">
+          <Image src={"/assets/icons/date.svg"} alt={""} width={17} height={17}/>
+          <Typography color="white" fontSize="h5">
+            {formatDateTime(event.Date)}
+          </Typography>
+        </div>
+        <div className="flex flex-row gap-x-[5px]">
+        <Image src={"/assets/icons/address-outline-white.svg"} alt={""} width={17} height={17}/>
+          <Typography color="white" fontSize="h5">
+            {event.location}
+          </Typography>
+        </div>
+          <Button colorScheme="primary" className="!border-none w-fit" size="h5">
+            view mores
+          </Button>
+      </div>
+    </div>
+  );
+
   return (
     <div className="max-[1030px]:px-5 ">
       <Typography
@@ -42,8 +92,8 @@ const Trending: React.FC<TrendingProps> = ({
       </Typography>
 
       <div className={`${className}`}>
-        {topEvent}
-        {secondEvent}
+        {topEvent && renderEvent(topEvent)}
+        {secondEvent && renderEvent(secondEvent)}
       </div>
     </div>
   );

@@ -4,7 +4,13 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon  --exec ts-node -r tsconfig-paths/register --legacy-watch src/server.ts",
+    "start:dev": "nodemon  --exec ts-node -r tsconfig-paths/register --legacy-watch src/server.ts",
+    "start": "pm2 start ecosystem.config.js",
+    "stop": "pm2 stop all",
+    "restart": "pm2 restart ecosystem.config.js",
+    "delete": "pm2 delete all",
+    "build": "tsc --project tsconfig.json && tsc-alias -p tsconfig.json && cp package.json ./build/&& cp -R configs ./build/ && cp private_key.pem ./build/ && cp ecosystem.config.js ./build/",
+    "clean": "rm -rf ./build && rm -rf ./src//*.js && rm -rf ./src//*.js.map",
     "gen:spec": "tsoa spec",
     "gen:routes": "tsoa routes",
     "gen:all": "npm run gen:spec && npm run gen:routes"
@@ -21,6 +27,7 @@
     "express": "^4.19.2",
     "helmet": "^7.1.0",
     "hpp": "^0.2.3",
+    "joi": "^17.13.1",
     "jsonwebtoken": "^9.0.2",
     "mongoose": "^8.3.4",
     "on-headers": "^1.0.2",

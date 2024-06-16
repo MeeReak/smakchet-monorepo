@@ -5,3 +5,9 @@ package-lock.json
 .env
 
 yarn.lock
+
+build
+
+.terraform
+terraform.tfstate
+terraform.tfstate.backup
