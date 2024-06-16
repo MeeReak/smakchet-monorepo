@@ -2,7 +2,7 @@ import app from "./app";
 import fs from "fs";
 import path from "path";
 
-// READ FILE JWT PUBLIC KEY FIRST!
+// READ FILE JWT PUBLIC KEY FIRST
 export const publickey = fs.readFileSync(
   path.join(__dirname, "../public_key.pem"),
   "utf8"
