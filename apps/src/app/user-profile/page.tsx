@@ -1,11 +1,30 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import { Button, ButtonIcon, InputData, Typography } from "@/components";
 import axios from "axios";
 
 const Page = () => {
+  const host = false;
+
+
+ const [imageSrc, setImageSrc] = useState("/assets/image/leap.jpg");
+ const fileInputRef = useRef(null);
+
+ const handleFileUpload = (event:any) => {
+   const file = event.target.files[0];
+   if (file) {
+     const imageUrl = URL.createObjectURL(file);
+     setImageSrc(imageUrl);
+   }
+ };
+
+ const handleClick = () => {
+   fileInputRef.current!.click();
+ };
+
+
   const [user, setUser] = useState({
     profile: "",
     profileFile: "",
@@ -14,6 +33,9 @@ const Page = () => {
     phonenumber: "",
     address: "",
     bio: "",
+    aboutUser: "",
+    link_facebook: "",
+    link_location: "",
   });
   const [loading, setLoading] = useState(true);
 
@@ -86,136 +108,218 @@ const Page = () => {
 
   return (
     <>
-      <div className="max-w-[885px] mt-20 sm:mx-auto max-[640px]:flex max-[640px]:flex-col max-[640px]:items-center">
-        <Typography fontSize="h3" fontWeight="semibold" className="p-5">
-          User Infomation
-        </Typography>
-        <div className="flex max-[640px]:flex-col max-[640px]:items-center sm:gap-x-5 sm:mx-5 lg:mx-0 lg:gap-x-14 ">
-          {/* Profile Picture */}
-          <div className="relative w-[200px] h-[200px]  ">
-            <Image
-              className="object-cover w-[200px] h-[200px] rounded-[10px]"
-              src={`${user.profile}`}
-              alt="logo"
-              width={200}
-              height={150}
-            />
-
-            <label className="p-3 absolute -bottom-2 -right-2 bg-white shadow-[0_3px_10px_rgb(0,0,0,0.2)] cursor-pointer rounded-full" htmlFor="fileInput">
-              {/* <ButtonIcon
-                icon={
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    strokeWidth="1.5"
-                    stroke="currentColor"
-                    className="w-6 h-6"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      d="m16.862 4.487 1.687-1.688a1.875 1.875 0 1 1 2.652 2.652L10.582 16.07a4.5 4.5 0 0 1-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 0 1 1.13-1.897l8.932-8.931Zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0 1 15.75 21H5.25A2.25 2.25 0 0 1 3 18.75V8.25A2.25 2.25 0 0 1 5.25 6H10"
-                    />
-                  </svg>
-                }
-              /> */}
-              <Image src={"/assets/icons/update_pic.svg"} alt={"update_pic"} width={18.75} height={18.75} className="">
-              </Image>
-            </label>
-            <input
-                id="fileInput"
-                type="file"
-                className="sr-only"
-                onChange={handleFileChange} // Replace with your own handler function if needed
-              />
-          </div>
-          {/* Information User */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-            <div>
-              <Typography className="text-gray-500 pb-2" fontSize="h4">
-                {/* Name */}
-                Full Name
-              </Typography>
-              <InputData
-                name="name"
-                onChange={(e) => {
-                  handleChange(e);
-                }}
-                type="text"
-                defaultValue={`${user.username}`}
-                placeholder={"Enter your fullname"}
-                className="py-4 pl-4 w-full sm:pr-[10px] md:pr-[60px] lg:pr-[70px] border text-base border-gray-200 bg-gray-100 mb-2 font-semibold"
-              />
-            </div>
-            <div>
-              {/* Email */}
-              <Typography className="text-gray-500 pb-2" fontSize="h4">
-                Email
-              </Typography>
-              <InputData
-                name="email"
-                onChange={(e) => {
-                  handleChange(e);
-                }}
-                type="text"
-                defaultValue={`${user.email}`}
-                placeholder={"Enter yout email"}
-                className="py-4 pl-4 w-full sm:pr-[10px] md:pr-[60px] lg:pr-[70px] border text-base border-gray-200 bg-gray-100 mb-2 font-semibold"
-              />
-            </div>
-            <div>
-              {/* Phone Number */}
-              <Typography className="text-gray-500 pb-2" fontSize="h4">
-                Phone Number
-              </Typography>
-              <InputData
-                name="phone"
-                onChange={(e) => {
-                  handleChange(e);
-                }}
-                type="text"
-                defaultValue={user.phonenumber ? `${user.phonenumber}` : ""}
-                placeholder={"Enter your phone number"}
-                className="py-4 pl-4 w-full sm:pr-[10px] md:pr-[60px] lg:pr-[70px] border text-base border-gray-200 bg-gray-100 mb-2 font-semibold"
-              />
-            </div>
-            <div>
-              {/* Address */}
-              <Typography className="text-gray-500 pb-2" fontSize="h4">
-                Address
-              </Typography>
-              <InputData
-                name="address"
-                onChange={(e) => {
-                  handleChange(e);
-                }}
-                type="text"
-                defaultValue={user.address ? `${user.address}` : ""}
-                placeholder={"Enter your address"}
-                className="py-4 pl-4 w-full sm:pr-[10px] md:pr-[60px] lg:pr-[70px] border text-base border-gray-200 bg-gray-100 mb-2 font-semibold"
-              />
-            </div>
-          </div>
-        </div>
-        <div className="sm:ml-5 sm:mr-5 lg:mx-0 ">
-          {/* About user */}
-          <Typography className="text-gray-500 py-2" fontSize="h4">
-            About me
+      <div className="max-w-[1024px] mt-20 sm:mx-auto max-[640px]:flex max-[640px]:flex-col max-[640px]:items-center  ">
+        <div className="pl-8">
+          <Typography
+            fontSize="h3"
+            fontWeight="semibold"
+            className="pt-5 pb-8 "
+          >
+            Edit Profile
           </Typography>
-          <textarea
-            onChange={(e) => {
-              handleChange(e);
-            }}
-            name="bio"
-            defaultValue={user.bio ? `${user.bio}` : ""}
-            className="outline-none p-4 resize-none border w-full border-gray-200 bg-gray-100 rounded-lg font-semibold"
-            cols={23}
-            rows={5}
-          />
+          <div className="grid grid-cols-3">
+            {/* Profile Picture */}
+            <div className="relative w-[200px] h-[200px]">
+              <Image
+                className="object-cover w-[200px] h-[200px] rounded-[10px]"
+                src={imageSrc}
+                alt="profile"
+                width={200}
+                height={200}
+              />
+              <input
+                type="file"
+                accept="image/*"
+                ref={fileInputRef}
+                className="hidden"
+                onChange={handleFileUpload}
+              />
+              <div className="absolute bottom-0 right-0 -m-3">
+                <ButtonIcon
+                  className="shadow-[0_3px_10px_rgb(0,0,0,0.2)] bg-white"
+                  onclick={handleClick}
+                  icon={
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      strokeWidth="1.5"
+                      stroke="currentColor"
+                      className="w-6 h-6"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        d="m16.862 4.487 1.687-1.688a1.875 1.875 0 1 1 2.652 2.652L10.582 16.07a4.5 4.5 0 0 1-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 0 1 1.13-1.897l8.932-8.931Zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0 1 15.75 21H5.25A2.25 2.25 0 0 1 3 18.75V8.25A2.25 2.25 0 0 1 5.25 6H10"
+                      />
+                    </svg>
+                  }
+                />
+              </div>
+            </div>
+            {/* Information User */}
+            <div className="col-span-2 grid grid-cols-2 gap-x-[50px] gap-y-3 ">
+              <div>
+                <Typography
+                  className="text-gray-500 pb-2"
+                  fontSize="h4"
+                  fontWeight="normal"
+                >
+                  {/* Name */}
+                  Full Name
+                </Typography>
+                <InputData
+                  name="name"
+                  onChange={(e) => {
+                    handleChange(e);
+                  }}
+                  type="text"
+                  defaultValue="Peng Maleap"
+                  placeholder={"Enter your fullname"}
+                  className="py-4 pl-4 w-[300px] h-[50px] sm:pr-[10px] md:pr-[60px] lg:pr-[70px] border text-base border-gray-200 bg-gray-100 mb-2 font-normal"
+                />
+              </div>
+              <div>
+                {/* Email */}
+                <Typography
+                  className="text-gray-500 pb-2"
+                  fontSize="h4"
+                  fontWeight="normal"
+                >
+                  Email
+                </Typography>
+                <InputData
+                  name="email"
+                  onChange={(e) => {
+                    handleChange(e);
+                  }}
+                  type="text"
+                  defaultValue="pengmaleap456@gmail.com"
+                  placeholder={"Enter yout email"}
+                  className="py-4 pl-4 w-[300px] h-[50px] sm:pr-[10px] md:pr-[60px] lg:pr-[70px] border text-base border-gray-200 bg-gray-100 mb-2 font-normal"
+                />
+              </div>
+              <div>
+                {/* Phone Number */}
+                <Typography
+                  className="text-gray-500 pb-2"
+                  fontSize="h4"
+                  fontWeight="normal"
+                >
+                  Phone Number
+                </Typography>
+                <InputData
+                  name="phone"
+                  onChange={(e) => {
+                    handleChange(e);
+                  }}
+                  type="text"
+                  defaultValue="012 345 678"
+                  placeholder={"Enter yout phone number"}
+                  className="py-4 pl-4 w-[300px] h-[50px] sm:pr-[10px] md:pr-[60px] lg:pr-[70px] border text-base border-gray-200 bg-gray-100 mb-2 font-normal"
+                />
+              </div>
+              <div>
+                {/* Address */}
+                <Typography
+                  className="text-gray-500 pb-2"
+                  fontSize="h4"
+                  fontWeight="normal"
+                >
+                  Address
+                </Typography>
+                <InputData
+                  name="address"
+                  onChange={(e) => {
+                    handleChange(e);
+                  }}
+                  type="text"
+                  defaultValue="Phnom Penh"
+                  placeholder={"Enter your address"}
+                  className="py-4 pl-4 w-[300px] h-[50px] sm:pr-[10px] md:pr-[60px] lg:pr-[70px] border text-base border-gray-200 bg-gray-100 mb-2 font-normal"
+                />
+              </div>
+              {host && (
+                <div>
+                  {/*Link Facebook */}
+                  <Typography
+                    className="text-gray-500 pb-2"
+                    fontSize="h4"
+                    fontWeight="normal"
+                  >
+                    Link Facebook page
+                  </Typography>
+                  <InputData
+                    name="link_facebook"
+                    onChange={(e) => {
+                      handleChange(e);
+                    }}
+                    type="text"
+                    defaultValue="http://cambodiabookfair"
+                    placeholder={"Enter your link facebook page"}
+                    className="py-4 pl-4 w-[300px] h-[50px] sm:pr-[10px] md:pr-[60px] lg:pr-[70px] border text-base border-gray-200 bg-gray-100 mb-2 font-normal"
+                  />
+                </div>
+              )}
+              {host && (
+                <div>
+                  {/*Link location */}
+                  <Typography
+                    className="text-gray-500 pb-2"
+                    fontSize="h4"
+                    fontWeight="normal"
+                  >
+                    Link location
+                  </Typography>
+                  <InputData
+                    name="link_location"
+                    onChange={(e) => {
+                      handleChange(e);
+                    }}
+                    type="text"
+                    defaultValue="http://googlemap"
+                    placeholder={"Enter your location"}
+                    className="py-4 pl-4 w-[300px] h-[50px] sm:pr-[10px] md:pr-[60px] lg:pr-[70px] border text-base border-gray-200 bg-gray-100 mb-2 font-normal"
+                  />
+                </div>
+              )}
+              <div className="col-span-2">
+                {/* About user */}
+                <Typography
+                  className="text-gray-500 py-2"
+                  fontSize="h4"
+                  fontWeight="normal"
+                >
+                  About me
+                </Typography>
+                <textarea
+                  onChange={(e) => {
+                    handleChange(e);
+                  }}
+                  name="aboutUser"
+                  defaultValue="This is me"
+                  className="outline-none p-4 resize-none border w-[99%] border-gray-200 bg-gray-100 rounded-lg font-normal"
+                  cols={23}
+                  rows={5}
+                />
+              </div>
+            </div>
+          </div>
         </div>
-        <div className="flex gap-3 justify-end mt-5">
+
+        <div className="flex gap-3 justify-end mt-7">
           <Button
+            onclick={() => {
+              setUser({
+                name: "",
+                email: "",
+                phone: "",
+                address: "",
+                aboutUser: "",
+                link_facebook: "",
+                link_location: "",
+              });
+            }}
             className="px-8 py-3"
             round="xl"
             colorScheme="primary"

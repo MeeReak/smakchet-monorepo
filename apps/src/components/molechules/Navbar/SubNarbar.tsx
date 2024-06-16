@@ -11,10 +11,19 @@ import {
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
+import Hamburger_detail from "../hamburger/Hamburger_detail";
+
 const SubNarbar = ({ role }: { role: string }) => {
   const [hideNavbar, setHideNavbar] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
   const [notiOpen, setNotiOpen] = useState(false);
+  const [isSidebarOpen, setSidebarOpen] = useState(false);
+
+  const toggleSidebar = () => {
+    setSidebarOpen(!isSidebarOpen);
+  };
+
+console.log(isSidebarOpen, 'sidebar')
 
   console.log("this is role", role);
   const pathname = usePathname();
@@ -50,7 +59,7 @@ const SubNarbar = ({ role }: { role: string }) => {
             </Link>
           </div>
           <div className=" flex flex-row items-center ">
-            {(!role || role == undefined)&& (
+            {(!role || role == undefined) && (
               <>
                 {/* Conditionally Render Search Bar */}
                 {pathname !== "/search" && pathname !== "/create-post" && (
@@ -196,7 +205,8 @@ const SubNarbar = ({ role }: { role: string }) => {
                 {/* Hamburger Bar*/}
                 <Link href={"/"}>
                   <ButtonIcon
-                    className="bg-gray-100 text-gray-700 rounded-full p-2 ml-[10px]  hover:bg-[#bdd8ff] hover:text-[#207BFF] transition-all duration-300 ease-in-out flex sm:hidden"
+                    onclick={toggleSidebar}
+                    className=" bg-gray-100 text-gray-700 rounded-full p-2 ml-[10px]  hover:bg-[#bdd8ff] hover:text-[#207BFF] transition-all duration-300 ease-in-out flex sm:hidden"
                     icon={
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -217,6 +227,9 @@ const SubNarbar = ({ role }: { role: string }) => {
                 </Link>
               </>
             )}
+
+            {/* Sidebar */}
+            {isSidebarOpen && <Hamburger_detail closeSidebar={toggleSidebar} />}
           </div>
         </div>
       </div>

@@ -58,7 +58,7 @@ export class EventController extends Controller {
 
   @Post("/")
   @Middlewares(validateInput(EventDetailSchema))
-  @Middlewares(verifyToken)
+  // @Middlewares(verifyToken)
   public async CreateEvent(
     @Body() requestBody: EventDetail,
     @Request() request: any

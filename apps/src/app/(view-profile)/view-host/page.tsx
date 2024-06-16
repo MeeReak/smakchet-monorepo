@@ -1,11 +1,11 @@
 "use client";
-import React, { useEffect, useState } from "react";
+
 import Image from "next/image";
-import { Button, ButtonIcon, CardList, Typography } from "../../../components";
+import { Button, ButtonIcon, Typography } from "../../../components";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 import axios from "axios";
-//import {Map} from "/../../../components/molechules/Map"
+import React, { useEffect, useState } from "react";
 
 const Page = () => {
     // default is about

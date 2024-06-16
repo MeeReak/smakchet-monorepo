@@ -1,4 +1,5 @@
 import { ButtonIcon, FavPage, Typography } from "@/components";
+import Hamburger_detail from "@/components/molechules/hamburger/Hamburger_detail";
 import { RequestCookie } from "next/dist/compiled/@edge-runtime/cookies";
 import { cookies } from "next/headers";
 import React from "react";
@@ -33,8 +34,6 @@ const Page = async () => {
   const session = cookieStore.get("session");
   const sigSession = cookieStore.get("session.sig");
   const favoriteData = await getFavoriteData({ session, sigSession });
-
-  console.log("============",favoriteData)
 
   return (
     <>
@@ -74,6 +73,7 @@ const Page = async () => {
             </Typography>
           </div>
         </div>
+        <Hamburger_detail  />
         <FavPage data={favoriteData ? favoriteData!.data : []} />
       </div>
     </>
