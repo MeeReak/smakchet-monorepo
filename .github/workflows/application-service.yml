@@ -82,6 +82,7 @@ jobs:
             cat <<EOF > /home/ubuntu/packages/application/build/configs/.env
             NODE_ENV=${{ secrets.NODE_ENV }}
             PORT=${{ secrets.APPLICATION_PORT }}
+            MONGODB_URL=${{ secrets.MONGODB_URL }}
             API_GATEWAY_URL=${{ secrets.API_GATEWAY_URL}}
             LOG_LEVEL=${{ secrets.LOG_LEVEL }}
             EOF
