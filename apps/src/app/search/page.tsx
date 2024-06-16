@@ -16,7 +16,7 @@ async function getData({ name }: { name: string }) {
     return result;
   } catch (error: unknown | any) {
     console.error("Error fetching data:", error);
-    console.log(error.message);
+    throw new Error('Unable to Search Event')
   }
 }
 
@@ -28,7 +28,6 @@ const SearchPage = async ({
   const search = searchParams.name ? searchParams.name : "";
   const data = await getData({ name: search });
 
-  console.log("=======================================", data);
 
   return (
     <>
