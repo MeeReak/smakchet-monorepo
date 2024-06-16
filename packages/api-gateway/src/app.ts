@@ -18,7 +18,7 @@ const app = express();
 const config = getConfig();
 
 // ===================
-// Security Middleware
+// Security Middleware!
 // ===================
 app.set("trust proxy", 1);
 // app.use(compression());
