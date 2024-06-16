@@ -83,7 +83,7 @@ jobs:
             PORT=${{ secrets.NOTIFICATION_PORT }}
             LOG_LEVEL=${{ secrets.LOG_LEVEL }}
             CLIENT_URL=${{ secrets.CLIENT_URL }}
-            RABBITMQ_ENDPOINT=${{ secrets.RABBITMQ_ENDPOINT }}
+            RABBITMQ_ENDPOINT=amqp://myuser:mypassword@localhost:5672
             SMTP_HOST=${{ secrets.SMTP_HOST }}
             SMTP_PORT=${{ secrets.SMTP_PORT }}
             SENDER_EMAIL=${{ secrets.SENDER_EMAIL }}
