@@ -9,7 +9,7 @@ import {
   Post,
   Middlewares,
   Get,
-  Request,
+  Request
 } from "tsoa"; // Import necessary decorators
 import { verifyToken } from "@user/middlewares/tokenValidation";
 import axios from "axios";
@@ -163,6 +163,40 @@ export class UserController extends Controller {
       throw new APIError("Error during user creation", StatusCode.BadRequest);
     }
   }
+
+  // @Get("/convert")
+  // public async convertData(
+  //   @Path() id: string,
+  //   @UploadedFile() profile?: Express.Multer.File,
+  //   @FormField() username?: string,
+  //   @FormField() email?: string,
+  //   @FormField() phonenumber?: string,
+  //   @FormField() address?: string,
+  //   @FormField() bio?: string): Promise<any>{
+  //     console.log('Put /:id');
+  //     console.log('Received profile file:', profile);
+  //     console.log('Received username:', username);
+  //     console.log('Received email:', email);
+  //     console.log('Received phonenumber:', phonenumber);
+  //     console.log('Received address:', address);
+  //     console.log('Received bio:', bio);
+
+  //     // Simulate a call to a user service to update the profile
+  //     const updatedUserProfile = {
+  //       id,
+  //       username,
+  //       email,
+  //       phonenumber,
+  //       address,
+  //       bio,
+  //       profilePath: profile?.path, // path to the uploaded profile picture if provided
+  //     };
+
+  //     return {
+  //       message: 'User profile updated successfully',
+  //       userProfile: updatedUserProfile,
+  //     };
+  //   }
 
   @Get("/")
   @Middlewares(verifyToken)
