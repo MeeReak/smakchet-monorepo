@@ -71,16 +71,6 @@ jobs:
           source: "packages/application/build/*"
           target: "/home/ubuntu/packages/application/build/"
 
-      - name: Create configs directory
-        uses: appleboy/ssh-action@master
-        with:
-          host: ${{ secrets.EC2_IP }}
-          username: ${{ secrets.EC2_USERNAME }}
-          key: ${{ secrets.SSH_PRIVATE_KEY }}
-          port: 22
-          script: |
-            mkdir -p /home/ubuntu/packages/application/build/configs
-
       - name: Create .env file
         uses: appleboy/ssh-action@master
         with:
