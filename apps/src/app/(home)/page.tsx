@@ -1,6 +1,5 @@
 import React from "react";
 import { Trending, FilteredCardDisplay } from "@/components";
-import Image from "next/image";
 import { cookies } from "next/headers";
 
 async function getTrendingData() {
@@ -20,11 +19,7 @@ async function getTrendingData() {
   }
 }
 
-const homepage = async ({
-  searchParams,
-}: {
-  searchParams: { [key: string]: string | undefined };
-}) => {
+const homepage = async ({ searchParams }: { searchParams: { [key: string]: string | undefined } }) => {
   const cookieStore = cookies();
   const session = cookieStore.get("session");
   const sigSession = cookieStore.get("session.sig");
@@ -36,32 +31,22 @@ const homepage = async ({
     <>
       <div className="max-w-[1024px] m-auto space-y-4 z-10 pt-[80px] mb-20">
         <Trending
-          className="flex gap-4 max-[640px]:overflow-hidden max-[640px]:overflow-x-auto mt-[25px] "
-          topEvent={
-            <Image
-              src={trendingData[0].thumbnail}
-              alt=""
-              width={500}
-              height={200}
-              className="rounded-xl h-[250px] w-[500px] object-cover"
-            />
-          }
-          secondEvent={
-            <Image
-              src={trendingData[1].thumbnail}
-              alt=""
-              width={500}
-              height={200}
-              className="rounded-xl h-[250px] w-[500px] object-cover"
-            />
-          }
+          className="flex gap-4 max-[640px]:overflow-hidden max-[640px]:overflow-x-auto mt-[25px]"
+          topEvent={{
+            thumbnail: trendingData[0].thumbnail,
+            eventName: trendingData[0].eventName,
+            Date: trendingData[0].Date.startDate,
+            location: trendingData[0].location,
+          }}
+          secondEvent={{
+            thumbnail: trendingData[1].thumbnail,
+            eventName: trendingData[1].eventName,
+            Date: trendingData[1].Date.startDate,
+            location: trendingData[1].location,
+          }}
         />
 
-        <FilteredCardDisplay
-          session={session}
-          sigSession={sigSession}
-          searchParams={searchParams}
-        />
+        <FilteredCardDisplay session={session} sigSession={sigSession} searchParams={searchParams} />
       </div>
     </>
   );
