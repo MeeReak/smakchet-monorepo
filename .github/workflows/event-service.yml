@@ -83,7 +83,7 @@ jobs:
             PORT=${{ secrets.EVENT_PORT }}
             LOG_LEVEL=${{ secrets.LOG_LEVEL }}
             MONGODB_URL=${{ secrets.MONGODB_URL }}
-            RABBITMQ_ENDPOINT=${{ secrets.RABBITMQ_ENDPOINT }}
+            RABBITMQ_ENDPOINT=amqp://myuser:mypassword@localhost:5672
             API_GATEWAY_URL=${{ secrets.API_GATEWAY_URL }}
             EOF
 
