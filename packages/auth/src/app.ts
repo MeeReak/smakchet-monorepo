@@ -8,7 +8,7 @@ import { RegisterRoutes } from "./routes/v1/routes";
 import swaggerUi from "swagger-ui-express"
 import * as swaggerDocument from "../public/swagger.json";
 
-// Create express app
+// Create express app!
 const app = express();
 
 const config = getConfig();
