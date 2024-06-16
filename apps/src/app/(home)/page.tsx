@@ -5,6 +5,7 @@ import { cookies } from "next/headers";
 
 async function getTrendingData() {
   const api = `http://localhost:3000/v1/events/trending`;
+
   try {
     const response = await fetch(api, {
       method: "GET",
@@ -15,8 +16,8 @@ async function getTrendingData() {
     });
 
     return await response.json();
-  } catch (error: unknown) {
-    console.error("Error in getTrendingData", error);
+  } catch (error) {
+    throw new Error('We’re experiencing some technical difficulties. Please check back soon.');
   }
 }
 
@@ -29,8 +30,6 @@ const homepage = async ({
   const session = cookieStore.get("session");
   const sigSession = cookieStore.get("session.sig");
   const trendingData = await getTrendingData();
-
-  console.log("=================", trendingData);
 
   return (
     <>
