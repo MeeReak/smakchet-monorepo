@@ -30,7 +30,7 @@ jobs:
         run: yarn build
 
       - name: Archive Production Artifact
-        uses: actions/upload-artifact@v2  # Use v2 as in the working script
+        uses: actions/upload-artifact@v2
         with:
           name: build
           path: packages/application/build
@@ -40,7 +40,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Get the Production Artifact
-        uses: actions/download-artifact@v2  # Use v2 as in the working script
+        uses: actions/download-artifact@v2
         with:
           name: build
           path: packages/application/build
@@ -51,27 +51,28 @@ jobs:
           ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
 
       - name: Ensure target directory exists
-        uses: appleboy/ssh-action@master  # Use master as in the working script
+        uses: appleboy/ssh-action@master
         with:
           host: ${{ secrets.EC2_IP }}
           username: ${{ secrets.EC2_USERNAME }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           port: 22
           script: |
-            chown ubuntu:ubuntu /home/ubuntu
+            sudo mkdir -p /home/ubuntu/packages/application/build
+            sudo chown -R ubuntu:ubuntu /home/ubuntu/packages/application
 
       - name: Copy files to EC2
-        uses: appleboy/scp-action@master  # Use master as in the working script
+        uses: appleboy/scp-action@master
         with:
           host: ${{ secrets.EC2_IP }}
           username: ${{ secrets.EC2_USERNAME }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           port: 22
           source: "packages/application/build/*"
-          target: "/home/ubuntu/"
+          target: "/home/ubuntu/packages/application/build/"
 
       - name: Create .env file
-        uses: appleboy/ssh-action@master  # Use master as in the working script
+        uses: appleboy/ssh-action@master
         with:
           host: ${{ secrets.EC2_IP }}
           username: ${{ secrets.EC2_USERNAME }}
@@ -86,7 +87,7 @@ jobs:
             EOF
 
       - name: Start Application
-        uses: appleboy/ssh-action@master  # Use master as in the working script
+        uses: appleboy/ssh-action@master
         with:
           host: ${{ secrets.EC2_IP }}
           username: ${{ secrets.EC2_USERNAME }}
@@ -121,13 +122,13 @@ jobs:
 
             # Install Dependencies
             echo "Installing dependencies..."
-            yarn install
+            yarn install --production
 
             # Check if the PM2 process is running
             if pm2 show application > /dev/null; then
               echo "Application is running. Restarting..."
-              yarn restart
+              pm2 restart application
             else
               echo "Application is not running. Starting..."
-              yarn start
+              pm2 start src/server.js --name application
             fi
