@@ -33,8 +33,11 @@ const Page = ({ params }: { params: { eventDetail: string } }) => {
 
   const getEventData = async () => {
     try {
+    const apiUrl = process.env.NEXT_PUBLIC_API_URL || "http://localhost:3000";
+
+      
       const id = params.eventDetail;
-      const api = `http://localhost:3000/v1/events?page=1&limit=1&id=${id}`;
+      const api = `${apiUrl}/v1/events?page=1&limit=1&id=${id}`;
       const response = await fetch(api, {
         method: "GET",
         headers: {

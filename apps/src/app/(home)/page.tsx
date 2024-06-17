@@ -3,7 +3,9 @@ import { Trending, FilteredCardDisplay } from "@/components";
 import { cookies } from "next/headers";
 
 async function getTrendingData() {
-  const api = `http://localhost:3000/v1/events/trending`;
+  const apiUrl = process.env.NEXT_PUBLIC_API_URL || "http://localhost:3000";
+
+  const api = `${apiUrl}/v1/events/trending`;
 
   try {
     const response = await fetch(api, {

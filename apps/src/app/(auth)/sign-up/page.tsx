@@ -39,9 +39,9 @@ const SignUp = () => {
       });
       console.log("Validation successful:", validationResult); // Log successful validation
       // Proceed with form submission logic (assuming validation passed)
-
+      const apiUrl = process.env.NEXT_PUBLIC_API_URL || "http://localhost:3000";
       const response = await axios.post(
-        "http://localhost:3000/v1/auth/signup",
+        `${apiUrl}/v1/auth/signup`,
         data,
         {
           headers: {

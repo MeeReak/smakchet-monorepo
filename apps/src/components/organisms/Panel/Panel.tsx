@@ -21,7 +21,8 @@ const Panel: React.FC<PanelProps> = ({ userData, data }) => {
 
   async function toggleFavorite({ id }: { id: string }) {
     try {
-      const api = `http://localhost:3000/v1/user/favorite/${id}`;
+      const apiUrl = process.env.NEXT_PUBLIC_API_URL || "http://localhost:3000";
+      const api = `${apiUrl}/v1/user/favorite/${id}`;
       const response = await axios.post(
         api,
         {},

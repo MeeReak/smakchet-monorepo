@@ -12,8 +12,6 @@ import {
 import Dropdown from "@/components/molechules/Dropdown/Dropdown";
 import TextEditor from "@/components/organisms/TextEdit";
 import { eventValidationSchema } from "@/utils/eventValidationSchema";
-import { Textarea } from "@nextui-org/react";
-import Link from "next/link";
 import React, { useState } from "react";
 
 interface EventInfoProps {
