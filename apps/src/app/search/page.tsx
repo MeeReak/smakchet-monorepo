@@ -4,7 +4,9 @@ import { CardProps } from "@/@types/card";
 
 async function getData({ name }: { name: string }) {
   try {
-    const api = `http://localhost:3000/v1/events?page=1&limit=18&name=${name}`;
+    const apiUrl = process.env.NEXT_PUBLIC_API_URL || "http://localhost:3000";
+
+    const api = `${apiUrl}/v1/events?page=1&limit=18&name=${name}`;
     const response = await fetch(api, {
       method: "GET",
       headers: {

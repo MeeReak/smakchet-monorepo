@@ -12,7 +12,9 @@ async function getUserProfile(
     return;
   }
   // ${gaSession?.name}=${gaSession!.value};
-  const response = await axios.get("http://localhost:3000/v1/user", {
+  const apiUrl = process.env.NEXT_PUBLIC_API_URL || "http://localhost:3000";
+  
+  const response = await axios.get(`${apiUrl}/v1/user`, {
     withCredentials: true,
     headers: {
       Cookie: `${session!.name}=${session!.value}; ${sigSession!.name}=${

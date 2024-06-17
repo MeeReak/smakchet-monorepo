@@ -11,7 +11,9 @@ import { RequestCookie } from "next/dist/compiled/@edge-runtime/cookies";
 
 async function getData({ id }: { id: string }) {
   try {
-    const api = `http://localhost:3000/v1/events?page=1&limit=1&id=${id}`;
+    const apiUrl = process.env.NEXT_PUBLIC_API_URL || "http://localhost:3000";
+
+    const api = `${apiUrl}/v1/events?page=1&limit=1&id=${id}`;
     const response = await fetch(api, {
       method: "GET",
       headers: {
@@ -30,7 +32,9 @@ async function getData({ id }: { id: string }) {
 
 async function getOrgData({ id }: { id: string }) {
   try {
-    const api = `http://localhost:3000/v1/user/info/${id}`;
+    const apiUrl = process.env.NEXT_PUBLIC_API_URL || "http://localhost:3000";
+
+    const api = `${apiUrl}/v1/user/info/${id}`;
     const response = await fetch(api, {
       method: "GET",
       headers: {
@@ -48,7 +52,9 @@ async function getOrgData({ id }: { id: string }) {
 
 async function getSimilarData({ cate }: { cate: string }) {
   try {
-    const api = `http://localhost:3000/v1/events?page=1&limit=3&cate=${cate}`;
+    const apiUrl = process.env.NEXT_PUBLIC_API_URL || "http://localhost:3000";
+
+    const api = `${apiUrl}/v1/events?page=1&limit=3&cate=${cate}`;
     const response = await fetch(api, {
       method: "GET",
       headers: {
@@ -72,7 +78,10 @@ async function getUserData({
   sigSession: RequestCookie | undefined;
 }) {
   try {
-    const api = `http://localhost:3000/v1/user`;
+
+    const apiUrl = process.env.NEXT_PUBLIC_API_URL || "http://localhost:3000";
+
+    const api = `${apiUrl}/v1/user`;
     const response = await fetch(api, {
       method: "GET",
       headers: {
@@ -98,7 +107,6 @@ const page = async ({ params }: { params: { eventDetail: string } }) => {
   const orgData = await getOrgData({ id: data[0].orgId });
   const similarData = await getSimilarData({ cate: data[0].category });
   const userData = await getUserData({ session, sigSession });
-
 
   return (
     <div className="bg-[#fafafa]">
