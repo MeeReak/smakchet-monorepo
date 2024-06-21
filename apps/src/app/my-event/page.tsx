@@ -1,3 +1,4 @@
+//my-event
 import MyEventCardList  from "@/components/organisms/cardList/MyEventCardList";
 import { Typography } from "@/components";
 import React from "react";
