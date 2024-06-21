@@ -83,7 +83,7 @@ jobs:
             PORT=${{ secrets.AUTH_PORT }}
             MONGODB_URL=${{ secrets.MONGODB_URL }}
             LOG_LEVEL=${{ secrets.LOG_LEVEL }}
-            RABBITMQ_ENDPOINT=${{ secrets.RABBITMQ_ENDPOINT }}
+            RABBITMQ_ENDPOINT=amqp://myuser:mypassword@localhost:5672
             CLIENT_URL=${{ secrets.CLIENT_URL }}
             GOOGLE_CLIENT_ID=${{ secrets.GOOGLE_CLIENT_ID }}
             GOOGLE_CLIENT_SECRET=${{ secrets.GOOGLE_CLIENT_SECRET }}

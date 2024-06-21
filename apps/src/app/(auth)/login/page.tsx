@@ -28,8 +28,9 @@ const Page = () => {
     e.preventDefault();
     try {
       await logInSchema.validate(data, { abortEarly: false });
+      const apiUrl = process.env.NEXT_PUBLIC_API_URL || "http://localhost:3000";
       const response = await axios.post(
-        "http://localhost:3000/v1/auth/login",
+        `${apiUrl}/v1/auth/login`,
         data,
         {
           withCredentials: true,

@@ -12,7 +12,8 @@ async function getFavoriteData({
   sigSession: RequestCookie | undefined;
 }) {
   try {
-    const api = `http://localhost:3000/v1/user/favorite`;
+    const apiUrl = process.env.NEXT_PUBLIC_API_URL || "http://localhost:3000";
+    const api = `${apiUrl}/v1/user/favorite`;
     const respone = await fetch(api, {
       method: "GET",
       headers: {

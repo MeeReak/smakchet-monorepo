@@ -11,8 +11,9 @@ const ScrollCard = () => {
 
   const loadMoreData = async () => {
     setIsLoading(true);
+    const apiUrl = process.env.NEXT_PUBLIC_API_URL || "http://localhost:3000";
     const res = await fetch(
-      `http://localhost:3000/v1/events?page=${page+2}&limit=3`
+      `${apiUrl}/v1/events?page=${page + 2}&limit=3`
     ).then((res) => res.json());
 
     setData((curr) => [...curr, ...res]);
