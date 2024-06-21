@@ -1,7 +1,8 @@
+//DeleteButton
+
 "use client";
-import React, { useState } from "react";
+import React from "react";
 import { ButtonIcon } from "@/components/atoms";
-import { Delete } from "./delete";
 
 export interface FilterButtonProps {
   className?: string;
@@ -10,10 +11,12 @@ export interface FilterButtonProps {
   setModalState: React.Dispatch<React.SetStateAction<string | null>>;
 }
 
-const DeleteButton: React.FC<FilterButtonProps> = ({ className, id, modalState, setModalState }) => {
-
-  // const [modalState, setModalState] = useState(false);
-  
+const DeleteButton: React.FC<FilterButtonProps> = ({
+  className,
+  id,
+  modalState,
+  setModalState,
+}) => {
   return (
     <div className="relative">
       <ButtonIcon
@@ -36,8 +39,7 @@ const DeleteButton: React.FC<FilterButtonProps> = ({ className, id, modalState, 
           </svg>
         }
       />
-      {/* {modalState === id && <Delete setModalState={() => setModalState(null)} id={id} />} */}
-      </div>
+    </div>
   );
 };
 
