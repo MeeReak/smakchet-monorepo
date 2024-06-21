@@ -249,7 +249,7 @@ const page = async ({ params }: { params: { eventDetail: string } }) => {
             <Typography fontSize="h4" fontWeight="semibold">
               {orgData.username}
             </Typography>
-            <Link href={`/view-host?id=${userData._id}`}>
+            <Link href={`/view-host?id=${orgData.authId}`}>
               <Typography color="blue" fontSize="h5">
                 View Profile
               </Typography>

@@ -63,6 +63,13 @@ export class EventService {
       throw error
     }
   }
+  async findAllEventByOrgId(id: string){
+    try{
+      return await this.eventRepo.findallorgEvent(id)
+    }catch(error: unknown){
+      throw error
+    }
+  }
 
   //search event by queries
   async findEventByQueries(queryParams: QueryParams){

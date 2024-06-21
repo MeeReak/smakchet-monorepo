@@ -12,7 +12,8 @@ async function getUserProfile(
     return;
   }
   // ${gaSession?.name}=${gaSession!.value};
-  const apiUrl = process.env.NEXT_PUBLIC_API_URL || "http://localhost:3000";
+  const apiUrl = "http://localhost:3000";
+  // const apiUrl = process.env.NEXT_PUBLIC_API_URL || "http://localhost:3000";
   
   const response = await axios.get(`${apiUrl}/v1/user`, {
     withCredentials: true,

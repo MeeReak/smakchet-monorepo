@@ -180,4 +180,16 @@ export class EventController extends Controller {
       throw new APIError("Event Not Found !!", StatusCode.NotFound);
     }
   }
+
+  @Get("/host/{orgId}")
+  public async FindOrgEvent(@Path() orgId:string):Promise<any>{
+    try{
+      const events = await eventService.findAllEventByOrgId(orgId);
+      return {
+        data:events
+      }
+    }catch(error:unknown){
+      throw new APIError("Event Not Found !!", StatusCode.NotFound); 
+    }
+  }
 }
