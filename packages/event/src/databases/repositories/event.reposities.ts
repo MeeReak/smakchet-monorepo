@@ -43,14 +43,13 @@ export class EventRepository {
     }
   }
 
-  async findMyEventByOrgId(id: string) {
+  async findallorgEvent(id:string){
     try {
       return await EventModel.find({ orgId: id });
     } catch (error: unknown) {
       throw error;
-    }
+    } 
   }
-
 
   async findEventByQueries(queryParams: QueryParams): Promise<any> {
     try {

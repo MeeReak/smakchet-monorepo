@@ -58,7 +58,15 @@ export class EventService {
 
   async findEventByOrgId(id: string){
     try{
-      return await this.eventRepo.findMyEventByOrgId(id)
+      return await this.eventRepo.findEventByOrgId(id)
+    }catch(error: unknown){
+      throw error
+    }
+  }
+
+  async findAllEventByOrgId(id: string){
+    try{
+      return await this.eventRepo.findallorgEvent(id)
     }catch(error: unknown){
       throw error
     }
