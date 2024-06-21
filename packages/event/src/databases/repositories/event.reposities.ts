@@ -43,6 +43,15 @@ export class EventRepository {
     }
   }
 
+  async findMyEventByOrgId(id: string) {
+    try {
+      return await EventModel.find({ orgId: id });
+    } catch (error: unknown) {
+      throw error;
+    }
+  }
+
+
   async findEventByQueries(queryParams: QueryParams): Promise<any> {
     try {
       const { name, cate, id, limit, page, date, location } = queryParams;
@@ -54,12 +63,14 @@ export class EventRepository {
       if (id) query._id = id;
       if (location) query.location = location;
       if (date) query.Date.startDate = date;
+      
 
       console.log(page, limit);
       const Page = parseInt(page);
       const sizePage = parseInt(limit);
       const startIndex = (Page - 1) * sizePage;
       const endIndex = Page * sizePage;
+      
 
       console.log(startIndex, endIndex);
 

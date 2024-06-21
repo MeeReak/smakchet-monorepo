@@ -15,6 +15,9 @@ export const decodedToken = async (token: string) => {
       role: decodedPayload.role,
       id: decodedPayload.id,
     };
+
+    console.log("datapayload : ", datapayload);
+
     return datapayload;
   } catch (error: unknown) {
     logger.error("Unable to decode in decodeToken() method !", error);

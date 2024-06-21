@@ -1,16 +1,17 @@
 "use client";
-import React, { useEffect, useState } from "react";
+
 import Image from "next/image";
-import { Button, ButtonIcon, CardList, Typography } from "../../../components";
+import { Button, ButtonIcon, Typography } from "../../../components";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 import axios from "axios";
-//import {Map} from "/../../../components/molechules/Map"
+import React, { useEffect, useState } from "react";
 
 const Page = () => {
     // default is about
     // you can change it to posts
   const [activeButton, setActiveButton] = useState<string>("about");
+  const [userInfo , setUserInfo] = useState()
 
   const handleButtonClick = (buttonName: string) => {
     setActiveButton(buttonName);
@@ -32,11 +33,19 @@ const Page = () => {
 
 
   useEffect(() => {
-    getUserData();
+    const fetchData = async () =>{
+      try{
+        const data = await getUserData();
+        setUserInfo(data);
+      }catch(error){
+        console.log("error : ", error);
+      }
+    }
+    fetchData();
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  const userInfo = getUserData();
+  console.log("UserInfo : " , userInfo);
 
   return (
     <div className="xl:mx-[300px] lg:mx-[200px] md:mx-[100px] md:py-[167px] py-[100px] flex flex-col item-center align-middle">

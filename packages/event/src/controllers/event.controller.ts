@@ -49,6 +49,7 @@ export class EventController extends Controller {
   @Get("/trending")
   public async FindTrendingEvent(): Promise<any> {
     try {
+      console.log("Get Trending");
       const event = await eventService.FindEventByView();
       return event;
     } catch (error: unknown) {
@@ -56,9 +57,25 @@ export class EventController extends Controller {
     }
   }
 
+  // Get user event
+
+  @Get("/myevent")
+  @Middlewares(verifyToken)
+  public async findMyEvent(@Request() request:any) : Promise<any>{
+    try{
+      const id = request.id;
+      console.log("id in findMyEvent : " , id);
+      const data = await eventService.findEventByOrgId(id);
+      console.log("data in findMyEvent : " , data);
+      return data;
+    }catch(error:unknown | any){
+      throw new APIError(error.message, StatusCode.NotFound);
+    }
+  }
+
   @Post("/")
   @Middlewares(validateInput(EventDetailSchema))
-  @Middlewares(verifyToken)
+  // @Middlewares(verifyToken)
   public async CreateEvent(
     @Body() requestBody: EventDetail,
     @Request() request: any
@@ -162,13 +179,15 @@ export class EventController extends Controller {
     }
   }
 
-  @Get("/:id")
+  @Get("/{id}")
   @Middlewares(verifyToken)
   public async FindFavoEvent(
     @Path() id: string,
     @Request() request: any
   ): Promise<any> {
     try {
+
+      console.log("Get Id");
       const existedEvent = await eventService.findEventByOrgId(request.id);
 
       if (!existedEvent) {
