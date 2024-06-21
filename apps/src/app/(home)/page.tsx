@@ -18,15 +18,22 @@ async function getTrendingData() {
 
     return await response.json();
   } catch (error) {
-    throw new Error('We’re experiencing some technical difficulties. Please check back soon.');
+    throw new Error(
+      "We’re experiencing some technical difficulties. Please check back soon."
+    );
   }
 }
 
-const homepage = async ({ searchParams }: { searchParams: { [key: string]: string | undefined } }) => {
+const homepage = async ({
+  searchParams,
+}: {
+  searchParams: { [key: string]: string | undefined };
+}) => {
   const cookieStore = cookies();
   const session = cookieStore.get("session");
   const sigSession = cookieStore.get("session.sig");
   const trendingData = await getTrendingData();
+  console.log("=================================", trendingData);
 
   return (
     <>
@@ -47,7 +54,11 @@ const homepage = async ({ searchParams }: { searchParams: { [key: string]: strin
           }}
         />
 
-        <FilteredCardDisplay session={session} sigSession={sigSession} searchParams={searchParams} />
+        <FilteredCardDisplay
+          session={session}
+          sigSession={sigSession}
+          searchParams={searchParams}
+        />
       </div>
     </>
   );

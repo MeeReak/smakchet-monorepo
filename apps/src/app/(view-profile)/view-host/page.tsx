@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { Button, ButtonIcon, Typography } from "../../../components";
+import { Button, ButtonIcon, Card, CardList, Typography } from "../../../components";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 import axios from "axios";
@@ -11,7 +11,10 @@ const Page = () => {
     // default is about
     // you can change it to posts
   const [activeButton, setActiveButton] = useState<string>("about");
-  const [userInfo , setUserInfo] = useState()
+  const [hostInfo,setHostInfo] = useState<any>(null);
+  const [events , setEvents] = useState<any>([]);
+  const [loading, setLoading] = useState(true);
+  const [userInfo , setUserInfo] = useState<any>(null);
 
   const handleButtonClick = (buttonName: string) => {
     setActiveButton(buttonName);
@@ -21,7 +24,7 @@ const Page = () => {
   const searchParams = useSearchParams();
   const userId = searchParams.get("id");
 
-  const getUserData = async () => {
+  const gethostData = async () => {
     const response = await axios.get(`http://localhost:3000/v1/user/${userId}`, {
       withCredentials: true,
       headers: {
@@ -31,47 +34,83 @@ const Page = () => {
     return response.data.data;
   }
 
+  const gethostEvents = async (id : string) =>{
+    const response = await axios.get(`http://localhost:3000/v1/events/host/${id}`, {
+      withCredentials: true,
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+    return response.data.data;
+  }
+
+  const getUserInfo = async () => {
+    const apiUrl = process.env.NEXT_PUBLIC_API_URL || "http://localhost:3000";
+    const api = `${apiUrl}/v1/user`;
+    const response = await axios.get(api, {
+      withCredentials: true,
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+
+    return response.data.data;
+  };
+
 
   useEffect(() => {
-    const fetchData = async () =>{
-      try{
-        const data = await getUserData();
-        setUserInfo(data);
-      }catch(error){
-        console.log("error : ", error);
+    const fetchData = async () => {
+      try {
+        const hostData = await gethostData();
+        const [userEvents, userInfo] = await Promise.all([
+          gethostEvents(hostData._id),
+          getUserInfo()
+        ]);
+        setHostInfo(hostData);
+        setEvents(userEvents);
+        setUserInfo(userInfo);
+      } catch (error) {
+        console.log("error:", error);
+      } finally {
+        setLoading(false);
       }
-    }
-    fetchData();
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+    };
 
-  console.log("UserInfo : " , userInfo);
+    fetchData();
+  }, [userId]);
+
+  if (loading) {
+    return (
+      <div className="w-screen h-screen flex justify-center items-center text-3xl">
+        Loading...
+      </div>
+    ); // Render a loading state while data is being fetched
+  }
+  console.log("events : " ,events);
+  console.log("host : " ,hostInfo);
+  console.log("user : " ,userInfo);
+
 
   return (
     <div className="xl:mx-[300px] lg:mx-[200px] md:mx-[100px] md:py-[167px] py-[100px] flex flex-col item-center align-middle">
       {/* Profile image */}
       <div className=" flex flex-col justify-center align-middle items-center gap-y-[17px] border-b-1 pb-[30px]">
-        <Image
-          src={"/assets/image/book_fair_logo.png"}
-          alt={""}
-          width={189}
-          height={186}
-        />
-        <div className="flex flex-row items-center gap-x-2">
-          <Typography fontWeight="semibold" className="md:!text-2xl !text-sm">
-            Cambodia Book Fair
-          </Typography>
-          <ButtonIcon
-            icon={
-              <Image
-                src={"/assets/icons/heart-bg.svg"}
-                alt="heart"
-                className="md:!w-[44px] md:!h-[44px] !w-[31px] !h-[31px]"
-                width={44}
-                height={44}
-              />
-            }
+      {hostInfo?.profile && (
+          <Image
+            src={hostInfo.profile.startsWith('http') ? hostInfo.profile : `/${hostInfo.profile}`}
+            alt={hostInfo.username}
+            width={189}
+            height={186}
           />
+        )}
+        <div className="flex flex-row items-center gap-x-2">
+          {
+            hostInfo?.username && (
+              <Typography fontWeight="semibold" className="md:!text-2xl !text-sm">
+                {hostInfo.username}
+              </Typography>
+            )
+          }
         </div>
       </div>
       {/* posts and about */}
@@ -113,16 +152,31 @@ const Page = () => {
 
       <div>
         {activeButton === "posts" ? (
-          <Typography>{userInfo}</Typography>
+          <div className="max-[1030px]:px-5 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 justify-items-center">
+          {events.map((item: any, index: number) => (
+            <Card
+              key={index}
+              _id={item._id}
+              thumbnail={item.thumbnail}
+              alt={item.thumbnail}
+              eventName={item.eventName}
+              Date={item.Date}
+              location={item.location}
+              isFavorite={userInfo?.favorites || []}
+            />
+          ))}
+        </div>
+  
         ) : activeButton === "about" ? (
           <div className=" h-full md:mx-20 mx-[30px] md:mt-[50px] mt-5 flex flex-col gap-y-10">
             {/* about */}
-            <Typography className="md:!text-2xl !text-sm">
-              ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-              tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-              minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-              aliquip ex ea commodo consequat. Duis aute irure.
-            </Typography>
+            {
+              hostInfo?.bio && (
+                <Typography className="md:!text-2xl !text-sm">
+                  {hostInfo.bio}
+                </Typography>
+              )
+            }
 
             {/* contact */}
             <div className="flex flex-col md:gap-y-[35px] gap-y-[25px]">
@@ -142,44 +196,53 @@ const Page = () => {
                 </Link>
               </div>
               {/* phone number */}
-              <div className="flex flex-row gap-x-7 align-middle">
-                <Image
-                  src={"assets/icons/phone-fill.svg"}
-                  alt="phone"
-                  width={30}
-                  height={30}
-                />
-                <Typography className="md:!text-2xl !text-sm">
-
-                016 484 406 / 067 791 524
-                </Typography>
-              </div>
+              {
+                hostInfo?.phonenumber && (                
+                  <div className="flex flex-row gap-x-7 align-middle">
+                    <Image
+                      src={"assets/icons/phone-fill.svg"}
+                      alt="phone"
+                      width={30}
+                      height={30}
+                    />
+                    <Typography className="md:!text-2xl !text-sm">
+                      {hostInfo.phonenumber}
+                    </Typography>
+                  </div>
+                )
+              }
               {/* gmail */}
-              <div className="flex flex-row gap-x-7 align-middle">
-                <Image
-                  src={"assets/icons/gmail-icon.svg"}
-                  alt="gmail"
-                  width={30}
-                  height={30}
-                />
-                <Typography className="md:!text-2xl !text-sm">
-
-                volunteercbf@gmail.com
-                </Typography>
-              </div>
+              {
+                hostInfo?.email && (
+                  <div className="flex flex-row gap-x-7 align-middle">
+                    <Image
+                      src={"assets/icons/gmail-icon.svg"}
+                      alt="gmail"
+                      width={30}
+                      height={30}
+                    />
+                    <Typography className="md:!text-2xl !text-sm">
+                      {hostInfo.email}
+                    </Typography>
+                  </div>
+                )
+              }
               {/* location */}
-              <div className="flex flex-row gap-x-7 align-middle">
-                <Image
-                  src={"assets/icons/house.svg"}
-                  alt="location"
-                  width={30}
-                  height={30}
-                />
-                <Typography className="md:!text-2xl !text-sm">
-
-                Phnom Penh, Cambodia, 102st
-                </Typography>
-              </div>
+              {
+                hostInfo?.location && (
+                  <div className="flex flex-row gap-x-7 align-middle">
+                    <Image
+                      src={"assets/icons/house.svg"}
+                      alt="location"
+                      width={30}
+                      height={30}
+                    />
+                    <Typography className="md:!text-2xl !text-sm">
+                      {hostInfo.location}
+                    </Typography>
+                  </div>
+                )
+              }
             </div>
 
             {/* Map */}

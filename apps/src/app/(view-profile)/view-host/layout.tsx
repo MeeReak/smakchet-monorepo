@@ -27,7 +27,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        <title>Smakchet</title>
+        <title>Smakchet | View</title>
       </head>
       <body className={`bg-[#FAFAFA] max-h-full ${roboto.className}`}>
         <Navbar
