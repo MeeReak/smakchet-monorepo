@@ -58,7 +58,7 @@ export class EventService {
 
   async findEventByOrgId(id: string){
     try{
-      return await this.eventRepo.findEventByOrgId(id)
+      return await this.eventRepo.findMyEventByOrgId(id)
     }catch(error: unknown){
       throw error
     }
@@ -88,6 +88,5 @@ export class EventService {
       throw error
     }
   }
-
 
 }

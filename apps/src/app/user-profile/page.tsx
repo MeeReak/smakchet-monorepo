@@ -2,7 +2,7 @@
 
 import React, { useEffect, useRef, useState } from "react";
 import Image from "next/image";
-import { Button, ButtonIcon, InputData, Typography } from "@/components";
+import { Button, InputData, Typography } from "@/components";
 import axios from "axios";
 
 const Page = () => {
@@ -20,9 +20,9 @@ const Page = () => {
    }
  };
 
- const handleClick = () => {
-   fileInputRef.current!.click();
- };
+//  const handleClick = () => {
+//    fileInputRef.current!.click();
+//  };
 
 
   const [user, setUser] = useState({
@@ -74,13 +74,26 @@ const Page = () => {
     if (user.profileFile) {
       formData.append("profile", user.profileFile);
     }
-    formData.append("username", user.username);
-    formData.append("email", user.email);
-    formData.append("phonenumber", user.phonenumber);
-    formData.append("address", user.address);
-    formData.append("bio", user.bio);
+    if (user.username) {
+      formData.append("username", user.username);
+    }
+    if (user.email) {
+      formData.append("email", user.email);
+    }
+    if (user.phonenumber) {
+      formData.append("phonenumber", user.phonenumber);
+    }
+    if (user.address) {
+      formData.append("address", user.address);
+    }
+    if (user.bio) {
+      formData.append("bio", user.bio);
+    }
   
-    console.log("formData:", formData);
+    // Log FormData contents using forEach
+    formData.forEach((value, key) => {
+      console.log(`${key}:`, value);
+    });
   };
 
   useEffect(() => {
@@ -109,36 +122,23 @@ const Page = () => {
 
   return (
     <>
-      <div className="max-w-[1024px] mt-20 sm:mx-auto max-[640px]:flex max-[640px]:flex-col max-[640px]:items-center  ">
-        <div className="pl-8">
-          <Typography
-            fontSize="h3"
-            fontWeight="semibold"
-            className="pt-5 pb-8 "
-          >
-            Edit Profile
+      <div className="max-w-[885px] mt-20 sm:mx-auto max-[640px]:flex max-[640px]:flex-col max-[640px]:items-center">
+          <Typography fontSize="h3" fontWeight="semibold" className="p-5">
+            User Infomation
           </Typography>
-          <div className="grid grid-cols-3">
+          <div className="flex max-[640px]:flex-col max-[640px]:items-center sm:gap-x-5 sm:mx-5 lg:mx-0 lg:gap-x-14 ">
             {/* Profile Picture */}
-            <div className="relative w-[200px] h-[200px]">
+            <div className="relative w-[200px] h-[200px]  ">
               <Image
                 className="object-cover w-[200px] h-[200px] rounded-[10px]"
-                src={imageSrc}
-                alt="profile"
+                src={`${user.profile}`}
+                alt="logo"
                 width={200}
-                height={200}
+                height={150}
               />
-              <input
-                type="file"
-                accept="image/*"
-                ref={fileInputRef}
-                className="hidden"
-                onChange={handleFileUpload}
-              />
-              <div className="absolute bottom-0 right-0 -m-3">
-                <ButtonIcon
-                  className="shadow-[0_3px_10px_rgb(0,0,0,0.2)] bg-white"
-                  onclick={handleClick}
+
+              <label className="p-3 absolute -bottom-2 -right-2 bg-white shadow-[0_3px_10px_rgb(0,0,0,0.2)] cursor-pointer rounded-full" htmlFor="fileInput">
+                {/* <ButtonIcon
                   icon={
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -155,17 +155,21 @@ const Page = () => {
                       />
                     </svg>
                   }
+                /> */}
+                <Image src={"/assets/icons/update_pic.svg"} alt={"update_pic"} width={18.75} height={18.75} className="">
+                </Image>
+              </label>
+              <input
+                  id="fileInput"
+                  type="file"
+                  className="sr-only"
+                  onChange={handleFileChange} // Replace with your own handler function if needed
                 />
-              </div>
             </div>
             {/* Information User */}
-            <div className="col-span-2 grid grid-cols-2 gap-x-[50px] gap-y-3 ">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
               <div>
-                <Typography
-                  className="text-gray-500 pb-2"
-                  fontSize="h4"
-                  fontWeight="normal"
-                >
+                <Typography className="text-gray-500 pb-2" fontSize="h4">
                   {/* Name */}
                   Full Name
                 </Typography>
@@ -175,18 +179,14 @@ const Page = () => {
                     handleChange(e);
                   }}
                   type="text"
-                  defaultValue="Peng Maleap"
+                  defaultValue={`${user.username}`}
                   placeholder={"Enter your fullname"}
-                  className="py-4 pl-4 w-[300px] h-[50px] sm:pr-[10px] md:pr-[60px] lg:pr-[70px] border text-base border-gray-200 bg-gray-100 mb-2 font-normal"
+                  className="py-4 pl-4 w-full sm:pr-[10px] md:pr-[60px] lg:pr-[70px] border text-base border-gray-200 bg-gray-100 mb-2 font-semibold"
                 />
               </div>
               <div>
                 {/* Email */}
-                <Typography
-                  className="text-gray-500 pb-2"
-                  fontSize="h4"
-                  fontWeight="normal"
-                >
+                <Typography className="text-gray-500 pb-2" fontSize="h4">
                   Email
                 </Typography>
                 <InputData
@@ -195,18 +195,14 @@ const Page = () => {
                     handleChange(e);
                   }}
                   type="text"
-                  defaultValue="pengmaleap456@gmail.com"
+                  defaultValue={`${user.email}`}
                   placeholder={"Enter yout email"}
-                  className="py-4 pl-4 w-[300px] h-[50px] sm:pr-[10px] md:pr-[60px] lg:pr-[70px] border text-base border-gray-200 bg-gray-100 mb-2 font-normal"
+                  className="py-4 pl-4 w-full sm:pr-[10px] md:pr-[60px] lg:pr-[70px] border text-base border-gray-200 bg-gray-100 mb-2 font-semibold"
                 />
               </div>
               <div>
                 {/* Phone Number */}
-                <Typography
-                  className="text-gray-500 pb-2"
-                  fontSize="h4"
-                  fontWeight="normal"
-                >
+                <Typography className="text-gray-500 pb-2" fontSize="h4">
                   Phone Number
                 </Typography>
                 <InputData
@@ -215,18 +211,14 @@ const Page = () => {
                     handleChange(e);
                   }}
                   type="text"
-                  defaultValue="012 345 678"
-                  placeholder={"Enter yout phone number"}
-                  className="py-4 pl-4 w-[300px] h-[50px] sm:pr-[10px] md:pr-[60px] lg:pr-[70px] border text-base border-gray-200 bg-gray-100 mb-2 font-normal"
+                  defaultValue={user.phonenumber ? `${user.phonenumber}` : ""}
+                  placeholder={"Enter your phone number"}
+                  className="py-4 pl-4 w-full sm:pr-[10px] md:pr-[60px] lg:pr-[70px] border text-base border-gray-200 bg-gray-100 mb-2 font-semibold"
                 />
               </div>
               <div>
                 {/* Address */}
-                <Typography
-                  className="text-gray-500 pb-2"
-                  fontSize="h4"
-                  fontWeight="normal"
-                >
+                <Typography className="text-gray-500 pb-2" fontSize="h4">
                   Address
                 </Typography>
                 <InputData
@@ -235,110 +227,49 @@ const Page = () => {
                     handleChange(e);
                   }}
                   type="text"
-                  defaultValue="Phnom Penh"
+                  defaultValue={user.address ? `${user.address}` : ""}
                   placeholder={"Enter your address"}
-                  className="py-4 pl-4 w-[300px] h-[50px] sm:pr-[10px] md:pr-[60px] lg:pr-[70px] border text-base border-gray-200 bg-gray-100 mb-2 font-normal"
-                />
-              </div>
-              {host && (
-                <div>
-                  {/*Link Facebook */}
-                  <Typography
-                    className="text-gray-500 pb-2"
-                    fontSize="h4"
-                    fontWeight="normal"
-                  >
-                    Link Facebook page
-                  </Typography>
-                  <InputData
-                    name="link_facebook"
-                    onChange={(e) => {
-                      handleChange(e);
-                    }}
-                    type="text"
-                    defaultValue="http://cambodiabookfair"
-                    placeholder={"Enter your link facebook page"}
-                    className="py-4 pl-4 w-[300px] h-[50px] sm:pr-[10px] md:pr-[60px] lg:pr-[70px] border text-base border-gray-200 bg-gray-100 mb-2 font-normal"
-                  />
-                </div>
-              )}
-              {host && (
-                <div>
-                  {/*Link location */}
-                  <Typography
-                    className="text-gray-500 pb-2"
-                    fontSize="h4"
-                    fontWeight="normal"
-                  >
-                    Link location
-                  </Typography>
-                  <InputData
-                    name="link_location"
-                    onChange={(e) => {
-                      handleChange(e);
-                    }}
-                    type="text"
-                    defaultValue="http://googlemap"
-                    placeholder={"Enter your location"}
-                    className="py-4 pl-4 w-[300px] h-[50px] sm:pr-[10px] md:pr-[60px] lg:pr-[70px] border text-base border-gray-200 bg-gray-100 mb-2 font-normal"
-                  />
-                </div>
-              )}
-              <div className="col-span-2">
-                {/* About user */}
-                <Typography
-                  className="text-gray-500 py-2"
-                  fontSize="h4"
-                  fontWeight="normal"
-                >
-                  About me
-                </Typography>
-                <textarea
-                  onChange={(e) => {
-                    handleChange(e);
-                  }}
-                  name="aboutUser"
-                  defaultValue="This is me"
-                  className="outline-none p-4 resize-none border w-[99%] border-gray-200 bg-gray-100 rounded-lg font-normal"
-                  cols={23}
-                  rows={5}
+                  className="py-4 pl-4 w-full sm:pr-[10px] md:pr-[60px] lg:pr-[70px] border text-base border-gray-200 bg-gray-100 mb-2 font-semibold"
                 />
               </div>
             </div>
           </div>
-        </div>
-
-        <div className="flex gap-3 justify-end mt-7">
-          <Button
-            onclick={() => {
-              setUser({
-                name: "",
-                email: "",
-                phone: "",
-                address: "",
-                aboutUser: "",
-                link_facebook: "",
-                link_location: "",
-              });
-            }}
-            className="px-8 py-3"
-            round="xl"
-            colorScheme="primary"
-          >
-            Cancel
-          </Button>
-          <Button
-            onclick={() => {
-              handleUpdateProfile();
-            }}
-            className="px-10 py-3"
-            round="xl"
-            bgColor="primary"
-            colorScheme="White"
-          >
-            Save
-          </Button>
-        </div>
+          <div className="sm:ml-5 sm:mr-5 lg:mx-0 ">
+            {/* About user */}
+            <Typography className="text-gray-500 py-2" fontSize="h4">
+              About me
+            </Typography>
+            <textarea
+              onChange={(e) => {
+                handleChange(e);
+              }}
+              name="bio"
+              defaultValue={user.bio ? `${user.bio}` : ""}
+              className="outline-none p-4 resize-none border w-full border-gray-200 bg-gray-100 rounded-lg font-semibold"
+              cols={23}
+              rows={5}
+            />
+          </div>
+          <div className="flex gap-3 justify-end mt-5">
+            <Button
+              className="px-8 py-3"
+              round="xl"
+              colorScheme="primary"
+            >
+              Cancel
+            </Button>
+            <Button
+              onclick={() => {
+                handleUpdateProfile();
+              }}
+              className="px-10 py-3"
+              round="xl"
+              bgColor="primary"
+              colorScheme="White"
+            >
+              Save
+            </Button>
+          </div>
       </div>
     </>
   );

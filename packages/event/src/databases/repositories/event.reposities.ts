@@ -43,6 +43,15 @@ export class EventRepository {
     }
   }
 
+  async findMyEventByOrgId(id: string) {
+    try {
+      return await EventModel.find({ orgId: id });
+    } catch (error: unknown) {
+      throw error;
+    }
+  }
+
+
   async findEventByQueries(queryParams: QueryParams): Promise<any> {
     try {
       const { name, cate, id, limit, page, date, location } = queryParams;

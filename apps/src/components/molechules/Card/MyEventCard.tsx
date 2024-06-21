@@ -3,11 +3,12 @@ import Image from "next/image";
 import { ButtonIcon, Typography } from "@/components";
 import DeleteButton from "../Delete/deleteButton";
 import { formatDateTime } from "@/utils/formatTime";
+
 interface MyEventCardProps {
   src: string;
   alt: string;
   title: string;
-  date: string;
+  date: any;
   location: string;
   id: string;
   modalState: string | null;
@@ -24,7 +25,6 @@ const MyEventCard: React.FC<MyEventCardProps> = ({
   modalState,
   setModalState,
 }) => {
-  console.log(id);
 
 
   return (
@@ -65,7 +65,7 @@ const MyEventCard: React.FC<MyEventCardProps> = ({
             </svg>
 
             <Typography fontSize="h4" color="blue" className="pl-[5px]">
-              {formatDateTime(date)}
+              {formatDateTime(date.startDate)}
             </Typography>
           </div>
           <div className="flex items-center">
