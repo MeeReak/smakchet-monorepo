@@ -21,7 +21,8 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   const cookieStore = cookies();
-;
+  const session = cookieStore.get("session");
+  const sigSession = cookieStore.get("session.sig");
 
   return (
     <html lang="en">
@@ -29,12 +30,12 @@ export default function RootLayout({
         <title>Smakchet</title>
       </head>
       <body className={`bg-[#FAFAFA] max-h-full ${roboto.className}`}>
-        {/* <Navbar session={session} sigSession={sigSession} /> */}
+        <Navbar session={session} sigSession={sigSession} />
         <Providers>
           <CardContext>{children}</CardContext>
           <SecondNarbar />
         </Providers>
-        <Footer />
+        {/* <Footer /> */}
       </body>
     </html>
   );

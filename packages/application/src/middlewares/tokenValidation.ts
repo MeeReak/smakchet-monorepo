@@ -22,7 +22,6 @@ export const verifyToken = (req: any, _res: any, next: NextFunction) => {
     console.log("here decode: ", decodedToken);
     req.role = decodedToken.role;
     req.id = decodedToken.id; // Attach userId to the request object
-    console.log("acrossed req.id");
     next(); // If token is valid, continue to the next middleware or route handler
   } catch (error: any) {
     next(new APIError(error.message, 409)); // Throw error for invalid token

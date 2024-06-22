@@ -1,48 +1,11 @@
-"use client";
-
-import { Button, ButtonIcon, Typography, Card } from "@/components";
-import React, { useContext, useEffect, useState } from "react";
-import { useParams, useRouter } from "next/navigation";
-import { MyContext } from "@/contexts/CardContext";
-import ReqCards from "@/components/organisms/ReqCards/ReqCards";
+import { Button, Typography } from "@/components";
+import React from "react";
 import Image from "next/image";
 import Link from "next/link";
-// import { ApplicantProps } from "@/@types/applicant";
 
-interface ApplicantProps {
-  id: string;
-  name: string;
-  date: string;
-  gmail: string;
-  profile: string;
-  status: string;
-}
-
-const Applicant: React.FC = () => {
-  const { CardUser, setAccept, setDecline } = useContext(MyContext);
-  const router = useRouter(); // Initialize the router
-  const route = useParams();
-  // const applicantId = route.applicantDetail;
-  const applicantId = Array.isArray(route.applicantDetail)
-    ? route.applicantDetail[0]
-    : route.applicantDetail;
-
-  const Detailapplicant = CardUser.find((data) => data.id === applicantId);
-  console.log("all", Detailapplicant);
-
-  const handleAccept = (e: React.MouseEvent<HTMLButtonElement>) => {
-    e.preventDefault();
-    setAccept(applicantId);
-    router.back()
-  };
-
-  const handleDecline = (e: React.MouseEvent<HTMLButtonElement>) => {
-    e.preventDefault();
-    setDecline(applicantId);
-    router.back()
-  };
+const Applicant = () => {
   return (
-    <div className="bg-[#FAFAFA] w-full h-full ">
+    <div className="bg-[#FAFAFA] ">
       {/* marign left and right */}
       <div className="flex flex-col gap-y-[53px] ml-[137px] mr-[170px] py-[44px]">
         {/* header */}
@@ -60,7 +23,7 @@ const Applicant: React.FC = () => {
               }
             >
               <Typography fontSize="h3" fontWeight="medium">
-                <Link href={"../applicantTable"}>{Detailapplicant?.name}</Link>
+                <Link href={"../applicantTable"}>Hihd</Link>
               </Typography>
             </Button>
           </div>
@@ -68,20 +31,16 @@ const Applicant: React.FC = () => {
           <div className="flex flex-row gap-x-4">
             {/* Decline button */}
             <Button
-              onclick={handleDecline}
               size="h2"
-              disabled={Detailapplicant?.status === 'Rejected'}
-              className="text-lg border-[0.4px] border-[#E0E0E0]  px-[17px] py-[13px] text-[#E23636] trasition ease-out duration-100 hover:bg-[#E23636] hover:text-white"   
+              className="text-lg border-[0.4px] border-[#E0E0E0]  px-[17px] py-[13px] text-[#E23636] trasition ease-out duration-100 hover:bg-[#E23636] hover:text-white"
             >
               Reject
             </Button>
             {/* Accepted button */}
             <Button
               colorScheme="White"
-              disabled={Detailapplicant?.status === 'Accepted'}
               bgColor="primary"
               className="text-lg px-[17px] py-[13px] bg-opacity-80 !outline-none !border-none transition ease-out duration-300 hover:bg-[#0068FF]"
-              onclick={handleAccept}
             >
               Accepted
             </Button>
@@ -108,7 +67,7 @@ const Applicant: React.FC = () => {
                     alt="profile-outline-blue"
                   />
                   <Typography className="md:text-base">
-                    {Detailapplicant?.name}
+                   wertyuiop[]
                   </Typography>
                 </div>
                 <div className="flex flex-row gap-x-2">
@@ -119,7 +78,7 @@ const Applicant: React.FC = () => {
                     alt="profile-outline-blue"
                   />
                   <Typography className="md:text-base">
-                    {Detailapplicant?.gmail}
+                  dfghjkl;
                   </Typography>
                 </div>
                 <div className="flex flex-row gap-x-2">

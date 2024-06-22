@@ -1,68 +1,60 @@
 import { Button, Typography } from "@/components";
-import { MyContext } from "@/contexts/CardContext";
+import { formatDateTime } from "@/utils/formatTime";
 import Link from "next/link";
-import { useParams } from "next/navigation";
-import React, { useContext } from "react";
 
-interface ApplyTableProps{
-    className?: string
-}
-const ApplyTable: React.FC<ApplyTableProps> = ({
-    className = "",
-}) => {
-    const { CardUser, setAccept, setDecline } = useContext(MyContext);
-    const route = useParams();
+import React from "react";
 
-    // const applicantId = route.applicantDetail;
-    const applicantId = Array.isArray(route.applicantDetail)
-    ? route.applicantDetail[0]
-    : route.applicantDetail;
-
+const ApplyTable = ({ data }: { data: any }) => {
+  console.log("nis data ", data);
   return (
-    <div>
-      <table className= {`w-fit table-auto !rounded-t-[15px] overflow-hidden ${className}`}>
+    <>
+      <table className={`w-fit table-auto !rounded-t-[15px] overflow-hidden `}>
         {/* table header */}
-        <thead className="bg-[#D2E5FF] h-[60px] text-start ">
+        <thead className="bg-[#207BFF] h-[60px] text-start ">
           <tr className="text-center w-fit">
-            <th className="pl-[30px] w-[112px] ">
-              <Typography align="left" fontSize="h4" color="grey">
+            <th className="pl-[40px]">
+              <Typography align="left" fontSize="h4" color="white">
                 N°
               </Typography>
             </th>
-            <th className="w-[237px]">
-              <Typography align="left" fontSize="h4" color="grey">
+            <th className="pl-[40px] ">
+              <Typography align="left" fontSize="h4" color="white">
                 Name
               </Typography>
             </th>
-            <th className="w-[285px]">
-              <Typography align="left" fontSize="h4" color="grey">
+            <th className="pl-[60px]">
+              <Typography align="left" fontSize="h4" color="white">
                 Email
               </Typography>
             </th>
-            <th className="w-[193px]">
-              <Typography align="left" fontSize="h4" color="grey">
-                Status
+            <th className="pl-[60px] ">
+              <Typography align="left" fontSize="h4" color="white">
+                Date
               </Typography>
             </th>
-            <th className="w-[153px]">
-              <Typography align="left" fontSize="h4" color="grey">
-                Date
+            <th className="pl-[60px]">
+              <Typography align="left" fontSize="h4" color="white">
+                Status
               </Typography>
             </th>
             <th></th>
           </tr>
         </thead>
         <tbody className="text-start bg-white">
-          {CardUser.map((item, index) => (
+          {data.map((item: any, index: number) => (
             <tr
-              className="h-[65px] border-1 border-opacity-40 border-b-gray-500"
+              className="h-[50px] border-1 border-opacity-40 border-b-gray-300"
               key={index}
             >
-              <td className="pl-[30px]">{`0${item.id}`}</td>
-              <td>{item.name}</td>
-              <td>{item.gmail}</td>
+              <td className="pl-[40px] text-gray-600">{`${index+1}`}</td>
+              <td className="pl-[40px] text-gray-600">{item.userInfo.name}</td>
+              <td className="pl-[60px] text-gray-600">{item.userInfo.email}</td>
+              <td className="pl-[60px] text-gray-600">
+                {formatDateTime(item.submitOn)}
+              </td>
+
               <td
-                className={`${
+                className={`pl-[60px] ${
                   item.status === "Accepted"
                     ? "text-green-500"
                     : item.status === "Rejected"
@@ -72,23 +64,19 @@ const ApplyTable: React.FC<ApplyTableProps> = ({
               >
                 {item.status}
               </td>
-              <td>{item.date}</td>
-              <td className="pr-[57px]">
+              <td className="px-[40px]">
                 <Button
-               
-                  className="flex items-center 
-                    
-                    !w-[52px] !h-[26px]
-                    hover:bg-[#207BFF] !rounded-[15px] text-center justify-center bg-white hover:text-white !text-[12px] text-gray-600"
+                  className="flex items-center px-4
+                    hover:bg-[#207BFF] !rounded-[15px] text-center justify-center bg-white hover:text-white !text-[12px] text-gray-800"
                 >
-                  <Link href={`applicantTable/${item.id}`}>View</Link>
+                  <Link href={`applicantTable/${item._id}`}>View</Link>
                 </Button>
               </td>
             </tr>
           ))}
         </tbody>
       </table>
-    </div>
+    </>
   );
 };
 

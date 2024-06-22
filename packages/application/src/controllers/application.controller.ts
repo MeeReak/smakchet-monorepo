@@ -8,6 +8,7 @@ import {
   Body,
   Put,
   Path,
+  Get,
 } from "tsoa";
 import { verifyToken } from "@application/middlewares/tokenValidation";
 import { ApplicationService } from "@application/services/application.service";
@@ -16,6 +17,7 @@ import { logger } from "@application/utils/logger";
 import { StatusCode } from "@application/utils/consts";
 import { validateInput } from "@application/middlewares/input-validation";
 import { formResponseSchema } from "@application/schemas/application.schema";
+import axios from "axios";
 
 interface AnswerProp {
   label: string;
@@ -101,6 +103,33 @@ export class ApplicationController extends Controller {
       };
     } catch (error: unknown | any) {
       throw new APIError("Error during updating status", error);
+    }
+  }
+
+  //todo: get all applied
+  //1. get id of host by token
+  //2. find the event by their id
+  //3. find all the user that applied by the event id
+  @Get("/")
+  @Middlewares(verifyToken)
+  public async findAllApplied(@Request() request: any): Promise<any> {
+    try {
+      //step 2
+      const event = await axios.get(
+        `http://event:3004/v1/events/host/${request.id}`
+      );
+      //step 3
+      const applied = await AppService.findAppliedById(event.data.data[0]._id);
+
+      console.log("nis neak applied", applied.length);
+
+      return {
+        message: "All applications fetched successfully",
+        data: applied,
+      };
+    } catch (error: unknown | any) {
+      console.log("Error hz ov", error);
+      throw new APIError("Error during fetching all applications", error);
     }
   }
 }
