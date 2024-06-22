@@ -1,30 +1,38 @@
 import { ApplicationRepository } from "@application/databases/repositories/application.repository";
 
-export class ApplicationService{
+export class ApplicationService {
+  public ApplicationRepo: ApplicationRepository;
 
-    public ApplicationRepo:ApplicationRepository;
+  constructor() {
+    this.ApplicationRepo = new ApplicationRepository();
+  }
 
-    constructor(){
-        this.ApplicationRepo = new ApplicationRepository();
+  // Apply for Event
+
+  async applyEvent(formSubmit: object) {
+    try {
+      return await this.ApplicationRepo.applyEvent(formSubmit);
+    } catch (error: unknown | any) {
+      throw error;
     }
+  }
 
-    // Apply for Event
+  // Update status if user passed or failed
 
-    async applyEvent(formSubmit:object){
-        try{
-            return await this.ApplicationRepo.applyEvent(formSubmit);
-        }catch(error:unknown | any){
-            throw error;
-        }
+  async updateStatus(id: string, status: string) {
+    try {
+      return await this.ApplicationRepo.updateStatus(id, status);
+    } catch (error) {
+      throw error;
     }
+  }
 
-    // Update status if user passed or failed
 
-    async updateStatus(id:string , status:string){
-        try{
-            return await this.ApplicationRepo.updateStatus(id,status);
-        }catch(error){
-            throw error;
-        }
+  async findAppliedById(id: string) {
+    try {
+      return await this.ApplicationRepo.findAppliedById(id);
+    } catch (error: unknown | any) {
+      throw error;
     }
+  }
 }

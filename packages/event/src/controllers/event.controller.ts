@@ -58,7 +58,6 @@ export class EventController extends Controller {
   }
 
   // Get user event
-
   @Get("/myevent")
   @Middlewares(verifyToken)
   public async findMyEvent(@Request() request:any) : Promise<any>{

@@ -17,7 +17,7 @@ export class ApplicationRepository {
   // 2.Check id in DB
   // 3.Update status
 
-  async updateStatus(id: string , status:string) {
+  async updateStatus(id: string, status: string) {
     try {
       // 1.
       if (!mongoose.Types.ObjectId.isValid(id)) {
@@ -32,13 +32,25 @@ export class ApplicationRepository {
 
       // 3.
       const updateStatus = {
-        status:status
-      }
-      const formSubmit = await ApplicationModel.findByIdAndUpdate(id, updateStatus , { new: true });
+        status: status,
+      };
+      const formSubmit = await ApplicationModel.findByIdAndUpdate(
+        id,
+        updateStatus,
+        { new: true }
+      );
 
-      return formSubmit
-
+      return formSubmit;
     } catch (error) {
+      throw error;
+    }
+  }
+
+  // Get all applied users
+  async findAppliedById(id: string) {
+    try {
+      return await ApplicationModel.find({ eventId: id });
+    } catch (error: unknown | any) {
       throw error;
     }
   }
