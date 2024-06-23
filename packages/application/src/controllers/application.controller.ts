@@ -86,8 +86,7 @@ export class ApplicationController extends Controller {
     }
   }
 
-  // Update Status if they passed or failed
-
+  // Update Status if they passed or faile
   @Put("/:Id")
   public async updateStatus(
     @Path() Id: string,
@@ -121,15 +120,29 @@ export class ApplicationController extends Controller {
       //step 3
       const applied = await AppService.findAppliedById(event.data.data[0]._id);
 
-      console.log("nis neak applied", applied.length);
-
       return {
         message: "All applications fetched successfully",
         data: applied,
       };
     } catch (error: unknown | any) {
-      console.log("Error hz ov", error);
       throw new APIError("Error during fetching all applications", error);
+    }
+  }
+
+  //todo : get application by id
+  //1. set id to the path
+  //2. find the application by that id and return it
+  @Get("/{id}")
+  @Middlewares(verifyToken)
+  public async findAppliedById(@Path() id: string): Promise<any> {
+    try {
+      const applied = await AppService.findApplicationById(id);
+      return {
+        message: "Application fetched successfully",
+        data: applied,
+      };
+    } catch (error: unknown | any) {
+      throw new APIError("Error during fetching application by id", error);
     }
   }
 }

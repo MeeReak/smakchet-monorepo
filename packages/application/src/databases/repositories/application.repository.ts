@@ -54,4 +54,14 @@ export class ApplicationRepository {
       throw error;
     }
   }
+
+  // Get application by id
+  async getApplicationById(id: string) {
+    try {
+      return await ApplicationModel.findById(id);
+    } catch (error: unknown | any) {
+      throw error;
+    }
+  }
+  
 }

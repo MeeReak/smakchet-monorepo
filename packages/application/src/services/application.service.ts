@@ -27,10 +27,17 @@ export class ApplicationService {
     }
   }
 
-
   async findAppliedById(id: string) {
     try {
       return await this.ApplicationRepo.findAppliedById(id);
+    } catch (error: unknown | any) {
+      throw error;
+    }
+  }
+
+  async findApplicationById(id: string) {
+    try {
+      return await this.ApplicationRepo.getApplicationById(id);
     } catch (error: unknown | any) {
       throw error;
     }

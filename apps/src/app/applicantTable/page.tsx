@@ -37,6 +37,10 @@ const Page = async () => {
   const sigSession = cookieStore.get("session.sig");
   const appliedData = await getAppliedData({ session, sigSession });
 
+  const accepted = appliedData.data.filter(
+    (data: any) => data.status === "accepted"
+  );
+
   return (
     <div className="bg-[#fafafa] w-full h-screen justify-center items-start flex mt-20">
       <div>
@@ -90,7 +94,7 @@ const Page = async () => {
                 />
               }
             >
-              1 Accepted
+              {accepted.length} Accepted
             </Button>
           </div>
         </div>
