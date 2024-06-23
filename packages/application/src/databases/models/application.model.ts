@@ -10,8 +10,8 @@ const applicationSchema = new Schema(
     },
     status: {
       type: String,
-      enum: ["submitted", "passed", "failed"],
-      default: "submitted", // Set default value to "submitted"
+      enum: ["Pending", "Accept", "Reject"],
+      default: "Pending", // Set default value to "submitted"
     },
     submitOn: {
       type: Date,

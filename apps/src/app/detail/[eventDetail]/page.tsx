@@ -78,7 +78,6 @@ async function getUserData({
   sigSession: RequestCookie | undefined;
 }) {
   try {
-
     const apiUrl = process.env.NEXT_PUBLIC_API_URL || "http://localhost:3000";
 
     const api = `${apiUrl}/v1/user`;
@@ -108,8 +107,7 @@ const page = async ({ params }: { params: { eventDetail: string } }) => {
   const similarData = await getSimilarData({ cate: data[0].category });
   const userData = await getUserData({ session, sigSession });
 
-
-  console.log("orgdata : " , orgData);
+  console.log("orgdata : ", orgData);
 
   return (
     <div className="bg-[#fafafa]">

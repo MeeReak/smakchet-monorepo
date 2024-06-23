@@ -1,3 +1,4 @@
 import Panel from "./Panel";
+import AppliedPanel from "./AppliedPanel";
 
-export default Panel;
+export { Panel, AppliedPanel };
