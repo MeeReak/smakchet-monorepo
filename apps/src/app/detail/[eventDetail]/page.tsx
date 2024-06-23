@@ -1,11 +1,10 @@
-import { ButtonIcon, Typography, Card } from "@/components";
+import { ButtonIcon, Typography, Card, Panel } from "@/components";
 import React from "react";
 import { MapView } from "@/components";
 import ReqCards from "@/components/organisms/ReqCards/ReqCards";
 import Image from "next/image";
 import Link from "next/link";
 import { CardProps } from "@/@types/card";
-import Panel from "@/components/organisms/Panel";
 import { cookies } from "next/headers";
 import { RequestCookie } from "next/dist/compiled/@edge-runtime/cookies";
 

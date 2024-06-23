@@ -11,10 +11,6 @@ import {
 import Image from "next/image";
 import { validationSchema } from "@/utils/validationSchema";
 
-interface ApplyFormProps {
-  onNext: (ApplyForm: ApplyFormData) => void;
-}
-
 interface ApplyFormData {
   id?: string;
   name: string;
@@ -22,7 +18,7 @@ interface ApplyFormData {
   address: string;
   phonenumber: string;
 }
-const Page: FC<ApplyFormProps> = ({ onNext }) => {
+const Page = () => {
   const [info, setInfo] = useState<ApplyFormData>({
     id: Math.random().toString(36).substring(2, 15),
     name: "",
@@ -38,17 +34,18 @@ const Page: FC<ApplyFormProps> = ({ onNext }) => {
   };
 
   const handleSubmit = () => {
-    console.log(info.address)
+    console.log(info.address);
     validationSchema
       .validate(info, { abortEarly: false })
       .then((validData: any) => {
         console.log("Validation Success: ", validData);
         setErrors({});
-        onNext(validData);
+        // onNext(validData);
       })
       .catch((err) => {
         console.error("Validation Error: ", err);
-        if (err && err.inner) { // Check if err and err.inner exist
+        if (err && err.inner) {
+          // Check if err and err.inner exist
           const newErrors = err.inner.reduce((acc: any, error: any) => {
             acc[error.path] = error.message;
             return acc;
@@ -198,7 +195,6 @@ const Page: FC<ApplyFormProps> = ({ onNext }) => {
               </label>
 
               <div className="flex flex-col gap-y-5">
-
                 <div className="flex gap-x-[11px]">
                   <input
                     className="yes/no"
@@ -227,7 +223,6 @@ const Page: FC<ApplyFormProps> = ({ onNext }) => {
                 </Typography>
               </label>
               <div className="flex flex-col gap-y-5">
-
                 <div className="flex flex-row gap-x-4">
                   <input type="checkbox" name="options" id="checkbox1" />
                   <label

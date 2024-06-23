@@ -2,7 +2,7 @@ import { Typography } from "@/components/atoms";
 import React from "react";
 
 interface Hamburger_detailProp {
-  closeSidebar: any;
+  closeSidebar?: any;
 }
 
 const Hamburger_detail: React.FC<Hamburger_detailProp> = ({ closeSidebar }) => {
