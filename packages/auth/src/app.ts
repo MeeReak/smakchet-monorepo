@@ -1,5 +1,5 @@
 import express, { NextFunction, Request, Response } from "express";
-import getConfig from "./utils/createConfig";
+// import getConfig from "./utils/createConfig";
 import hpp from "hpp";
 import helmet from "helmet";
 import cors from "cors";
@@ -11,7 +11,7 @@ import * as swaggerDocument from "../public/swagger.json";
 // Create express app!
 const app = express();
 
-const config = getConfig();
+// const config = getConfig();
 
 // ===================
 // Security Middleware
