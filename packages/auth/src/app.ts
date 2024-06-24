@@ -5,7 +5,7 @@ import helmet from "helmet";
 import cors from "cors";
 import { errorHandler } from "./middlewares/error-handler";
 import { RegisterRoutes } from "./routes/v1/routes";
-import swaggerUi from "swagger-ui-express"
+import swaggerUi from "swagger-ui-express";
 import * as swaggerDocument from "../public/swagger.json";
 
 // Create express app!
@@ -19,14 +19,20 @@ const config = getConfig();
 app.set("trust proxy", 1);
 app.use(hpp());
 app.use(helmet());
-app.use(
-  cors({
-    origin: config.apiGateway,
-    credentials: true,
-    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
-  })
-);
+// Only Allow Specific Origin to Access API Gateway (Frontend)
+const corsOptions = {
+  origin: [
+    // Add your production domain here
+    "https://api.smakchet.com",
+    // Add your development localhost here
+    "http://localhost:9000",
+  ],
+  credentials: true, // Attach token from client
+  methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+  allowedHeaders: ["Content-Type", "Authorization"],
+};
 
+app.use(cors(corsOptions));
 // =======================
 // Standard Middleware
 // =======================
