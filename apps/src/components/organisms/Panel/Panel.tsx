@@ -11,16 +11,24 @@ interface PanelProps {
 }
 
 const Panel: React.FC<PanelProps> = ({ userData, data }) => {
-  const checkIsActive = useMemo(
-    () =>
-      userData.favorites.find((item: any) => item === data._id) ? true : false,
-    [data]
-  );
+  const checkIsActive = useMemo(() => {
+    if (userData && userData.favorites) {
+      return userData.favorites.find((item: any) => item === data._id)
+        ? true
+        : false;
+    }
+    return false; // Return false if userData or userData.favorites is undefined
+  }, [userData, data]);
 
   const [isActive, setIsActive] = useState<boolean>(checkIsActive);
 
   async function toggleFavorite({ id }: { id: string }) {
     try {
+      if (!userData) {
+        console.error("User data is undefined.");
+        return; // Exit early if userData is undefined
+      }
+
       const apiUrl = process.env.NEXT_PUBLIC_API_URL || "http://localhost:3000";
       const api = `${apiUrl}/v1/user/favorite/${id}`;
       const response = await axios.post(
@@ -37,9 +45,14 @@ const Panel: React.FC<PanelProps> = ({ userData, data }) => {
       setIsActive(!isActive);
       return response;
     } catch (error: unknown | any) {
-      console.error("Error fetching data:", error);
+      console.error("Error toggling favorite:", error);
       console.log(error.message);
     }
+  }
+
+  if (!userData) {
+    // Optional: You can render a loading state or placeholder here
+    return null;
   }
 
   return (
