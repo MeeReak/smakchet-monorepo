@@ -23,7 +23,7 @@ app.use(helmet());
 const corsOptions = {
   origin: [
     // Add your production domain here
-    "https://api.smakchet.com",
+    "https://smakchet.com",
     // Add your development localhost here
     "http://localhost:9000",
   ],
