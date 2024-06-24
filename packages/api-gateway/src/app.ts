@@ -42,18 +42,19 @@ app.use(hpp());
 app.use(helmet());
 
 // Only Allow Specific Origin to Access API Gateway (Frontend)
-app.use(
-  cors({
-    origin:
-      getConfig().env !== "development"
-        ? "*"
-        : ["http://localhost:9000" as string],
-    credentials: true, // attach token from client
-    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
-    allowedHeaders: ["Content-Type","Authorization"],
-  })
-);
+const corsOptions = {
+  origin: [
+    // Add your production domain here
+    "https://api.smakchet.com",
+    // Add your development localhost here
+    "http://localhost:9000",
+  ],
+  credentials: true, // Attach token from client
+  methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+  allowedHeaders: ["Content-Type", "Authorization"],
+};
 
+app.use(cors(corsOptions));
 // Apply Limit Request
 applyRateLimit(app);
 
