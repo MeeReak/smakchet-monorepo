@@ -10,7 +10,6 @@ import { logger } from "@auth/utils/logger";
 import axios from "axios";
 import { Body, Get, Header, Post, Query, Route, SuccessResponse } from "tsoa";
 
-
 interface SignUpRequestBody {
   username: string;
   email: string;
@@ -121,13 +120,13 @@ export class UserController {
         token: jwtToken,
         status: "success",
       };
-    } catch (error: unknown |any) {
+    } catch (error: unknown | any) {
       console.error("Error during verify", error);
       // throw new APIError(
       //   "An error occurred during verification",
       //   StatusCode.InternalServerError
       // );
-      throw new error;
+      throw new error();
     }
   }
 
@@ -138,11 +137,16 @@ export class UserController {
       const { email, password } = requestBody;
 
       const user = await this.userService.login({ email, password });
-      
-      const respone = await axios.get(`http://localhost:3003/v1/user/${user.id}`);
 
-      const jwtToken = await generateToken(respone.data.data._id, respone.data.data.role);
+      const respone = await axios.get(
+        `http://localhost:3003/v1/user/${user.id}`
+      );
 
+      const jwtToken = await generateToken(
+        respone.data.data._id,
+        respone.data.data.role
+      );
+      console.log("respone", jwtToken);
       return { message: "Login successful.", token: jwtToken };
     } catch (error: unknown) {
       throw new APIError("Invalid email or password", StatusCode.Unauthorized);
@@ -386,17 +390,17 @@ export class UserController {
 
   @Get("/logout")
   async logout(@Header("authorization") authorization: string): Promise<any> {
-    try{
+    try {
       const token = authorization?.split(" ")[1];
       const decodedUser = await decodedToken(token);
-      const isLogout = await this.userService.logout(decodedUser)
-      
-      if(!isLogout){
-        throw new APIError("Unable to logout!")
+      const isLogout = await this.userService.logout(decodedUser);
+
+      if (!isLogout) {
+        throw new APIError("Unable to logout!");
       }
-      return {message: "Success logout", isLogout: isLogout}
-    }catch(error: unknown){
-      throw error
+      return { message: "Success logout", isLogout: isLogout };
+    } catch (error: unknown) {
+      throw error;
     }
   }
 }
