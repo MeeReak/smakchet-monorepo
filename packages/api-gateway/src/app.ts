@@ -27,8 +27,11 @@ app.use(
     name: "session",
     keys: [`${config.cookieSecretKeyOne}`, `${config.cookieSecretKeyTwo}`],
     maxAge: 24 * 3 * 3600000,
-    secure: config.env !== "development", // update with value from config
-    ...(config.env !== "development" && { sameSite: "none" }),
+    secure: true,
+    sameSite: "none",
+
+    // secure: config.env !== "development", // update with value from config
+    // ...(config.env !== "development" && { sameSite: "none" }),
   })
 );
 
