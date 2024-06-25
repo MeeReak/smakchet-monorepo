@@ -57,7 +57,7 @@ const proxyConfigs: ProxyConfig = {
 
           try {
             responseBody = JSON.parse(bodyString);
-            console.log(responseBody);
+            console.log("=================",responseBody);
             // If Response Error, Not Modified Response
             if (responseBody.errors) {
               return res.status(proxyRes.statusCode!).json(responseBody);
@@ -81,10 +81,6 @@ const proxyConfigs: ProxyConfig = {
               return res.json(responseBody.status);
             }
 
-            if (responseBody.isLogout) {
-              res.clearCookie("session");
-              res.clearCookie("session.sig");
-            }
 
             if (responseBody.isLogout) {
               res.clearCookie("session");
