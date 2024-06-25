@@ -148,8 +148,9 @@ export class UserController {
       );
       console.log("respone", jwtToken);
       return { message: "Login successful.", token: jwtToken };
-    } catch (error: unknown) {
-      throw new APIError("Invalid email or password", StatusCode.Unauthorized);
+    } catch (error: unknown | any) {
+      console.log(error);
+      throw new APIError("Invalid email or passwords", StatusCode.Unauthorized);
     }
   }
 
