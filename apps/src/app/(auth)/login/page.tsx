@@ -42,7 +42,7 @@ const Page = () => {
       console.log("response : ", response.data);
       //const isLogin = true;
       // setLocalStorage("isLogin", isLogin);
-      window.location.href = "/";
+      // window.location.href = "/";
     } catch (error: any | unknown) {
       if (error) {
         // Check if error exists
