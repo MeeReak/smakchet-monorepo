@@ -37,17 +37,26 @@ export async function consumeAuthEmailMessages(
         msg!.content.toString()
       );
 
+      console.log(
+        '============what we got from the queue=============',
+        receiverEmail,
+        username,
+        verifyLink,
+        template
+      );
       let locals: IEmailLocals;
 
       switch (template) {
         case 'verifyEmail':
           locals = {
-            token:verifyLink,
+            token: verifyLink,
             appLink: `${getConfig().clientUrl}`,
             appIcon: ``,
             username,
             //verifyLink: `http://localhost:3000/v1/auth/verify?token=${verifyLink}`,
-            verifyLink: `${getConfig().clientUrl}/verify-email?token=${verifyLink}`
+            verifyLink: `${
+              getConfig().clientUrl
+            }/verify-email?token=${verifyLink}`,
           };
           break;
         case 'forgotPassword':
