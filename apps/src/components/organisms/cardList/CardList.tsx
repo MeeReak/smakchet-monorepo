@@ -68,6 +68,7 @@ const CardList: React.FC<FilterProps> = async ({
   const category = cate ? (cate === "All" ? "" : cate) : "";
   const data = await getData({ cate: category });
   const info = await getUserInfo({ session, sigSession });
+  console.log("============", info);
 
   return (
     <>
@@ -81,7 +82,7 @@ const CardList: React.FC<FilterProps> = async ({
             eventName={item.eventName}
             Date={item.Date}
             location={item.location}
-            isFavorite={info ? info.data.favorites : []}
+            isFavorite={info && info.data !== null ? info.data.favorites : []}
           />
         ))}
       </div>
