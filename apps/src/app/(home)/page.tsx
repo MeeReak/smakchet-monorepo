@@ -29,15 +29,15 @@ const homepage = async ({
 }: {
   searchParams: { [key: string]: string | undefined };
 }) => {
-  const cookieStore = cookies();
-  const session = cookieStore.get("session");
-  const sigSession = cookieStore.get("session.sig");
-  const trendingData = await getTrendingData();
-  console.log("=================================", trendingData);
+  // const cookieStore = cookies();
+  // const session = cookieStore.get("session");
+  // const sigSession = cookieStore.get("session.sig");
+  // const trendingData = await getTrendingData();
+  // console.log("=================================", trendingData);
 
   return (
     <>
-      <div className="max-w-[1024px] m-auto space-y-4 z-10 pt-[80px] mb-20">
+      {/* <div className="max-w-[1024px] m-auto space-y-4 z-10 pt-[80px] mb-20">
         <Trending
           className="flex gap-4 max-[640px]:overflow-hidden max-[640px]:overflow-x-auto mt-[25px]"
           topEvent={{
@@ -59,7 +59,7 @@ const homepage = async ({
           sigSession={sigSession}
           searchParams={searchParams}
         />
-      </div>
+      </div> */}
     </>
   );
 };
