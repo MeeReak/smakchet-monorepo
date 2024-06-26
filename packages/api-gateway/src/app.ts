@@ -29,7 +29,7 @@ app.use(
     maxAge: 24 * 3 * 3600000,
     secure: true,
     sameSite: "lax",
-    domain: ".smakchet.com",
+    domain: "www.smakchet.com",
     path: "/",
     overwrite: true,
     // secure: config.env !== "development", // update with value from config
