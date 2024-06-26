@@ -106,8 +106,10 @@ const page = async ({ params }: { params: { eventDetail: string } }) => {
   const data = await getData({ id: params.eventDetail });
   const orgData = await getOrgData({ id: data[0].orgId });
   const similarData = await getSimilarData({ cate: data[0].category });
-  const userData = await getUserData({ session, sigSession });
-
+  let userData;
+    if (session && sigSession) {
+      userData = await getUserData({ session, sigSession });
+    }
 
   console.log("orgdata : " , orgData);
 
@@ -200,7 +202,9 @@ const page = async ({ params }: { params: { eventDetail: string } }) => {
           </div>
         </div>
 
-        <Panel userData={userData.data} data={data[0]} />
+        {
+          userData ? <Panel userData={userData.data} data={data[0]} /> : <Panel data={data[0]} />
+        }
 
         <div className="px-5 mt-4 py-5  bg-white rounded-[10px]">
           <Typography

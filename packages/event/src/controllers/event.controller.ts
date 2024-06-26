@@ -65,7 +65,7 @@ export class EventController extends Controller {
     try{
       const id = request.id;
       console.log("id in findMyEvent : " , id);
-      const data = await eventService.findEventByOrgId(id);
+      const data = await eventService.findAllEventByOrgId(id);
       console.log("data in findMyEvent : " , data);
       return data;
     }catch(error:unknown | any){
@@ -75,7 +75,7 @@ export class EventController extends Controller {
 
   @Post("/")
   @Middlewares(validateInput(EventDetailSchema))
-  // @Middlewares(verifyToken)
+  @Middlewares(verifyToken)
   public async CreateEvent(
     @Body() requestBody: EventDetail,
     @Request() request: any

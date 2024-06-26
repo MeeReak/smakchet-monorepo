@@ -10,9 +10,10 @@ import "react-quill/dist/quill.snow.css";
 
 interface TextEditorProp {
   onchange?: (str: string) => void;
+  values?:string;
 }
 
-const TextEditor: React.FC<TextEditorProp> = ({ onchange }) => {
+const TextEditor: React.FC<TextEditorProp> = ({ onchange , values }) => {
   const [content, setContent] = useState("");
   const [isBrowser, setIsBrowser] = useState(false);
 
@@ -25,6 +26,9 @@ const TextEditor: React.FC<TextEditorProp> = ({ onchange }) => {
 
   useEffect(() => {
     setIsBrowser(typeof window !== "undefined"); // Check for window instead of document
+    if (values !== undefined) {
+      setContent(values);
+    }
   }, []);
 
   const modules = {
