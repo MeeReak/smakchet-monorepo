@@ -57,7 +57,7 @@ const proxyConfigs: ProxyConfig = {
 
           try {
             responseBody = JSON.parse(bodyString);
-            console.log("=================",responseBody);
+            console.log("=================", responseBody);
             // If Response Error, Not Modified Response
             if (responseBody.errors) {
               return res.status(proxyRes.statusCode!).json(responseBody);
@@ -81,7 +81,6 @@ const proxyConfigs: ProxyConfig = {
               return res.json(responseBody.status);
             }
 
-
             if (responseBody.isLogout) {
               console.log("isLogout===========================");
               res.clearCookie("session");
@@ -89,7 +88,10 @@ const proxyConfigs: ProxyConfig = {
             }
 
             // Modify response to send only the message to the client
-            res.json({ message: responseBody.message });
+            res.json({
+              message: responseBody.message,
+              token: responseBody.token,
+            });
           } catch (error) {
             console.log(error);
             return res.status(500).json({ message: "Error parsing response" });
