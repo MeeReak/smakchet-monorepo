@@ -39,7 +39,7 @@ const Page = () => {
           },
         }
       );
-      console.log("response : ", response.data);
+      console.log("response : ", response);
       //const isLogin = true;
       // setLocalStorage("isLogin", isLogin);
       // window.location.href = "/";
