@@ -28,8 +28,8 @@ app.use(
     keys: [`${config.cookieSecretKeyOne}`, `${config.cookieSecretKeyTwo}`],
     maxAge: 24 * 3 * 3600000,
     secure: true,
-    sameSite: "lax",
-    domain: "www.smakchet.com",
+    sameSite: "none",
+    domain: ".smakchet.com",
     path: "/",
     overwrite: true,
     // secure: config.env !== "development", // update with value from config
@@ -51,6 +51,8 @@ const corsOptions = {
   origin: [
     // Add your production domain here
     "https://smakchet.com",
+    "https://www.smakchet.com",
+
     // Add your development localhost here
     "http://localhost:9000",
   ],
