@@ -45,6 +45,7 @@ function createConfig(configPath: string) {
     facebookAppId: process.env.FACEBOOK_APP_ID,
     facebookAppSecret: process.env.FACEBOOK_APP_SECRET,
     facebookRedirectUri: process.env.FACEBOOK_REDIRECT_URI,
+    userServiceUrl: process.env.USER_SERVICE_URL,
   };
 }
 

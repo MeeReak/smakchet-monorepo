@@ -27,13 +27,13 @@ app.use(
     name: "session",
     keys: [`${config.cookieSecretKeyOne}`, `${config.cookieSecretKeyTwo}`],
     maxAge: 24 * 3 * 3600000,
-    secure: true,
-    sameSite: "lax",
-    domain: ".smakchet.com",
-    path: "/",
-    overwrite: true,
-    // secure: config.env !== "development", // update with value from config
-    // ...(config.env !== "development" && { sameSite: "none" }),
+    // secure: true,
+    // sameSite: "lax",
+    // domain: ".smakchet.com",
+    // path: "/",
+    // overwrite: true,
+    secure: config.env !== "development", // update with value from config
+    ...(config.env !== "development" && { sameSite: "none" }),
   })
 );
 

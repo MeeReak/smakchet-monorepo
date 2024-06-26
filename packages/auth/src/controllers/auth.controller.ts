@@ -112,7 +112,10 @@ export class UserController {
         role: userDetail.role!,
       };
 
-      const respone = await axios.post("http://localhost:3003/v1/user", data);
+      const respone = await axios.post(
+        `${getConfig().userServiceUrl}/v1/user`,
+        data
+      );
       const jwtToken = await generateToken(respone.data.data._id, user.role!);
 
       return {
@@ -139,7 +142,7 @@ export class UserController {
       const user = await this.userService.login({ email, password });
 
       const respone = await axios.get(
-        `http://localhost:3003/v1/user/${user.id}`
+        `${getConfig().userServiceUrl}/v1/user/${user.id}`
       );
 
       const jwtToken = await generateToken(

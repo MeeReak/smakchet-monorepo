@@ -93,6 +93,7 @@ jobs:
             FACEBOOK_REDIRECT_URI=${{ secrets.FACEBOOK_REDIRECT_URI }}
             API_GATEWAY=${{ secrets.API_GATEWAY_URL }}
             JWT_EXPIRES_IN=${{ secrets.JWT_EXPIRES_IN }}
+            USER_SERVICE_URL=${{ secrets.USER_SERVICE_URL }}
             EOF
 
       - name: Start Application
