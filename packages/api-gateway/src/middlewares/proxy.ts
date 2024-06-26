@@ -83,6 +83,7 @@ const proxyConfigs: ProxyConfig = {
 
 
             if (responseBody.isLogout) {
+              console.log("isLogout===========================");
               res.clearCookie("session");
               res.clearCookie("session.sig");
             }
