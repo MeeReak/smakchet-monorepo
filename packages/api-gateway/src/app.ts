@@ -3,7 +3,7 @@ import getConfig from "./utils/createConfig";
 // import compression from "compression";
 import cookieSession from "cookie-session";
 import hpp from "hpp";
-// import helmet from "helmet";
+import helmet from "helmet";
 import cors from "cors";
 import { applyRateLimit } from "./middlewares/rate-limits";
 import applyProxy from "./middlewares/proxy";
@@ -28,9 +28,9 @@ app.use(
     name: "session",
     keys: [`${config.cookieSecretKeyOne}`, `${config.cookieSecretKeyTwo}`],
     maxAge: 24 * 3 * 3600000,
-    secure: false,
+    secure: true,
     sameSite: "none",
-    // domain: ".smakchet.com",
+    domain: ".smakchet.com",
     path: "/",
     // secure: config.env !== "development", // update with value from config
     // ...(config.env !== "development" && { sameSite: "none" }),
@@ -38,7 +38,7 @@ app.use(
 );
 
 app.get('/test-session', (req, res) => {
-  console.log("===============Setting test session.");
+  console.log("==================Setting test session.");
   req!.session!.test = "Hello World!";
   console.log("================Session data:", req.session);
   res.send("Session set!!");
@@ -52,7 +52,7 @@ app.use(hpp());
 // - Stops browsers from sharing your site's vistor data
 // - Stops your website from being displayed in a frame
 // - Prevent XSS, etc.
-// app.use(helmet());
+app.use(helmet());
 
 // Only Allow Specific Origin to Access API Gateway (Frontend)
 const corsOptions = {
