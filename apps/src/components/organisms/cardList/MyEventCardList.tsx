@@ -60,12 +60,6 @@ const MyEventCardList = () => {
               date={item.Date}
               location={item.location}
               id={item._id}
-              modalState={null}
-              setModalState={function (
-                value: React.SetStateAction<string | null>
-              ): void {
-                throw new Error("Function not implemented.");
-              }}
             />
           ))
         ) : (

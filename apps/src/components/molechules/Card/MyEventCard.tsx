@@ -14,6 +14,7 @@ interface MyEventCardProps {
   date: any;
   location: string;
   id: string;
+  
 }
 
 const MyEventCard: React.FC<MyEventCardProps> = ({
