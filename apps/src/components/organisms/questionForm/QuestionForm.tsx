@@ -43,33 +43,33 @@ const QuestionForm: React.FC<QuestionFormProps> = ({
   };
 
   return (
-    <div className="w-full bg-white  rounded-lg">
-      <div className="flex md:flex-row flex-col justify-between items-center gap-x-3">
+    <div className="w-full bg-white rounded-lg ">
+      <div className="flex sm:flex-row flex-col justify-between items-center w-full gap-x-5">
         <InputData
           type="text"
           placeholder="Question"
-          className="!md:w-[547px] h-[50px] w-full  px-6 py-4 border-gray-300 lg:w-[900px] lg:py-2 border-b focus:outline-none focus:border-blue-500 bg-white"
+          className="sm:w-[500px] h-[50px] w-full px-6 py-4 border-gray-300 lg:py-2 border-b focus:outline-none focus:border-blue-500 bg-white"
           onChange={handleQuestionChange}
         />
-
-        <Dropdown
-          options={["Writing Answer", "Multi Choice", "Yes/No"]}
-          classname="w-[30%] h-[50px] bg-white rounded-lg z-50"
-          placeholder="Type of Answer"
-          onChange={handleSelectType}
-        />
-        <ButtonIcon
-          onclick={removeQuestion}
-          icon={
-            <Image
-              src={"assets/icons/trash.svg"}
-              width={36.5}
-              height={37.5}
-              alt="trash icon"
-            />
-          }
-        />
-        
+        <div className="flex flex-row justify-between items-center w-full sm:w-1/3 mt-5 sm:mt-0 gap-x-5">
+          <Dropdown
+            options={["Writing Answer", "Multi Choice", "Yes/No"]}
+            classname="w-full h-[50px] bg-white rounded-lg z-50"
+            placeholder="Type of Answer"
+            onChange={handleSelectType}
+          />
+          <ButtonIcon
+            onclick={removeQuestion}
+            icon={
+              <Image
+                src={"assets/icons/trash.svg"}
+                width={36.5}
+                height={37.5}
+                alt="trash icon"
+              />
+            }
+          />
+        </div>
       </div>
 
       {QAType === "Writing Answer" ? (

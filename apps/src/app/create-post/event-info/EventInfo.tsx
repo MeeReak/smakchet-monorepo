@@ -203,9 +203,9 @@ const EventInfo: React.FC<EventInfoProps> = ({ onNext }) => {
   };
 
   return (
-    <div className="xl:mx-[300px] lg:mx-[200px] md:mx-[100px] space-y-[25px] z-10 pt-[113px] ">
+    <div className="xl:mx-[300px] lg:mx-[200px] md:mx-[100px] mx-9 space-y-[25px] z-10 py-[100px]">
       <Typography fontWeight="bold" fontSize="h2">
-        Create post
+        Event&apos;s Detail
       </Typography>
       <div className="mx-auto mt-[33px]">
         <FileInput onChange={handleFileUpload} />
@@ -216,8 +216,8 @@ const EventInfo: React.FC<EventInfoProps> = ({ onNext }) => {
       <div className="gap-y-5">
         <form onSubmit={handleSubmit}>
           {/* event name, category, detail */}
-          <div className="bg-white lg:py-[25px] lg:px-5 rounded-[10px] flex flex-col space-y-5 px-5">
-            <div className="flex md:flex-row lg:space-x-[35px]">
+          <div className="bg-white py-[25px] lg:px-5 rounded-[10px] flex flex-col space-y-5 px-5">
+            <div className="flex md:flex-row flex-col lg:space-x-[35px]">
               {/* Event name */}
               <div className="flex flex-col w-full">
                 <label htmlFor="eventname">
@@ -268,13 +268,13 @@ const EventInfo: React.FC<EventInfoProps> = ({ onNext }) => {
           </div>  
 
           {/* Date time and location */}
-          <div className="bg-white lg:py-[25px] lg:px-5 rounded-[10px] flex flex-col space-y-5 gap-y-5 px-5 mt-[25px]">
+          <div className="bg-white lg:py-[25px] py-5 lg:px-5 rounded-[10px] flex flex-col space-y-5 px-5 mt-[25px]">
             <Typography fontWeight="bold" fontSize="h2">
               Datetime and Location
             </Typography>
-            <div className="flex flex-col md:flex-row gap-4 mt-5">
+            <div className="flex flex-col md:flex-row gap-4">
               <div className="md:w-[50%]">
-                <Typography fontWeight="semibold" fontSize="h4">
+                <Typography fontSize="h4">
                   Start Date
                 </Typography>
                 <InputDate
@@ -286,7 +286,7 @@ const EventInfo: React.FC<EventInfoProps> = ({ onNext }) => {
                 )}
               </div>
               <div className="md:w-[50%]">
-                <Typography fontWeight="semibold" fontSize="h4">
+                <Typography fontSize="h4">
                   End Date
                 </Typography>
                 <InputDate
@@ -306,9 +306,9 @@ const EventInfo: React.FC<EventInfoProps> = ({ onNext }) => {
                 )}
               </div>
             </div>
-            <div className="flex flex-col md:flex-row gap-4 mt-5">
+            <div className="flex flex-col md:flex-row gap-4">
               <div className="md:w-[50%]">
-                <Typography fontWeight="semibold" fontSize="h4">
+                <Typography fontSize="h4">
                   Start Time
                 </Typography>
                 <CustomTimePicker
@@ -320,7 +320,7 @@ const EventInfo: React.FC<EventInfoProps> = ({ onNext }) => {
                 )}
               </div>
               <div className="md:w-[50%]">
-                <Typography fontWeight="semibold" fontSize="h4">
+                <Typography fontSize="h4">
                   End Time
                 </Typography>
                 <CustomTimePicker
@@ -332,14 +332,15 @@ const EventInfo: React.FC<EventInfoProps> = ({ onNext }) => {
                 )}
               </div>
             </div>
+            <div className="flex flex-col  gap-4">
+
             <label htmlFor="location">
-              <Typography fontWeight="semibold" fontSize="h4">
+              <Typography fontSize="h4">
                 Location
               </Typography>
             </label>
-
             <Dropdown
-              classname="mt-3 mb-3 w-full"
+              classname="w-full"
               options={locations}
               onChange={handleSelectlocation}
               placeholder={"Select Event's Location"}
@@ -347,17 +348,18 @@ const EventInfo: React.FC<EventInfoProps> = ({ onNext }) => {
             {errors.location && (
               <p className="text-red-500 mb-2">{errors.location}</p>
             )}
+            </div>
           </div>
 
           {/* Requirements */}
           <div className="bg-white lg:py-[25px] lg:px-5 rounded-[10px] flex flex-col px-5 mt-[25px]">
-            <Typography fontWeight="bold" fontSize="h3" className="mt-5 mb-5">
+            <Typography fontWeight="bold" fontSize="h3">
               Requirements
             </Typography>
-            <div className="grid grid-cols-2 gap-x-5">
+            <div className="grid md:grid-cols-2 grid-cols-1 gap-x-5 md:mt-[35px]">
               <div>
                 <label htmlFor="age">
-                  <Typography fontWeight="semibold" fontSize="h4">
+                  <Typography fontSize="h4">
                     Age
                   </Typography>
                 </label>
@@ -375,7 +377,7 @@ const EventInfo: React.FC<EventInfoProps> = ({ onNext }) => {
               </div>
               <div>
                 <label htmlFor="language">
-                  <Typography fontWeight="semibold" fontSize="h4">
+                  <Typography fontSize="h4">
                     Language
                   </Typography>
                 </label>
@@ -393,7 +395,7 @@ const EventInfo: React.FC<EventInfoProps> = ({ onNext }) => {
               </div>
               <div>
                 <label htmlFor="skill">
-                  <Typography fontWeight="semibold" fontSize="h4">
+                  <Typography fontSize="h4">
                     Skill
                   </Typography>
                 </label>
@@ -411,7 +413,7 @@ const EventInfo: React.FC<EventInfoProps> = ({ onNext }) => {
               </div>
               <div>
                 <label htmlFor="timeCommitment">
-                  <Typography fontWeight="semibold" fontSize="h4">
+                  <Typography fontSize="h4">
                     Time Commitment
                   </Typography>
                 </label>

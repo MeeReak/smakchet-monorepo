@@ -194,7 +194,7 @@ const FormPost = ({
 
   return (
     <div className="h-full bg-[#FAFAFA] w-full ">
-      <div className="md:py-[113px] md:px-[240px] py-[100px]">
+      <div className="md:py-[113px] xl:px-[300px] lg:px-[200px] md:px-[100px] px-6 py-[100px]">
         <Button
           className="!border-none text-start w-fit"
           leftIcon={

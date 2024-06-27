@@ -36,7 +36,9 @@ const Dropdown: React.FC<DropdownProps> = ({
             selectedOption ? "text-black" : "text-gray-400"
           }`}
         >
+          
           {selectedOption || `${placeholder}`}
+        
         </a>
         <Image
           src={"/assets/icons/dropdown.svg"}

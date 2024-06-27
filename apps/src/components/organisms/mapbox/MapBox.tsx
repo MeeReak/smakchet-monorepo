@@ -32,7 +32,7 @@ const MapBox: React.FC<MapboxProp> = ({ onchange }) => {
           latitude: 12.5657,
           zoom: 7,
         }}
-        style={{ width: "100%", height: 400, zIndex: 10 }}
+        style={{ width: "100%", height: 400, zIndex: 10 }} 
         mapStyle="mapbox://styles/mapbox/streets-v9"
         onClick={handleMapClick}
       >
