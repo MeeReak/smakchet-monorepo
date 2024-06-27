@@ -57,7 +57,7 @@ const proxyConfigs: ProxyConfig = {
 
           try {
             responseBody = JSON.parse(bodyString);
-            console.log("=================", responseBody);
+            console.log("================= Response Body", responseBody);
             // If Response Error, Not Modified Response
             if (responseBody.errors) {
               return res.status(proxyRes.statusCode!).json(responseBody);
@@ -65,7 +65,7 @@ const proxyConfigs: ProxyConfig = {
 
             // Store JWT in session
             if (responseBody.token) {
-              console.log(responseBody.token);
+              console.log("================= Token", responseBody.token);
               (req as Request).session!.jwt = responseBody.token;
             }
 
@@ -75,9 +75,12 @@ const proxyConfigs: ProxyConfig = {
             }
 
             if (responseBody.verify_token) {
+              console.log("================= Verify Token", responseBody);
+
               return res.json(responseBody);
             }
             if (responseBody.status) {
+              console.log("================= Status", responseBody);
               return res.json(responseBody.status);
             }
 
