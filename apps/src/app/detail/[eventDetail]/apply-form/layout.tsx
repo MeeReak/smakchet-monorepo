@@ -2,10 +2,9 @@ import { Navbar, SecondNarbar, Footer } from "@/components";
 import CardContext from "@/contexts/CardContext";
 import { Metadata } from "next";
 import { Roboto } from "next/font/google";
-import ".././globals.css";
+import "../.././globals.css";
 import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
-
 
 const roboto = Roboto({
   subsets: ["latin"],
