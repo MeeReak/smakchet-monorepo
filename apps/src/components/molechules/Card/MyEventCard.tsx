@@ -5,6 +5,7 @@ import Image from "next/image";
 import { ButtonIcon, Typography } from "@/components";
 import DeleteButton from "../Delete/deleteButton";
 import { formatDateTime } from "@/utils/formatTime";
+import Link from "next/link";
 
 interface MyEventCardProps {
   src: string;
@@ -13,8 +14,6 @@ interface MyEventCardProps {
   date: any;
   location: string;
   id: string;
-  modalState: string | null;
-  setModalState: React.Dispatch<React.SetStateAction<string | null>>;
 }
 
 const MyEventCard: React.FC<MyEventCardProps> = ({
@@ -24,8 +23,6 @@ const MyEventCard: React.FC<MyEventCardProps> = ({
   date,
   location,
   id,
-  modalState,
-  setModalState,
 }) => {
 
 
@@ -99,6 +96,7 @@ const MyEventCard: React.FC<MyEventCardProps> = ({
         </div>
 
         <div className="flex xl:flex-col flex-row-reverse items-end gap-x-5 md:gap-y-3 transition-transform duration-300 xl:transform translate-x-1 xl:group-hover:translate-x-0 h-fit self-end">
+          <Link href={`update-post?id=${id}`}>
           <ButtonIcon
             className="xl:border-[1px] xl:border-[#207BFF] rounded-md xl:hidden inline xl:group-hover:flex xl:hover:border-[2px]  xl:hover:bg-[#D2E5FF] transition-all xl:!h-10 xl:!w-10 !w-[15px] !h-[15px] md:!w-8 md:!h-8"
             icon={
@@ -118,7 +116,8 @@ const MyEventCard: React.FC<MyEventCardProps> = ({
               </svg>
             }
           />
-          <DeleteButton id={id} modalState={modalState} setModalState={setModalState} />
+          </Link>
+          <DeleteButton id={id}/>
 
         </div>
       </div>

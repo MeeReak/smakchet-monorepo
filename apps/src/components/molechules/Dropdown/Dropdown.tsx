@@ -1,11 +1,12 @@
 "use client";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Image from "next/image";
 interface DropdownProps {
   classname?: string;
   options: string[];
   onChange?: (value: string) => void; // Add the onChange prop
   placeholder: string;
+  value?: string;
 }
 
 const Dropdown: React.FC<DropdownProps> = ({
@@ -13,9 +14,10 @@ const Dropdown: React.FC<DropdownProps> = ({
   options,
   onChange,
   placeholder,
+  value
 }) => {
   const [isOpen, setisOpen] = useState(false);
-  const [selectedOption, setselectedOption] = useState(null);
+  const [selectedOption, setselectedOption] = useState<string | null>(null);
 
   const toggling = () => {
     setisOpen(!isOpen);
@@ -26,6 +28,11 @@ const Dropdown: React.FC<DropdownProps> = ({
     setisOpen(false);
     onChange?.(value);
   };
+  useEffect(() => {
+    if (value !== undefined) {
+      setselectedOption(value);
+    }
+  }, [value]);
 
   return (
     <div className={`inline-flex ${classname}`}>
