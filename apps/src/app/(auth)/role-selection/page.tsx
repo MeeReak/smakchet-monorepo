@@ -21,8 +21,8 @@ const RoleChoosing = () => {
 
   return (
     <Suspense>
-      <div className="h-screen bg-[#FAFAFA] ">
-        <div className="flex flex-col items-center justify-center pt-[70px] mb-20">
+      <div className="h-full bg-[#FAFAFA] ">
+        <div className="flex flex-col items-center mx-2 justify-center md:py-[70px] py-14 mb-20">
           <Link href={"/"}>
             {" "}
             <Image
@@ -32,22 +32,22 @@ const RoleChoosing = () => {
               height={32}
             />
           </Link>
-          <Typography
-            fontSize="h2"
+          <Typography 
+          fontSize="h2"
             fontWeight="semibold"
             className="pb-3 mt-14"
           >
             Select Your Role
           </Typography>
-          <Typography className="pb-5" fontSize="h3" fontWeight="medium">
+          <Typography className="pb-5 !md:!text-xl !text-lg " fontWeight="medium">
             Which role do u want to register as?
           </Typography>
           {/* option */}
-          <div className="flex flex-row gap-9 pb-9 mt-7">
+          <div className="flex flex-row md:gap-9 gap-5 pb-9 mt-7 ">
             <button
               onClick={handleClick}
               id="1"
-              className={`flex flex-col items-center gap-3 p-[20px] border rounded-lg shadow-[0_3px_10px_rgb(0,0,0,0.2)] transition-transform duration-300 ease-in-out transform bg-white hover:scale-105 ${
+              className={`flex flex-col items-center gap-3 p-5 border rounded-lg shadow-[0_3px_10px_rgb(0,0,0,0.2)] transition-transform duration-300 ease-in-out transform bg-white hover:scale-105 ${
                 active == "1" ? "border-[#207BFF] border-[3px] " : ""
               }`}
             >
@@ -56,7 +56,7 @@ const RoleChoosing = () => {
                 alt="smakchet-logo"
                 width={150}
                 height={150}
-                className="rounded-full w-[150px] h-[150px] object-cover  "
+                className="rounded-full md:w-[150px] md:h-[150px] w-[100px] h-[100px] object-cover  "
               ></Image>
               <div className="flex items-center flex-col">
                 <Typography fontSize="h3" fontWeight="medium">
@@ -85,7 +85,7 @@ const RoleChoosing = () => {
                 alt="smakchet-logo"
                 width={150}
                 height={150}
-                className="rounded-full w-[150px] h-[150px] "
+                className="rounded-full md:w-[150px] md:h-[150px] w-[100px] h-[100px] "
               ></Image>
               <div className="flex items-center flex-col">
                 <Typography fontSize="h3" fontWeight="medium">
@@ -104,12 +104,12 @@ const RoleChoosing = () => {
           </div>
 
           <Link href={`/sign-up?role=${roles[active]}`}>
-            <Button className="bg-[#207BFF] align-middle justify-center text-white py-4 px-48 rounded-lg  hover:cursor-pointer h-[50px] mt-3">
+            <Button className="bg-[#207BFF] align-middle justify-center text-white w-full py-4 px-40   sm:py-4 sm:px-48 rounded-lg hover:cursor-pointer h-[50px] mt-3">
               Continue
             </Button>
           </Link>
 
-          <Typography align="center" className="mt-4" fontSize="h5">
+          <Typography align="center" className="mt-4 !text-base" >
             Already have an account ?{" "}
             <Link
               href={"/login"}
