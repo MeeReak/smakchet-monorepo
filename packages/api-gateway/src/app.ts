@@ -32,20 +32,21 @@ app.use(
     sameSite: "none",
     domain: ".smakchet.com",
     path: "/",
-    overwrite: true,
     // secure: config.env !== "development", // update with value from config
     // ...(config.env !== "development" && { sameSite: "none" }),
   })
 );
 
 app.get('/test-session', (req, res) => {
+  console.log("Setting test session.");
   req!.session!.test = "Hello World!";
+  console.log("Session data:", req.session);
   res.send("Session set!");
 });
 
 
 // Prevent HTTP Parameter Pollution attacks
-app.use(hpp());
+// app.use(hpp());
 
 // Prevent Some Security:
 // - Stops browsers from sharing your site's vistor data
