@@ -28,10 +28,10 @@ app.use(
     name: "session",
     keys: [`${config.cookieSecretKeyOne}`, `${config.cookieSecretKeyTwo}`],
     maxAge: 24 * 3 * 3600000,
-    secure: true,
+    secure: false,
     sameSite: "none",
-    domain: ".smakchet.com",
-    path: "/",
+    // domain: ".smakchet.com",
+    // path: "/",
     // secure: config.env !== "development", // update with value from config
     // ...(config.env !== "development" && { sameSite: "none" }),
   })
