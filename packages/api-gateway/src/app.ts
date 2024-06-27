@@ -90,6 +90,7 @@ const conditions = [
   { path: "/v1/events", method: "GET" }, // Exclude GET requests starting with /v1/events
   { path: "/v1/user/" },
   { path: "/v1/user/info" },
+  { path: "/v1/user/checkauth"}
 ];
 
 // Use verifyUser middleware with the unless function

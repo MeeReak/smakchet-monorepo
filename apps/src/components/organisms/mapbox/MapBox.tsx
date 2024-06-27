@@ -1,15 +1,22 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "mapbox-gl/dist/mapbox-gl.css";
 import Map, { Marker, NavigationControl, GeolocateControl } from "react-map-gl";
 
 interface MapboxProp {
+  value?: { lng: number; lat: number };
   onchange?: (marker: { lng: number; lat: number }) => void;
 }
 
-const MapBox: React.FC<MapboxProp> = ({ onchange }) => {
+const MapBox: React.FC<MapboxProp> = ({ value, onchange }) => {
   const [marker, setMarker] = useState<{ lng: number; lat: number } | null>(null);
+
+  useEffect(() => {
+    if (value) {
+      setMarker(value);
+    }
+  }, [value]);
 
   const handleMapClick = (e: any) => {
     const { lngLat } = e;
@@ -47,6 +54,6 @@ const MapBox: React.FC<MapboxProp> = ({ onchange }) => {
       </Map>
     </main>
   );
-}
+};
 
 export default MapBox;

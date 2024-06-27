@@ -218,6 +218,26 @@ export class UserController extends Controller {
       throw new APIError("Error fetching role", StatusCode.BadRequest);
     }
   }
+  @Get("checkauth")
+  @Middlewares(verifyToken)
+  public async Checkauth(@Request() request:any):Promise<any>{
+
+    try{
+      if(request.id){
+        return {
+          statusCode : 200 ,
+          authenticated: true
+        }
+      }else{
+        return {
+          statusCode : 401 ,
+          authenticated: false
+        }
+      }
+    }catch(error:unknown | any){
+      throw new error;
+    }
+  }
 
   // use {} for param not :
   @Get("/{id}")

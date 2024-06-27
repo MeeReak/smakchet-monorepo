@@ -1,16 +1,20 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Button, ButtonIcon, Typography } from "@/components/atoms";
 import Image from "next/image";
+
 interface MultiChoiceQuestionProp {
-  onchange: (option: any) => void;
+  onchange: (options: string[]) => void;
+  initialOptions?: string[]; // Optional initial options
 }
+
 const MultiChoiceQuestion: React.FC<MultiChoiceQuestionProp> = ({
   onchange,
+  initialOptions = [],
 }) => {
-  const [options, setOptions] = useState([""]);
+  const [options, setOptions] = useState<string[]>(initialOptions);
 
-  const handleOptionChange = (index: any, value: any) => {
+  const handleOptionChange = (index: number, value: string) => {
     const updatedOptions = [...options];
     updatedOptions[index] = value;
     setOptions(updatedOptions);
@@ -29,7 +33,6 @@ const MultiChoiceQuestion: React.FC<MultiChoiceQuestionProp> = ({
       updatedOptions.splice(index, 1);
       setOptions(updatedOptions);
       onchange(updatedOptions);
-      console.log(updatedOptions);
     }
   };
 
@@ -48,10 +51,8 @@ const MultiChoiceQuestion: React.FC<MultiChoiceQuestionProp> = ({
           />
           <ButtonIcon
             onclick={() => handleRemoveOption(index)}
-            icon={
-              <Image src={"assets/icons/trash.svg"} width={36.5} height={37.5} alt="trash icon"/>
-            }
-          ></ButtonIcon>
+            icon={<Image src={"assets/icons/trash.svg"} width={36.5} height={37.5} alt="trash icon" />}
+          />
         </div>
       ))}
       <Button
