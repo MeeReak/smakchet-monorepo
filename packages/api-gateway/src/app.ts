@@ -3,7 +3,7 @@ import getConfig from "./utils/createConfig";
 // import compression from "compression";
 import cookieSession from "cookie-session";
 import hpp from "hpp";
-import helmet from "helmet";
+// import helmet from "helmet";
 import cors from "cors";
 import { applyRateLimit } from "./middlewares/rate-limits";
 import applyProxy from "./middlewares/proxy";
@@ -38,21 +38,21 @@ app.use(
 );
 
 app.get('/test-session', (req, res) => {
-  console.log("Setting test session.");
+  console.log("===============Setting test session.");
   req!.session!.test = "Hello World!";
-  console.log("Session data:", req.session);
-  res.send("Session set!");
+  console.log("================Session data:", req.session);
+  res.send("Session set!!");
 });
 
 
 // Prevent HTTP Parameter Pollution attacks
-// app.use(hpp());
+app.use(hpp());
 
 // Prevent Some Security:
 // - Stops browsers from sharing your site's vistor data
 // - Stops your website from being displayed in a frame
 // - Prevent XSS, etc.
-app.use(helmet());
+// app.use(helmet());
 
 // Only Allow Specific Origin to Access API Gateway (Frontend)
 const corsOptions = {
