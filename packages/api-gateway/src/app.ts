@@ -22,18 +22,7 @@ const config = getConfig();
 // ===================
 app.set("trust proxy", 1);
 // app.use(compression());
-console.log({
-  name: "session",
-  keys: [`${config.cookieSecretKeyOne}`, `${config.cookieSecretKeyTwo}`],
-  maxAge: 24 * 3 * 3600000,
-  secure: true,
-  sameSite: "none",
-  domain: ".smakchet.com",
-  path: "/",
-  overwrite: true,
-  // secure: config.env !== "development", // update with value from config
-  // ...(config.env !== "development" && { sameSite: "none" }),
-})
+
 app.use(
   cookieSession({
     name: "session",
@@ -48,6 +37,12 @@ app.use(
     // ...(config.env !== "development" && { sameSite: "none" }),
   })
 );
+
+app.get('/test-session', (req, res) => {
+  req!.session!.test = "Hello World!";
+  res.send("Session set!");
+});
+
 
 // Prevent HTTP Parameter Pollution attacks
 app.use(hpp());
