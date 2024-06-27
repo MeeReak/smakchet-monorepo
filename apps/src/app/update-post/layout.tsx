@@ -1,11 +1,10 @@
-import { Navbar, SecondNarbar, Footer } from "@/components";
+import { Navbar, SecondNarbar,Footer } from "@/components";
 import CardContext from "@/contexts/CardContext";
 import { Metadata } from "next";
 import { Roboto } from "next/font/google";
 import ".././globals.css";
+import { Providers } from "../providers";
 import { cookies } from "next/headers";
-import { redirect } from "next/navigation";
-
 
 const roboto = Roboto({
   subsets: ["latin"],
@@ -26,14 +25,10 @@ export default function RootLayout({
   const gaSesssion = cookieStore.get("_ga");
   const sigSession = cookieStore.get("session.sig");
 
-  if(!session){
-      redirect('/login');
-  }
-
   return (
     <html lang="en">
       <head>
-        <title>Smakchet</title>
+        <title>Smakchet | Update Event</title>
       </head>
       <body className={`bg-[#FAFAFA] max-h-full ${roboto.className}`}>
         <Navbar

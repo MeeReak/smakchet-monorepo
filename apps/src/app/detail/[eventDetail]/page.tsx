@@ -106,8 +106,11 @@ const page = async ({ params }: { params: { eventDetail: string } }) => {
   const similarData = await getSimilarData({ cate: data[0].category });
   const userData = await getUserData({ session, sigSession });
 
-  console.log("====================",userData)
-
+  console.log("====================", userData);
+  // let userData;
+  //   if (session && sigSession) {
+  //     userData = await getUserData({ session, sigSession });
+  //   }
 
   return (
     <div className="bg-[#fafafa]">

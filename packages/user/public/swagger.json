@@ -236,6 +236,23 @@
 					}
 				]
 			}
+		},
+		"/v1/user/checkauth": {
+			"get": {
+				"operationId": "Checkauth",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {}
+							}
+						}
+					}
+				},
+				"security": [],
+				"parameters": []
+			}
 		}
 	},
 	"servers": [

@@ -1,27 +1,59 @@
-//DeleteButton
-
 "use client";
-import React from "react";
+import React, { useState } from "react";
 import { ButtonIcon } from "@/components/atoms";
+import ModalButton from "../Modal/Modal";
+import axios from "axios";
+//import { useRouter } from 'next/router';
 
 export interface FilterButtonProps {
   className?: string;
   id: string;
-  modalState: string | null;
-  setModalState: React.Dispatch<React.SetStateAction<string | null>>;
 }
 
-const DeleteButton: React.FC<FilterButtonProps> = ({
-  className,
-  id,
-  modalState,
-  setModalState,
-}) => {
+const DeleteButton: React.FC<FilterButtonProps> = ({ className, id }) => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  //const router = useRouter();
+
+  const setModalState = (id: string) => {
+    console.log("id to delete: ", id);
+    setIsModalOpen(true);
+  };
+
+  const handleCloseModal = () => {
+    setIsModalOpen(false);
+  };
+
+  const handledeleteEvent = async (id:string) => {
+    try{
+      const response = await axios.delete(
+        `http://localhost:3000/v1/events/${id}`,
+        {
+          withCredentials: true,
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
+      window.location.href = "/my-event";
+    }catch(err:unknown | any){
+      if (err.response) {
+        console.error("Server Error:", err.response.data);
+        console.error("Status Code:", err.response.status);
+        console.error("Headers:", err.response.headers);
+      } else if (err.request) {
+        console.error("No response received:", err.request);
+      } else {
+        console.error("Request setup Error:", err.message);
+      }
+      console.error("Error config:", err.config);
+    }
+  }
+
   return (
     <div className="relative">
       <ButtonIcon
-        onclick={() => setModalState(id)}
-        className="xl:border-[1px] xl:border-[#FF2020] rounded-md xl:hidden inline xl:group-hover:flex xl:hover:border-[2px] transition-all xl:!h-10 xl:!w-10 !w-[15px] !h-[15px] md:!w-8 md:!h-8"
+        onclick={() => setModalState(id)} // Corrected from onclick to onClick
+        className={`xl:border-[1px] xl:border-[#FF2020] rounded-md xl:hidden inline xl:group-hover:flex xl:hover:border-[2px] transition-all xl:!h-10 xl:!w-10 !w-[15px] !h-[15px] md:!w-8 md:!h-8 ${className}`}
         icon={
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -39,6 +71,15 @@ const DeleteButton: React.FC<FilterButtonProps> = ({
           </svg>
         }
       />
+      <ModalButton isOpen={isModalOpen} onClose={handleCloseModal} classname="p-8 text-xl">
+        <div>
+          <p className="mb-4">Are you sure you want to delete this event?</p>
+          <div className="flex justify-end gap-x-2">
+            <button onClick={handleCloseModal} className="mr-2 px-4 py-2 bg-gray-300 rounded">Cancel</button>
+            <button onClick={() => handledeleteEvent(id)} className="px-4 py-2 bg-red-500 text-white rounded">Delete</button>
+          </div>
+        </div>
+      </ModalButton>
     </div>
   );
 };

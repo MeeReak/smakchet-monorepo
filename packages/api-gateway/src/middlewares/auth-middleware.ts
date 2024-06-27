@@ -1,11 +1,12 @@
 import APIError from "@api-gateway/Errors/api-error";
 import { publickey } from "@api-gateway/server";
 import { StatusCode } from "@api-gateway/utils/consts";
+import getConfig from "@api-gateway/utils/createConfig";
 import { logger } from "@api-gateway/utils/logger";
 import { NextFunction, Request, Response } from "express";
 import { verify } from "jsonwebtoken";
 
-async function verifyUser(req: Request, _res: Response, _next: NextFunction) {
+async function verifyUser(req: Request, res: Response, _next: NextFunction) {
   try {
     console.log("helllo", req.session);
     if (!req.session!.jwt) {
@@ -22,6 +23,8 @@ async function verifyUser(req: Request, _res: Response, _next: NextFunction) {
     _next();
   } catch (error: any) {
     console.log(error.message);
+    return res.redirect(`${getConfig().clientUrl}/login`);
+
     _next(error);
   }
 }

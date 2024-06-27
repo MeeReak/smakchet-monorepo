@@ -1,13 +1,14 @@
 // components/TimePicker.tsx
 "use client"
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 interface TimePickerProps {
   onSelectTime: (time: string) => void;
   classname?: string;
+  value?: string;
 }
 
-const CustomTimePicker: React.FC<TimePickerProps> = ({ onSelectTime , classname }) => {
+const CustomTimePicker: React.FC<TimePickerProps> = ({ onSelectTime , classname  , value}) => {
   const [selectedTime, setSelectedTime] = useState<string>('');
 
   const handleTimeChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -16,6 +17,12 @@ const CustomTimePicker: React.FC<TimePickerProps> = ({ onSelectTime , classname 
       onSelectTime(event.target.value); // Call the callback with selected date
     }
   };
+
+  useEffect(() => {
+    if (value !== undefined) {
+      setSelectedTime(value);
+    }
+  }, [value]);
 
   return (
     <div className="flex items-center space-x-2">

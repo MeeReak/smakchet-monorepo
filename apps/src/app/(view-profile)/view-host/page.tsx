@@ -1,28 +1,26 @@
 "use client";
 
 import Image from "next/image";
-import { Button, ButtonIcon, Card, CardList, Typography } from "../../../components";
+import { Button, Card, Typography } from "../../../components";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 
 const Page = () => {
-    // default is about
-    // you can change it to posts
   const [activeButton, setActiveButton] = useState<string>("about");
-  const [hostInfo,setHostInfo] = useState<any>(null);
-  const [events , setEvents] = useState<any>([]);
+  const [hostInfo, setHostInfo] = useState<any>(null);
+  const [events, setEvents] = useState<any>([]);
   const [loading, setLoading] = useState(true);
-  const [userInfo , setUserInfo] = useState<any>(null);
+  const [userInfo, setUserInfo] = useState<any>(null);
 
   const handleButtonClick = (buttonName: string) => {
     setActiveButton(buttonName);
-   
   };
 
   const searchParams = useSearchParams();
   const userId = searchParams.get("id");
+  console.log("user Id : ", userId);
 
   const gethostData = async () => {
     const response = await axios.get(`http://localhost:3000/v1/user/${userId}`, {
@@ -31,10 +29,11 @@ const Page = () => {
         "Content-Type": "application/json",
       },
     });
+    console.log("get host info: " , response.data.data)
     return response.data.data;
   }
 
-  const gethostEvents = async (id : string) =>{
+  const gethostEvents = async (id: string) => {
     const response = await axios.get(`http://localhost:3000/v1/events/host/${id}`, {
       withCredentials: true,
       headers: {
@@ -57,9 +56,10 @@ const Page = () => {
     return response.data.data;
   };
 
-
   useEffect(() => {
     const fetchData = async () => {
+      if (!userId) return; // Don't fetch data if userId is not available
+      setLoading(true);
       try {
         const hostData = await gethostData();
         const [userEvents, userInfo] = await Promise.all([
@@ -86,16 +86,15 @@ const Page = () => {
       </div>
     ); // Render a loading state while data is being fetched
   }
-  console.log("events : " ,events);
-  console.log("host : " ,hostInfo);
-  console.log("user : " ,userInfo);
-
+  console.log("events : ", events);
+  console.log("host : ", hostInfo);
+  console.log("user : ", userInfo);
 
   return (
     <div className="xl:mx-[300px] lg:mx-[200px] md:mx-[100px] md:py-[167px] py-[100px] flex flex-col item-center align-middle">
       {/* Profile image */}
-      <div className=" flex flex-col justify-center align-middle items-center gap-y-[17px] border-b-1 pb-[30px]">
-      {hostInfo?.profile && (
+      <div className="flex flex-col justify-center align-middle items-center gap-y-[17px] border-b-1 pb-[30px]">
+        {hostInfo?.profile && (
           <Image
             src={hostInfo.profile.startsWith('http') ? hostInfo.profile : `/${hostInfo.profile}`}
             alt={hostInfo.username}
@@ -104,21 +103,17 @@ const Page = () => {
           />
         )}
         <div className="flex flex-row items-center gap-x-2">
-          {
-            hostInfo?.username && (
-              <Typography fontWeight="semibold" className="md:!text-2xl !text-sm">
-                {hostInfo.username}
-              </Typography>
-            )
-          }
+          {hostInfo?.username && (
+            <Typography fontWeight="semibold" className="md:!text-2xl !text-sm">
+              {hostInfo.username}
+            </Typography>
+          )}
         </div>
       </div>
       {/* posts and about */}
       <div className="flex flex-row justify-center gap-x-[40px]">
         <Button
-          className={`p-3 rounded-none !border-t-[1px] border-x-0 border-b-0 ${
-            activeButton === "posts" ? "border-blue-500" : "border-transparent"
-          }`}
+          className={`p-3 rounded-none !border-t-[1px] border-x-0 border-b-0 ${activeButton === "posts" ? "border-blue-500" : "border-transparent"}`}
           rightIcon={
             <Image
               src={"/assets/icons/posts.svg"}
@@ -133,9 +128,7 @@ const Page = () => {
         </Button>
 
         <Button
-          className={`p-3 rounded-none !border-t-[1px] border-x-0 border-b-0 ${
-            activeButton === "about" ? "border-blue-500" : "border-transparent"
-          }`}
+          className={`p-3 rounded-none !border-t-[1px] border-x-0 border-b-0 ${activeButton === "about" ? "border-blue-500" : "border-transparent"}`}
           rightIcon={
             <Image
               src={"/assets/icons/about.svg"}
@@ -153,30 +146,27 @@ const Page = () => {
       <div>
         {activeButton === "posts" ? (
           <div className="max-[1030px]:px-5 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 justify-items-center">
-          {events.map((item: any, index: number) => (
-            <Card
-              key={index}
-              _id={item._id}
-              thumbnail={item.thumbnail}
-              alt={item.thumbnail}
-              eventName={item.eventName}
-              Date={item.Date}
-              location={item.location}
-              isFavorite={userInfo?.favorites || []}
-            />
-          ))}
-        </div>
-  
+            {events.map((item: any, index: number) => (
+              <Card
+                key={index}
+                _id={item._id}
+                thumbnail={item.thumbnail}
+                alt={item.thumbnail}
+                eventName={item.eventName}
+                Date={item.Date}
+                location={item.location}
+                isFavorite={userInfo?.favorites || []}
+              />
+            ))}
+          </div>
         ) : activeButton === "about" ? (
-          <div className=" h-full md:mx-20 mx-[30px] md:mt-[50px] mt-5 flex flex-col gap-y-10">
+          <div className="h-full md:mx-20 mx-[30px] md:mt-[50px] mt-5 flex flex-col gap-y-10">
             {/* about */}
-            {
-              hostInfo?.bio && (
-                <Typography className="md:!text-2xl !text-sm">
-                  {hostInfo.bio}
-                </Typography>
-              )
-            }
+            {hostInfo?.bio && (
+              <Typography className="md:!text-2xl !text-sm">
+                {hostInfo.bio}
+              </Typography>
+            )}
 
             {/* contact */}
             <div className="flex flex-col md:gap-y-[35px] gap-y-[25px]">
@@ -189,60 +179,53 @@ const Page = () => {
                   height={30}
                 />
                 <Link href={"http://www.Cambodiabookfair.com"}>
-                <Typography className="underline md:!text-2xl !text-sm">
-
-                  http://www.Cambodiabookfair.com
-                </Typography>
+                  <Typography className="underline md:!text-2xl !text-sm">
+                    http://www.Cambodiabookfair.com
+                  </Typography>
                 </Link>
               </div>
               {/* phone number */}
-              {
-                hostInfo?.phonenumber && (                
-                  <div className="flex flex-row gap-x-7 align-middle">
-                    <Image
-                      src={"assets/icons/phone-fill.svg"}
-                      alt="phone"
-                      width={30}
-                      height={30}
-                    />
-                    <Typography className="md:!text-2xl !text-sm">
-                      {hostInfo.phonenumber}
-                    </Typography>
-                  </div>
-                )
-              }
+              {hostInfo?.phonenumber && (
+                <div className="flex flex-row gap-x-7 align-middle">
+                  <Image
+                    src={"assets/icons/phone-fill.svg"}
+                    alt="phone"
+                    width={30}
+                    height={30}
+                  />
+                  <Typography className="md:!text-2xl !text-sm">
+                    {hostInfo.phonenumber}
+                  </Typography>
+                </div>
+              )}
               {/* gmail */}
-              {
-                hostInfo?.email && (
-                  <div className="flex flex-row gap-x-7 align-middle">
-                    <Image
-                      src={"assets/icons/gmail-icon.svg"}
-                      alt="gmail"
-                      width={30}
-                      height={30}
-                    />
-                    <Typography className="md:!text-2xl !text-sm">
-                      {hostInfo.email}
-                    </Typography>
-                  </div>
-                )
-              }
+              {hostInfo?.email && (
+                <div className="flex flex-row gap-x-7 align-middle">
+                  <Image
+                    src={"assets/icons/gmail-icon.svg"}
+                    alt="gmail"
+                    width={30}
+                    height={30}
+                  />
+                  <Typography className="md:!text-2xl !text-sm">
+                    {hostInfo.email}
+                  </Typography>
+                </div>
+              )}
               {/* location */}
-              {
-                hostInfo?.location && (
-                  <div className="flex flex-row gap-x-7 align-middle">
-                    <Image
-                      src={"assets/icons/house.svg"}
-                      alt="location"
-                      width={30}
-                      height={30}
-                    />
-                    <Typography className="md:!text-2xl !text-sm">
-                      {hostInfo.location}
-                    </Typography>
-                  </div>
-                )
-              }
+              {hostInfo?.location && (
+                <div className="flex flex-row gap-x-7 align-middle">
+                  <Image
+                    src={"assets/icons/house.svg"}
+                    alt="location"
+                    width={30}
+                    height={30}
+                  />
+                  <Typography className="md:!text-2xl !text-sm">
+                    {hostInfo.location}
+                  </Typography>
+                </div>
+              )}
             </div>
 
             {/* Map */}

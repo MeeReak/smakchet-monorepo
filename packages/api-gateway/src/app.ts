@@ -37,13 +37,12 @@ app.use(
   })
 );
 
-app.get('/test-session', (req, res) => {
+app.get("/test-session", (req, res) => {
   console.log("==================Setting test session.");
   req!.session!.test = "Hello World!";
   console.log("================Session data:", req.session);
   res.send("Session set!!");
 });
-
 
 // Prevent HTTP Parameter Pollution attacks
 app.use(hpp());
@@ -88,8 +87,8 @@ app.use((req, _res, next) => {
 const conditions = [
   { path: "/v1/auth" }, // Exclude all routes starting with /v1/auth
   { path: "/v1/events", method: "GET" }, // Exclude GET requests starting with /v1/events
-  { path: "/v1/user/" },
   { path: "/v1/user/info" },
+  { path: "/v1/user/checkauth" },
 ];
 
 // Use verifyUser middleware with the unless function
