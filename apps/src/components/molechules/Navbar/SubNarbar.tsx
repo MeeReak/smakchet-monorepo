@@ -17,7 +17,7 @@ const SubNarbar = ({ role }: { role: string }) => {
   const [hideNavbar, setHideNavbar] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
   const [notiOpen, setNotiOpen] = useState(false);
-  const [isSidebarOpen, setSidebarOpen] = useState(false);
+  const [isSidebarOpen, setSidebarOpen] = useState(true);
 
   const toggleSidebar = () => {
     setSidebarOpen(!isSidebarOpen);
