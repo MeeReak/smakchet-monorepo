@@ -3,7 +3,7 @@ import { Trending, FilteredCardDisplay } from "@/components";
 import { cookies } from "next/headers";
 
 async function getTrendingData() {
-  const apiUrl = process.env.NEXT_PUBLIC_API_URL || "http://localhost:3000";
+  const apiUrl = "https://api.smakchet.com" || "http://localhost:3000";
 
   const api = `${apiUrl}/v1/events/trending`;
 
