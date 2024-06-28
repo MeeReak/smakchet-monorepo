@@ -22,7 +22,7 @@ const VerifyEmail = () => {
         setVerificationStatus(status);
       } else {
         setVerificationStatus("success");
-        // window.location.href = "/";
+        window.location.href = "/";
       }
     } else {
       setVerificationStatus("no-token");

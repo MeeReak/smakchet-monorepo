@@ -8,13 +8,8 @@ async function getUserProfile(
   // gaSession: RequestCookie | undefined,
   sigSession: RequestCookie | undefined
 ) {
-  if (!session || !sigSession) {
-    return;
-  }
-  // ${gaSession?.name}=${gaSession!.value};
-  // const apiUrl = "http://localhost:3000";
   const apiUrl = process.env.NEXT_PUBLIC_API_URL || "http://localhost:3000";
-  
+
   const response = await axios.get(`${apiUrl}/v1/user`, {
     withCredentials: true,
     headers: {
@@ -37,6 +32,7 @@ const Navbar = async ({
 }) => {
   console.log("session", session);
   const role = await getUserProfile(session, sigSession);
+  console.log("-----------", role);
   return (
     <>
       <SubNarbar role={role ? role.role : ""} />
