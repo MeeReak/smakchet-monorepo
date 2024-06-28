@@ -74,7 +74,11 @@ const Page = async () => {
             </Typography>
           </div>
         </div>
-        <Hamburger_detail  />
+        <Hamburger_detail
+          closeSidebar={function (): void {
+            throw new Error("Function not implemented.");
+          }}
+        />
         <FavPage data={favoriteData ? favoriteData!.data : []} />
       </div>
     </>
