@@ -12,7 +12,7 @@ const roboto = Roboto({
 export const metadata: Metadata = {
   title: "Smakchet",
   description: `"SmakChet" is a Website that include all your needed about volunteers. We have process all of your detail about event, date mange users etc.`,
-  // icons: "/icons/logo.svg",
+  // icons: "/icons/logo.svg",!
 };
 
 export default function RootLayout({
