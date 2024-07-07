@@ -106,12 +106,6 @@ const page = async ({ params }: { params: { eventDetail: string } }) => {
   const similarData = await getSimilarData({ cate: data[0].category });
   const userData = await getUserData({ session, sigSession });
 
-  console.log("====================", userData);
-  // let userData;
-  //   if (session && sigSession) {
-  //     userData = await getUserData({ session, sigSession });
-  //   }
-
   return (
     <div className="bg-[#fafafa]">
       <div className="xl:w-[1024px] m-auto ">
@@ -215,22 +209,24 @@ const page = async ({ params }: { params: { eventDetail: string } }) => {
             align="left"
             fontSize="h4"
             htmlContent={data[0].description}
-          ></Typography>
+          />
         </div>
         {/* requirement */}
-        <div className="mt-5 grid xl:grid-cols-2 gap-3">
-          <div className="px-5">
+        <div className="mt-5 sm:flex ">
+          <div className="px-5 sm:pl-5 w-full">
             <Typography fontSize="h3" fontWeight="bold" className="mb-5">
               Requirement
             </Typography>
             <ReqCards requirement={data[0].requirement} />
           </div>
-          <div className="px-5">
+        <hr className="mt-5 w-full h-[2px] sm:hidden bg-black opacity-30"></hr>
+
+          <div className="px-5 sm:pr-5 w-full">
             <Typography
               fontSize="h3"
               fontWeight="bold"
               className="mb-5 sm:pt-0 pt-5"
-            >
+            > 
               Location
             </Typography>
             <MapView
@@ -271,7 +267,7 @@ const page = async ({ params }: { params: { eventDetail: string } }) => {
           </Typography>
           <div>
             {
-              <div className="max-[1030px]:px-5 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 justify-items-start mb-5">
+              <div className="max-[1030px]:px-5 flex gap-5 overflow-hidden pb-10 justify-items-start mb-5">
                 {similarData
                   .filter((item: CardProps) => item._id !== data[0]._id)
                   .map((item: CardProps, index: number) => (

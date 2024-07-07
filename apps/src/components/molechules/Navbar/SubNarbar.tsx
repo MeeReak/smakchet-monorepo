@@ -17,13 +17,13 @@ const SubNarbar = ({ role }: { role: string }) => {
   const [hideNavbar, setHideNavbar] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
   const [notiOpen, setNotiOpen] = useState(false);
-  const [isSidebarOpen, setSidebarOpen] = useState(true);
+  // const [isSidebarOpen, setSidebarOpen] = useState(true);
 
-  const toggleSidebar = () => {
-    setSidebarOpen(!isSidebarOpen);
-  };
+//   const toggleSidebar = () => {
+//     setSidebarOpen(!isSidebarOpen);
+//   };
 
-console.log(isSidebarOpen, 'sidebar')
+// console.log(isSidebarOpen, 'sidebar')
 
   console.log("this is role", role);
   const pathname = usePathname();
@@ -45,7 +45,7 @@ console.log(isSidebarOpen, 'sidebar')
   return (
     <header className={hideNavbar ? "hidden" : ""}>
       <div className="fixed top-0 left-0 right-0 m-auto z-50 bg-opacity-50 backdrop-blur-md bg-white shadow-sm">
-        <div className="h-[80px] flex flex-row justify-between aligns-center max-[1030px]:p-5 max-[1030px]:pl-[10px] max-w-[1024px] m-auto  ">
+        <div className="h-[80px] flex justify-between items-center aligns-center max-[1030px]:p-5 max-[1030px]:pl-[10px] max-w-[1024px] m-auto  ">
           <div className="flex flex-row justify-right items-center">
             {/* Logo */}
             <Link href="/">
@@ -58,7 +58,7 @@ console.log(isSidebarOpen, 'sidebar')
               />
             </Link>
           </div>
-          <div className=" flex flex-row items-center ">
+          <div className=" flex items-center ">
             {(!role || role == undefined) && (
               <>
                 {/* Conditionally Render Search Bar */}
@@ -87,7 +87,7 @@ console.log(isSidebarOpen, 'sidebar')
                   <Button
                     round="lg"
                     size="h4"
-                    className="py-[13px] px-5 border-[1px] hover:bg-[#bdd8ff] hover:border-[#207BFF] hover:text-[#207BFF]"
+                    className=" border-[1px] py-2 px-4 sm:py-3 sm:px-6 hover:bg-[#bdd8ff] hover:border-[#207BFF] hover:text-[#207BFF]"
                   >
                     Login
                   </Button>
@@ -98,7 +98,7 @@ console.log(isSidebarOpen, 'sidebar')
                     size="h4"
                     bgColor="primary"
                     colorScheme="White"
-                    className="py-[13px] px-5 ml-[10px] border-[1px] rounded-[10px]"
+                    className="py-2 px-4 sm:py-3 sm:px-6  ml-[10px] border-[1px] rounded-[10px]"
                   >
                     Register
                   </Button>
@@ -205,7 +205,7 @@ console.log(isSidebarOpen, 'sidebar')
                 {/* Hamburger Bar*/}
                 <Link href={"/"}>
                   <ButtonIcon
-                    onclick={toggleSidebar}
+                    // onclick={toggleSidebar}
                     className=" bg-gray-100 text-gray-700 rounded-full p-2 ml-[10px]  hover:bg-[#bdd8ff] hover:text-[#207BFF] transition-all duration-300 ease-in-out flex sm:hidden"
                     icon={
                       <svg
@@ -229,7 +229,7 @@ console.log(isSidebarOpen, 'sidebar')
             )}
 
             {/* Sidebar */}
-            {isSidebarOpen && <Hamburger_detail closeSidebar={toggleSidebar} />}
+            {/* {isSidebarOpen && <Hamburger_detail closeSidebar={toggleSidebar} />} */}
           </div>
         </div>
       </div>

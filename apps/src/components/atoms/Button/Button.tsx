@@ -133,7 +133,7 @@ const Button: FC<ButtonProps> = ({
   const combinedClassName = `flex items-center justify-start border-[1px] ${colorSchemeClass} ${sizeClass} ${bgColorClass} ${roundClass} ${disabled ? "cursor-not-allowed bg-gray-300 hover:bg-gray-300 text-white hover:text-white" : ""} ${className}`;
 
   return (
-    <div className={`${combinedClassName} flex flex-col`}>
+    <div className={`${combinedClassName} flex flex-col `}>
       {topIcon && <div>{topIcon}</div>}
       <button
         onClick={disabled ? undefined : (onclick || onClickParam)}

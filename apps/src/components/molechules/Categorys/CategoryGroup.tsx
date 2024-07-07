@@ -79,7 +79,7 @@ export const CategoryGroup = () => {
               className={
                 cate && cate === item.label
                   ? "bg-[#207bff] text-white border px-4 py-2 sm:text-base "
-                  : " border px-4 py-2 sm:text-base "
+                  : " border px-4 py-2 bg-white sm:text-base "
               }
             >
               {item.label}
@@ -100,7 +100,7 @@ export const CategoryGroup = () => {
               viewBox="0 0 24 24"
               strokeWidth="1.5"
               stroke="currentColor"
-              className="size-6 border-2 rounded-full p-1  mt-[10px] "
+              className="size-6 border-2 rounded-full p-1 "
             >
               <path
                 strokeLinecap="round"
