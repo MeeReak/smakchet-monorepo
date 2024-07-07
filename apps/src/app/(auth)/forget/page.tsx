@@ -10,10 +10,10 @@ const page = () => {
       <div className="flex flex-col items-center mt-12">
         <Link href="/">
           <Image
-            src={"assets/icons/smakchet-logo.svg"}
+            src={"assets/image/smakchet_logo.svg"}
             alt={"Smakchet logo"}
-            width={140}
-            height={50}
+            width={172}
+            height={32}
           />
         </Link>
 
@@ -22,7 +22,7 @@ const page = () => {
           align="center"
           fontSize="h3"
           fontWeight="bold"
-          className="mt-16 mb-6"
+          className="mt-16 mb-7"
         >
           Forget Your Password
         </Typography>
@@ -31,7 +31,9 @@ const page = () => {
         <form>
           {/* label */}
           <label htmlFor="email">
-            <Typography color="grey">Enter your email address</Typography>
+            <Typography color="grey" fontSize="h4">
+              Enter your email address
+            </Typography>
           </label>
 
           {/* email input */}
@@ -40,11 +42,11 @@ const page = () => {
             name="email"
             placeholder={"Email"}
             className={
-              "w-[350px] border text-base border-gray-200 py-4 pl-5 mt-4 mb-2"
+              "w-[350px] border text-base border-gray-200 py-4 pl-5 mt-2 mb-2"
             }
           />
           <Typography align="right">
-            <Link href={"../login"} className="text-blue-500">
+            <Link href={"../login"} className="text-blue-500 text-xs">
               Back to Login
             </Link>
           </Typography>

@@ -79,6 +79,11 @@ async function getUserData({
   try {
     const apiUrl = process.env.NEXT_PUBLIC_API_URL || "http://localhost:3000";
 
+    if (session === undefined || sigSession === undefined) {
+      session = { name: "", value: "" };
+      sigSession = { name: "", value: "" };
+    }
+
     const api = `${apiUrl}/v1/user`;
     const response = await fetch(api, {
       method: "GET",
@@ -219,14 +224,14 @@ const page = async ({ params }: { params: { eventDetail: string } }) => {
             </Typography>
             <ReqCards requirement={data[0].requirement} />
           </div>
-        <hr className="mt-5 w-full h-[2px] sm:hidden bg-black opacity-30"></hr>
+          <hr className="mt-5 w-full h-[2px] sm:hidden bg-black opacity-30"></hr>
 
           <div className="px-5 sm:pr-5 w-full">
             <Typography
               fontSize="h3"
               fontWeight="bold"
               className="mb-5 sm:pt-0 pt-5"
-            > 
+            >
               Location
             </Typography>
             <MapView

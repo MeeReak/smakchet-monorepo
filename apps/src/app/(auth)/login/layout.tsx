@@ -27,7 +27,7 @@ export default function RootLayout({
       <body className={`bg-[#FAFAFA] max-h-full ${roboto.className}`}>
         {/* <Navbar /> */}
         <CardContext>{children}</CardContext>
-        <SecondNarbar />
+        {/* <SecondNarbar /> */}
         {/* <Footer /> */}
       </body>
     </html>
