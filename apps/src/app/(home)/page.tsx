@@ -3,7 +3,7 @@ import { Trending, FilteredCardDisplay } from "@/components";
 import { cookies } from "next/headers";
 
 async function getTrendingData() {
-  const apiUrl = "https://api.smakchet.com" || "http://localhost:3000";
+  const apiUrl = process.env.NEXT_PUBLIC_API_URL || "http://localhost:3000";
 
   const api = `${apiUrl}/v1/events/trending`;
 
@@ -33,20 +33,21 @@ const homepage = async ({
   const session = cookieStore.get("session");
   const sigSession = cookieStore.get("session.sig");
   const trendingData = await getTrendingData();
-  console.log("=================================", trendingData);
 
   return (
     <>
-      <div className="max-w-[1024px] m-auto space-y-4 z-10 pt-[80px] mb-20">
+      <div className="max-w-[1024px] h-[100vh] m-auto space-y-4 z-10 pt-[80px] mb-20">
         <Trending
-          className="flex gap-4 max-[640px]:overflow-hidden max-[640px]:overflow-x-auto mt-[25px]"
+          className="flex gap-4 overflow-hidden overflow-x-auto mt-[25px]"
           topEvent={{
+            id: trendingData[0]._id,
             thumbnail: trendingData[0].thumbnail,
             eventName: trendingData[0].eventName,
             Date: trendingData[0].Date.startDate,
             location: trendingData[0].location,
           }}
           secondEvent={{
+            id: trendingData[1]._id,
             thumbnail: trendingData[1].thumbnail,
             eventName: trendingData[1].eventName,
             Date: trendingData[1].Date.startDate,

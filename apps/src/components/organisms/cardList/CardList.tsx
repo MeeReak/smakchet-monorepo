@@ -68,11 +68,10 @@ const CardList: React.FC<FilterProps> = async ({
   const category = cate ? (cate === "All" ? "" : cate) : "";
   const data = await getData({ cate: category });
   const info = await getUserInfo({ session, sigSession });
-  console.log("============", info);
 
   return (
     <>
-      <div className="max-[1030px]:px-5 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 justify-items-center">
+      <div className="max-[1030px]:px-5 pb-5 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 justify-items-center">
         {data.map((item: CardProps, index: number) => (
           <Card
             key={index}
