@@ -87,7 +87,7 @@ const SubNarbar = ({ role }: { role: string }) => {
                   <Button
                     round="lg"
                     size="h4"
-                    className=" border-[1px] py-2 px-4 sm:py-3 sm:px-6 hover:bg-[#bdd8ff] hover:border-[#207BFF] hover:text-[#207BFF]"
+                    className=" border py-2 px-4 sm:py-3 sm:px-5 hover:bg-[#bdd8ff] hover:border-[#207BFF] hover:text-[#207BFF]"
                   >
                     Login
                   </Button>
@@ -98,7 +98,7 @@ const SubNarbar = ({ role }: { role: string }) => {
                     size="h4"
                     bgColor="primary"
                     colorScheme="White"
-                    className="py-2 px-4 sm:py-3 sm:px-6  ml-[10px] border-[1px] rounded-[10px]"
+                    className="py-2 px-4 sm:py-3 sm:px-5  ml-[10px] border-[1px] rounded-[10px]"
                   >
                     Register
                   </Button>
