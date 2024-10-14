@@ -2,28 +2,6 @@ import React from "react";
 import { Trending, FilteredCardDisplay } from "@/components";
 import { cookies } from "next/headers";
 
-async function getTrendingData() {
-  const apiUrl = process.env.NEXT_PUBLIC_API_URL || "http://localhost:3004";
-  const api = `${apiUrl}/v1/events/trending`;
-
-  try {
-    const response = await fetch(api, {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      cache: "no-cache",
-    });
-
-    return await response.json();
-  } catch (error) {
-    // throw new Error(
-    //   "We’re experiencing some technical difficulties. Please check back soon."
-    // );
-    console.log("error", error);
-  }
-}
-
 const homepage = async ({
   searchParams,
 }: {
@@ -32,30 +10,11 @@ const homepage = async ({
   const cookieStore = cookies();
   const session = cookieStore.get("session");
   const sigSession = cookieStore.get("session.sig");
-  const trendingData = await getTrendingData();
-
-  console.log("data", trendingData);
 
   return (
     <>
       <div className="max-w-[1024px] h-[100vh] m-auto space-y-4 z-10 pt-[80px] mb-20">
-        <Trending
-          className="flex gap-4 overflow-hidden overflow-x-auto mt-[25px]"
-          topEvent={{
-            id: trendingData[0]._id,
-            thumbnail: trendingData[0].thumbnail,
-            eventName: trendingData[0].eventName,
-            Date: trendingData[0].Date.startDate,
-            location: trendingData[0].location,
-          }}
-          secondEvent={{
-            id: trendingData[1]._id,
-            thumbnail: trendingData[1].thumbnail,
-            eventName: trendingData[1].eventName,
-            Date: trendingData[1].Date.startDate,
-            location: trendingData[1].location,
-          }}
-        />
+        <Trending />
 
         <FilteredCardDisplay
           session={session}

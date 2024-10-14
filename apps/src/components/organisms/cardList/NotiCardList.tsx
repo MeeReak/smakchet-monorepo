@@ -1,5 +1,5 @@
 "use client";
-import { NotificationCard } from "@/components/molechules";
+import { NotificationCard } from "@/components";
 import React, { useState } from "react";
 
 interface NotiListProps {

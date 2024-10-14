@@ -1,8 +1,8 @@
 "use client";
 import { Requirement } from "@/@types/card";
 import { Button } from "@/components/atoms";
-import { ReqCard } from "@/components/molechules";
-import PopupReq from "@/components/molechules/PopupReq/PopupReq";
+import { ReqCard } from "@/components";
+import PopupReq from "@/components/PopupReq/PopupReq";
 import React, { useState } from "react";
 
 const ReqCards = ({ requirement }: { requirement: Requirement }) => {

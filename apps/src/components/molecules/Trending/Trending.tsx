@@ -1,11 +1,9 @@
-"use client";
-
 import { Button, Typography } from "@/components";
 import React from "react";
-import { useState, useEffect } from "react";
 import Image from "next/image";
 import { formatDateTime } from "@/utils/formatTime";
 import Link from "next/link";
+import { getTrendingData } from "@/action/homePage";
 
 interface EventProps {
   id: string;
@@ -15,35 +13,7 @@ interface EventProps {
   location: string;
 }
 
-interface TrendingProps {
-  topEvent?: EventProps;
-  secondEvent?: EventProps;
-  className?: string;
-}
-
-const Trending: React.FC<TrendingProps> = ({
-  topEvent,
-  secondEvent,
-  className,
-}) => {
-  const [screenSize, setScreenSize] = useState("sm");
-
-  useEffect(() => {
-    const mediaQuery = window.matchMedia("(min-width: 1280px)");
-
-    const handleScreenChange = (mq: MediaQueryListEvent) => {
-      setScreenSize(mq.matches ? "xl" : "sm");
-    };
-
-    setScreenSize(mediaQuery.matches ? "xl" : "sm");
-
-    mediaQuery.addEventListener("change", handleScreenChange);
-
-    return () => {
-      mediaQuery.removeEventListener("change", handleScreenChange);
-    };
-  }, []);
-
+const Trending = async () => {
   const renderEvent = (event: EventProps) => (
     <Link href={`/detail/${event.id}`}>
       <div className="relative group h-[200px] w-[300px] sm:h-[250px] sm:w-[500px] transition duration-300 ease-in-out">
@@ -99,6 +69,8 @@ const Trending: React.FC<TrendingProps> = ({
     </Link>
   );
 
+  const event = await getTrendingData();
+
   return (
     <div className="max-[1030px]:px-5 ">
       <Typography
@@ -109,10 +81,9 @@ const Trending: React.FC<TrendingProps> = ({
       >
         Trending in <span className="text-red-500">Smakchet</span>
       </Typography>
-
-      <div className={`${className}`}>
-        {topEvent && renderEvent(topEvent)}
-        {secondEvent && renderEvent(secondEvent)}
+      <div className="flex gap-4 overflow-hidden overflow-x-auto mt-[25px]">
+        {event && renderEvent(event[0])}
+        {event && renderEvent(event[1])}
       </div>
     </div>
   );

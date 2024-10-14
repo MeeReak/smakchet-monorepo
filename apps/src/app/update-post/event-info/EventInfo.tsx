@@ -9,30 +9,30 @@ import {
   MapBox,
   InputDate,
 } from "@/components";
-import Dropdown from "@/components/molechules/Dropdown/Dropdown";
+import Dropdown from "@/components/Dropdown/Dropdown";
 import TextEditor from "@/components/organisms/TextEdit";
 import { eventValidationSchema } from "@/utils/eventValidationSchema";
-import React, { useState , useEffect } from "react";
+import React, { useState, useEffect } from "react";
 
 interface EventInfoProps {
   eventData: EventInfoData;
   onUpdate: (updatedEventInfo: EventInfoData) => void;
 }
 
-interface dateModel{
-    startDate: string | null;
-    endDate: string | null;
-    startTime: string;
-    endTime: string;
+interface dateModel {
+  startDate: string | null;
+  endDate: string | null;
+  startTime: string;
+  endTime: string;
 }
-interface requirementModel{
-    age: string;
-    language: string;
-    skill: string;
-    timeCommitment: string;
+interface requirementModel {
+  age: string;
+  language: string;
+  skill: string;
+  timeCommitment: string;
 }
 
-interface addressModel{
+interface addressModel {
   lat: String | number;
   lng: String | number;
 }
@@ -43,10 +43,10 @@ interface EventInfoData {
   thumbnail: string;
   category: string;
   description: string;
-  Date:dateModel;
+  Date: dateModel;
   location: string;
   address: addressModel;
-  requirement:requirementModel;
+  requirement: requirementModel;
 }
 
 const EventInfo: React.FC<EventInfoProps> = ({ eventData, onUpdate }) => {
@@ -62,7 +62,6 @@ const EventInfo: React.FC<EventInfoProps> = ({ eventData, onUpdate }) => {
   useEffect(() => {
     setInfo(eventData);
   }, [eventData]);
-
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
@@ -85,13 +84,12 @@ const EventInfo: React.FC<EventInfoProps> = ({ eventData, onUpdate }) => {
       return nestedState;
     });
   };
-  
 
   function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
     const start = new Date(info.Date.startDate!);
     const end = new Date(info.Date.endDate!);
-    console.log("convert start date : " , start);
+    console.log("convert start date : ", start);
     //console.log(info.description);
     // Check date validity
     if (end < start) {
@@ -122,7 +120,7 @@ const EventInfo: React.FC<EventInfoProps> = ({ eventData, onUpdate }) => {
           return acc;
         }, {});
         setErrors(newErrors); // Update state to reflect new errors
-        console.log("errors : ",err.message);
+        console.log("errors : ", err.message);
       });
   }
 
@@ -140,7 +138,7 @@ const EventInfo: React.FC<EventInfoProps> = ({ eventData, onUpdate }) => {
   };
 
   const handleTimeSelect = (time: string) => {
-    setInfo({ ...info, Date:{...info.Date , startTime: time }});
+    setInfo({ ...info, Date: { ...info.Date, startTime: time } });
   };
 
   const handleStartDate = (dateString: string | null) => {
@@ -148,9 +146,9 @@ const EventInfo: React.FC<EventInfoProps> = ({ eventData, onUpdate }) => {
       const parsedDate = new Date(dateString); // Parse the string to Date object
       const startdate = parsedDate.toISOString();
       // console.log("start date: " , parsedDate);
-      setInfo({ ...info, Date:{...info.Date , startDate: startdate }});
+      setInfo({ ...info, Date: { ...info.Date, startDate: startdate } });
     } else {
-      setInfo({ ...info, Date:{...info.Date , startDate: null }}); // Set to null for cleared date
+      setInfo({ ...info, Date: { ...info.Date, startDate: null } }); // Set to null for cleared date
     }
     //setInfo({...info , date:{...info.date , startDate:dateString}})
   };
@@ -160,15 +158,15 @@ const EventInfo: React.FC<EventInfoProps> = ({ eventData, onUpdate }) => {
       // console.log("End Date : " , dateString);
       const parsedDate = new Date(dateString); // Parse the string to Date object
       const enddate = parsedDate.toISOString();
-      setInfo({ ...info, Date:{...info.Date , endDate: enddate }});
+      setInfo({ ...info, Date: { ...info.Date, endDate: enddate } });
     } else {
-      setInfo({ ...info, Date:{...info.Date , endDate: null }}); // Set to null for cleared date
+      setInfo({ ...info, Date: { ...info.Date, endDate: null } }); // Set to null for cleared date
     }
     //setInfo({...info , date:{...info.date , startDate:dateString}})
   };
 
   const handleSelectEndTime = (time: string) => {
-    setInfo({ ...info, Date:{...info.Date,endTime: time }});
+    setInfo({ ...info, Date: { ...info.Date, endTime: time } });
   };
 
   const handleChangeContent = (content: string) => {
@@ -176,11 +174,10 @@ const EventInfo: React.FC<EventInfoProps> = ({ eventData, onUpdate }) => {
   };
 
   const handleAddress = (marker: any) => {
-    
     const markers = {
-      lat : marker.lat.toString(),
-      lng : marker.lng.toString()
-    }
+      lat: marker.lat.toString(),
+      lng: marker.lng.toString(),
+    };
     console.log("marker: ", markers);
     setInfo({ ...info, address: markers });
   };
@@ -191,7 +188,7 @@ const EventInfo: React.FC<EventInfoProps> = ({ eventData, onUpdate }) => {
         Create post
       </Typography>
       <div className="mx-auto mt-[33px]">
-        <FileInput onChange={handleFileUpload} value={info.thumbnail}/>
+        <FileInput onChange={handleFileUpload} value={info.thumbnail} />
       </div>
       {errors.thumbnail && (
         <p className="text-red-500 mb-2 pl-8">{errors.thumbnail}</p>
@@ -248,9 +245,12 @@ const EventInfo: React.FC<EventInfoProps> = ({ eventData, onUpdate }) => {
                   Event&apos;s Detail
                 </Typography>
               </label>
-              <TextEditor onchange={handleChangeContent} values={info.description}/>
+              <TextEditor
+                onchange={handleChangeContent}
+                values={info.description}
+              />
             </div>
-          </div>  
+          </div>
 
           {/* Date time and location */}
           <div className="bg-white lg:py-[25px] lg:px-5 rounded-[10px] flex flex-col space-y-5 gap-y-5 px-5 mt-[25px]">
@@ -265,7 +265,9 @@ const EventInfo: React.FC<EventInfoProps> = ({ eventData, onUpdate }) => {
                 <InputDate
                   className="border border-gray-200 w-[98%] mt-3 mb-3 p-4 rounded-lg outline-none text-xs text-gray-400 sm:text-base"
                   onchange={handleStartDate}
-                  value={new Date(info.Date.startDate!).toISOString().substring(0, 10)}
+                  value={new Date(info.Date.startDate!)
+                    .toISOString()
+                    .substring(0, 10)}
                 />
                 {errors.startDate && (
                   <p className="text-red-500 mb-2">{errors.Date.startDate}</p>
@@ -280,7 +282,9 @@ const EventInfo: React.FC<EventInfoProps> = ({ eventData, onUpdate }) => {
                     isEnddateValidate ? "border-gray-200" : "border-red-500"
                   }`}
                   onchange={handleEndDate}
-                  value={new Date(info.Date.endDate!).toISOString().substring(0, 10)}
+                  value={new Date(info.Date.endDate!)
+                    .toISOString()
+                    .substring(0, 10)}
                 />
                 {errors.endDate && (
                   <p className="text-red-500 mb-2">{errors.Date.endDate}</p>
@@ -380,7 +384,9 @@ const EventInfo: React.FC<EventInfoProps> = ({ eventData, onUpdate }) => {
                   className="w-full mt-3 mb-3 py-4 pl-5 border border-gray-200"
                 />
                 {errors.language && (
-                  <p className="text-red-500 mb-2">{errors.requirement.language}</p>
+                  <p className="text-red-500 mb-2">
+                    {errors.requirement.language}
+                  </p>
                 )}
               </div>
               <div>
@@ -399,7 +405,9 @@ const EventInfo: React.FC<EventInfoProps> = ({ eventData, onUpdate }) => {
                   className="w-full mt-3 mb-3 py-4 pl-5 border border-gray-200"
                 />
                 {errors.skill && (
-                  <p className="text-red-500 mb-2">{errors.requirement.skill}</p>
+                  <p className="text-red-500 mb-2">
+                    {errors.requirement.skill}
+                  </p>
                 )}
               </div>
               <div>
@@ -418,7 +426,9 @@ const EventInfo: React.FC<EventInfoProps> = ({ eventData, onUpdate }) => {
                   className="w-full mt-3 mb-3 py-4 pl-5 border border-gray-200"
                 />
                 {errors.timeCommitment && (
-                  <p className="text-red-500 mb-2">{errors.requirement.timeCommitment}</p>
+                  <p className="text-red-500 mb-2">
+                    {errors.requirement.timeCommitment}
+                  </p>
                 )}
               </div>
             </div>
@@ -429,7 +439,13 @@ const EventInfo: React.FC<EventInfoProps> = ({ eventData, onUpdate }) => {
             Address
           </Typography>
 
-          <MapBox onchange={handleAddress} value={{ lat: parseFloat(info.address.lat.toString()), lng: parseFloat(info.address.lng.toString()) }}/>
+          <MapBox
+            onchange={handleAddress}
+            value={{
+              lat: parseFloat(info.address.lat.toString()),
+              lng: parseFloat(info.address.lng.toString()),
+            }}
+          />
           <div className="flex justify-end my-5">
             <Button
               type="submit"

@@ -1,3 +1,3 @@
-import { ReqCard } from "@/components/molechules";
+// import { ReqCard } from "@/components";
 
-export {ReqCard}
+// export { ReqCard };
