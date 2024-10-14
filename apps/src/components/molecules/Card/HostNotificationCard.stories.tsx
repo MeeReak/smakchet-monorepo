@@ -1,9 +1,6 @@
-import React from "react";
 import { Meta, StoryObj } from "@storybook/react";
-import { Card } from "@/components/Card/Card";
 import { userEvent, within } from "@storybook/test";
 import { HostNotificationCard } from "./HostNotificationCard";
-import Image from "next/image";
 
 const meta: Meta<typeof HostNotificationCard> = {
   title: "Smakchet/Molecules/HostNotificationCard",

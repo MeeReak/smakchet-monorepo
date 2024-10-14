@@ -8,8 +8,8 @@ import {
   Button,
   MapBox,
   InputDate,
+  Dropdown,
 } from "@/components";
-import Dropdown from "@/components/Dropdown/Dropdown";
 import TextEditor from "@/components/organisms/TextEdit";
 import { eventValidationSchema } from "@/utils/eventValidationSchema";
 import React, { useState } from "react";

@@ -1,5 +1,5 @@
 import { ButtonIcon, FavPage, Typography } from "@/components";
-import Hamburger_detail from "@/components/hamburger/Hamburger_detail";
+import Hamburger_detail from "@/components/molecules/hamburger/Hamburger_detail";
 import { RequestCookie } from "next/dist/compiled/@edge-runtime/cookies";
 import { cookies } from "next/headers";
 import React from "react";

@@ -5,11 +5,15 @@ import { formatDateTime } from "@/utils/formatTime";
 import Link from "next/link";
 import { getTrendingData } from "@/action/homePage";
 
+interface IDate {
+  startDate: string; // Add this line
+}
+
 interface EventProps {
   id: string;
   thumbnail: string;
   eventName: string;
-  Date: string;
+  Date: IDate;
   location: string;
 }
 
@@ -43,7 +47,7 @@ const Trending = async () => {
               height={17}
             />
             <Typography color="white" fontSize="h5">
-              {formatDateTime(event.Date)}
+              {formatDateTime(event.Date.startDate)}
             </Typography>
           </div>
           <div className="flex flex-row gap-x-[5px]">

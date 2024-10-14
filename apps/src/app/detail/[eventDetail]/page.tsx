@@ -6,101 +6,12 @@ import Image from "next/image";
 import Link from "next/link";
 import { CardProps } from "@/@types/card";
 import { cookies } from "next/headers";
-import { RequestCookie } from "next/dist/compiled/@edge-runtime/cookies";
-
-async function getData({ id }: { id: string }) {
-  try {
-    const apiUrl = process.env.NEXT_PUBLIC_API_URL || "http://localhost:3000";
-
-    const api = `${apiUrl}/v1/events?page=1&limit=1&id=${id}`;
-    const response = await fetch(api, {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      cache: "no-cache",
-    });
-
-    const result = await response.json();
-    return result;
-  } catch (error: unknown | any) {
-    console.error("Error fetching data:", error);
-    console.log(error.message);
-  }
-}
-
-async function getOrgData({ id }: { id: string }) {
-  try {
-    const apiUrl = process.env.NEXT_PUBLIC_API_URL || "http://localhost:3000";
-
-    const api = `${apiUrl}/v1/user/info/${id}`;
-    const response = await fetch(api, {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-      },
-    });
-
-    const result = await response.json();
-    return result;
-  } catch (error: unknown | any) {
-    console.error("Error fetching data:", error);
-    console.log(error.message);
-  }
-}
-
-async function getSimilarData({ cate }: { cate: string }) {
-  try {
-    const apiUrl = process.env.NEXT_PUBLIC_API_URL || "http://localhost:3000";
-
-    const api = `${apiUrl}/v1/events?page=1&limit=3&cate=${cate}`;
-    const response = await fetch(api, {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-      },
-    });
-
-    const result = await response.json();
-    return result;
-  } catch (error: unknown | any) {
-    console.error("Error fetching data:", error);
-    console.log(error.message);
-  }
-}
-
-async function getUserData({
-  session,
-  sigSession,
-}: {
-  session: RequestCookie | undefined;
-  sigSession: RequestCookie | undefined;
-}) {
-  try {
-    const apiUrl = process.env.NEXT_PUBLIC_API_URL || "http://localhost:3000";
-
-    if (session === undefined || sigSession === undefined) {
-      session = { name: "", value: "" };
-      sigSession = { name: "", value: "" };
-    }
-
-    const api = `${apiUrl}/v1/user`;
-    const response = await fetch(api, {
-      method: "GET",
-      headers: {
-        Cookie: `${session!.name}=${session!.value}; ${sigSession!.name}=${
-          sigSession!.value
-        }`,
-      },
-    });
-
-    const result = await response.json();
-    return result;
-  } catch (error: unknown | any) {
-    console.error("Error fetching data:", error);
-    console.log(error.message);
-  }
-}
+import {
+  getData,
+  getOrgData,
+  getSimilarData,
+  getUserData,
+} from "@/action/detailPage";
 
 const page = async ({ params }: { params: { eventDetail: string } }) => {
   const cookieStore = cookies();
