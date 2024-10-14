@@ -1,3 +1,3 @@
-// import { ReqCard } from "@/components";
+import ReqCards from "./ReqCards";
 
-// export { ReqCard };
+export { ReqCards };

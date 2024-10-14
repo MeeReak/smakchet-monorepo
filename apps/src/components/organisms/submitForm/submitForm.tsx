@@ -1,10 +1,7 @@
 "use client";
 import { Button, Typography } from "@/components/atoms";
-import Question from "@/components/SubmitForm/Question";
-import { YesNo } from "@/components/SubmitForm/YesNo";
 import { validationSchema } from "@/utils/validationSchema";
 import React, { useState } from "react";
-import { Checkbox } from "@/components/SubmitForm/Checkbox";
 import * as Yup from "yup";
 
 export interface SubmitFormProps {

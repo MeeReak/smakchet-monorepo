@@ -1,8 +1,4 @@
-import {
-  EventNotificationCard,
-  HostNotificationCardList,
-  Typography,
-} from "@/components";
+import { HostNotificationCardList, Typography } from "@/components";
 import { EventNotificationCardList } from "@/components/organisms/cardList/EventNotificationCardList";
 import React from "react";
 
@@ -10,9 +6,7 @@ const page = () => {
   return (
     <div className="flex bg-white md:bg-[#FAFAFA] h-full justify-center">
       {/* max-[1030px]:p-5 max-[1030px]:pl-[10px] max-w-[1024px] m-auto */}
-      <div
-        className="bg-white md:mx-[100px] xl:mx-[300px] lg:mx-[200px] md:mt-[110px] py-[100px] md:py-0 pl-0 md:px-9 md:pt-[25px] w-full h-full md:rounded-[10px]"
-      >
+      <div className="bg-white md:mx-[100px] xl:mx-[300px] lg:mx-[200px] md:mt-[110px] py-[100px] md:py-0 pl-0 md:px-9 md:pt-[25px] w-full h-full md:rounded-[10px]">
         {/* Notification header */}
         <Typography
           fontWeight="medium"
@@ -30,9 +24,8 @@ const page = () => {
               New
             </Typography>
             <div>
-
-            <EventNotificationCardList />
-            <HostNotificationCardList />
+              <EventNotificationCardList />
+              <HostNotificationCardList />
             </div>
           </div>
           <div className="flex flex-col gap-y-4">
