@@ -34,7 +34,7 @@ const Page = () => {
   };
 
   const handleSubmit = () => {
-    console.log(info.address);
+    // console.log(info.address);
     validationSchema
       .validate(info, { abortEarly: false })
       .then((validData: any) => {

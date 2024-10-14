@@ -3,8 +3,7 @@ import { Trending, FilteredCardDisplay } from "@/components";
 import { cookies } from "next/headers";
 
 async function getTrendingData() {
-  const apiUrl = process.env.NEXT_PUBLIC_API_URL || "http://localhost:3000";
-
+  const apiUrl = process.env.NEXT_PUBLIC_API_URL || "http://localhost:3004";
   const api = `${apiUrl}/v1/events/trending`;
 
   try {
@@ -18,9 +17,10 @@ async function getTrendingData() {
 
     return await response.json();
   } catch (error) {
-    throw new Error(
-      "We’re experiencing some technical difficulties. Please check back soon."
-    );
+    // throw new Error(
+    //   "We’re experiencing some technical difficulties. Please check back soon."
+    // );
+    console.log("error", error);
   }
 }
 
@@ -33,6 +33,8 @@ const homepage = async ({
   const session = cookieStore.get("session");
   const sigSession = cookieStore.get("session.sig");
   const trendingData = await getTrendingData();
+
+  console.log("data", trendingData);
 
   return (
     <>

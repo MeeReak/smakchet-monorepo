@@ -6009,3 +6009,15 @@
 [2024-06-14T02:27:28.305Z] [32minfo[39m: 	[32mresponse sent[39m
 =======
 >>>>>>> 07f8a9d7688eb4d22568e7c7ee936d5488c8b8ba
+[2024-10-07T08:32:29.521Z] [32minfo[39m: 	[32mMongoDB connected[39m
+[2024-10-07T08:32:29.524Z] [32minfo[39m: 	[32mSuccessfully connected to MongoDB[39m
+[2024-10-07T08:32:29.528Z] [32minfo[39m: 	[32mServer is listening on port: 3004[39m
+[2024-10-07T08:33:55.177Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-10-07T08:33:55.205Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-10-07T08:33:55.281Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-10-07T08:33:55.610Z] [32minfo[39m: 	[32mresponse sent[39m
+[2024-10-14T06:59:14.093Z] [32minfo[39m: 	[32mMongoDB connected[39m
+[2024-10-14T06:59:14.097Z] [32minfo[39m: 	[32mSuccessfully connected to MongoDB[39m
+[2024-10-14T06:59:14.103Z] [32minfo[39m: 	[32mServer is listening on port: 3004[39m
+[2024-10-14T07:00:30.754Z] [34mdebug[39m: 	[34mrequest received: [39m
+[2024-10-14T07:00:30.909Z] [32minfo[39m: 	[32mresponse sent[39m

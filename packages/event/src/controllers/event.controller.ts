@@ -49,8 +49,8 @@ export class EventController extends Controller {
   @Get("/trending")
   public async FindTrendingEvent(): Promise<any> {
     try {
-      console.log("Get Trending");
       const event = await eventService.FindEventByView();
+      console.log("Get Trending", event);
       return event;
     } catch (error: unknown) {
       throw new APIError("Event Not Found !!", StatusCode.NotFound);
@@ -60,14 +60,14 @@ export class EventController extends Controller {
   // Get user event
   @Get("/myevent")
   @Middlewares(verifyToken)
-  public async findMyEvent(@Request() request:any) : Promise<any>{
-    try{
+  public async findMyEvent(@Request() request: any): Promise<any> {
+    try {
       const id = request.id;
-      console.log("id in findMyEvent : " , id);
+      console.log("id in findMyEvent : ", id);
       const data = await eventService.findAllEventByOrgId(id);
-      console.log("data in findMyEvent : " , data);
+      console.log("data in findMyEvent : ", data);
       return data;
-    }catch(error:unknown | any){
+    } catch (error: unknown | any) {
       throw new APIError(error.message, StatusCode.NotFound);
     }
   }
@@ -140,7 +140,7 @@ export class EventController extends Controller {
   @Post("{eventId}/update-view")
   public async UpdateView(@Path() eventId: string): Promise<any> {
     try {
-      console.log("Helo")
+      console.log("Helo");
       const event = await eventService.UpdateView(eventId);
       return event;
     } catch (error: unknown) {
@@ -185,7 +185,6 @@ export class EventController extends Controller {
     @Request() request: any
   ): Promise<any> {
     try {
-
       console.log("Get Id");
       const existedEvent = await eventService.findEventByOrgId(request.id);
 
@@ -200,14 +199,14 @@ export class EventController extends Controller {
   }
 
   @Get("/host/{orgId}")
-  public async FindOrgEvent(@Path() orgId:string):Promise<any>{
-    try{
+  public async FindOrgEvent(@Path() orgId: string): Promise<any> {
+    try {
       const events = await eventService.findAllEventByOrgId(orgId);
       return {
-        data:events
-      }
-    }catch(error:unknown){
-      throw new APIError("Event Not Found !!", StatusCode.NotFound); 
+        data: events,
+      };
+    } catch (error: unknown) {
+      throw new APIError("Event Not Found !!", StatusCode.NotFound);
     }
   }
 }
