@@ -1,6 +1,6 @@
 import React from "react";
 import { Meta, StoryObj } from "@storybook/react";
-import { Card } from "@/components/molechules/Card/Card";
+import { Card } from "@/components/Card/Card";
 import { userEvent, within } from "@storybook/test";
 import NotificationCard from "./NotificationCard";
 import Image from "next/image";
@@ -22,7 +22,6 @@ export const Default: Story = {
     id: "2",
     title: "National day of Science, Technology and Innovation",
     image: "/assets/image/cambodia_book_fair.png",
-  
   },
   parameters: {
     design: {
@@ -32,7 +31,9 @@ export const Default: Story = {
   },
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
-    const notification = await canvas.getByText('National day of Science, Technology and Innovation');
+    const notification = await canvas.getByText(
+      "National day of Science, Technology and Innovation"
+    );
     await userEvent.hover(notification);
   },
 };

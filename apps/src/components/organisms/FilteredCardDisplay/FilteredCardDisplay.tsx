@@ -1,7 +1,7 @@
-import { CategoryGroup } from "@/components/molechules";
 import React from "react";
 import { CardList } from "../cardList";
 import { RequestCookie } from "next/dist/compiled/@edge-runtime/cookies";
+import { CategoryGroup } from "@/components/molecules";
 
 const FilteredCardDisplay = ({
   searchParams,
@@ -12,7 +12,6 @@ const FilteredCardDisplay = ({
   session: RequestCookie | undefined;
   sigSession: RequestCookie | undefined;
 }) => {
-  console.log(searchParams.cate);
   return (
     <>
       {/* Category of filter feature */}

@@ -2,7 +2,7 @@
 
 import React, { useRef, useState } from "react";
 import { Button, ButtonIcon } from "@/components";
-import { categories } from "@/consts";
+import { categories } from "@/const";
 import { useRouter } from "next/navigation";
 
 export const CategoryGroup = () => {

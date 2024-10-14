@@ -1,58 +1,9 @@
 import { CardProps } from "@/@types/card";
-import { Card } from "@/components/molechules";
 import React from "react";
 import ScrollCard from "./ScrollCard";
 import { RequestCookie } from "next/dist/compiled/@edge-runtime/cookies";
-
-async function getData({ cate }: { cate: string }) {
-  try {
-    const apiUrl = process.env.NEXT_PUBLIC_API_URL || "http://localhost:3000";
-
-    const api = `${apiUrl}/v1/events?page=1&limit=6&cate=${cate}`;
-    const response = await fetch(api, {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      cache: "no-cache",
-    });
-
-    const result = await response.json();
-    return result;
-  } catch (error: unknown | any) {
-    console.error("Error fetching data:", error);
-    console.log(error.message);
-  }
-}
-
-async function getUserInfo({
-  session,
-  sigSession,
-}: {
-  session: RequestCookie | undefined;
-  sigSession: RequestCookie | undefined;
-}) {
-  try {
-    const apiUrl = process.env.NEXT_PUBLIC_API_URL || "http://localhost:3000";
-
-    const api = `${apiUrl}/v1/user`;
-    const response = await fetch(api, {
-      method: "GET",
-      headers: {
-        Cookie: `${session!.name}=${session!.value}; ${sigSession!.name}=${
-          sigSession!.value
-        }`,
-      },
-      cache: "no-cache",
-    });
-
-    const result = await response.json();
-    return result;
-  } catch (error: unknown | any) {
-    console.error("Error fetching data:", error);
-    console.log(error.message);
-  }
-}
+import { Card } from "@/components";
+import { getDataByCate, getUserInfo } from "@/action/homePage";
 
 interface FilterProps {
   cate: string;
@@ -66,8 +17,8 @@ const CardList: React.FC<FilterProps> = async ({
   sigSession,
 }) => {
   const category = cate ? (cate === "All" ? "" : cate) : "";
-  const data = await getData({ cate: category });
-  const info = await getUserInfo({ session, sigSession });
+  const data = await getDataByCate({ cate: category });
+  // const info = await getUserInfo({ session, sigSession });
 
   return (
     <>
@@ -81,7 +32,7 @@ const CardList: React.FC<FilterProps> = async ({
             eventName={item.eventName}
             Date={item.Date}
             location={item.location}
-            isFavorite={info && info.data !== null ? info.data.favorites : []}
+            // isFavorite={info && info.data !== null ? info.data.favorites : []}
           />
         ))}
       </div>

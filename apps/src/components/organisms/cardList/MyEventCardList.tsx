@@ -2,7 +2,7 @@
 
 "use client";
 
-import MyEventCard from "@/components/molechules/Card/MyEventCard";
+import MyEventCard from "@/components/molecules/Card/MyEventCard";
 import axios from "axios";
 import React, { useState, useEffect } from "react";
 

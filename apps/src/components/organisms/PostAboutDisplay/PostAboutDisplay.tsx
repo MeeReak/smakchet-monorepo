@@ -1,26 +1,22 @@
-"use client"
+"use client";
 
-import { PostAboutGroup } from '@/components/molechules'
-import React, { useState } from 'react'
+import { PostAboutGroup } from "@/components";
+import React, { useState } from "react";
 
 const PostAboutDisplay = () => {
+  const [action, setAction] = useState<number>(0);
 
-    const [action, setAction] = useState<number>(0)
+  const [category, setCategory] = useState<String>("Post");
 
-    const [category, setCategory] = useState<String>("Post")
-
-  
   return (
-   <>
-   <PostAboutGroup
-    setAction={setAction}
-    action={action}
-    setCategory={setCategory}
-   />
+    <>
+      <PostAboutGroup
+        setAction={setAction}
+        action={action}
+        setCategory={setCategory}
+      />
+    </>
+  );
+};
 
-   
-   </>
-  )
-}
-
-export default PostAboutDisplay
+export default PostAboutDisplay;

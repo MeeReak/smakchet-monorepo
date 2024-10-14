@@ -1,3 +1,3 @@
 export * from "./atoms";
-export * from "./molechules";
+export * from "./molecules";
 export * from "./organisms"

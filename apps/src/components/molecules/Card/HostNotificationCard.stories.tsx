@@ -1,8 +1,8 @@
 import React from "react";
 import { Meta, StoryObj } from "@storybook/react";
-import { Card } from "@/components/molechules/Card/Card";
+import { Card } from "@/components/Card/Card";
 import { userEvent, within } from "@storybook/test";
-import {HostNotificationCard} from "./HostNotificationCard";
+import { HostNotificationCard } from "./HostNotificationCard";
 import Image from "next/image";
 
 const meta: Meta<typeof HostNotificationCard> = {
@@ -33,7 +33,7 @@ export const Default: Story = {
   },
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
-    const hostnotification = await canvas.getByText('applied to your event');
+    const hostnotification = await canvas.getByText("applied to your event");
     await userEvent.hover(hostnotification);
   },
 };
