@@ -20,7 +20,7 @@ const Page = () => {
 
   const searchParams = useSearchParams();
   const userId = searchParams.get("id");
-  console.log("user Id : ", userId);
+  // console.log("user Id : ", userId);
 
   const gethostData = async () => {
     const response = await axios.get(`http://localhost:3000/v1/user/${userId}`, {
@@ -29,7 +29,7 @@ const Page = () => {
         "Content-Type": "application/json",
       },
     });
-    console.log("get host info: " , response.data.data)
+    // console.log("get host info: " , response.data.data)
     return response.data.data;
   }
 
@@ -86,10 +86,9 @@ const Page = () => {
       </div>
     ); // Render a loading state while data is being fetched
   }
-  console.log("events : ", events);
-  console.log("host : ", hostInfo);
-  console.log("user : ", userInfo);
-
+  // console.log("events : ", events);
+  // console.log("host : ", hostInfo);
+  // console.log("user : ", userInfo);
   return (
     <div className="xl:mx-[300px] lg:mx-[200px] md:mx-[100px] md:py-[167px] py-[100px] flex flex-col item-center align-middle">
       {/* Profile image */}

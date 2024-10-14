@@ -21,7 +21,7 @@ const Page = () => {
     const { name, value } = e.target;
     setData((preData) => ({ ...preData, [name]: value }));
   };
-  console.log(data);
+  // console.log(data);
 
   // Define Yup validation schema
   const validationSchema = Yup.object({
@@ -42,7 +42,7 @@ const Page = () => {
       await validationSchema.validate(data, { abortEarly: false });
 
       // Form data is valid, submit it (replace with your submission logic)
-      console.log("Form data is valid:", data);
+      // console.log("Form data is valid:", data);
       // You can send the data to a server or perform other actions here
     } catch (error: unknown | any) {
       if (error.name === "ValidationError") {

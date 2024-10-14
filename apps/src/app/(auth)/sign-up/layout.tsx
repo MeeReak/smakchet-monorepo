@@ -1,4 +1,3 @@
-import { Footer, Navbar, SecondNarbar } from "@/components";
 import CardContext from "@/contexts/CardContext";
 import { Metadata } from "next";
 import { Roboto } from "next/font/google";
@@ -24,10 +23,7 @@ export default function RootLayout({
         <title>Smakchet</title>
       </head>
       <body className={`bg-[#FAFAFA] max-h-full ${roboto.className}`}>
-        {/* <Navbar /> */}
         <CardContext>{children}</CardContext>
-        {/* <SecondNarbar /> */}
-        {/* <Footer /> */}
       </body>
     </html>
   );

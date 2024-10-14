@@ -17,7 +17,7 @@ const VerifyEmail = () => {
     if (token) {
       setVerificationStatus("verifying");
       const status = await verifyEmailToken(token);
-      console.log("status: ", status);
+      // console.log("status: ", status);
       if (status == "error") {
         setVerificationStatus(status);
       } else {
@@ -30,7 +30,7 @@ const VerifyEmail = () => {
   };
   const verifyEmailToken = async (token: string) => {
     try {
-      console.log("token : ", token);
+      // console.log("token : ", token);[]
       const apiUrl = process.env.NEXT_PUBLIC_API_URL || "http://localhost:3000";
       const response = await axios.get(
         `${apiUrl}/v1/auth/verify?token=${token}`,

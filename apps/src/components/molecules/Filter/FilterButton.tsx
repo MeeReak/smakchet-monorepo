@@ -1,18 +1,27 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useMemo } from "react";
 import { Button, InputData } from "@/components/atoms";
-import Popup from "./Popup";
+import Popup from "@/components/molecules/Filter/Popup";
 import FilterForm from "./FilterForm";
 import { useRouter } from "next/navigation";
+import debounce from "lodash/debounce";
 
 const FilterButton = () => {
   const [modalState, setModalState] = useState(false);
-  // const [name, setName] = useState<string>("");
   const router = useRouter();
 
-  const handleOnChange = (event: any) => {
-    router.push(`?name=${event.target.value}`);
+  // Debounced version of the handleOnChange function
+  const debouncedHandleOnChange = useMemo(
+    () =>
+      debounce((event: any) => {
+        router.push(`?name=${event.target.value}`);
+      }, 500), // 500ms delay
+    [router]
+  );
+
+  const handleInputChange = (event: any) => {
+    debouncedHandleOnChange(event); // Call the debounced function
   };
 
   return (
@@ -21,7 +30,7 @@ const FilterButton = () => {
         <div className="relative max-[640px] flex justify-between">
           <InputData
             className="w-[350px] py-3 pl-5 rounded-[25px] border-gray-200 flex justify-between "
-            onChange={(event: any) => handleOnChange(event)}
+            onChange={(event: any) => handleInputChange(event)}
             placeholder={"Search"}
             type={"string"}
           />
@@ -68,7 +77,6 @@ const FilterButton = () => {
         <div>
           {modalState && (
             <Popup setModalState={setModalState}>
-              {" "}
               <FilterForm />
             </Popup>
           )}

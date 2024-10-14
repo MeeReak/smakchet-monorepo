@@ -122,7 +122,7 @@ const Card: React.FC<CardProps> = ({
           </div>
           <div className="space-y-2">
             {isLoading ? (
-              <div className="h-6 bg-gray-300 w-[300px] rounded animate-pulse" />
+              <div className="h-6 bg-gray-300 w-[300px] rounded animate-pulse line-clamp-1" />
             ) : (
               <Typography
                 className="line-clamp-2 text-gray-700 w-[300px]"
