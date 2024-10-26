@@ -7,20 +7,22 @@
   "license": "MIT",
   "private": true,
   "workspaces": [
-    "packages/*"
+    "packages/*",
+    "!packages/apps"
   ],
   "scripts": {
     "start:dev": "docker-compose up",
     "start:build": "docker compose up --build",
     "stop:docker": "docker compose down",
-    "start:app": "yarn workspace my-app start:dev",
+    "start:app": "yarn workspace apps start:dev",
     "start:storybook": "yarn workspace my-app storybook",
     "start:api-gateway": "yarn workspace api-gateway start:dev",
     "start:application": "yarn workspace application start:dev",
     "start:auth": "yarn workspace auth start:dev",
     "start:event": "yarn workspace event start:dev",
     "start:notification": "yarn workspace notification start:dev",
-    "start:user": "yarn workspace user start:dev"
+    "start:user": "yarn workspace user start:dev",
+    "start:all": "concurrently \"npm run start:dev\" \"npm run start:app\""
   },
   "dependencies": {
     "@types/mongoose": "^5.11.97",
